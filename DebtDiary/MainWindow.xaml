@@ -4,9 +4,68 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DebtDiary"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        xmlns:core="clr-namespace:DebtDiary.Core;assembly=DebtDiary.Core"
+        mc:Ignorable="d" WindowStyle="None"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        Title="Debt Diary"
+        MinWidth="{Binding MinimumWidth}"
+        MinHeight="{Binding MinimumHeight}">
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <Style TargetType="{x:Type local:MainWindow}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Window}">
+                        <!-- Outer border with dropshadow -->
+                        <Border Background="White" Margin="2">
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="0" Opacity="0.2" />
+                            </Border.Effect>
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <!-- Title bar -->
+                                    <RowDefinition Height="{Binding TitleBarHeight, FallbackValue=35}"/>
+                                    <!-- Window Content -->
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <!-- Title bar -->
+                                <Grid Grid.Row="0" Background="{StaticResource DarkGreyBrush}">
+                                    <Grid.ColumnDefinitions>
+                                        <!-- Icon -->
+                                        <ColumnDefinition Width="Auto"/>
+                                        <!-- Window title -->
+                                        <ColumnDefinition Width="*"/>
+                                        <!-- Minimize button -->
+                                        <ColumnDefinition Width="Auto"/>
+                                        <!-- Maximize button -->
+                                        <ColumnDefinition Width="Auto"/>
+                                        <!-- Exit button -->
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- Icon -->
+                                    <Image Grid.Column="0" Source="/Images/Logo/DebtDiarySmallIcon.ico" Margin="3 3 3 4"/>
+                                    <!-- Title -->
+                                    <TextBlock Grid.Column="1" Margin="2 9 2 0" Style="{StaticResource TitleBarStyle}"
+                                                   Text="Dziennik długów" />
+
+                                </Grid>
+
+                            </Grid>
+
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
-        
+
     </Grid>
 </Window>

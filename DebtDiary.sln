@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDiary", "DebtDiary\DebtDiary.csproj", "{DB9326FF-D1D1-4FBE-8161-549D8F43B887}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDiary.Core", "DebtDiary.Core\DebtDiary.Core.csproj", "{40F992DE-22DA-4C15-AC76-8A4E2F435AFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DB9326FF-D1D1-4FBE-8161-549D8F43B887}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB9326FF-D1D1-4FBE-8161-549D8F43B887}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB9326FF-D1D1-4FBE-8161-549D8F43B887}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40F992DE-22DA-4C15-AC76-8A4E2F435AFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40F992DE-22DA-4C15-AC76-8A4E2F435AFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40F992DE-22DA-4C15-AC76-8A4E2F435AFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40F992DE-22DA-4C15-AC76-8A4E2F435AFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
