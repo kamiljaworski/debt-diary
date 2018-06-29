@@ -16,7 +16,7 @@ namespace DebtDiary.Core
         private Action _action = null;
         #endregion
 
-        #region Constructor
+        #region Default Constructor
 
         /// <summary>
         /// Default Constructor
@@ -38,19 +38,13 @@ namespace DebtDiary.Core
         /// </summary>
         /// <param name="parameter"></param>
         /// <returns></returns>
-        public bool CanExecute(object parameter)
-        {
-            return true;
-        }
+        public bool CanExecute(object parameter) => true;
 
         /// <summary>
         /// Executes a commands Action
         /// </summary>
         /// <param name="parameter"></param>
-        public void Execute(object parameter)
-        {
-            _action();
-        }
+        public void Execute(object parameter) => _action();
         #endregion
     }
 }

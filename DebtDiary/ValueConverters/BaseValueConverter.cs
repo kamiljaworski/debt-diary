@@ -26,10 +26,7 @@ namespace DebtDiary
         /// </summary>
         /// <param name="serviceProvider">The service provider</param>
         /// <returns></returns>
-        public override object ProvideValue(IServiceProvider serviceProvider)
-        {
-            return _converter ?? (_converter = new T());
-        }
+        public override object ProvideValue(IServiceProvider serviceProvider) => _converter ?? (_converter = new T());
         #endregion
 
         #region Value Converter Methods
