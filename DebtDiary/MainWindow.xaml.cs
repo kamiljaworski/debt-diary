@@ -10,6 +10,8 @@ namespace DebtDiary
     {
         public MainWindow()
         {
+            // Setting Data Context
+            DataContext = new MainWindowViewModel(this);
             InitializeComponent();
         }
     }

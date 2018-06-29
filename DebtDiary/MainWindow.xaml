@@ -11,21 +11,13 @@
         Title="Debt Diary"
         MinWidth="{Binding MinimumWidth}"
         MinHeight="{Binding MinimumHeight}">
-    <Window.DataContext>
-        <local:MainWindowViewModel/>
-    </Window.DataContext>
-
     <Window.Resources>
         <Style TargetType="{x:Type local:MainWindow}">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Window}">
-                        <!-- Outer border with dropshadow -->
-                        <Border Background="White" Margin="2">
-                            <Border.Effect>
-                                <DropShadowEffect ShadowDepth="0" Opacity="0.2" />
-                            </Border.Effect>
-
+                        <!-- Outer border -->
+                        <Border Background="White" Margin="{Binding OuterMarginThickness}">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <!-- Title bar -->
@@ -43,7 +35,7 @@
                                         <ColumnDefinition Width="*"/>
                                         <!-- Minimize button -->
                                         <ColumnDefinition Width="Auto"/>
-                                        <!-- Maximize button -->
+                                        <!-- Maximize / Restore button -->
                                         <ColumnDefinition Width="Auto"/>
                                         <!-- Exit button -->
                                         <ColumnDefinition Width="Auto"/>
@@ -52,9 +44,13 @@
                                     <!-- Icon -->
                                     <Image Grid.Column="0" Source="/Images/Logo/DebtDiarySmallIcon.ico" Margin="3 3 3 4"/>
                                     <!-- Title -->
-                                    <TextBlock Grid.Column="1" Margin="2 9 2 0" Style="{StaticResource TitleBarStyle}"
-                                                   Text="Dziennik długów" />
-
+                                    <TextBlock Grid.Column="1" Margin="2 9 2 0" Style="{StaticResource TitleBarStyle}" Text="Dziennik długów" />
+                                    <!-- Minimize button -->
+                                    <Button Grid.Column="2" Style="{StaticResource WindowControlButton}" Content="{StaticResource MinimizeIcon}" Command="{Binding MinimizeCommand}" />
+                                    <!-- Maximize / Restore button -->
+                                    <Button Grid.Column="3" Style="{StaticResource WindowControlButton}" Content="{TemplateBinding WindowState, Converter={local:WindowStateToIconValueConverter}}" Command="{Binding MaximizeCommand}"/>
+                                    <!-- Close button -->
+                                    <Button Grid.Column="4" Style="{StaticResource WindowCloseButton}" Content="{StaticResource CloseIcon}" Command="{Binding CloseCommand}"/>
                                 </Grid>
 
                             </Grid>

@@ -3,12 +3,24 @@
                     xmlns:local="clr-namespace:DebtDiary"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
+    <!-- Custom Fonts -->
     <FontFamily x:Key="LatoLight">pack://appliction;,,,/Fonts/#Lato Light</FontFamily>
     <FontFamily x:Key="LatoThin">pack://appliction;,,,/Fonts/#Lato Thin</FontFamily>
     <FontFamily x:Key="LatoRegular">pack://appliction;,,,/Fonts/#Lato Regular</FontFamily>
     <FontFamily x:Key="LatoBold">pack://appliction;,,,/Fonts/#Lato Bold</FontFamily>
-    <FontFamily x:Key="FontAwesome">pack://appliction;,,,/Fonts/#FontAwesome</FontFamily>
+    <FontFamily x:Key="Segoe-MDL2">pack://appliction;,,,/Fonts/#Segoe MDL2 Assets</FontFamily>
     
+    <!-- Custom Font Sizes -->
+    <system:Double x:Key="WindowControlIconFontSize">10</system:Double>
+    <system:Double x:Key="SmallFontSize">14</system:Double>
+    
+    <!-- Custom Icon Strings -->
+    <system:String x:Key="MinimizeIcon">&#xE921;</system:String>
+    <system:String x:Key="MaximizeIcon">&#xE922;</system:String>
+    <system:String x:Key="RestoreIcon">&#xE923;</system:String>
+    <system:String x:Key="CloseIcon">&#xE8BB;</system:String>
+
+    <!-- Custom Text Styles -->
     <Style TargetType="{x:Type Control}" x:Key="BaseStyle">
         <Setter Property="FontFamily" Value="{StaticResource LatoThin}" />
     </Style>
@@ -16,9 +28,7 @@
     <Style TargetType="{x:Type TextBlock}" x:Key="BaseTextBlockStyle">
         <Setter Property="FontFamily" Value="{StaticResource LatoThin}" />
     </Style>
-
-    <system:Double x:Key="SmallFontSize">14</system:Double>
-
+    
     <Style TargetType="{x:Type TextBlock}" x:Key="TitleBarStyle">
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="FontFamily" Value="{StaticResource LatoLight}"/>
@@ -26,4 +36,7 @@
         <Setter Property="TextOptions.TextFormattingMode" Value="Ideal"/>
         <Setter Property="TextOptions.TextRenderingMode" Value="Aliased"/>
     </Style>
+
+
+    
 </ResourceDictionary>

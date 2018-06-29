@@ -2,6 +2,11 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:DebtDiary">
 
+    <!-- Custom colors -->
     <Color x:Key="DarkGrey">#444444</Color>
     <SolidColorBrush x:Key="DarkGreyBrush" Color="{StaticResource DarkGrey}" />
+
+    <Color x:Key="DarkGreyHover">#595959</Color>
+    <SolidColorBrush x:Key="DarkGreyHoverBrush" Color="{StaticResource DarkGreyHover}" />
+    
 </ResourceDictionary>
