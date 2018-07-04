@@ -8,16 +8,27 @@
         mc:Ignorable="d" WindowStyle="None"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
-        Title="Debt Diary"
+        Icon="Images/Logo/DebtDiaryIcon.ico"
+        Title="Dziennik długów"
         MinWidth="{Binding MinimumWidth}"
-        MinHeight="{Binding MinimumHeight}">
+        MinHeight="{Binding MinimumHeight}"
+        Width="{Binding MinimumWidth}"
+        Height="{Binding MinimumHeight}">
     <Window.Resources>
         <Style TargetType="{x:Type local:MainWindow}">
+            <!-- Window Chrome Settings -->
+            <Setter Property="WindowChrome.WindowChrome">
+                <Setter.Value>
+                    <WindowChrome ResizeBorderThickness="{Binding ResizeBorderThickness}" CaptionHeight="{Binding TitleBarHeight}"/>
+                </Setter.Value>
+            </Setter>
+            
+            <!-- New window template -->
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Window}">
                         <!-- Outer border -->
-                        <Border Background="White" Margin="{Binding OuterMarginThickness}">
+                        <Border Background="Gray">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <!-- Title bar -->
@@ -44,13 +55,13 @@
                                     <!-- Icon -->
                                     <Image Grid.Column="0" Source="/Images/Logo/DebtDiarySmallIcon.ico" Margin="3 3 3 4"/>
                                     <!-- Title -->
-                                    <TextBlock Grid.Column="1" Margin="2 9 2 0" Style="{StaticResource TitleBarStyle}" Text="Dziennik długów" />
+                                    <TextBlock Grid.Column="1" Margin="2 9 2 0" Style="{StaticResource TitleBarStyle}" Text="{TemplateBinding Title}" />
                                     <!-- Minimize button -->
-                                    <Button Grid.Column="2" Style="{StaticResource WindowControlButton}" Content="{StaticResource MinimizeIcon}" Command="{Binding MinimizeCommand}" />
+                                    <Button Grid.Column="2" Style="{StaticResource WindowControlButton}" Content="{StaticResource MinimizeIcon}" Command="{Binding MinimizeCommand}" WindowChrome.IsHitTestVisibleInChrome="True"/>
                                     <!-- Maximize / Restore button -->
-                                    <Button Grid.Column="3" Style="{StaticResource WindowControlButton}" Content="{TemplateBinding WindowState, Converter={local:WindowStateToIconValueConverter}}" Command="{Binding MaximizeCommand}"/>
+                                    <Button Grid.Column="3" Style="{StaticResource WindowControlButton}" Content="{TemplateBinding WindowState, Converter={local:WindowStateToIconValueConverter}}" Command="{Binding MaximizeCommand}" WindowChrome.IsHitTestVisibleInChrome="True"/>
                                     <!-- Close button -->
-                                    <Button Grid.Column="4" Style="{StaticResource WindowCloseButton}" Content="{StaticResource CloseIcon}" Command="{Binding CloseCommand}"/>
+                                    <Button Grid.Column="4" Style="{StaticResource WindowCloseButton}" Content="{StaticResource CloseIcon}" Command="{Binding CloseCommand}" WindowChrome.IsHitTestVisibleInChrome="True"/>
                                 </Grid>
 
                             </Grid>
@@ -61,6 +72,8 @@
             </Setter>
         </Style>
     </Window.Resources>
+
+    <!-- Main window content -->
     <Grid>
 
     </Grid>

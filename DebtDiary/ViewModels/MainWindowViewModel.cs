@@ -32,11 +32,6 @@ namespace DebtDiary
         private WindowResizer _windowResizer;
 
         /// <summary>
-        /// The margin around the window
-        /// </summary>
-        private int _outerMargin = 10;
-
-        /// <summary>
         /// The last known dock position
         /// </summary>
         private WindowDockPosition _dockPosition = WindowDockPosition.Undocked;
@@ -61,18 +56,20 @@ namespace DebtDiary
         public int TitleBarHeight { get; set; } = 35;
 
         /// <summary>
-        /// Outer margin of the window
+        /// True if the window should be borderless because it is docked or maximized
         /// </summary>
-        public int OuterMargin
-        {
-            get => _window.WindowState == WindowState.Maximized ? _outerMargin : 0;
-            set => _outerMargin = value;
-        }
+        public bool Borderless => (_window.WindowState == WindowState.Maximized || _dockPosition != WindowDockPosition.Undocked);
 
         /// <summary>
-        /// The margin around the window
+        /// The size of the resize border around the window
         /// </summary>
-        public Thickness OuterMarginThickness => new Thickness(OuterMargin);
+        public int ResizeBorder => Borderless ? 0 : 3;
+
+
+        /// <summary>
+        /// The size of the resize border around the window
+        /// </summary>
+        public Thickness ResizeBorderThickness => new Thickness(ResizeBorder);
 
         #endregion
 
@@ -103,6 +100,13 @@ namespace DebtDiary
         public MainWindowViewModel(Window window)
         {
             _window = window;
+
+            // Listen out for the window resizing
+            _window.StateChanged += (sender, e) =>
+            {
+                // Fire off events for all properties that are affected by a resize
+                WindowResized();
+            };
 
             // Create commands
             MinimizeCommand = new RelayCommand(() => _window.WindowState = WindowState.Minimized);
@@ -135,8 +139,8 @@ namespace DebtDiary
         private void WindowResized()
         {
             // Fire off events for all properties that are affected by a resize
-            OnPropertyChanged(nameof(OuterMargin));
-            OnPropertyChanged(nameof(OuterMarginThickness));
+            OnPropertyChanged(nameof(Borderless));
+            OnPropertyChanged(nameof(ResizeBorderThickness));
         }
 
         /// <summary>
