@@ -7,6 +7,7 @@
     <FontFamily x:Key="LatoLight">pack://appliction;,,,/Fonts/#Lato Light</FontFamily>
     <FontFamily x:Key="LatoThin">pack://appliction;,,,/Fonts/#Lato Thin</FontFamily>
     <FontFamily x:Key="LatoRegular">pack://appliction;,,,/Fonts/#Lato Regular</FontFamily>
+    <FontFamily x:Key="LatoSemiBold">pack://appliction;,,,/Fonts/#Lato Semibold</FontFamily>
     <FontFamily x:Key="LatoBold">pack://appliction;,,,/Fonts/#Lato Bold</FontFamily>
     <FontFamily x:Key="Segoe-MDL2">pack://appliction;,,,/Fonts/#Segoe MDL2 Assets</FontFamily>
     

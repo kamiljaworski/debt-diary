@@ -12,8 +12,8 @@
         Title="Dziennik długów"
         MinWidth="{Binding MinimumWidth}"
         MinHeight="{Binding MinimumHeight}"
-        Width="{Binding MinimumWidth}"
-        Height="{Binding MinimumHeight}">
+        Width="{Binding MinimumWidth, FallbackValue=1280}"
+        Height="{Binding MinimumHeight, FallbackValue=720}">
     <Window.Resources>
         <Style TargetType="{x:Type local:MainWindow}">
             <!-- Window Chrome Settings -->
@@ -55,14 +55,24 @@
                                     <!-- Icon -->
                                     <Image Grid.Column="0" Source="/Images/Logo/DebtDiarySmallIcon.ico" Margin="3 3 3 4"/>
                                     <!-- Title -->
-                                    <TextBlock Grid.Column="1" Margin="2 9 2 0" Style="{StaticResource TitleBarStyle}" Text="{TemplateBinding Title}" />
+                                    <TextBlock Grid.Column="1" Margin="2 9 2 0" Style="{StaticResource TitleBarStyle}" 
+                                               Text="{Binding Title, RelativeSource={RelativeSource Mode=TemplatedParent}, FallbackValue='Dziennik długów'}" />
                                     <!-- Minimize button -->
-                                    <Button Grid.Column="2" Style="{StaticResource WindowControlButton}" Content="{StaticResource MinimizeIcon}" Command="{Binding MinimizeCommand}" WindowChrome.IsHitTestVisibleInChrome="True"/>
+                                    <Button Grid.Column="2" Style="{StaticResource WindowControlButton}" Content="{StaticResource MinimizeIcon}" 
+                                            Command="{Binding MinimizeCommand}" />
                                     <!-- Maximize / Restore button -->
-                                    <Button Grid.Column="3" Style="{StaticResource WindowControlButton}" Content="{TemplateBinding WindowState, Converter={local:WindowStateToIconValueConverter}}" Command="{Binding MaximizeCommand}" WindowChrome.IsHitTestVisibleInChrome="True"/>
+                                    <Button Grid.Column="3" Style="{StaticResource WindowControlButton}" 
+                                            Content="{TemplateBinding WindowState, Converter={local:WindowStateToIconValueConverter}}" 
+                                            Command="{Binding MaximizeCommand}"/>
                                     <!-- Close button -->
-                                    <Button Grid.Column="4" Style="{StaticResource WindowCloseButton}" Content="{StaticResource CloseIcon}" Command="{Binding CloseCommand}" WindowChrome.IsHitTestVisibleInChrome="True"/>
+                                    <Button Grid.Column="4" Style="{StaticResource WindowCloseButton}" Content="{StaticResource CloseIcon}" 
+                                            Command="{Binding CloseCommand}"/>
                                 </Grid>
+
+                                <!-- Page content -->
+                                <Border Grid.Row="1">
+                                    <ContentPresenter Content="{TemplateBinding Content}"/>
+                                </Border>
 
                             </Grid>
 
@@ -73,8 +83,42 @@
         </Style>
     </Window.Resources>
 
-    <!-- Main window content -->
+    <!-- Page content -->
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/StartScreenBackground.png" Stretch="UniformToFill" />
+        </Grid.Background>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Text page -->
+        <Grid Grid.Column="0">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="Dziennik długów" HorizontalAlignment="Center" Foreground="White" FontFamily="{StaticResource LatoSemiBold}" FontSize="60"/>
+                <TextBlock Margin="0 10" HorizontalAlignment="Center" TextAlignment="Center" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="30">
+                    Potrzebujesz miejsca do zapisania
+                    <LineBreak/>
+                    informacji o długach?
+                </TextBlock>
+                <Button Margin="0 10" Content="Załóż konto" HorizontalAlignment="Center"/>
+            </StackPanel>
+            
+        </Grid>
+
+        <!-- Login page -->
+        <Grid Grid.Column="1">
+            <StackPanel Width="300" Background="White" VerticalAlignment="Center">
+                <TextBlock Margin="0 30 0 0" Text="Logowanie" HorizontalAlignment="Center" Foreground="{StaticResource DarkGreyBrush}" 
+                           FontFamily="{StaticResource LatoSemiBold}" FontSize="36"/>
+                <TextBox Tag="Nazwa użytkownika"/>
+                <TextBox Tag="Hasło"/>
+                <Button Margin="0 20 0 40" Content="Zaloguj się" HorizontalAlignment="Center"/>
+            </StackPanel>
+            
+        </Grid>
 
     </Grid>
 </Window>

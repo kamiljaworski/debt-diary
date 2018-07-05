@@ -3,10 +3,21 @@
                     xmlns:local="clr-namespace:DebtDiary">
 
     <!-- Custom colors -->
-    <Color x:Key="DarkGrey">#444444</Color>
+    <Color x:Key="DarkGrey">#4d4d4d</Color>
     <SolidColorBrush x:Key="DarkGreyBrush" Color="{StaticResource DarkGrey}" />
 
     <Color x:Key="DarkGreyHover">#595959</Color>
     <SolidColorBrush x:Key="DarkGreyHoverBrush" Color="{StaticResource DarkGreyHover}" />
-    
+
+    <Color x:Key="RedHover">#d00000</Color>
+    <SolidColorBrush x:Key="RedHoverBrush" Color="{StaticResource RedHover}" />
+
+    <Color x:Key="ButtonGreen">#048a81</Color>
+    <SolidColorBrush x:Key="ButtonGreenBrush" Color="{StaticResource ButtonGreen}" />
+
+    <Color x:Key="ButtonGreenHover">#047873</Color>
+    <SolidColorBrush x:Key="ButtonGreenHoverBrush" Color="{StaticResource ButtonGreenHover}" />
+
+
+
 </ResourceDictionary>

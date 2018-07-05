@@ -5,35 +5,123 @@
 
     <!-- Window Control Button Style -->
     <Style TargetType="{x:Type Button}" x:Key="WindowControlButton">
-        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Background" Value="{StaticResource DarkGreyBrush}"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Padding" Value="18 13 18 0"/>
         <Setter Property="FontFamily" Value="{StaticResource Segoe-MDL2}"/>
         <Setter Property="FontSize" Value="{StaticResource WindowControlIconFontSize}"/>
+        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
 
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
-                        <TextBlock Foreground="{TemplateBinding Foreground}" FontFamily="{TemplateBinding FontFamily}" FontSize="{TemplateBinding FontSize}" Text="{TemplateBinding Content}"/>
+                    <!-- Button Style -->
+                    <Border x:Name="Border" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                        <TextBlock Foreground="{TemplateBinding Foreground}" FontFamily="{TemplateBinding FontFamily}" 
+                                   FontSize="{TemplateBinding FontSize}" Text="{TemplateBinding Content}"/>
                     </Border>
+
+                    <!-- Animation -->
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource DarkGreyHover}" Duration="0:0:0.15" 
+                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="Background.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.15" 
+                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="Background.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{StaticResource DarkGreyHoverBrush}"/>
-            </Trigger>
-        </Style.Triggers>
     </Style>
     
     <!-- Window Close Button Style -->
     <Style TargetType="{x:Type Button}" BasedOn="{StaticResource WindowControlButton}" x:Key="WindowCloseButton">
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="Red"/>
-            </Trigger>
-        </Style.Triggers>
+        
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <!-- Button Style -->
+                    <Border x:Name="Border" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                        <TextBlock Foreground="{TemplateBinding Foreground}" FontFamily="{TemplateBinding FontFamily}" 
+                                   FontSize="{TemplateBinding FontSize}" Text="{TemplateBinding Content}"/>
+                    </Border>
+
+                    <!-- Animation -->
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource RedHover}" Duration="0:0:0.15" 
+                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="Background.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.15" 
+                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="Background.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!-- Base Button Style -->
+    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}">
+        <Setter Property="Background" Value="{StaticResource ButtonGreenBrush}"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="Padding" Value="40 10 40 10"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <!-- Button style -->
+                    <Border x:Name="Border" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" 
+                            CornerRadius="10" Padding="{TemplateBinding Padding}">
+                        <TextBlock Text="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}" 
+                                   FontFamily="{StaticResource LatoSemiBold}" FontSize="{TemplateBinding FontSize}"/>
+                    </Border>
+                    
+                    <!-- Animation -->
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource ButtonGreenHover}" Duration="0:0:0.15" 
+                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="Background.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource ButtonGreen}" Duration="0:0:0.15" 
+                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="Background.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 </ResourceDictionary>
