@@ -62,7 +62,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AttachedProperties\BaseAttachedProperty.cs" />
+    <Compile Include="AttachedProperties\PasswordBoxAttachedProperties.cs" />
     <Compile Include="ValueConverters\BaseValueConverter.cs" />
+    <Compile Include="ValueConverters\BolleanToVisibilityConverter.cs" />
     <Compile Include="ValueConverters\TextToVisibilityConverter.cs" />
     <Compile Include="ValueConverters\WindowStateToIconValueConverter.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />

@@ -114,7 +114,7 @@
                 <TextBlock Margin="0 30 0 0" Text="Logowanie" HorizontalAlignment="Center" Foreground="{StaticResource DarkGreyBrush}" 
                            FontFamily="{StaticResource LatoSemiBold}" FontSize="36"/>
                 <TextBox Tag="Nazwa użytkownika"/>
-                <TextBox Tag="Hasło"/>
+                <PasswordBox Tag="Hasło"/>
                 <Button Margin="0 20 0 40" Content="Zaloguj się" HorizontalAlignment="Center"/>
             </StackPanel>
             
