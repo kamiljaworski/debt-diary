@@ -9,7 +9,7 @@
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         Icon="Images/Logo/DebtDiaryIcon.ico"
-        Title="Dziennik długów"
+        Title="{x:Static local:Resources.ApplicationName}"
         MinWidth="{Binding MinimumWidth}"
         MinHeight="{Binding MinimumHeight}"
         Width="{Binding MinimumWidth, FallbackValue=1280}"
@@ -56,7 +56,7 @@
                                     <Image Grid.Column="0" Source="/Images/Logo/DebtDiarySmallIcon.ico" Margin="3 3 3 4"/>
                                     <!-- Title -->
                                     <TextBlock Grid.Column="1" Margin="2 9 2 0" Style="{StaticResource TitleBarStyle}" 
-                                               Text="{Binding Title, RelativeSource={RelativeSource Mode=TemplatedParent}, FallbackValue='Dziennik długów'}" />
+                                               Text="{Binding Title, RelativeSource={RelativeSource Mode=TemplatedParent}, FallbackValue='Debt diary'}" />
                                     <!-- Minimize button -->
                                     <Button Grid.Column="2" Style="{StaticResource WindowControlButton}" Content="{StaticResource MinimizeIcon}" 
                                             Command="{Binding MinimizeCommand}" />
@@ -97,13 +97,10 @@
         <!-- Text page -->
         <Grid Grid.Column="0">
             <StackPanel VerticalAlignment="Center">
-                <TextBlock Text="Dziennik długów" HorizontalAlignment="Center" Foreground="White" FontFamily="{StaticResource LatoSemiBold}" FontSize="60"/>
-                <TextBlock Margin="0 10" HorizontalAlignment="Center" TextAlignment="Center" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="30">
-                    Potrzebujesz miejsca do zapisania
-                    <LineBreak/>
-                    informacji o długach?
-                </TextBlock>
-                <Button Margin="0 10" Content="Załóż konto" HorizontalAlignment="Center"/>
+                <TextBlock Text="{x:Static local:Resources.ApplicationName}" HorizontalAlignment="Center" Foreground="White" FontFamily="{StaticResource LatoSemiBold}" FontSize="60"/>
+                <TextBlock Margin="150 10"  HorizontalAlignment="Center" TextAlignment="Center" Foreground="White" FontFamily="{StaticResource LatoLight}" 
+                           FontSize="30" Text="{x:Static local:Resources.LoginPageText}" TextWrapping="WrapWithOverflow" />
+                <Button Margin="0 10" Content="{x:Static local:Resources.CreateAnAccount}" HorizontalAlignment="Center"/>
             </StackPanel>
             
         </Grid>
@@ -111,11 +108,11 @@
         <!-- Login page -->
         <Grid Grid.Column="1">
             <StackPanel Width="300" Background="White" VerticalAlignment="Center">
-                <TextBlock Margin="0 30 0 0" Text="Logowanie" HorizontalAlignment="Center" Foreground="{StaticResource DarkGreyBrush}" 
+                <TextBlock Margin="0 30 0 0" Text="{x:Static local:Resources.SignIn}" HorizontalAlignment="Center" Foreground="{StaticResource DarkGreyBrush}" 
                            FontFamily="{StaticResource LatoSemiBold}" FontSize="36"/>
-                <TextBox Tag="Nazwa użytkownika"/>
-                <PasswordBox Tag="Hasło"/>
-                <Button Margin="0 20 0 40" Content="Zaloguj się" HorizontalAlignment="Center"/>
+                <TextBox Tag="{x:Static local:Resources.Username}"/>
+                <PasswordBox Tag="{x:Static local:Resources.Password}"/>
+                <Button Margin="0 20 0 40" Content="{x:Static local:Resources.Login}" HorizontalAlignment="Center"/>
             </StackPanel>
             
         </Grid>
