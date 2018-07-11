@@ -90,6 +90,6 @@
         </Grid.Background>
 
         <!-- Current Page -->
-        <Frame Source="Pages/LoginPage.xaml"/>
+        <Frame Source="Pages/RegisterPage.xaml"/>
     </Grid>
 </Window>
