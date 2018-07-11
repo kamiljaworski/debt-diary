@@ -9,6 +9,7 @@ namespace DebtDiary
     {
         public LoginPage()
         {
+            DataContext = new LoginPageViewModel();
             InitializeComponent();
         }
     }

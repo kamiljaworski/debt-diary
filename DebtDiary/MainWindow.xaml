@@ -22,7 +22,7 @@
                     <WindowChrome ResizeBorderThickness="{Binding ResizeBorderThickness}" CaptionHeight="{Binding TitleBarHeight}"/>
                 </Setter.Value>
             </Setter>
-            
+
             <!-- New window template -->
             <Setter Property="Template">
                 <Setter.Value>
@@ -80,6 +80,8 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <local:ApplicationState x:Key="ApplicationState"/>
     </Window.Resources>
 
     <!-- Window content -->
@@ -90,6 +92,6 @@
         </Grid.Background>
 
         <!-- Current Page -->
-        <Frame Source="Pages/RegisterPage.xaml"/>
+        <Frame Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
