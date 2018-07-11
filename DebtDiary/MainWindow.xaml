@@ -75,7 +75,6 @@
                                 </Border>
 
                             </Grid>
-
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
@@ -83,39 +82,14 @@
         </Style>
     </Window.Resources>
 
-    <!-- Page content -->
+    <!-- Window content -->
     <Grid>
+        <!-- Window background -->
         <Grid.Background>
             <ImageBrush ImageSource="Images/StartScreenBackground.png" Stretch="UniformToFill" />
         </Grid.Background>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="3*"/>
-        </Grid.ColumnDefinitions>
-
-        <!-- Text page -->
-        <Grid Grid.Column="0">
-            <StackPanel VerticalAlignment="Center">
-                <TextBlock Text="{x:Static local:Resources.ApplicationName}" HorizontalAlignment="Center" Foreground="White" FontFamily="{StaticResource LatoSemiBold}" FontSize="60"/>
-                <TextBlock Margin="150 10"  HorizontalAlignment="Center" TextAlignment="Center" Foreground="White" FontFamily="{StaticResource LatoLight}" 
-                           FontSize="30" Text="{x:Static local:Resources.LoginPageText}" TextWrapping="WrapWithOverflow" />
-                <Button Margin="0 10" Content="{x:Static local:Resources.CreateAnAccount}" HorizontalAlignment="Center"/>
-            </StackPanel>
-            
-        </Grid>
-
-        <!-- Login page -->
-        <Grid Grid.Column="1">
-            <StackPanel Width="300" Background="White" VerticalAlignment="Center">
-                <TextBlock Margin="0 30 0 0" Text="{x:Static local:Resources.SignIn}" HorizontalAlignment="Center" Foreground="{StaticResource DarkGreyBrush}" 
-                           FontFamily="{StaticResource LatoSemiBold}" FontSize="36"/>
-                <TextBox Tag="{x:Static local:Resources.Username}"/>
-                <PasswordBox Tag="{x:Static local:Resources.Password}"/>
-                <Button Margin="0 20 0 40" Content="{x:Static local:Resources.Login}" HorizontalAlignment="Center"/>
-            </StackPanel>
-            
-        </Grid>
-
+        <!-- Current Page -->
+        <Frame Source="Pages/LoginPage.xaml"/>
     </Grid>
 </Window>
