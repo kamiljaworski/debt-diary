@@ -41,7 +41,7 @@ namespace DebtDiary
         /// </summary>
         private void GoToRegisterPage()
         {
-            ApplicationState.MainWindowViewModel.CurrentPage = ApplicationPage.RegisterPage;
+            //ApplicationState.MainWindowViewModel.CurrentPage = ApplicationPage.RegisterPage;
         }
         #endregion
     }

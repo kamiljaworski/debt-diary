@@ -82,7 +82,7 @@
             </Setter>
         </Style>
 
-        <local:ApplicationState x:Key="ApplicationState"/>
+        <!--<local:ApplicationState x:Key="ApplicationState"/>-->
     </Window.Resources>
 
     <!-- Window content -->
@@ -93,6 +93,6 @@
         </Grid.Background>
 
         <!-- Current Page -->
-        <Frame Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}" NavigationUIVisibility="Hidden"/>
+        <!--<Frame Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}" NavigationUIVisibility="Hidden"/>-->
     </Grid>
 </Window>

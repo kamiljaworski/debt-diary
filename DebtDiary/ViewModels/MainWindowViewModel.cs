@@ -63,10 +63,6 @@ namespace DebtDiary
         /// </summary>
         public Thickness ResizeBorderThickness => new Thickness(ResizeBorder);
 
-        /// <summary>
-        /// Temporary current page property to navigate pages
-        /// </summary>
-        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.LoginPage;
         #endregion
 
         #region Public Commands
@@ -122,7 +118,7 @@ namespace DebtDiary
                 WindowResized();
             };
 
-            ApplicationState.MainWindowViewModel = this;
+            //ApplicationState.MainWindowViewModel = this;
         }
 
 
