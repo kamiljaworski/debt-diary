@@ -1,5 +1,4 @@
-﻿
-namespace DebtDiary.Core
+﻿namespace DebtDiary.Core
 {
     public enum ApplicationPage
     {

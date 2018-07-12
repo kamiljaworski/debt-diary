@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using DebtDiary.Core;
 
 namespace DebtDiary
 {

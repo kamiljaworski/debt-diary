@@ -1,5 +1,4 @@
 ﻿using DebtDiary.Core;
-using System.ComponentModel;
 using System.Security;
 using System.Windows.Input;
 

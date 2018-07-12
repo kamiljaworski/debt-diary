@@ -1,7 +1,6 @@
 ﻿using DebtDiary.Core;
 using System;
 using System.Globalization;
-using System.Windows;
 
 namespace DebtDiary
 {

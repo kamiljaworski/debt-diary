@@ -47,7 +47,6 @@
   <ItemGroup>
     <Compile Include="ApplicationPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\RelayCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

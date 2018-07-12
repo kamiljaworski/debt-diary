@@ -1,7 +1,4 @@
-﻿using DebtDiary.Core;
-using System.ComponentModel;
-
-namespace DebtDiary
+﻿namespace DebtDiary
 {
     /// <summary>
     /// Simple temporary class to navigate pages
