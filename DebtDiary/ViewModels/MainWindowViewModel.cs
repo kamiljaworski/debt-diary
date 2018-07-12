@@ -1,8 +1,6 @@
 ﻿using DebtDiary.Core;
-using System.ComponentModel;
 using System.Windows.Input;
 using System.Windows;
-using System;
 
 namespace DebtDiary
 {
@@ -11,14 +9,8 @@ namespace DebtDiary
     /// The only View Model that needs a reference to the Window
     /// because of implementing Window Controlling Commands
     /// </summary>
-    public class MainWindowViewModel : INotifyPropertyChanged
+    public class MainWindowViewModel : BaseViewModel
     {
-        #region INotifyPropertyChanged public EventHandler
-
-        // Doing nothing lambda expression to avoid compiler warning
-        public event PropertyChangedEventHandler PropertyChanged = (sender, e) => { };
-        #endregion
-
         #region Private Members
 
         /// <summary>
@@ -148,13 +140,6 @@ namespace DebtDiary
             OnPropertyChanged(nameof(Borderless));
             OnPropertyChanged(nameof(ResizeBorderThickness));
         }
-
-        /// <summary>
-        /// Call this to fire a <see cref="PropertyChanged"/> event
-        /// </summary>
-        /// <param name="name"></param>
-        public void OnPropertyChanged(string name) => PropertyChanged(this, new PropertyChangedEventArgs(name));
-
         #endregion
     }
 }

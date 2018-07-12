@@ -8,14 +8,8 @@ namespace DebtDiary
     /// <summary>
     /// Login Page View Model
     /// </summary>
-    class LoginPageViewModel : INotifyPropertyChanged
+    class LoginPageViewModel : BaseViewModel
     {
-        #region INotifyPropertyChanged public EventHandler
-
-        // Doing nothing lambda expression to avoid compiler warning
-        public event PropertyChangedEventHandler PropertyChanged = (sender, e) => { };
-        #endregion
-
         #region Public Properties
 
         public string Username { get; set; }

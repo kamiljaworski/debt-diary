@@ -1,5 +1,4 @@
 ﻿using DebtDiary.Core;
-using System.ComponentModel;
 using System.Security;
 using System.Windows.Input;
 
@@ -8,14 +7,8 @@ namespace DebtDiary
     /// <summary>
     /// Register Page View Model
     /// </summary>
-    class RegisterPageViewModel : INotifyPropertyChanged
+    class RegisterPageViewModel : BaseViewModel
     {
-        #region INotifyPropertyChanged public EventHandler
-
-        // Doing nothing lambda expression to avoid compiler warning
-        public event PropertyChangedEventHandler PropertyChanged = (sender, e) => { };
-        #endregion
-
         #region Public Properties
 
         public string Username { get; set; }
