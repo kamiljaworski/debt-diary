@@ -93,6 +93,7 @@
         </Grid.Background>
 
         <!-- Current Page -->
-        <!--<Frame Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}" NavigationUIVisibility="Hidden"/>-->
+        <Frame Content="{Binding ApplicationViewModel.CurrentPage, Source={x:Static local:ViewModelLocator.Instance}, 
+                        Converter={local:ApplicationPageValueConverter}}" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

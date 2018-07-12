@@ -1,6 +1,8 @@
 ﻿using DebtDiary.Core;
 using System.Windows.Input;
 using System.Windows;
+using Ninject;
+using System.Reflection;
 
 namespace DebtDiary
 {
@@ -62,7 +64,6 @@ namespace DebtDiary
         /// The size of the resize border around the window
         /// </summary>
         public Thickness ResizeBorderThickness => new Thickness(ResizeBorder);
-
         #endregion
 
         #region Public Commands

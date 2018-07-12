@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Ninject;
 using System.Windows;
 
 namespace DebtDiary
@@ -13,5 +8,22 @@ namespace DebtDiary
     /// </summary>
     public partial class App : Application
     {
+        /// <summary>
+        /// Custom OnStartup method to load IoC
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            // Base Application method
+            base.OnStartup(e);
+
+            // Bind IoC
+            IKernel kernel = new StandardKernel();
+            kernel.Bind<ApplicationViewModel>().To<ApplicationViewModel>();
+
+            // Setting the current window
+            Current.MainWindow = new MainWindow();
+            Current.MainWindow.Show();
+        }
     }
 }

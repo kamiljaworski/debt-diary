@@ -1,11 +1,11 @@
 ﻿using DebtDiary.Core;
 
-namespace DebtDiary.ViewModels.Application
+namespace DebtDiary
 {
     /// <summary>
     /// ApplicationViewModel class storing all aplication state
     /// </summary>
-    public class ApplicationViewModel : BaseViewModel, IApplicationViewModel
+    public class ApplicationViewModel : BaseViewModel
     {
         #region Private Members
         /// <summary>
