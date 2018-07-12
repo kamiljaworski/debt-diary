@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DebtDiary"
+      xmlns:localization="clr-namespace:DebtDiary.Localization"
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1280"
       Title="LoginPage">
@@ -17,10 +18,10 @@
         <!-- Text -->
         <Grid Grid.Column="0">
             <StackPanel VerticalAlignment="Center">
-                <TextBlock Text="{x:Static local:Resources.ApplicationName}" HorizontalAlignment="Center" Foreground="White" FontFamily="{StaticResource LatoSemiBold}" FontSize="60"/>
+                <TextBlock Text="{x:Static localization:Strings.ApplicationName}" HorizontalAlignment="Center" Foreground="White" FontFamily="{StaticResource LatoSemiBold}" FontSize="60"/>
                 <TextBlock Margin="150 10"  HorizontalAlignment="Center" TextAlignment="Center" Foreground="White" FontFamily="{StaticResource LatoLight}" 
-                           FontSize="30" Text="{x:Static local:Resources.LoginPageText}" TextWrapping="WrapWithOverflow" />
-                <Button Margin="0 10" Content="{x:Static local:Resources.CreateAnAccount}" HorizontalAlignment="Center" Command="{Binding GoToRegisterPageCommand}"/>
+                           FontSize="30" Text="{x:Static localization:Strings.LoginPageText}" TextWrapping="WrapWithOverflow" />
+                <Button Margin="0 10" Content="{x:Static localization:Strings.CreateAnAccount}" HorizontalAlignment="Center" Command="{Binding GoToRegisterPageCommand}"/>
             </StackPanel>
 
         </Grid>
@@ -28,11 +29,11 @@
         <!-- Login panel -->
         <Grid Grid.Column="1">
             <StackPanel Width="300" Background="White" VerticalAlignment="Center">
-                <TextBlock Margin="0 30 0 0" Text="{x:Static local:Resources.SignIn}" HorizontalAlignment="Center" Foreground="{StaticResource DarkGreyBrush}" 
+                <TextBlock Margin="0 30 0 0" Text="{x:Static localization:Strings.SignIn}" HorizontalAlignment="Center" Foreground="{StaticResource DarkGreyBrush}" 
                            FontFamily="{StaticResource LatoSemiBold}" FontSize="36"/>
-                <TextBox Tag="{x:Static local:Resources.Username}"/>
-                <PasswordBox Tag="{x:Static local:Resources.Password}"/>
-                <Button Margin="0 20 0 40" Content="{x:Static local:Resources.Login}" HorizontalAlignment="Center"/>
+                <TextBox Tag="{x:Static localization:Strings.Username}"/>
+                <PasswordBox Tag="{x:Static localization:Strings.Password}"/>
+                <Button Margin="0 20 0 40" Content="{x:Static localization:Strings.Login}" HorizontalAlignment="Center"/>
             </StackPanel>
 
         </Grid>

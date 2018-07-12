@@ -4,12 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DebtDiary"
+        xmlns:localization="clr-namespace:DebtDiary.Localization" 
         xmlns:core="clr-namespace:DebtDiary.Core;assembly=DebtDiary.Core"
         mc:Ignorable="d" WindowStyle="None"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
-        Icon="Images/Logo/DebtDiaryIcon.ico"
-        Title="{x:Static local:Resources.ApplicationName}"
+        Icon="../Images/Logo/DebtDiaryIcon.ico"
+        Title="{x:Static localization:Strings.ApplicationName}"
         MinWidth="{Binding MinimumWidth}"
         MinHeight="{Binding MinimumHeight}"
         Width="{Binding MinimumWidth, FallbackValue=1280}"
@@ -53,7 +54,7 @@
                                     </Grid.ColumnDefinitions>
 
                                     <!-- Icon -->
-                                    <Image Grid.Column="0" Source="/Images/Logo/DebtDiarySmallIcon.ico" Margin="3 3 3 4"/>
+                                    <Image Grid.Column="0" Source="../Images/Logo/DebtDiarySmallIcon.ico" Margin="3 3 3 4"/>
                                     <!-- Title -->
                                     <TextBlock Grid.Column="1" Margin="2 9 2 0" Style="{StaticResource TitleBarStyle}" 
                                                Text="{Binding Title, RelativeSource={RelativeSource Mode=TemplatedParent}, FallbackValue='Debt diary'}" />
@@ -88,7 +89,7 @@
     <Grid>
         <!-- Window background -->
         <Grid.Background>
-            <ImageBrush ImageSource="Images/StartScreenBackground.png" Stretch="UniformToFill" />
+            <ImageBrush ImageSource="../Images/StartScreenBackground.png" Stretch="UniformToFill" />
         </Grid.Background>
 
         <!-- Current Page -->
