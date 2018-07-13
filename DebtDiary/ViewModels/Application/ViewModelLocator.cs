@@ -1,4 +1,5 @@
 ﻿using Ninject;
+using System.ComponentModel;
 
 namespace DebtDiary
 {
@@ -10,18 +11,14 @@ namespace DebtDiary
         /// <summary>
         /// Singleton instance of the ViewModelLocator
         /// </summary>
-        public static ViewModelLocator Instance { get; private set; } = new ViewModelLocator();
+        //public static ViewModelLocator Instance { get; private set; } = new ViewModelLocator();
 
         /// <summary>
         /// ApplicationViewModel Property
         /// </summary>
         public ApplicationViewModel ApplicationViewModel
         {
-            get
-            {
-                IKernel kernel = new StandardKernel();
-                return kernel.Get<ApplicationViewModel>();
-            }
+            get => IocContainer.Get<ApplicationViewModel>();
         }
     }
 }

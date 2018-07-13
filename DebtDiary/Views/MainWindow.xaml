@@ -82,18 +82,23 @@
             </Setter>
         </Style>
 
-        <!--<local:ApplicationState x:Key="ApplicationState"/>-->
+        <local:ViewModelLocator x:Key="ViewModelLocator"/>
     </Window.Resources>
 
     <!-- Window content -->
-    <Grid>
+    <Grid DataContext="{Binding ApplicationViewModel, Source={StaticResource ViewModelLocator}, UpdateSourceTrigger=PropertyChanged}">
         <!-- Window background -->
         <Grid.Background>
             <ImageBrush ImageSource="../Images/StartScreenBackground.png" Stretch="UniformToFill" />
         </Grid.Background>
 
         <!-- Current Page -->
-        <Frame Content="{Binding ApplicationViewModel.CurrentPage, Source={x:Static local:ViewModelLocator.Instance}, 
-                        Converter={local:ApplicationPageValueConverter}}" NavigationUIVisibility="Hidden"/>
+        <Frame Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}" NavigationUIVisibility="Hidden"/>
+
+        <!--<StackPanel>
+        <TextBlock Text="{Binding Test}"/>
+            <TextBox Text="{Binding Test, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Margin="50"/>
+        </StackPanel>-->
     </Grid>
 </Window>

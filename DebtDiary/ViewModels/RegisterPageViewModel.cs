@@ -40,7 +40,7 @@ namespace DebtDiary
         /// </summary>
         private void GoToLoginPage()
         {
-            //ApplicationState.MainWindowViewModel.CurrentPage = ApplicationPage.LoginPage;
+            IocContainer.Get<ApplicationViewModel>().GoToPage(ApplicationPage.LoginPage);
         }
         #endregion
     }

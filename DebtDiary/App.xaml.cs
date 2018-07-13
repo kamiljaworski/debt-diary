@@ -1,5 +1,4 @@
-﻿using Ninject;
-using System.Windows;
+﻿using System.Windows;
 
 namespace DebtDiary
 {
@@ -17,9 +16,8 @@ namespace DebtDiary
             // Base Application method
             base.OnStartup(e);
 
-            // Bind IoC
-            IKernel kernel = new StandardKernel();
-            kernel.Bind<ApplicationViewModel>().To<ApplicationViewModel>();
+            // Setup IoC Container
+            IocContainer.Setup();
 
             // Setting the current window
             Current.MainWindow = new MainWindow();
