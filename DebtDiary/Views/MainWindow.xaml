@@ -17,13 +17,6 @@
         Height="{Binding MinimumHeight, FallbackValue=720}">
     <Window.Resources>
         <Style TargetType="{x:Type local:MainWindow}">
-            <!-- Window Chrome Settings -->
-            <Setter Property="WindowChrome.WindowChrome">
-                <Setter.Value>
-                    <WindowChrome ResizeBorderThickness="{Binding ResizeBorderThickness}" CaptionHeight="{Binding TitleBarHeight}"/>
-                </Setter.Value>
-            </Setter>
-
             <!-- New window template -->
             <Setter Property="Template">
                 <Setter.Value>
@@ -82,6 +75,11 @@
             </Setter>
         </Style>
     </Window.Resources>
+    
+    <!-- Window Chrome Settings -->
+    <WindowChrome.WindowChrome>
+        <WindowChrome ResizeBorderThickness="{Binding ResizeBorderThickness}" CaptionHeight="{Binding TitleBarHeight}"/>
+    </WindowChrome.WindowChrome>
 
     <!-- Window content -->
     <Grid DataContext="{Binding ApplicationViewModel, Source={StaticResource ViewModelLocator}, UpdateSourceTrigger=PropertyChanged}">
