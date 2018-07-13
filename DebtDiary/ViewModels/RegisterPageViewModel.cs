@@ -22,14 +22,14 @@ namespace DebtDiary
         /// <summary>
         /// Command that change current page to Login Page
         /// </summary>
-        public ICommand GoToLoginPageCommand { get; set; }
+        public ICommand LoginCommand { get; set; }
         #endregion
 
         #region Default Constructor
         public RegisterPageViewModel()
         {
             // Create commands
-            GoToLoginPageCommand = new RelayCommand(GoToLoginPage);
+            LoginCommand = new RelayCommand(GoToLoginPage);
         }
         #endregion
 

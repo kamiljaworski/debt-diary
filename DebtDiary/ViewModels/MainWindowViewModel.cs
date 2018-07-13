@@ -1,8 +1,6 @@
 ﻿using DebtDiary.Core;
 using System.Windows.Input;
 using System.Windows;
-using Ninject;
-using System.Reflection;
 
 namespace DebtDiary
 {
@@ -121,8 +119,6 @@ namespace DebtDiary
 
             //ApplicationState.MainWindowViewModel = this;
         }
-
-
         #endregion
 
         #region Private Helpers 

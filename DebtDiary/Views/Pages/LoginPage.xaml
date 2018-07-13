@@ -21,7 +21,7 @@
                 <TextBlock Text="{x:Static localization:Strings.ApplicationName}" HorizontalAlignment="Center" Foreground="White" FontFamily="{StaticResource LatoSemiBold}" FontSize="60"/>
                 <TextBlock Margin="150 10"  HorizontalAlignment="Center" TextAlignment="Center" Foreground="White" FontFamily="{StaticResource LatoLight}" 
                            FontSize="30" Text="{x:Static localization:Strings.LoginPageText}" TextWrapping="WrapWithOverflow" />
-                <Button Margin="0 10" Content="{x:Static localization:Strings.CreateAnAccount}" HorizontalAlignment="Center" Command="{Binding GoToRegisterPageCommand}"/>
+                <Button Margin="0 10" Content="{x:Static localization:Strings.CreateAccount}" HorizontalAlignment="Center" Command="{Binding CreateAccountCommand}"/>
             </StackPanel>
 
         </Grid>

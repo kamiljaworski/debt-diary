@@ -18,10 +18,14 @@
         <!-- Text -->
         <Grid Grid.Column="0">
             <StackPanel VerticalAlignment="Center">
-                <TextBlock Text="{x:Static localization:Strings.ApplicationName}" HorizontalAlignment="Center" Foreground="White" FontFamily="{StaticResource LatoSemiBold}" FontSize="60"/>
-                <TextBlock Margin="150 10"  HorizontalAlignment="Center" TextAlignment="Center" Foreground="White" FontFamily="{StaticResource LatoLight}" 
-                           FontSize="30" Text="{x:Static localization:Strings.RegisterPageText}" TextWrapping="WrapWithOverflow" />
-                <Button Margin="0 10" Content="{x:Static localization:Strings.Login}" HorizontalAlignment="Center" Command="{Binding GoToLoginPageCommand}"/>
+                <TextBlock Text="{x:Static localization:Strings.ApplicationName}" HorizontalAlignment="Center" 
+                           Foreground="White" FontFamily="{StaticResource LatoSemiBold}" FontSize="60"/>
+                <TextBlock Margin="150 10"  HorizontalAlignment="Center" TextAlignment="Center" 
+                           Foreground="White" FontFamily="{StaticResource LatoLight}" 
+                           FontSize="30" Text="{x:Static localization:Strings.RegisterPageText}" 
+                           TextWrapping="WrapWithOverflow" />
+                <Button Margin="0 10" Content="{x:Static localization:Strings.Login}" 
+                        HorizontalAlignment="Center" Command="{Binding LoginCommand}"/>
             </StackPanel>
 
         </Grid>
@@ -29,7 +33,8 @@
         <!-- Register panel -->
         <Grid Grid.Column="1">
             <StackPanel Width="300" Background="White" VerticalAlignment="Center">
-                <TextBlock Margin="0 30 0 0" Text="{x:Static localization:Strings.Register}" HorizontalAlignment="Center" Foreground="{StaticResource DarkGreyBrush}" 
+                <TextBlock Margin="0 30 0 0" Text="{x:Static localization:Strings.Register}" 
+                           HorizontalAlignment="Center" Foreground="{StaticResource DarkGreyBrush}" 
                            FontFamily="{StaticResource LatoSemiBold}" FontSize="36"/>
                 <TextBox Tag="{x:Static localization:Strings.Username}"/>
                 <TextBox Tag="{x:Static localization:Strings.FullName}"/>

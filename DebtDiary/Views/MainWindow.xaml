@@ -81,8 +81,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
-        <local:ViewModelLocator x:Key="ViewModelLocator"/>
     </Window.Resources>
 
     <!-- Window content -->
@@ -94,11 +92,5 @@
 
         <!-- Current Page -->
         <Frame Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}" NavigationUIVisibility="Hidden"/>
-
-        <!--<StackPanel>
-        <TextBlock Text="{Binding Test}"/>
-            <TextBox Text="{Binding Test, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBox Margin="50"/>
-        </StackPanel>-->
     </Grid>
 </Window>

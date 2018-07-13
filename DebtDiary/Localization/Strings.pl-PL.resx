@@ -120,7 +120,7 @@
   <data name="ApplicationName" xml:space="preserve">
     <value>Dziennik długów</value>
   </data>
-  <data name="CreateAnAccount" xml:space="preserve">
+  <data name="CreateAccount" xml:space="preserve">
     <value>Załóż konto</value>
   </data>
   <data name="Email" xml:space="preserve">

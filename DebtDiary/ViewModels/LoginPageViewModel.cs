@@ -22,7 +22,7 @@ namespace DebtDiary
         /// <summary>
         /// Command that change current page to RegisterPage
         /// </summary>
-        public ICommand GoToRegisterPageCommand { get; set; }
+        public ICommand CreateAccountCommand { get; set; }
         #endregion
 
         #region Default Constructor
@@ -30,7 +30,7 @@ namespace DebtDiary
         public LoginPageViewModel()
         {
             // Create commands
-            GoToRegisterPageCommand = new RelayCommand(GoToRegisterPage);
+            CreateAccountCommand = new RelayCommand(GoToRegisterPage);
         }
         #endregion
 

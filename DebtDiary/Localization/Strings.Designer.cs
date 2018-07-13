@@ -70,11 +70,11 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create an account.
+        ///   Looks up a localized string similar to Create account.
         /// </summary>
-        public static string CreateAnAccount {
+        public static string CreateAccount {
             get {
-                return ResourceManager.GetString("CreateAnAccount", resourceCulture);
+                return ResourceManager.GetString("CreateAccount", resourceCulture);
             }
         }
         
