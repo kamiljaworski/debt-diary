@@ -1,13 +1,14 @@
 # DebtDiary
 Desktop WPF MVVM based application used to store information about debts.
 
+![Application Image](https://raw.githubusercontent.com/kamiljaworski/DebtDiary/master/Application.png)
+
 ## Design patterns
 Design patterns used in this application
 
-### MVVM
+* MVVM
 Model-View-ViewModel design patterns is used to separate logic and user interface in the application
-
-### IoC
+* IoC
 Inversion of Control is used to inject dependencies in the application
 
 ## Technologies
