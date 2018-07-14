@@ -6,8 +6,8 @@ Desktop WPF MVVM based application used to store information about debts.
 ## Design patterns
 Design patterns used in this application
 
-* **MVVM**: Model-View-ViewModel design patterns is used to separate logic and user interface in the application
-* **IoC**: Inversion of Control is used to inject dependencies in the application
+* **MVVM**: Model-View-ViewModel design patterns is used to separate logic and user interface
+* **IoC**: Inversion of Control is used to inject dependencies
 
 ## Technologies
 Technologies used in this application
