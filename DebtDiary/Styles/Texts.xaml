@@ -2,10 +2,14 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:DebtDiary"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
-                    
 
-    <!-- Base TextBox Style -->
-    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseStyle}">
+    <!--#region Base TextBox Styles -->
+    <!-- TODO: Base styles for RegisterPage and others -->
+    <!--#endregion-->
+    
+    <!--#region Login TextBox Styles -->
+    <!-- Login TextBox Style -->
+    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseStyle}" x:Key="LoginTextBox">
         <Setter Property="Background" Value="White"/>
         <Setter Property="Foreground" Value="{StaticResource DarkGreyHoverBrush}"/>
         <Setter Property="FontSize" Value="18"/>
@@ -36,8 +40,8 @@
         </Setter>
     </Style>
 
-    <!-- Base PasswordBox Style -->
-    <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource BaseStyle}">
+    <!-- Login PasswordBox Style -->
+    <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource BaseStyle}" x:Key="LoginPasswordBox">
         <Setter Property="Background" Value="White"/>
         <Setter Property="Foreground" Value="{StaticResource DarkGreyHoverBrush}"/>
         <Setter Property="FontSize" Value="18"/>
@@ -69,4 +73,6 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <!--#endregion-->
+    
 </ResourceDictionary>

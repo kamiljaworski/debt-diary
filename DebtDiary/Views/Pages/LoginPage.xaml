@@ -31,8 +31,8 @@
             <StackPanel Width="300" Background="White" VerticalAlignment="Center">
                 <TextBlock Margin="0 30 0 0" Text="{x:Static localization:Strings.SignIn}" HorizontalAlignment="Center" Foreground="{StaticResource DarkGreyBrush}" 
                            FontFamily="{StaticResource LatoSemiBold}" FontSize="36"/>
-                <TextBox Tag="{x:Static localization:Strings.Username}"/>
-                <PasswordBox Tag="{x:Static localization:Strings.Password}"/>
+                <TextBox Tag="{x:Static localization:Strings.Username}" Style="{StaticResource LoginTextBox}" />
+                <PasswordBox Tag="{x:Static localization:Strings.Password}" Style="{StaticResource LoginPasswordBox}"/>
                 <Button Margin="0 20 0 40" Content="{x:Static localization:Strings.Login}" HorizontalAlignment="Center"/>
             </StackPanel>
 
