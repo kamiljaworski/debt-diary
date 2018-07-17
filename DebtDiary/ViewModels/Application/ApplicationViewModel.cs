@@ -1,4 +1,5 @@
 ﻿using DebtDiary.Core;
+using System;
 using System.Threading.Tasks;
 
 namespace DebtDiary
@@ -14,6 +15,16 @@ namespace DebtDiary
         /// CurrentPage in the application
         /// </summary>
         public ApplicationPage CurrentPage { get; private set; } = ApplicationPage.LoginPage;
+
+        /// <summary>
+        /// Duration of page fade in animation
+        /// </summary>
+        public TimeSpan FadeInDuration { get; set; } = TimeSpan.FromSeconds(0.8);
+
+        /// <summary>
+        /// Duration of page fade out animation
+        /// </summary>
+        public TimeSpan FadeOutDuration { get; set; } = TimeSpan.FromSeconds(0.6);
         #endregion
 
         #region Public Methods
@@ -25,9 +36,9 @@ namespace DebtDiary
         public async void GoToPage(ApplicationPage page)
         {
             // Await for page fade out animation
-            await Task.Delay(600);
+            await Task.Delay(FadeOutDuration);
 
-            // Change page
+            // Change the page
             CurrentPage = page;
         }
         #endregion

@@ -17,7 +17,9 @@
             <EventTrigger RoutedEvent="Loaded">
                 <BeginStoryboard>
                     <Storyboard >
-                        <DoubleAnimation  Storyboard.TargetName="MainGrid" Storyboard.TargetProperty="Opacity" Duration="0:0:0.8" From="0" To="1" />
+                        <DoubleAnimation  Storyboard.TargetName="MainGrid" Storyboard.TargetProperty="Opacity" 
+                                          Duration="{Binding ApplicationViewModel.FadeInDuration, Source={StaticResource ViewModelLocator}}" 
+                                          From="0" To="1" />
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>
@@ -26,7 +28,9 @@
             <EventTrigger RoutedEvent="Button.Click" SourceName="LoginButton">
                 <BeginStoryboard>
                     <Storyboard >
-                        <DoubleAnimation  Storyboard.TargetName="MainGrid" Storyboard.TargetProperty="Opacity" Duration="0:0:0.6" From="1" To="0" />
+                        <DoubleAnimation  Storyboard.TargetName="MainGrid" Storyboard.TargetProperty="Opacity" 
+                                          Duration="{Binding ApplicationViewModel.FadeOutDuration, Source={StaticResource ViewModelLocator}}" 
+                                          From="1" To="0" />
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>
@@ -68,6 +72,5 @@
             </StackPanel>
 
         </Grid>
-
     </Grid>
 </Page>
