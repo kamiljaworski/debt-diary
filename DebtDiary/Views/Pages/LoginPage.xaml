@@ -9,7 +9,20 @@
       d:DesignHeight="720" d:DesignWidth="1280"
       Title="LoginPage">
 
-    <Grid>
+    <Grid x:Name="MainGrid">
+
+        <!-- Animations -->
+        <Grid.Triggers>
+            <!-- Page Loaded animation -->
+            <EventTrigger RoutedEvent="Loaded">
+                <BeginStoryboard>
+                    <Storyboard >
+                        <DoubleAnimation  Storyboard.TargetName="MainGrid" Storyboard.TargetProperty="Opacity" Duration="0:0:0.8" From="0" To="1" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Grid.Triggers>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="3*"/>
