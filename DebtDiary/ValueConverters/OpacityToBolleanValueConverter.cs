@@ -10,7 +10,7 @@ namespace DebtDiary
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if ((double)value == 1.0)
+            if ((double)value > 0.9)
                 return true;
             return false;
         }
