@@ -11,9 +11,9 @@
 
     <Grid x:Name="MainGrid">
 
-        <!-- Animations -->
+        <!--#region Animations-->
         <Grid.Triggers>
-            <!-- Page Loaded animation -->
+            <!-- Fade in animation -->
             <EventTrigger RoutedEvent="Loaded">
                 <BeginStoryboard>
                     <Storyboard >
@@ -21,7 +21,17 @@
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>
+
+            <!-- Fade out animation -->
+            <EventTrigger RoutedEvent="Button.Click" SourceName="LoginButton">
+                <BeginStoryboard>
+                    <Storyboard >
+                        <DoubleAnimation  Storyboard.TargetName="MainGrid" Storyboard.TargetProperty="Opacity" Duration="0:0:0.6" From="1" To="0" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
         </Grid.Triggers>
+        <!--#endregion-->
         
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"/>
@@ -37,7 +47,7 @@
                            Foreground="White" FontFamily="{StaticResource LatoLight}" 
                            FontSize="30" Text="{x:Static localization:Strings.RegisterPageText}" 
                            TextWrapping="WrapWithOverflow" />
-                <Button Margin="0 10" Content="{x:Static localization:Strings.Login}" 
+                <Button x:Name="LoginButton" Margin="0 10" Content="{x:Static localization:Strings.Login}" 
                         HorizontalAlignment="Center" Command="{Binding LoginCommand}"/>
             </StackPanel>
 

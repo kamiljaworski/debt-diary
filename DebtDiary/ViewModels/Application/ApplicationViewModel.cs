@@ -1,4 +1,5 @@
 ﻿using DebtDiary.Core;
+using System.Threading.Tasks;
 
 namespace DebtDiary
 {
@@ -21,8 +22,12 @@ namespace DebtDiary
         /// Method used to navigate pages in the application
         /// </summary>
         /// <param name="page"></param>
-        public void GoToPage(ApplicationPage page)
+        public async void GoToPage(ApplicationPage page)
         {
+            // Await for page fade out animation
+            await Task.Delay(600);
+
+            // Change page
             CurrentPage = page;
         }
         #endregion
