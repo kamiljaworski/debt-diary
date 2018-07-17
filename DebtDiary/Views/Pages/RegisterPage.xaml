@@ -47,7 +47,8 @@
                            Foreground="White" FontFamily="{StaticResource LatoLight}" 
                            FontSize="30" Text="{x:Static localization:Strings.RegisterPageText}" 
                            TextWrapping="WrapWithOverflow" />
-                <Button x:Name="LoginButton" Margin="0 10" Content="{x:Static localization:Strings.Login}" 
+                <Button x:Name="LoginButton" IsEnabled="{Binding Opacity, ElementName=MainGrid, Converter={local:OpacityToBolleanValueConverter}}" 
+                        Margin="0 10" Content="{x:Static localization:Strings.Login}" 
                         HorizontalAlignment="Center" Command="{Binding LoginCommand}"/>
             </StackPanel>
 

@@ -45,7 +45,8 @@
                            FontFamily="{StaticResource LatoSemiBold}" FontSize="60"/>
                 <TextBlock Margin="150 10"  HorizontalAlignment="Center" TextAlignment="Center" Foreground="White" FontFamily="{StaticResource LatoLight}" 
                            FontSize="30" Text="{x:Static localization:Strings.LoginPageText}" TextWrapping="WrapWithOverflow" />
-                <Button x:Name="CreateAccountButton" Margin="0 10" Content="{x:Static localization:Strings.CreateAccount}" 
+                <Button x:Name="CreateAccountButton" IsEnabled="{Binding Opacity, ElementName=MainGrid, Converter={local:OpacityToBolleanValueConverter}}" 
+                        Margin="0 10" Content="{x:Static localization:Strings.CreateAccount}" 
                         HorizontalAlignment="Center" Command="{Binding CreateAccountCommand}"/>
             </StackPanel>
 

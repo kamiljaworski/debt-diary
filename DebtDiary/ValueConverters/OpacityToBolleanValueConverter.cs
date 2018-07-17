@@ -1,0 +1,20 @@
+﻿using System;
+using System.Globalization;
+
+namespace DebtDiary
+{
+    /// <summary>
+    /// Converts page grid's opacity to boolean to disable buttons
+    /// </summary>
+    public class OpacityToBolleanValueConverter : BaseValueConverter<OpacityToBolleanValueConverter>
+    {
+        public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if ((double)value == 1.0)
+                return true;
+            return false;
+        }
+
+        public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => throw new NotImplementedException();
+    }
+}
