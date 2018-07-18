@@ -15,6 +15,8 @@
         MinHeight="{Binding MinimumHeight}"
         Width="{Binding MinimumWidth, FallbackValue=1280}"
         Height="{Binding MinimumHeight, FallbackValue=720}">
+    
+    <!--#region MainWindow Style-->
     <Window.Resources>
         <Style TargetType="{x:Type local:MainWindow}">
             <!-- New window template -->
@@ -75,15 +77,17 @@
             </Setter>
         </Style>
     </Window.Resources>
+    <!--#endregion-->
     
-    <!-- Window Chrome Settings -->
+    <!--#region Window Chrome Settings -->
     <WindowChrome.WindowChrome>
         <WindowChrome ResizeBorderThickness="{Binding ResizeBorderThickness}" CaptionHeight="{Binding TitleBarHeight}"/>
     </WindowChrome.WindowChrome>
-
-    <!-- Window content -->
+    <!--#endregion-->
+    
+    <!--#region Main Window Content -->
     <Grid DataContext="{Binding ApplicationViewModel, Source={StaticResource ViewModelLocator}, UpdateSourceTrigger=PropertyChanged}">
-        <!-- Window background -->
+        <!-- Background -->
         <Grid.Background>
             <ImageBrush ImageSource="../Images/StartScreenBackground.png" Stretch="UniformToFill" />
         </Grid.Background>
@@ -91,4 +95,6 @@
         <!-- Current Page -->
         <Frame Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}" NavigationUIVisibility="Hidden"/>
     </Grid>
+    <!--#endregion-->
+    
 </Window>
