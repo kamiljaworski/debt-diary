@@ -17,7 +17,5 @@
 
     <Color x:Key="ButtonGreenHover">#047873</Color>
     <SolidColorBrush x:Key="ButtonGreenHoverBrush" Color="{StaticResource ButtonGreenHover}" />
-
-
-
+    
 </ResourceDictionary>
