@@ -5,7 +5,7 @@
 
     <!--#region TextBlocks Styles-->
     <!-- Base -->
-    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBlockStyle}">
+    <Style TargetType="{x:Type TextBlock}">
         <Setter Property="Foreground" Value="Black"/>
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="FontFamily" Value="{StaticResource LatoRegular}"/>
@@ -56,7 +56,7 @@
     
     <!--#region Login TextBox Styles -->
     <!-- Login TextBox Style -->
-    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseStyle}" x:Key="LoginTextBox">
+    <Style TargetType="{x:Type TextBox}" x:Key="LoginTextBox">
         <Setter Property="Background" Value="White"/>
         <Setter Property="Foreground" Value="{StaticResource DarkGreyHoverBrush}"/>
         <Setter Property="FontSize" Value="18"/>
@@ -88,7 +88,7 @@
     </Style>
 
     <!-- Login PasswordBox Style -->
-    <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource BaseStyle}" x:Key="LoginPasswordBox">
+    <Style TargetType="{x:Type PasswordBox}" x:Key="LoginPasswordBox">
         <Setter Property="Background" Value="White"/>
         <Setter Property="Foreground" Value="{StaticResource DarkGreyHoverBrush}"/>
         <Setter Property="FontSize" Value="18"/>
