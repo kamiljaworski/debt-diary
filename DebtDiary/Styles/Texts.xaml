@@ -3,6 +3,38 @@
                     xmlns:local="clr-namespace:DebtDiary"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
+    <!--#region TextBlocks Styles-->
+    <!-- Application Name -->
+    <Style TargetType="{x:Type TextBlock}" x:Key="ApplicationName">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Padding" Value="18 13 18 0"/>
+        <Setter Property="FontSize" Value="60"/>
+        <Setter Property="FontFamily" Value="{StaticResource LatoSemiBold}"/>
+    </Style>
+
+    <!-- Page Subtitle -->
+    <Style TargetType="{x:Type TextBlock}" x:Key="PageSubtitle">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Margin" Value="150 10"/>
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
+        <Setter Property="FontFamily" Value="{StaticResource LatoLight}"/>
+    </Style>
+    
+    <!-- Login/Register Panel Title -->
+    <Style TargetType="{x:Type TextBlock}" x:Key="WhitePanelTitle">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="{StaticResource DarkGreyBrush}"/>
+        <Setter Property="Margin" Value="0 30 0 0"/>
+        <Setter Property="FontSize" Value="36"/>
+        <Setter Property="FontFamily" Value="{StaticResource LatoSemiBold}"/>
+    </Style>
+
+    <!--#endregion-->
+    
     <!--#region Base TextBox Styles -->
     <!-- TODO: Base styles for RegisterPage and others -->
     <!--#endregion-->

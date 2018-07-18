@@ -16,7 +16,7 @@
             <!-- Fade in animation -->
             <EventTrigger RoutedEvent="Loaded">
                 <BeginStoryboard>
-                    <Storyboard >
+                    <Storyboard>
                         <DoubleAnimation  Storyboard.TargetName="MainGrid" Storyboard.TargetProperty="Opacity" 
                                           Duration="{Binding ApplicationViewModel.FadeInDuration, Source={StaticResource ViewModelLocator}}" 
                                           From="0" To="1" />
@@ -27,7 +27,7 @@
             <!-- Fade out animation -->
             <EventTrigger RoutedEvent="Button.Click" SourceName="LoginButton">
                 <BeginStoryboard>
-                    <Storyboard >
+                    <Storyboard>
                         <DoubleAnimation  Storyboard.TargetName="MainGrid" Storyboard.TargetProperty="Opacity" 
                                           Duration="{Binding ApplicationViewModel.FadeOutDuration, Source={StaticResource ViewModelLocator}}" 
                                           From="1" To="0" />
@@ -36,41 +36,44 @@
             </EventTrigger>
         </Grid.Triggers>
         <!--#endregion-->
-        
+
+        <!--#region Column Definitions-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
+        <!--#endregion-->
 
-        <!-- Text -->
+        <!--#region Back to Login Page -->
         <Grid Grid.Column="0">
             <StackPanel VerticalAlignment="Center">
-                <TextBlock Text="{x:Static localization:Strings.ApplicationName}" HorizontalAlignment="Center" 
-                           Foreground="White" FontFamily="{StaticResource LatoSemiBold}" FontSize="60"/>
-                <TextBlock Margin="150 10"  HorizontalAlignment="Center" TextAlignment="Center" 
-                           Foreground="White" FontFamily="{StaticResource LatoLight}" 
-                           FontSize="30" Text="{x:Static localization:Strings.RegisterPageText}" 
-                           TextWrapping="WrapWithOverflow" />
-                <Button x:Name="LoginButton" IsEnabled="{Binding Opacity, ElementName=MainGrid, Converter={local:OpacityToBolleanValueConverter}}" 
-                        Margin="0 10" Content="{x:Static localization:Strings.Login}" 
-                        HorizontalAlignment="Center" Command="{Binding LoginCommand}"/>
+                <!-- Application Name -->
+                <TextBlock Text="{x:Static localization:Strings.ApplicationName}" Style="{StaticResource ApplicationName}"/>
+                <!-- Subtitle -->
+                <TextBlock Text="{x:Static localization:Strings.RegisterPageText}" Style="{StaticResource PageSubtitle}"/>
+                <!-- Login Button -->
+                <Button x:Name="LoginButton" Content="{x:Static localization:Strings.Login}" 
+                        IsEnabled="{Binding Opacity, ElementName=MainGrid, Converter={local:OpacityToBolleanValueConverter}}" 
+                        Command="{Binding LoginCommand}" Margin="0 10" HorizontalAlignment="Center"/>
             </StackPanel>
-
         </Grid>
+        <!--#endregion-->
 
-        <!-- Register panel -->
+        <!--#region Register panel -->
         <Grid Grid.Column="1">
             <StackPanel Width="300" Background="White" VerticalAlignment="Center">
-                <TextBlock Margin="0 30 0 0" Text="{x:Static localization:Strings.Register}" 
-                           HorizontalAlignment="Center" Foreground="{StaticResource DarkGreyBrush}" 
-                           FontFamily="{StaticResource LatoSemiBold}" FontSize="36"/>
+                <!-- Register Title -->
+                <TextBlock Text="{x:Static localization:Strings.Register}" Style="{StaticResource WhitePanelTitle}"/>
+                <!-- TODO: Restyle RegisterPage -->
                 <TextBox Tag="{x:Static localization:Strings.Username}"/>
                 <TextBox Tag="{x:Static localization:Strings.FullName}"/>
                 <TextBox Tag="{x:Static localization:Strings.Email}"/>
                 <PasswordBox Tag="{x:Static localization:Strings.Password}"/>
-                <Button Margin="0 20 0 40" Content="{x:Static localization:Strings.SignUp}" HorizontalAlignment="Center"/>
+                <!-- SignUp Button -->
+                <Button Content="{x:Static localization:Strings.SignUp}" Margin="0 20 0 40" HorizontalAlignment="Center"/>
             </StackPanel>
-
         </Grid>
+        <!--#endregion-->
+        
     </Grid>
 </Page>
