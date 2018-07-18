@@ -141,7 +141,7 @@
   <data name="Login" xml:space="preserve">
     <value>Login</value>
   </data>
-  <data name="LoginPageText" xml:space="preserve">
+  <data name="LoginPageSubtitle" xml:space="preserve">
     <value>Do you need a place to store your debts information?</value>
   </data>
   <data name="Password" xml:space="preserve">
@@ -150,7 +150,7 @@
   <data name="Register" xml:space="preserve">
     <value>Register</value>
   </data>
-  <data name="RegisterPageText" xml:space="preserve">
+  <data name="RegisterPageSubtitle" xml:space="preserve">
     <value>Already have an account?</value>
   </data>
   <data name="RepeatPassword" xml:space="preserve">

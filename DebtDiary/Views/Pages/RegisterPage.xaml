@@ -50,7 +50,7 @@
                 <!-- Application Name -->
                 <TextBlock Text="{x:Static localization:Strings.ApplicationName}" Style="{StaticResource ApplicationName}"/>
                 <!-- Subtitle -->
-                <TextBlock Text="{x:Static localization:Strings.RegisterPageText}" Style="{StaticResource PageSubtitle}"/>
+                <TextBlock Text="{x:Static localization:Strings.RegisterPageSubtitle}" Style="{StaticResource PageSubtitle}"/>
                 <!-- Login Button -->
                 <Button x:Name="LoginButton" Content="{x:Static localization:Strings.Login}" 
                         IsEnabled="{Binding Opacity, ElementName=MainGrid, Converter={local:OpacityToBolleanValueConverter}}" 

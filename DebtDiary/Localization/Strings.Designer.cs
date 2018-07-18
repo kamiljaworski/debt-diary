@@ -135,9 +135,9 @@ namespace DebtDiary.Localization {
         /// <summary>
         ///   Looks up a localized string similar to Do you need a place to store your debts information?.
         /// </summary>
-        public static string LoginPageText {
+        public static string LoginPageSubtitle {
             get {
-                return ResourceManager.GetString("LoginPageText", resourceCulture);
+                return ResourceManager.GetString("LoginPageSubtitle", resourceCulture);
             }
         }
         
@@ -162,9 +162,9 @@ namespace DebtDiary.Localization {
         /// <summary>
         ///   Looks up a localized string similar to Already have an account?.
         /// </summary>
-        public static string RegisterPageText {
+        public static string RegisterPageSubtitle {
             get {
-                return ResourceManager.GetString("RegisterPageText", resourceCulture);
+                return ResourceManager.GetString("RegisterPageSubtitle", resourceCulture);
             }
         }
         
