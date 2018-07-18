@@ -4,6 +4,13 @@
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
     <!--#region TextBlocks Styles-->
+    <!-- Base TextBlock Style -->
+    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBlockStyle}">
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontFamily" Value="{StaticResource LatoRegular}"/>
+    </Style>
+    
     <!-- Application Name -->
     <Style TargetType="{x:Type TextBlock}" x:Key="ApplicationName">
         <Setter Property="HorizontalAlignment" Value="Center"/>
