@@ -21,23 +21,4 @@
     <system:String x:Key="RestoreIcon">&#xE923;</system:String>
     <system:String x:Key="CloseIcon">&#xE8BB;</system:String>
 
-    <!-- Custom Text Styles -->
-    <Style TargetType="{x:Type Control}" x:Key="BaseStyle">
-        <Setter Property="FontFamily" Value="{StaticResource LatoThin}" />
-    </Style>
-
-    <Style TargetType="{x:Type TextBlock}" x:Key="BaseTextBlockStyle">
-        <Setter Property="FontFamily" Value="{StaticResource LatoThin}" />
-    </Style>
-    
-    <Style TargetType="{x:Type TextBlock}" x:Key="TitleBarStyle">
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="FontFamily" Value="{StaticResource LatoLight}"/>
-        <Setter Property="FontSize" Value="{StaticResource SmallFontSize}"/>
-        <Setter Property="TextOptions.TextFormattingMode" Value="Ideal"/>
-        <Setter Property="TextOptions.TextRenderingMode" Value="Aliased"/>
-    </Style>
-
-
-    
 </ResourceDictionary>

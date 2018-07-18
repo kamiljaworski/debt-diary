@@ -4,13 +4,22 @@
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
     <!--#region TextBlocks Styles-->
-    <!-- Base TextBlock Style -->
+    <!-- Base -->
     <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBlockStyle}">
         <Setter Property="Foreground" Value="Black"/>
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="FontFamily" Value="{StaticResource LatoRegular}"/>
     </Style>
-    
+
+    <!-- Title bar -->
+    <Style TargetType="{x:Type TextBlock}" x:Key="TitleBarStyle">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontFamily" Value="{StaticResource LatoLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource SmallFontSize}"/>
+        <Setter Property="TextOptions.TextFormattingMode" Value="Ideal"/>
+        <Setter Property="TextOptions.TextRenderingMode" Value="Aliased"/>
+    </Style>
+
     <!-- Application Name -->
     <Style TargetType="{x:Type TextBlock}" x:Key="ApplicationName">
         <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -39,7 +48,6 @@
         <Setter Property="FontSize" Value="36"/>
         <Setter Property="FontFamily" Value="{StaticResource LatoSemiBold}"/>
     </Style>
-
     <!--#endregion-->
     
     <!--#region Base TextBox Styles -->
