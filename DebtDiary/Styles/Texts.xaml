@@ -124,10 +124,10 @@
 
                         <!-- Hover Text Animations -->
                         <DataTrigger Binding="{Binding Text, RelativeSource={RelativeSource Self}, Converter={local:TextToBooleanConverter}, UpdateSourceTrigger=PropertyChanged}" Value="True">
-                           
+
                             <!-- Go up -->
                             <DataTrigger.EnterActions>
-                                
+
                                 <!-- Margin -->
                                 <BeginStoryboard>
                                     <Storyboard>
@@ -147,7 +147,129 @@
 
                             <!-- Go down -->
                             <DataTrigger.ExitActions>
-                                
+
+                                <!-- Margin -->
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetName="HoverText" Storyboard.TargetProperty="Margin"
+                                                            To="0 22 0 0" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+
+                                <!-- FontSize -->
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="HoverText" Storyboard.TargetProperty="FontSize"
+                                                            To="18" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.ExitActions>
+                        </DataTrigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Login PasswordBox Style -->
+    <Style TargetType="{x:Type PasswordBox}" x:Key="LoginPasswordBox">
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontFamily" Value="{StaticResource LatoSemiBold}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource DarkGreyBrush}" />
+        <Setter Property="BorderThickness" Value="0 0 0 2" />
+        <Setter Property="Margin" Value="20 20 20 0"/>
+        <Setter Property="Padding" Value="5 1 5 1"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="local:MonitorPasswordProperty.Value" Value="True"/>
+
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type PasswordBox}">
+                    <Grid>
+                        <Border x:Name="Border" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" 
+                                BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
+                                Margin="{TemplateBinding Margin}" Padding="{TemplateBinding Padding}">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="True" 
+                                          HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+
+                        <TextBlock x:Name="HoverText" Text="{TemplateBinding Tag}" Foreground="{TemplateBinding Foreground}" FontFamily="{StaticResource LatoLight}"
+                                   TextAlignment="Center" FontSize="{TemplateBinding FontSize}" IsHitTestVisible="False" Margin="0 22 0 0"/>
+
+                        <!-- Helper blank textblock used to fix hover text animation -->
+                        <TextBlock x:Name="HelperTextBlock" Visibility="{TemplateBinding local:HasTextProperty.Value, Converter={local:BolleanToVisibilityConverter}}"/>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+
+                        <!-- GotFocus animations -->
+                        <EventTrigger RoutedEvent="GotFocus">
+                            <!-- Border -->
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource ButtonGreen}" Duration="0:0:0.2" 
+                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="BorderBrush.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+
+                            <!-- Text -->
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource ButtonGreen}" Duration="0:0:0.2" 
+                                                    Storyboard.TargetName="HoverText" Storyboard.TargetProperty="Foreground.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+
+                        <!-- LostFocus animations -->
+                        <EventTrigger RoutedEvent="LostFocus">
+                            <!-- Border -->
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.2" 
+                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="BorderBrush.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+
+                            <!-- Text -->
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.2" 
+                                                    Storyboard.TargetName="HoverText" Storyboard.TargetProperty="Foreground.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+
+                        <!-- Hover Text Animations -->
+                        <DataTrigger Binding="{Binding ElementName=HelperTextBlock, Path=Visibility, Converter={local:VisibilityToBolleanConverter}}" Value="False">
+
+                            <!-- Go up -->
+                            <DataTrigger.EnterActions>
+
+                                <!-- Margin -->
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetName="HoverText" Storyboard.TargetProperty="Margin"
+                                                            To="0 4 0 0" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+
+                                <!-- FontSize -->
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="HoverText" Storyboard.TargetProperty="FontSize"
+                                                            To="14" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+
+                            <!-- Go down -->
+                            <DataTrigger.ExitActions>
+
                                 <!-- Margin -->
                                 <BeginStoryboard>
                                     <Storyboard>
@@ -167,40 +289,7 @@
                         </DataTrigger>
                         
                     </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <!-- Login PasswordBox Style -->
-    <Style TargetType="{x:Type PasswordBox}" x:Key="LoginPasswordBox">
-        <Setter Property="Background" Value="White"/>
-        <Setter Property="Foreground" Value="{StaticResource DarkGreyHoverBrush}"/>
-        <Setter Property="FontSize" Value="18"/>
-        <Setter Property="FontFamily" Value="{StaticResource LatoSemiBold}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource DarkGreyBrush}" />
-        <Setter Property="BorderThickness" Value="0 0 0 2" />
-        <Setter Property="Margin" Value="20 10 20 10"/>
-        <Setter Property="Padding" Value="5 1 5 1"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="local:MonitorPasswordProperty.Value" Value="True"/>
-
-
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type PasswordBox}">
-                    <Grid>
-                        <Border Background="{TemplateBinding Background}" SnapsToDevicePixels="True" 
-                                BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
-                                Margin="{TemplateBinding Margin}" Padding="{TemplateBinding Padding}">
-                            <ScrollViewer x:Name="PART_ContentHost" Focusable="True" 
-                                          HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
-                        </Border>
-
-                        <TextBlock Text="{TemplateBinding Tag}" Foreground="{TemplateBinding Foreground}" FontFamily="{StaticResource LatoLight}" 
-                                   Visibility="{TemplateBinding local:HasTextProperty.Value, Converter={local:BolleanToVisibilityConverter}}" 
-                                   TextAlignment="Center" FontSize="{TemplateBinding FontSize}" IsHitTestVisible="False" Margin="0 12 0 0"/>
-                    </Grid>
+                    
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
