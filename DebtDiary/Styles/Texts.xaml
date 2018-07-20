@@ -39,7 +39,7 @@
         <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
         <Setter Property="FontFamily" Value="{StaticResource LatoLight}"/>
     </Style>
-    
+
     <!-- Login/Register Panel Title -->
     <Style TargetType="{x:Type TextBlock}" x:Key="WhitePanelTitle">
         <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -49,21 +49,21 @@
         <Setter Property="FontFamily" Value="{StaticResource LatoSemiBold}"/>
     </Style>
     <!--#endregion-->
-    
+
     <!--#region Base TextBox Styles -->
     <!-- TODO: Base styles for RegisterPage and others -->
     <!--#endregion-->
-    
+
     <!--#region Login TextBox Styles -->
     <!-- Login TextBox Style -->
     <Style TargetType="{x:Type TextBox}" x:Key="LoginTextBox">
         <Setter Property="Background" Value="White"/>
-        <Setter Property="Foreground" Value="{StaticResource DarkGreyHoverBrush}"/>
+        <Setter Property="Foreground" Value="Black"/>
         <Setter Property="FontSize" Value="18"/>
         <Setter Property="FontFamily" Value="{StaticResource LatoRegular}"/>
         <Setter Property="BorderBrush" Value="{StaticResource DarkGreyBrush}" />
         <Setter Property="BorderThickness" Value="0 0 0 2" />
-        <Setter Property="Margin" Value="20 10 20 10"/>
+        <Setter Property="Margin" Value="20 20 20 0"/>
         <Setter Property="Padding" Value="5 1 5 1"/>
         <Setter Property="TextAlignment" Value="Center"/>
 
@@ -78,13 +78,12 @@
                                           HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                         </Border>
 
-                        <TextBlock x:Name="HoverText" Text="{TemplateBinding Tag}" Foreground="{TemplateBinding Foreground}" FontFamily="{StaticResource LatoLight}" 
-                                   Visibility="{Binding Text, RelativeSource={RelativeSource Mode=TemplatedParent}, Converter={local:TextToVisibilityConverter}}" 
-                                   TextAlignment="Center" FontSize="{TemplateBinding FontSize}" IsHitTestVisible="False" Margin="0 12 0 0"/>
+                        <TextBlock x:Name="HoverText" Text="{TemplateBinding Tag}" Foreground="{StaticResource DarkGreyBrush}" FontFamily="{StaticResource LatoLight}"
+                                   TextAlignment="Center" FontSize="{TemplateBinding FontSize}" IsHitTestVisible="False" Margin="0 22 0 0"/>
                     </Grid>
                     <!-- Animations -->
                     <ControlTemplate.Triggers>
-                        
+
                         <!-- GotFocus animations -->
                         <EventTrigger RoutedEvent="GotFocus">
                             <!-- Border -->
@@ -94,7 +93,7 @@
                                                     Storyboard.TargetName="Border" Storyboard.TargetProperty="BorderBrush.Color" />
                                 </Storyboard>
                             </BeginStoryboard>
-                            
+
                             <!-- Text -->
                             <BeginStoryboard>
                                 <Storyboard>
@@ -122,6 +121,51 @@
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
+
+                        <!-- Hover Text Animations -->
+                        <DataTrigger Binding="{Binding Text, RelativeSource={RelativeSource Self}, Converter={local:TextToBooleanConverter}, UpdateSourceTrigger=PropertyChanged}" Value="True">
+                           
+                            <!-- Go up -->
+                            <DataTrigger.EnterActions>
+                                
+                                <!-- Margin -->
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetName="HoverText" Storyboard.TargetProperty="Margin"
+                                                            To="0 4 0 0" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+
+                                <!-- FontSize -->
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="HoverText" Storyboard.TargetProperty="FontSize"
+                                                            To="14" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+
+                            <!-- Go down -->
+                            <DataTrigger.ExitActions>
+                                
+                                <!-- Margin -->
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetName="HoverText" Storyboard.TargetProperty="Margin"
+                                                            To="0 22 0 0" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+
+                                <!-- FontSize -->
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="HoverText" Storyboard.TargetProperty="FontSize"
+                                                            To="18" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.ExitActions>
+                        </DataTrigger>
+                        
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
@@ -162,5 +206,5 @@
         </Setter>
     </Style>
     <!--#endregion-->
-    
+
 </ResourceDictionary>
