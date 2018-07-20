@@ -69,6 +69,7 @@
     <Compile Include="AttachedProperties\PasswordBoxAttachedProperties.cs" />
     <Compile Include="IoC\IocContainer.cs" />
     <Compile Include="ValueConverters\OpacityToBolleanValueConverter.cs" />
+    <Compile Include="ValueConverters\TextToBooleanConverter.cs" />
     <Compile Include="ViewModels\Application\ApplicationViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\Pages\RegisterPage.xaml.cs">
