@@ -60,7 +60,7 @@
         <Setter Property="Background" Value="White"/>
         <Setter Property="Foreground" Value="{StaticResource DarkGreyHoverBrush}"/>
         <Setter Property="FontSize" Value="18"/>
-        <Setter Property="FontFamily" Value="{StaticResource LatoSemiBold}"/>
+        <Setter Property="FontFamily" Value="{StaticResource LatoRegular}"/>
         <Setter Property="BorderBrush" Value="{StaticResource DarkGreyBrush}" />
         <Setter Property="BorderThickness" Value="0 0 0 2" />
         <Setter Property="Margin" Value="20 10 20 10"/>
@@ -71,17 +71,58 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox}">
                     <Grid>
-                        <Border Background="{TemplateBinding Background}" SnapsToDevicePixels="True" 
+                        <Border x:Name="Border" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" 
                                 BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
                                 Margin="{TemplateBinding Margin}" Padding="{TemplateBinding Padding}">
                             <ScrollViewer x:Name="PART_ContentHost" Focusable="True" 
                                           HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                         </Border>
 
-                        <TextBlock Text="{TemplateBinding Tag}" Foreground="{TemplateBinding Foreground}" FontFamily="{StaticResource LatoLight}" 
+                        <TextBlock x:Name="HoverText" Text="{TemplateBinding Tag}" Foreground="{TemplateBinding Foreground}" FontFamily="{StaticResource LatoLight}" 
                                    Visibility="{Binding Text, RelativeSource={RelativeSource Mode=TemplatedParent}, Converter={local:TextToVisibilityConverter}}" 
                                    TextAlignment="Center" FontSize="{TemplateBinding FontSize}" IsHitTestVisible="False" Margin="0 12 0 0"/>
                     </Grid>
+                    <!-- Animations -->
+                    <ControlTemplate.Triggers>
+                        
+                        <!-- GotFocus animations -->
+                        <EventTrigger RoutedEvent="GotFocus">
+                            <!-- Border -->
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource ButtonGreen}" Duration="0:0:0.2" 
+                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="BorderBrush.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                            
+                            <!-- Text -->
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource ButtonGreen}" Duration="0:0:0.2" 
+                                                    Storyboard.TargetName="HoverText" Storyboard.TargetProperty="Foreground.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+
+                        <!-- LostFocus animations -->
+                        <EventTrigger RoutedEvent="LostFocus">
+                            <!-- Border -->
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.2" 
+                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="BorderBrush.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+
+                            <!-- Text -->
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.2" 
+                                                    Storyboard.TargetName="HoverText" Storyboard.TargetProperty="Foreground.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
