@@ -40,7 +40,7 @@ namespace DebtDiary
         /// </summary>
         private void GoToLoginPage()
         {
-            IocContainer.Get<ApplicationViewModel>().GoToPage(ApplicationPage.LoginPage);
+            IocContainer.Get<ApplicationViewModel>().GoToPageAsync(ApplicationPage.LoginPage);
         }
         #endregion
     }

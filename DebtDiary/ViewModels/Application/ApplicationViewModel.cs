@@ -33,7 +33,7 @@ namespace DebtDiary
         /// Method used to navigate pages in the application
         /// </summary>
         /// <param name="page"></param>
-        public async void GoToPage(ApplicationPage page)
+        public async void GoToPageAsync(ApplicationPage page)
         {
             // Await for page fade out animation
             await Task.Delay(FadeOutDuration);
