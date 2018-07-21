@@ -50,13 +50,8 @@
     </Style>
     <!--#endregion-->
 
-    <!--#region Base TextBox Styles -->
-    <!-- TODO: Base styles for RegisterPage and others -->
-    <!--#endregion-->
-
-    <!--#region Login TextBox Styles -->
-    <!-- Login TextBox Style -->
-    <Style TargetType="{x:Type TextBox}" x:Key="LoginTextBox">
+    <!--#region Base TextBox Style-->
+    <Style TargetType="{x:Type TextBox}">
         <Setter Property="Background" Value="White"/>
         <Setter Property="Foreground" Value="Black"/>
         <Setter Property="FontSize" Value="18"/>
@@ -170,9 +165,10 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <!--#endregion-->
 
-    <!-- Login PasswordBox Style -->
-    <Style TargetType="{x:Type PasswordBox}" x:Key="LoginPasswordBox">
+    <!--#region Base PasswordBox Style-->
+    <Style TargetType="{x:Type PasswordBox}">
         <Setter Property="Background" Value="White"/>
         <Setter Property="Foreground" Value="Black"/>
         <Setter Property="FontSize" Value="18"/>
