@@ -302,7 +302,7 @@
     </Style>
     <!--#endregion-->
 
-    <!--#region Register PasswordBox and TextBox Styles-->
+    <!--#region RegisterPage PasswordBox and TextBox Styles-->
     <!-- Left TextBox -->
     <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}" x:Key="RegisterPageLeftTextBox">
         <Setter Property="Margin" Value="20 0 10 10"/>
@@ -322,6 +322,18 @@
 
     <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource RegisterPageLeftPasswordBox}" x:Key="RegisterPageRightPasswordBox">
         <Setter Property="Margin" Value="10 0 20 10"/>
+    </Style>
+    <!--#endregion-->
+
+    <!--#region LoginPage PasswordBox and TextBox Styles -->
+    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}" x:Key="LoginPageTextBox">
+        <Setter Property="Margin" Value="20 0 20 10"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+    </Style>
+
+    <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource {x:Type PasswordBox}}" x:Key="LoginPagePasswordBox">
+        <Setter Property="Margin" Value="20 0 20 0"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
     </Style>
     <!--#endregion-->
 

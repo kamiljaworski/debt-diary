@@ -65,9 +65,9 @@
                 <!-- Sign In Title -->
                 <TextBlock Text="{x:Static localization:Strings.SignIn}" Style="{StaticResource WhitePanelTitle}"/>
                 <!-- Username -->
-                <TextBox Tag="{x:Static localization:Strings.Username}"/>
+                <TextBox Tag="{x:Static localization:Strings.Username}" Style="{StaticResource LoginPageTextBox}"/>
                 <!-- Password -->
-                <PasswordBox Tag="{x:Static localization:Strings.Password}" Margin="0 10 0 0"/>
+                <PasswordBox Tag="{x:Static localization:Strings.Password}" Style="{StaticResource LoginPagePasswordBox}"/>
                 <!-- Login Button -->
                 <Button Content="{x:Static localization:Strings.Login}" Margin="0 40 0 40" HorizontalAlignment="Center"/>
             </StackPanel>
