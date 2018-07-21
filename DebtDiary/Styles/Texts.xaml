@@ -71,9 +71,10 @@
                             <ScrollViewer x:Name="PART_ContentHost" Focusable="True" 
                                           HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                         </Border>
-
+                        
                         <TextBlock x:Name="HoverText" Text="{TemplateBinding Tag}" Foreground="{StaticResource DarkGreyBrush}" FontFamily="{StaticResource LatoLight}"
-                                   TextAlignment="Center" FontSize="{TemplateBinding FontSize}" IsHitTestVisible="False" Margin="0 22 0 0"/>
+                                   TextAlignment="{TemplateBinding TextAlignment}" FontSize="{TemplateBinding FontSize}" IsHitTestVisible="False" 
+                                   Margin="0 22 0 0" Padding="45 0 45 0"/>
                     </Grid>
                     <!-- Animations -->
                     <ControlTemplate.Triggers>
@@ -192,7 +193,8 @@
                         </Border>
 
                         <TextBlock x:Name="HoverText" Text="{TemplateBinding Tag}" Foreground="{TemplateBinding Foreground}" FontFamily="{StaticResource LatoLight}"
-                                   TextAlignment="Center" FontSize="{TemplateBinding FontSize}" IsHitTestVisible="False" Margin="0 22 0 0"/>
+                                   TextAlignment="{TemplateBinding HorizontalContentAlignment, Converter={local:HorizontalAlignmentToTextAlignment}}" 
+                                   FontSize="{TemplateBinding FontSize}" IsHitTestVisible="False" Margin="0 22 0 0" Padding="45 0 45 0"/>
 
                         <!-- Helper blank textblock used to fix hover text animation -->
                         <TextBlock x:Name="HelperTextBlock" Visibility="{TemplateBinding local:HasTextProperty.Value, Converter={local:BolleanToVisibilityConverter}}"

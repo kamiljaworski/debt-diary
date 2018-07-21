@@ -68,6 +68,7 @@
     <Compile Include="AttachedProperties\BaseAttachedProperty.cs" />
     <Compile Include="AttachedProperties\PasswordBoxAttachedProperties.cs" />
     <Compile Include="IoC\IocContainer.cs" />
+    <Compile Include="ValueConverters\HorizontalAlignmentToTextAlignment.cs" />
     <Compile Include="ValueConverters\OpacityToBolleanValueConverter.cs" />
     <Compile Include="ValueConverters\SecureStringToBooleanConverter.cs" />
     <Compile Include="ValueConverters\TextToBooleanConverter.cs" />
