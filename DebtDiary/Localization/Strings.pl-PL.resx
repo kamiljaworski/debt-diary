@@ -126,6 +126,9 @@
   <data name="Email" xml:space="preserve">
     <value>E-mail</value>
   </data>
+  <data name="Female" xml:space="preserve">
+    <value>Kobieta</value>
+  </data>
   <data name="FirstName" xml:space="preserve">
     <value>Imię</value>
   </data>
@@ -143,6 +146,9 @@
   </data>
   <data name="LoginPageSubtitle" xml:space="preserve">
     <value>Potrzebujesz miejsca do zapisania informacji o długach?</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>Mężczyzna</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Hasło</value>

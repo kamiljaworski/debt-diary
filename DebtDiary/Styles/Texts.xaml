@@ -44,9 +44,18 @@
     <Style TargetType="{x:Type TextBlock}" x:Key="WhitePanelTitle">
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="Foreground" Value="{StaticResource DarkGreyBrush}"/>
-        <Setter Property="Margin" Value="0 30 0 0"/>
+        <Setter Property="Margin" Value="0 30 0 5"/>
         <Setter Property="FontSize" Value="36"/>
         <Setter Property="FontFamily" Value="{StaticResource LatoSemiBold}"/>
+    </Style>
+
+    <!-- Register Page Form Text -->
+    <Style TargetType="{x:Type TextBlock}" x:Key="RegisterPageFormText">
+        <Setter Property="TextAlignment" Value="Left"/>
+        <Setter Property="Foreground" Value="{StaticResource DarkGreyBrush}"/>
+        <Setter Property="Margin" Value="45 20 0 0"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontFamily" Value="{StaticResource LatoLight}"/>
     </Style>
     <!--#endregion-->
 
@@ -67,14 +76,14 @@
                     <Grid Margin="{TemplateBinding Margin}">
                         <Border x:Name="Border" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" 
                                 BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
-                                Margin="40 20 40 0" Padding="5 1 5 1">
+                                Margin="0 20 0 0" Padding="5 1 5 1">
                             <ScrollViewer x:Name="PART_ContentHost" Focusable="True" 
                                           HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                         </Border>
-                        
+
                         <TextBlock x:Name="HoverText" Text="{TemplateBinding Tag}" Foreground="{StaticResource DarkGreyBrush}" FontFamily="{StaticResource LatoLight}"
                                    TextAlignment="{TemplateBinding TextAlignment}" FontSize="{TemplateBinding FontSize}" IsHitTestVisible="False" 
-                                   Margin="0 22 0 0" Padding="45 0 45 0"/>
+                                   Margin="0 22 0 0" Padding="5 0 5 0"/>
                     </Grid>
                     <!-- Animations -->
                     <ControlTemplate.Triggers>
@@ -187,14 +196,14 @@
                     <Grid Margin="{TemplateBinding Margin}">
                         <Border x:Name="Border" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" 
                                 BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
-                                Margin="40 20 40 0" Padding="5 1 5 1">
+                                Margin="0 20 0 0" Padding="5 1 5 1">
                             <ScrollViewer x:Name="PART_ContentHost" Focusable="True" 
                                           HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                         </Border>
 
                         <TextBlock x:Name="HoverText" Text="{TemplateBinding Tag}" Foreground="{TemplateBinding Foreground}" FontFamily="{StaticResource LatoLight}"
                                    TextAlignment="{TemplateBinding HorizontalContentAlignment, Converter={local:HorizontalAlignmentToTextAlignment}}" 
-                                   FontSize="{TemplateBinding FontSize}" IsHitTestVisible="False" Margin="0 22 0 0" Padding="45 0 45 0"/>
+                                   FontSize="{TemplateBinding FontSize}" IsHitTestVisible="False" Margin="0 22 0 0" Padding="5 0 5 0"/>
 
                         <!-- Helper blank textblock used to fix hover text animation -->
                         <TextBlock x:Name="HelperTextBlock" Visibility="{TemplateBinding local:HasTextProperty.Value, Converter={local:BolleanToVisibilityConverter}}"
@@ -284,12 +293,35 @@
                                 </BeginStoryboard>
                             </DataTrigger.ExitActions>
                         </DataTrigger>
-                        
+
                     </ControlTemplate.Triggers>
-                    
+
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+    <!--#endregion-->
+
+    <!--#region Register PasswordBox and TextBox Styles-->
+    <!-- Left TextBox -->
+    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}" x:Key="RegisterPageLeftTextBox">
+        <Setter Property="Margin" Value="20 0 10 10"/>
+        <Setter Property="TextAlignment" Value="Left"/>
+    </Style>
+
+    <!-- Right TextBox -->
+    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource RegisterPageLeftTextBox}" x:Key="RegisterPageRightTextBox">
+        <Setter Property="Margin" Value="10 0 20 10"/>
+    </Style>
+
+    <!-- Left PasswordBox -->
+    <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource {x:Type PasswordBox}}" x:Key="RegisterPageLeftPasswordBox">
+        <Setter Property="Margin" Value="20 0 10 10"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+    </Style>
+
+    <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource RegisterPageLeftPasswordBox}" x:Key="RegisterPageRightPasswordBox">
+        <Setter Property="Margin" Value="10 0 20 10"/>
     </Style>
     <!--#endregion-->
 
