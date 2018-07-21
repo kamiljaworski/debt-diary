@@ -63,17 +63,16 @@
         <Setter Property="FontFamily" Value="{StaticResource LatoRegular}"/>
         <Setter Property="BorderBrush" Value="{StaticResource DarkGreyBrush}" />
         <Setter Property="BorderThickness" Value="0 0 0 2" />
-        <Setter Property="Margin" Value="20 20 20 0"/>
-        <Setter Property="Padding" Value="5 1 5 1"/>
+        <Setter Property="Margin" Value="0 0 0 0"/>
         <Setter Property="TextAlignment" Value="Center"/>
 
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox}">
-                    <Grid>
+                    <Grid Margin="{TemplateBinding Margin}">
                         <Border x:Name="Border" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" 
                                 BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
-                                Margin="{TemplateBinding Margin}" Padding="{TemplateBinding Padding}">
+                                Margin="40 20 40 0" Padding="5 1 5 1">
                             <ScrollViewer x:Name="PART_ContentHost" Focusable="True" 
                                           HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                         </Border>
@@ -180,8 +179,7 @@
         <Setter Property="FontFamily" Value="{StaticResource LatoSemiBold}"/>
         <Setter Property="BorderBrush" Value="{StaticResource DarkGreyBrush}" />
         <Setter Property="BorderThickness" Value="0 0 0 2" />
-        <Setter Property="Margin" Value="20 20 20 0"/>
-        <Setter Property="Padding" Value="5 1 5 1"/>
+        <Setter Property="Margin" Value="0 0 0 0"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="local:MonitorPasswordProperty.Value" Value="True"/>
 
@@ -189,10 +187,10 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type PasswordBox}">
-                    <Grid>
+                    <Grid Margin="{TemplateBinding Margin}">
                         <Border x:Name="Border" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" 
                                 BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
-                                Margin="{TemplateBinding Margin}" Padding="{TemplateBinding Padding}">
+                                Margin="40 20 40 0" Padding="5 1 5 1">
                             <ScrollViewer x:Name="PART_ContentHost" Focusable="True" 
                                           HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                         </Border>
