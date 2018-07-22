@@ -206,7 +206,7 @@
                                    FontSize="{TemplateBinding FontSize}" IsHitTestVisible="False" Margin="0 22 0 0" Padding="5 0 5 0"/>
 
                         <!-- Helper blank textblock used to fix hover text animation -->
-                        <TextBlock x:Name="HelperTextBlock" Visibility="{TemplateBinding local:HasTextProperty.Value, Converter={local:BolleanToVisibilityConverter}}"
+                        <TextBlock x:Name="HelperTextBlock" Visibility="{TemplateBinding local:HasTextProperty.Value, Converter={local:BooleanToVisibilityConverter}}"
                                    IsHitTestVisible="False" />
                     </Grid>
 

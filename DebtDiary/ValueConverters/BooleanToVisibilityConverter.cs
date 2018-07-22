@@ -6,9 +6,9 @@ using System.Windows;
 namespace DebtDiary
 {
     /// <summary>
-    /// Converts Bollean of a PasswordBox attached property to Visibility
+    /// Converts Boolean to Visibility
     /// </summary>
-    public class BolleanToVisibilityConverter : BaseValueConverter<BolleanToVisibilityConverter>
+    public class BooleanToVisibilityConverter : BaseValueConverter<BooleanToVisibilityConverter>
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
