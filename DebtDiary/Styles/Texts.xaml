@@ -49,8 +49,8 @@
         <Setter Property="FontFamily" Value="{StaticResource LatoSemiBold}"/>
     </Style>
 
-    <!-- Register Page Form Text -->
-    <Style TargetType="{x:Type TextBlock}" x:Key="RegisterPageFormText">
+    <!-- Base Form Text -->
+    <Style TargetType="{x:Type TextBlock}" x:Key="BaseFormText">
         <Setter Property="TextAlignment" Value="Left"/>
         <Setter Property="Foreground" Value="{StaticResource DarkGreyBrush}"/>
         <Setter Property="Margin" Value="45 20 0 0"/>
@@ -81,7 +81,7 @@
                                           HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                         </Border>
 
-                        <TextBlock x:Name="HoverText" Text="{TemplateBinding Tag}" Foreground="{StaticResource DarkGreyBrush}" FontFamily="{StaticResource LatoLight}"
+                        <TextBlock x:Name="PlaceholderText" Text="{TemplateBinding Tag}" Foreground="{StaticResource DarkGreyBrush}" FontFamily="{StaticResource LatoLight}"
                                    TextAlignment="{TemplateBinding TextAlignment}" FontSize="{TemplateBinding FontSize}" IsHitTestVisible="False" 
                                    Margin="0 22 0 0" Padding="5 0 5 0"/>
                     </Grid>
@@ -102,7 +102,7 @@
                             <BeginStoryboard>
                                 <Storyboard>
                                     <ColorAnimation To="{StaticResource ButtonGreen}" Duration="0:0:0.2" 
-                                                    Storyboard.TargetName="HoverText" Storyboard.TargetProperty="Foreground.Color" />
+                                                    Storyboard.TargetName="PlaceholderText" Storyboard.TargetProperty="Foreground.Color" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
@@ -121,7 +121,7 @@
                             <BeginStoryboard>
                                 <Storyboard>
                                     <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.2" 
-                                                    Storyboard.TargetName="HoverText" Storyboard.TargetProperty="Foreground.Color" />
+                                                    Storyboard.TargetName="PlaceholderText" Storyboard.TargetProperty="Foreground.Color" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
@@ -135,7 +135,7 @@
                                 <!-- Margin -->
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <ThicknessAnimation Storyboard.TargetName="HoverText" Storyboard.TargetProperty="Margin"
+                                        <ThicknessAnimation Storyboard.TargetName="PlaceholderText" Storyboard.TargetProperty="Margin"
                                                             To="0 4 0 0" Duration="0:0:0.2" />
                                     </Storyboard>
                                 </BeginStoryboard>
@@ -143,7 +143,7 @@
                                 <!-- FontSize -->
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="HoverText" Storyboard.TargetProperty="FontSize"
+                                        <DoubleAnimation Storyboard.TargetName="PlaceholderText" Storyboard.TargetProperty="FontSize"
                                                             To="14" Duration="0:0:0.2" />
                                     </Storyboard>
                                 </BeginStoryboard>
@@ -155,7 +155,7 @@
                                 <!-- Margin -->
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <ThicknessAnimation Storyboard.TargetName="HoverText" Storyboard.TargetProperty="Margin"
+                                        <ThicknessAnimation Storyboard.TargetName="PlaceholderText" Storyboard.TargetProperty="Margin"
                                                             To="0 22 0 0" Duration="0:0:0.2" />
                                     </Storyboard>
                                 </BeginStoryboard>
@@ -163,7 +163,7 @@
                                 <!-- FontSize -->
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="HoverText" Storyboard.TargetProperty="FontSize"
+                                        <DoubleAnimation Storyboard.TargetName="PlaceholderText" Storyboard.TargetProperty="FontSize"
                                                             To="18" Duration="0:0:0.2" />
                                     </Storyboard>
                                 </BeginStoryboard>
@@ -201,7 +201,7 @@
                                           HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                         </Border>
 
-                        <TextBlock x:Name="HoverText" Text="{TemplateBinding Tag}" Foreground="{TemplateBinding Foreground}" FontFamily="{StaticResource LatoLight}"
+                        <TextBlock x:Name="PlaceholderText" Text="{TemplateBinding Tag}" Foreground="{TemplateBinding Foreground}" FontFamily="{StaticResource LatoLight}"
                                    TextAlignment="{TemplateBinding HorizontalContentAlignment, Converter={local:HorizontalAlignmentToTextAlignmentConverter}}" 
                                    FontSize="{TemplateBinding FontSize}" IsHitTestVisible="False" Margin="0 22 0 0" Padding="5 0 5 0"/>
 
@@ -226,7 +226,7 @@
                             <BeginStoryboard>
                                 <Storyboard>
                                     <ColorAnimation To="{StaticResource ButtonGreen}" Duration="0:0:0.2" 
-                                                    Storyboard.TargetName="HoverText" Storyboard.TargetProperty="Foreground.Color" />
+                                                    Storyboard.TargetName="PlaceholderText" Storyboard.TargetProperty="Foreground.Color" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
@@ -245,7 +245,7 @@
                             <BeginStoryboard>
                                 <Storyboard>
                                     <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.2" 
-                                                    Storyboard.TargetName="HoverText" Storyboard.TargetProperty="Foreground.Color" />
+                                                    Storyboard.TargetName="PlaceholderText" Storyboard.TargetProperty="Foreground.Color" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
@@ -259,7 +259,7 @@
                                 <!-- Margin -->
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <ThicknessAnimation Storyboard.TargetName="HoverText" Storyboard.TargetProperty="Margin"
+                                        <ThicknessAnimation Storyboard.TargetName="PlaceholderText" Storyboard.TargetProperty="Margin"
                                                             To="0 4 0 0" Duration="0:0:0.2" />
                                     </Storyboard>
                                 </BeginStoryboard>
@@ -267,7 +267,7 @@
                                 <!-- FontSize -->
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="HoverText" Storyboard.TargetProperty="FontSize"
+                                        <DoubleAnimation Storyboard.TargetName="PlaceholderText" Storyboard.TargetProperty="FontSize"
                                                             To="14" Duration="0:0:0.2" />
                                     </Storyboard>
                                 </BeginStoryboard>
@@ -279,7 +279,7 @@
                                 <!-- Margin -->
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <ThicknessAnimation Storyboard.TargetName="HoverText" Storyboard.TargetProperty="Margin"
+                                        <ThicknessAnimation Storyboard.TargetName="PlaceholderText" Storyboard.TargetProperty="Margin"
                                                             To="0 22 0 0" Duration="0:0:0.2" />
                                     </Storyboard>
                                 </BeginStoryboard>
@@ -287,7 +287,7 @@
                                 <!-- FontSize -->
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="HoverText" Storyboard.TargetProperty="FontSize"
+                                        <DoubleAnimation Storyboard.TargetName="PlaceholderText" Storyboard.TargetProperty="FontSize"
                                                             To="18" Duration="0:0:0.2" />
                                     </Storyboard>
                                 </BeginStoryboard>

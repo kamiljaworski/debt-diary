@@ -99,7 +99,7 @@
             <!-- Row 4 -->
             <!-- Password -->
 
-            <TextBlock Grid.Column="0" Grid.Row="4" Text="{x:Static localization:Strings.Gender}" Style="{StaticResource RegisterPageFormText}"/>
+            <TextBlock Grid.Column="0" Grid.Row="4" Text="{x:Static localization:Strings.Gender}" Style="{StaticResource BaseFormText}"/>
 
             <StackPanel Grid.Column="1" Grid.Row="4" Orientation="Horizontal" Margin="25 20 0 0">
                 <RadioButton Content="{x:Static localization:Strings.Male}" />
