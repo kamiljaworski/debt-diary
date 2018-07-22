@@ -44,7 +44,7 @@
         </Setter>
     </Style>
     <!--#endregion-->
-    
+
     <!--#region Window Control Button Style -->
     <Style TargetType="{x:Type Button}" x:Key="WindowControlButton">
         <Setter Property="Background" Value="{StaticResource DarkGreyBrush}"/>
@@ -88,10 +88,10 @@
         </Setter>
     </Style>
     <!--#endregion-->
-    
+
     <!--#region Window Close Button Style-->
     <Style TargetType="{x:Type Button}" BasedOn="{StaticResource WindowControlButton}" x:Key="WindowCloseButton">
-        
+
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -121,6 +121,41 @@
                         </EventTrigger>
                     </ControlTemplate.Triggers>
 
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+
+    <!--#region RadioButton Base Style-->
+    <Style TargetType="{x:Type RadioButton}">
+        <Setter Property="FontFamily" Value="{StaticResource LatoLight}"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Foreground" Value="{StaticResource DarkGreyBrush}"/>
+
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RadioButton}">
+                    <StackPanel Background="White" Orientation="Horizontal">
+
+                        <!-- Radio -->
+                        <Grid Height="16" Width="16">
+                            <Border Name="RadioOuter" Background="Transparent" BorderBrush="Black" BorderThickness="1" CornerRadius="16" />
+                            <Border CornerRadius="8" Margin="4" Name="RadioMark" Background="Black" Visibility="Hidden" />
+                        </Grid>
+
+                        <!-- Text  -->
+                        <TextBlock Margin="5 0 5 0" FontFamily="{TemplateBinding FontFamily}" FontSize="{TemplateBinding FontSize}" 
+                                   Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding Content}" />
+                    </StackPanel>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="true">
+                            <!-- If item is checked set Visibility of a RadioMark to Visible -->
+                            <Setter TargetName="RadioMark" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
