@@ -7,7 +7,7 @@ namespace DebtDiary
     /// <summary>
     /// Converts <see cref="HorizontalAlignment"/> to <see cref="TextAlignment"/>
     /// </summary>
-    public class HorizontalAlignmentToTextAlignment : BaseValueConverter<HorizontalAlignmentToTextAlignment>
+    public class HorizontalAlignmentToTextAlignmentConverter : BaseValueConverter<HorizontalAlignmentToTextAlignmentConverter>
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

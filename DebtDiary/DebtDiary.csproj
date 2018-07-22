@@ -68,11 +68,13 @@
     <Compile Include="AttachedProperties\BaseAttachedProperty.cs" />
     <Compile Include="AttachedProperties\PasswordBoxAttachedProperties.cs" />
     <Compile Include="IoC\IocContainer.cs" />
+    <Compile Include="ValueConverters\ApplicationPageConverter.cs" />
     <Compile Include="ValueConverters\BooleanToVisibilityConverter.cs" />
-    <Compile Include="ValueConverters\HorizontalAlignmentToTextAlignment.cs" />
-    <Compile Include="ValueConverters\OpacityToBolleanValueConverter.cs" />
+    <Compile Include="ValueConverters\HorizontalAlignmentToTextAlignmentConverter.cs" />
+    <Compile Include="ValueConverters\OpacityToBolleanConverter.cs" />
     <Compile Include="ValueConverters\TextToBooleanConverter.cs" />
     <Compile Include="ValueConverters\VisibilityToBooleanConverter.cs" />
+    <Compile Include="ValueConverters\WindowStateToIconConverter.cs" />
     <Compile Include="ViewModels\Application\ApplicationViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\Pages\RegisterPage.xaml.cs">
@@ -91,10 +93,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.pl-PL.resx</DependentUpon>
     </Compile>
-    <Compile Include="ValueConverters\ApplicationPageValueConverter.cs" />
     <Compile Include="ValueConverters\BaseValueConverter.cs" />
     <Compile Include="ValueConverters\TextToVisibilityConverter.cs" />
-    <Compile Include="ValueConverters\WindowStateToIconValueConverter.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="ViewModels\Base\IViewModel.cs" />
     <Compile Include="ViewModels\Base\RelayCommand.cs" />

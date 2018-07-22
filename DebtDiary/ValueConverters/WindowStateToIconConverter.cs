@@ -7,7 +7,7 @@ namespace DebtDiary
     /// <summary>
     /// Converts <see cref="WindowState"/> to icon like: "&#xE922;"
     /// </summary>
-    public class WindowStateToIconValueConverter : BaseValueConverter<WindowStateToIconValueConverter>
+    public class WindowStateToIconConverter : BaseValueConverter<WindowStateToIconConverter>
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

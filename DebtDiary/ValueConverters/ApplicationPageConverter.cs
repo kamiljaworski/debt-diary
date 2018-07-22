@@ -7,7 +7,7 @@ namespace DebtDiary
     /// <summary>
     /// Converts <see cref="ApplicationPage"/> to an actual Page
     /// </summary>
-    public class ApplicationPageValueConverter : BaseValueConverter<ApplicationPageValueConverter>
+    public class ApplicationPageConverter : BaseValueConverter<ApplicationPageConverter>
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

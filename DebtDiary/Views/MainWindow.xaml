@@ -58,7 +58,7 @@
                                             Command="{Binding MinimizeCommand}" />
                                     <!-- Maximize / Restore button -->
                                     <Button Grid.Column="3" Style="{StaticResource WindowControlButton}" 
-                                            Content="{TemplateBinding WindowState, Converter={local:WindowStateToIconValueConverter}}" 
+                                            Content="{TemplateBinding WindowState, Converter={local:WindowStateToIconConverter}}" 
                                             Command="{Binding MaximizeCommand}"/>
                                     <!-- Close button -->
                                     <Button Grid.Column="4" Style="{StaticResource WindowCloseButton}" Content="{StaticResource CloseIcon}" 
@@ -93,7 +93,7 @@
         </Grid.Background>
 
         <!-- Current Page -->
-        <Frame Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}" NavigationUIVisibility="Hidden"/>
+        <Frame Content="{Binding CurrentPage, Converter={local:ApplicationPageConverter}}" NavigationUIVisibility="Hidden"/>
     </Grid>
     <!--#endregion-->
     

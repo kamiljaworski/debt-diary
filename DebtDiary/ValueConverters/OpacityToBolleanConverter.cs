@@ -6,7 +6,7 @@ namespace DebtDiary
     /// <summary>
     /// Converts page grid's opacity to boolean to disable buttons
     /// </summary>
-    public class OpacityToBolleanValueConverter : BaseValueConverter<OpacityToBolleanValueConverter>
+    public class OpacityToBolleanConverter : BaseValueConverter<OpacityToBolleanConverter>
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
