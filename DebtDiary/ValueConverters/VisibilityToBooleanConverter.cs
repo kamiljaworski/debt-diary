@@ -6,9 +6,9 @@ using System.Windows;
 namespace DebtDiary
 {
     /// <summary>
-    /// Converts SecureString length to Boolean value
+    /// Converts Visibility to Boolean value
     /// </summary>
-    public class VisibilityToBolleanConverter : BaseValueConverter<VisibilityToBolleanConverter>
+    public class VisibilityToBooleanConverter : BaseValueConverter<VisibilityToBooleanConverter>
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

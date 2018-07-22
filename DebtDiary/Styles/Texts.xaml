@@ -251,7 +251,7 @@
                         </EventTrigger>
 
                         <!-- Hover Text Animations -->
-                        <DataTrigger Binding="{Binding ElementName=HelperTextBlock, Path=Visibility, Converter={local:VisibilityToBolleanConverter}}" Value="False">
+                        <DataTrigger Binding="{Binding ElementName=HelperTextBlock, Path=Visibility, Converter={local:VisibilityToBooleanConverter}}" Value="False">
 
                             <!-- Go up -->
                             <DataTrigger.EnterActions>

@@ -71,8 +71,8 @@
     <Compile Include="ValueConverters\BooleanToVisibilityConverter.cs" />
     <Compile Include="ValueConverters\HorizontalAlignmentToTextAlignment.cs" />
     <Compile Include="ValueConverters\OpacityToBolleanValueConverter.cs" />
-    <Compile Include="ValueConverters\SecureStringToBooleanConverter.cs" />
     <Compile Include="ValueConverters\TextToBooleanConverter.cs" />
+    <Compile Include="ValueConverters\VisibilityToBooleanConverter.cs" />
     <Compile Include="ViewModels\Application\ApplicationViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\Pages\RegisterPage.xaml.cs">
