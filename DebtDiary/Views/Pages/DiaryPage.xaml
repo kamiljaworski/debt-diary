@@ -1,0 +1,41 @@
+﻿<Page x:Class="DebtDiary.DiaryPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DebtDiary"
+      xmlns:localization="clr-namespace:DebtDiary.Localization"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Title="DiaryPage">
+
+    <Grid x:Name="MainGrid">
+        
+        <!--#region Animations-->
+        <Grid.Triggers>
+            <!-- Fade in animation -->
+            <EventTrigger RoutedEvent="Loaded">
+                <BeginStoryboard>
+                    <Storyboard >
+                        <DoubleAnimation  Storyboard.TargetName="MainGrid" Storyboard.TargetProperty="Opacity" 
+                                          Duration="{Binding ApplicationViewModel.FadeInDuration, Source={StaticResource ViewModelLocator}}" 
+                                          From="0" To="1" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+
+            <!-- Fade out animation -->
+            <EventTrigger RoutedEvent="Button.Click" SourceName="CreateAccountButton">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation  Storyboard.TargetName="MainGrid" Storyboard.TargetProperty="Opacity" 
+                                          Duration="{Binding ApplicationViewModel.FadeOutDuration, Source={StaticResource ViewModelLocator}}" 
+                                          From="1" To="0" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Grid.Triggers>
+        <!--#endregion-->
+        
+    </Grid>
+</Page>
