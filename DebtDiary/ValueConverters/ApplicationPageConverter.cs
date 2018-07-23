@@ -19,6 +19,9 @@ namespace DebtDiary
                 case ApplicationPage.RegisterPage:
                     return new RegisterPage();
 
+                case ApplicationPage.DiaryPage:
+                    return new DiaryPage();
+
                 default:
                     return null;
             }

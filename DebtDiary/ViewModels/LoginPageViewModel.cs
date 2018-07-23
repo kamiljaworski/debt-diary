@@ -23,6 +23,11 @@ namespace DebtDiary
         /// Command that change current page to RegisterPage
         /// </summary>
         public ICommand CreateAccountCommand { get; set; }
+
+        /// <summary>
+        /// Command that log the user in
+        /// </summary>
+        public ICommand LoginCommand { get; set; }
         #endregion
 
         #region Default Constructor
@@ -31,6 +36,7 @@ namespace DebtDiary
         {
             // Create commands
             CreateAccountCommand = new RelayCommand(GoToRegisterPage);
+            LoginCommand = new RelayCommand(GoToDiaryPage);
         }
         #endregion
 
@@ -42,6 +48,14 @@ namespace DebtDiary
         private void GoToRegisterPage()
         {
             IocContainer.Get<ApplicationViewModel>().GoToPageAsync(ApplicationPage.RegisterPage);
+        }
+
+        /// <summary>
+        /// Temporary login method that only change page to the DiaryPage
+        /// </summary>
+        private void GoToDiaryPage()
+        {
+            IocContainer.Get<ApplicationViewModel>().GoToPageAsync(ApplicationPage.DiaryPage);
         }
         #endregion
     }

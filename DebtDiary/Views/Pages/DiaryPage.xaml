@@ -25,7 +25,7 @@
             </EventTrigger>
 
             <!-- Fade out animation -->
-            <EventTrigger RoutedEvent="Button.Click" SourceName="CreateAccountButton">
+            <EventTrigger RoutedEvent="Button.Click">
                 <BeginStoryboard>
                     <Storyboard>
                         <DoubleAnimation  Storyboard.TargetName="MainGrid" Storyboard.TargetProperty="Opacity" 
@@ -36,6 +36,11 @@
             </EventTrigger>
         </Grid.Triggers>
         <!--#endregion-->
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock FontSize="60" Foreground="White">Diary Page</TextBlock>
+        </StackPanel>
         
+
     </Grid>
 </Page>
