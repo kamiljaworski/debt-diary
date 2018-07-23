@@ -3,6 +3,7 @@
     public enum ApplicationPage
     {
         LoginPage,
-        RegisterPage
+        RegisterPage,
+        DiaryPage
     }
 }
