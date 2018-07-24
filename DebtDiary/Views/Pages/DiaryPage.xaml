@@ -10,7 +10,7 @@
       Title="DiaryPage">
 
     <Grid x:Name="MainGrid">
-        
+
         <!--#region Animations-->
         <Grid.Triggers>
             <!-- Fade in animation -->
@@ -37,10 +37,148 @@
         </Grid.Triggers>
         <!--#endregion-->
 
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock FontSize="60" Foreground="White">Diary Page</TextBlock>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition Width="31*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Background="{StaticResource DarkGreyBrush}">
+            <Border Background="#444444">
+
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="0" Width="70" Height="{Binding Width, RelativeSource={RelativeSource Self}}" CornerRadius="{Binding Width, RelativeSource={RelativeSource Self}}" Background="Green">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="5*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <Viewbox Grid.Row="1" Grid.Column="1" Stretch="Uniform">
+                                <TextBlock Text="KJ" Foreground="White" FontFamily="{StaticResource LatoThin}"/>
+                            </Viewbox>
+                        </Grid>
+
+                    </Border>
+
+
+                    <StackPanel Grid.Column="1" Margin="10">
+                        <TextBlock Text="Kamil Jaworski" Foreground="White" FontFamily="{StaticResource LatoRegular}" FontSize="24"/>
+                        <TextBlock Text="kamilj610" Foreground="White" FontFamily="{StaticResource LatoThin}" FontSize="22"/>
+                    </StackPanel>
+
+                </Grid>
+            </Border>
+            <StackPanel Margin="10">
+                <TextBlock Text="Ogólne" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="24"/>
+                <StackPanel Orientation="Horizontal" Margin="10 5 0 0">
+                    <TextBlock Text="&#xEA8A;" Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="18"/>
+                    <TextBlock Text="Podsumowanie" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="18" Margin="5 0 0 0"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="10 5 0 0">
+                    <TextBlock Text="&#xEA8C;" Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="18"/>
+                    <TextBlock Text="Moje konto" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="18" Margin="5 0 0 0"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="10 5 0 0">
+                    <TextBlock Text="&#xE7E8;" Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="18"/>
+                    <TextBlock Text="Wyloguj" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="18" Margin="5 0 0 0"/>
+                </StackPanel>
+
+                <TextBlock Text="Dłużnicy" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="24" Margin="0 10 0 0"/>
+
+                <StackPanel Margin="10 0 0 0">
+
+
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0" Width="40" Height="{Binding Width, RelativeSource={RelativeSource Self}}" CornerRadius="{Binding Width, RelativeSource={RelativeSource Self}}" Background="Orange">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Viewbox Grid.Row="1" Grid.Column="1" Stretch="Uniform">
+                                    <TextBlock Text="JK" Foreground="White" FontFamily="{StaticResource LatoThin}"/>
+                                </Viewbox>
+                            </Grid>
+
+                        </Border>
+
+
+                        <StackPanel Grid.Column="1" Margin="10">
+                            <TextBlock Text="Jan Kowalski" Foreground="White" FontFamily="{StaticResource LatoRegular}" FontSize="18"/>
+                            <TextBlock Text="-1800.00 zł" Foreground="Coral" FontFamily="{StaticResource LatoThin}" FontSize="16"/>
+                        </StackPanel>
+
+                    </Grid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0" Width="40" Height="{Binding Width, RelativeSource={RelativeSource Self}}" CornerRadius="{Binding Width, RelativeSource={RelativeSource Self}}" Background="LightSeaGreen">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="5*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Viewbox Grid.Row="1" Grid.Column="1" Stretch="Uniform">
+                                    <TextBlock Text="AN" Foreground="White" FontFamily="{StaticResource LatoThin}"/>
+                                </Viewbox>
+                            </Grid>
+
+                        </Border>
+
+
+                        <StackPanel Grid.Column="1" Margin="10">
+                            <TextBlock Text="Adam Nowak" Foreground="White" FontFamily="{StaticResource LatoRegular}" FontSize="18"/>
+                            <TextBlock Text="690.00 zł" Foreground="LightGreen" FontFamily="{StaticResource LatoThin}" FontSize="16"/>
+                        </StackPanel>
+
+                    </Grid>
+                </StackPanel>
+
+            </StackPanel>
         </StackPanel>
-        
+
+        <Grid Grid.Column="1" Background="#e5e5e5">
+
+        </Grid>
+
 
     </Grid>
 </Page>
