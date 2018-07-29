@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DebtDiary"
       xmlns:localization="clr-namespace:DebtDiary.Localization"
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1280"
       Title="DiaryPage">
@@ -182,7 +183,7 @@
                 <RowDefinition Height="6*"/>
                 <RowDefinition Height="6*"/>
             </Grid.RowDefinitions>
-            
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -201,7 +202,7 @@
                 <Grid Grid.Column="0" Background="#7aab41">
                     <TextBlock Text="&#xEADF;" Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Grid>
-                
+
                 <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="5">
                     <TextBlock Text="Suma długów" Foreground="White" FontSize="18"/>
                     <TextBlock Text="290.00 zł" Foreground="White" FontSize="30"/>
@@ -261,11 +262,90 @@
 
             </Grid>
 
-            <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Background="White" Margin="10"/>
-            <Grid Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"  Background="White" Margin="10"/>
+            <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4"  Background="White" Margin="10">
+                <Grid Margin="10">
+                    <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Right" >
+                        <lvc:CartesianChart.AxisY>
+                            <lvc:Axis Title="Sales" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
+                        </lvc:CartesianChart.AxisY>
+                        <lvc:CartesianChart.AxisX>
+                            <lvc:Axis Title="Month"></lvc:Axis>
+                        </lvc:CartesianChart.AxisX>
+                    </lvc:CartesianChart>
+                </Grid>
+            </Grid>
+            <!--<Grid Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"  Background="White" Margin="10"/>-->
 
-            <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"  Background="White" Margin="10"/>
-            <Grid Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"  Background="White" Margin="10"/>
+            <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4"  Background="White" Margin="10">
+
+                <TextBlock Text="Ostatnie operacje" FontSize="28" FontFamily="{StaticResource LatoLight}" Padding="10 0 0 0"/>
+
+                <Grid Margin="10">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+
+                    <Border Grid.Row="0" BorderBrush="LightGray" BorderThickness="0 0 0 1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0"  Text="Adam Nowak" FontSize="18"/>
+                            <TextBlock Grid.Column="1"  Text="Na fajki" FontSize="18" Foreground="Gray"/>
+                            <TextBlock Grid.Column="2"  Text="-20.00 zł" FontSize="18" Foreground="Red"/>
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Row="1" BorderBrush="LightGray" BorderThickness="0 0 0 1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Jan Kowalski" FontSize="18"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="Na kondomy" FontSize="18" Foreground="Gray"/>
+                            <TextBlock Grid.Row="1" Grid.Column="2" Text="-20.00 zł" FontSize="18" Foreground="Red"/>
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Row="2" BorderBrush="LightGray" BorderThickness="0 0 0 1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Adam Nowak" FontSize="18"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" Text="Za fajki" FontSize="18" Foreground="Gray"/>
+                            <TextBlock Grid.Row="2" Grid.Column="2" Text="20.00 zł" FontSize="18" Foreground="Green"/>
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Row="3" BorderBrush="LightGray" BorderThickness="0 0 0 1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Row="3" Grid.Column="0" Text="Jan Kowalski" FontSize="18"/>
+                            <TextBlock Grid.Row="3" Grid.Column="1" Text="Za kondomy" FontSize="18" Foreground="Gray"/>
+                            <TextBlock Grid.Row="3" Grid.Column="2" Text="20.00 zł" FontSize="18" Foreground="Green"/>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </StackPanel>
 
         </Grid>
 
