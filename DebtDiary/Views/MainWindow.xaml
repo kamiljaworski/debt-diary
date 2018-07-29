@@ -15,7 +15,7 @@
         MinHeight="{Binding MinimumHeight}"
         Width="{Binding MinimumWidth, FallbackValue=1280}"
         Height="{Binding MinimumHeight, FallbackValue=720}">
-    
+
     <!--#region MainWindow Style-->
     <Window.Resources>
         <Style TargetType="{x:Type local:MainWindow}">
@@ -35,34 +35,56 @@
 
                                 <!-- Title bar -->
                                 <Grid Grid.Row="0" Background="{StaticResource DarkGreyBrush}">
+                                    <!-- Title bar divided into 2 parts -->
                                     <Grid.ColumnDefinitions>
-                                        <!-- Icon -->
-                                        <ColumnDefinition Width="Auto"/>
-                                        <!-- Window title -->
+                                        <!-- User control part -->
+                                        <ColumnDefinition Width="280"/>
+                                        <!-- Content part -->
                                         <ColumnDefinition Width="*"/>
-                                        <!-- Minimize button -->
-                                        <ColumnDefinition Width="Auto"/>
-                                        <!-- Maximize / Restore button -->
-                                        <ColumnDefinition Width="Auto"/>
-                                        <!-- Exit button -->
-                                        <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <!-- Icon -->
-                                    <Image Grid.Column="0" Source="../Images/Logo/DebtDiarySmallIcon.ico" Margin="3 3 3 4"/>
-                                    <!-- Title -->
-                                    <TextBlock Grid.Column="1" Margin="2 9 2 0" Style="{StaticResource TitleBarStyle}" 
+
+                                    <Grid Grid.Column="0">
+                                        <Grid.ColumnDefinitions>
+                                            <!-- Icon column -->
+                                            <ColumnDefinition Width="Auto"/>
+                                            <!-- Title column -->
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <!-- Icon -->
+                                        <Image Grid.Column="0" Source="../Images/Logo/DebtDiarySmallIcon.ico" Margin="3 3 3 4"/>
+
+                                        <!-- Title -->
+                                        <TextBlock Grid.Column="1" Margin="2 9 2 0" Style="{StaticResource TitleBarStyle}" 
                                                Text="{Binding Title, RelativeSource={RelativeSource Mode=TemplatedParent}, FallbackValue='Debt diary'}" />
-                                    <!-- Minimize button -->
-                                    <Button Grid.Column="2" Style="{StaticResource WindowControlButton}" Content="{StaticResource MinimizeIcon}" 
-                                            Command="{Binding MinimizeCommand}" />
-                                    <!-- Maximize / Restore button -->
-                                    <Button Grid.Column="3" Style="{StaticResource WindowControlButton}" 
+                                    </Grid>
+
+                                    <Grid Grid.Column="1" Background="#e5e5e5">
+                                        <Grid.ColumnDefinitions>
+                                            <!-- Empty stretching column -->
+                                            <ColumnDefinition Width="*"/>
+                                            <!-- Minimize button column -->
+                                            <ColumnDefinition Width="Auto"/>
+                                            <!-- Maximize / Restore button column -->
+                                            <ColumnDefinition Width="Auto"/>
+                                            <!-- Close button column -->
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <!-- Minimize button -->
+                                        <Button Grid.Column="1" Style="{StaticResource WindowControlButton}" Content="{StaticResource MinimizeIcon}" 
+                                            Command="{Binding MinimizeCommand}" Background="#e5e5e5" Foreground="Black"/>
+
+                                        <!-- Maximize / Restore button -->
+                                        <Button Grid.Column="2" Style="{StaticResource WindowControlButton}" 
                                             Content="{TemplateBinding WindowState, Converter={local:WindowStateToIconConverter}}" 
-                                            Command="{Binding MaximizeCommand}"/>
-                                    <!-- Close button -->
-                                    <Button Grid.Column="4" Style="{StaticResource WindowCloseButton}" Content="{StaticResource CloseIcon}" 
-                                            Command="{Binding CloseCommand}"/>
+                                            Command="{Binding MaximizeCommand}" Background="#e5e5e5" Foreground="Black"/>
+
+                                        <!-- Close button -->
+                                        <Button Grid.Column="3" Style="{StaticResource WindowCloseButton}" Content="{StaticResource CloseIcon}" 
+                                            Command="{Binding CloseCommand}" Background="#e5e5e5" Foreground="Black"/>
+                                    </Grid>
                                 </Grid>
 
                                 <!-- Page content -->
@@ -78,13 +100,13 @@
         </Style>
     </Window.Resources>
     <!--#endregion-->
-    
+
     <!--#region Window Chrome Settings -->
     <WindowChrome.WindowChrome>
         <WindowChrome ResizeBorderThickness="{Binding ResizeBorderThickness}" CaptionHeight="{Binding TitleBarHeight}"/>
     </WindowChrome.WindowChrome>
     <!--#endregion-->
-    
+
     <!--#region Main Window Content -->
     <Grid DataContext="{Binding ApplicationViewModel, Source={StaticResource ViewModelLocator}, UpdateSourceTrigger=PropertyChanged}">
         <!-- Background -->
@@ -96,5 +118,5 @@
         <Frame Content="{Binding CurrentPage, Converter={local:ApplicationPageConverter}}" NavigationUIVisibility="Hidden"/>
     </Grid>
     <!--#endregion-->
-    
+
 </Window>

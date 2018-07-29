@@ -39,8 +39,8 @@
 
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="9*"/>
-            <ColumnDefinition Width="31*"/>
+            <ColumnDefinition Width="280"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column="0" Background="{StaticResource DarkGreyBrush}">
