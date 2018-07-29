@@ -14,7 +14,7 @@ namespace DebtDiary
         /// <summary>
         /// CurrentPage in the application
         /// </summary>
-        public ApplicationPage CurrentPage { get; private set; } = ApplicationPage.LoginPage;
+        public ApplicationPage CurrentPage { get; private set; } = ApplicationPage.DiaryPage;
 
         /// <summary>
         /// Duration of page fade in animation
