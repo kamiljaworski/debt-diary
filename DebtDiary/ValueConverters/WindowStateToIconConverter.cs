@@ -17,8 +17,8 @@ namespace DebtDiary
 
             // Return right icon
             if ((WindowState)value == WindowState.Maximized)
-                return maximizeIcon;
-            return restoreIcon;
+                return restoreIcon;
+            return maximizeIcon;
         }
 
         public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => throw new NotImplementedException();
