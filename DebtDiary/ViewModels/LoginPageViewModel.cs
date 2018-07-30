@@ -36,7 +36,7 @@ namespace DebtDiary
         {
             // Create commands
             CreateAccountCommand = new RelayCommand(GoToRegisterPage);
-            LoginCommand = new RelayCommand(GoToDiaryPage);
+            LoginCommand = new RelayParameterizedCommand((parameter) => Login(parameter));
         }
         #endregion
 
@@ -53,8 +53,9 @@ namespace DebtDiary
         /// <summary>
         /// Temporary login method that only change page to the DiaryPage
         /// </summary>
-        private void GoToDiaryPage()
+        private void Login(object parameter)
         {
+            string password = (parameter as IHavePassword).Password.GetPassword();
             IocContainer.Get<ApplicationViewModel>().GoToPageAsync(ApplicationPage.DiaryPage);
         }
         #endregion

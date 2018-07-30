@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DebtDiary"
       xmlns:localization="clr-namespace:DebtDiary.Localization"
-      mc:Ignorable="d" 
+      mc:Ignorable="d" x:Name="Page"
       d:DesignHeight="720" d:DesignWidth="1280"
       Title="LoginPage">
 
@@ -69,7 +69,8 @@
                 <!-- Password -->
                 <PasswordBox x:Name="UserPassword" Tag="{x:Static localization:Strings.Password}" Style="{StaticResource LoginPagePasswordBox}"/>
                 <!-- Login Button -->
-                <Button Content="{x:Static localization:Strings.Login}" Command="{Binding LoginCommand}" Margin="0 40 0 40" HorizontalAlignment="Center"/>
+                <Button Content="{x:Static localization:Strings.Login}" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=Page}"
+                        Margin="0 40 0 40" HorizontalAlignment="Center"/>
             </StackPanel>
         </Grid>
         <!--#endregion-->
