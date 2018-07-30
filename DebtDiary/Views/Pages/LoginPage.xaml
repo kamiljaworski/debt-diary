@@ -67,7 +67,7 @@
                 <!-- Username -->
                 <TextBox Tag="{x:Static localization:Strings.Username}" Style="{StaticResource LoginPageTextBox}"/>
                 <!-- Password -->
-                <PasswordBox Tag="{x:Static localization:Strings.Password}" Style="{StaticResource LoginPagePasswordBox}"/>
+                <PasswordBox x:Name="UserPassword" Tag="{x:Static localization:Strings.Password}" Style="{StaticResource LoginPagePasswordBox}"/>
                 <!-- Login Button -->
                 <Button Content="{x:Static localization:Strings.Login}" Command="{Binding LoginCommand}" Margin="0 40 0 40" HorizontalAlignment="Center"/>
             </StackPanel>
