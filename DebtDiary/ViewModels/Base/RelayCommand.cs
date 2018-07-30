@@ -27,7 +27,9 @@ namespace DebtDiary.Core
 
         #region ICommand Public EventHandler
 
-        // Doing nothing lambda expression to avoid compiler warning
+        /// <summary>
+        /// The event thats fired when the <see cref="CanExecute(object)"/> value has changed
+        /// </summary>
         public event EventHandler CanExecuteChanged = (sender, e) => { };
         #endregion
 
