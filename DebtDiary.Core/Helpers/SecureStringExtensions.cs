@@ -1,15 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security;
+using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace DebtDiary.Core
 {
+    /// <summary>
+    /// Extension class for SecureString
+    /// </summary>
     public static class SecureStringExtensions
     {
+        /// <summary>
+        /// Returns a password from SecureString
+        /// </summary>
+        /// <param name="secureString">SecureString you want to get password from</param>
+        /// <returns>Password</returns>
         public static string GetPassword(this SecureString secureString)
         {
             IntPtr value = IntPtr.Zero;
@@ -22,6 +28,24 @@ namespace DebtDiary.Core
             {
                 Marshal.ZeroFreeGlobalAllocUnicode(value);
             }
+        }
+
+        /// <summary>
+        /// Returns a password from SecureString encrypted with SHA265 algorithm
+        /// </summary>
+        /// <param name="secureString">SecureString you want to get password from</param>
+        /// <returns>Encrypted password</returns>
+        public static string GetEncryptedPassword(this SecureString secureString)
+        {
+            SHA256 sha256 = SHA256Managed.Create();
+            byte[] bytes = Encoding.UTF8.GetBytes(secureString.GetPassword());
+            byte[] hash = sha256.ComputeHash(bytes);
+
+            StringBuilder result = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
+                result.Append(hash[i].ToString("X2"));
+
+            return result.ToString();
         }
     }
 }
