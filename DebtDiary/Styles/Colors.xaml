@@ -3,6 +3,9 @@
                     xmlns:local="clr-namespace:DebtDiary">
 
     <!-- Custom colors -->
+    <Color x:Key="VeryLightGrey">#e5e5e5</Color>
+    <SolidColorBrush x:Key="VeryLightGreyBrush" Color="{StaticResource VeryLightGrey}" />
+    
     <Color x:Key="LightGrey">#aaaaaa</Color>
     <SolidColorBrush x:Key="LightGreyBrush" Color="{StaticResource LightGrey}" />
 

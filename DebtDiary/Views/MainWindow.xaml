@@ -60,7 +60,9 @@
                                                Text="{Binding Title, RelativeSource={RelativeSource Mode=TemplatedParent}, FallbackValue='Debt diary'}" />
                                     </Grid>
 
-                                    <Grid Grid.Column="1" Background="#e5e5e5">
+                                    <Grid Grid.Column="1" Background="{Binding ApplicationViewModel.CurrentPage, Source={StaticResource ViewModelLocator}, 
+                                        Converter={local:ApplicationPageToTitleBarBackgroundConverter}}">
+
                                         <Grid.ColumnDefinitions>
                                             <!-- Empty stretching column -->
                                             <ColumnDefinition Width="*"/>
@@ -108,7 +110,7 @@
     <!--#endregion-->
 
     <!--#region Main Window Content -->
-    <Grid DataContext="{Binding ApplicationViewModel, Source={StaticResource ViewModelLocator}, UpdateSourceTrigger=PropertyChanged}">
+    <Grid DataContext="{Binding ApplicationViewModel, Source={StaticResource ViewModelLocator}}">
         <!-- Background -->
         <Grid.Background>
             <ImageBrush ImageSource="../Images/StartScreenBackground.png" Stretch="UniformToFill" />
