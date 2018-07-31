@@ -92,9 +92,11 @@
 
             <!-- Row 3 -->
             <!-- Password -->
-            <PasswordBox Grid.Column="0" Grid.Row="3" Tag="{x:Static localization:Strings.Password}" Style="{StaticResource RegisterPageLeftPasswordBox}"/>
+            <PasswordBox x:Name="UserPassword" Grid.Column="0" Grid.Row="3" Tag="{x:Static localization:Strings.Password}" 
+                         Style="{StaticResource RegisterPageLeftPasswordBox}"/>
             <!-- Repeat Password -->
-            <PasswordBox Grid.Column="1" Grid.Row="3" Tag="{x:Static localization:Strings.RepeatPassword}" Style="{StaticResource RegisterPageRightPasswordBox}"/>
+            <PasswordBox x:Name="RepeatUserPassword" Grid.Column="1" Grid.Row="3" Tag="{x:Static localization:Strings.RepeatPassword}" 
+                         Style="{StaticResource RegisterPageRightPasswordBox}"/>
 
             <!-- Row 4 -->
             <!-- Password -->
