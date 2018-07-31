@@ -19,8 +19,8 @@
                 <BeginStoryboard>
                     <Storyboard >
                         <DoubleAnimation  Storyboard.TargetName="MainGrid" Storyboard.TargetProperty="Opacity" 
-                                          Duration="{Binding ApplicationViewModel.FadeInDuration, Source={StaticResource ViewModelLocator}}" 
-                                          From="0" To="1" />
+                                          Duration="{Binding ApplicationViewModel.FadeInDuration, Source={StaticResource ViewModelLocator}, 
+                                                    Converter={local:TimeSpanToDurationConverter}}" From="0" To="1" />
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>
@@ -30,8 +30,8 @@
                 <BeginStoryboard>
                     <Storyboard>
                         <DoubleAnimation  Storyboard.TargetName="MainGrid" Storyboard.TargetProperty="Opacity" 
-                                          Duration="{Binding ApplicationViewModel.FadeOutDuration, Source={StaticResource ViewModelLocator}}" 
-                                          From="1" To="0" />
+                                          Duration="{Binding ApplicationViewModel.FadeOutDuration, Source={StaticResource ViewModelLocator}, 
+                                                    Converter={local:TimeSpanToDurationConverter}}" From="1" To="0" />
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>
