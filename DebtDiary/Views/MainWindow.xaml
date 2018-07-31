@@ -60,7 +60,36 @@
                                                Text="{Binding Title, RelativeSource={RelativeSource Mode=TemplatedParent}, FallbackValue='Debt diary'}" />
                                     </Grid>
 
-                                    <Grid Grid.Column="1">
+                                    <!-- Light title bar -->
+                                    <Grid Grid.Column="1" Background="{StaticResource VeryLightGreyBrush}">
+
+                                        <Grid.ColumnDefinitions>
+                                            <!-- Empty stretching column -->
+                                            <ColumnDefinition Width="*"/>
+                                            <!-- Minimize button column -->
+                                            <ColumnDefinition Width="Auto"/>
+                                            <!-- Maximize / Restore button column -->
+                                            <ColumnDefinition Width="Auto"/>
+                                            <!-- Close button column -->
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <!-- Minimize button -->
+                                        <Button Grid.Column="1" Style="{StaticResource LightWindowControlButton}" Content="{StaticResource MinimizeIcon}" 
+                                            Command="{Binding MinimizeCommand}"/>
+
+                                        <!-- Maximize / Restore button -->
+                                        <Button Grid.Column="2" Style="{StaticResource LightWindowControlButton}" 
+                                            Content="{TemplateBinding WindowState, Converter={local:WindowStateToIconConverter}}" 
+                                            Command="{Binding MaximizeCommand}"/>
+
+                                        <!-- Close button -->
+                                        <Button Grid.Column="3" Style="{StaticResource LightWindowCloseButton}" Content="{StaticResource CloseIcon}" 
+                                            Command="{Binding CloseCommand}"/>
+                                    </Grid>
+                                    
+                                    <!-- Dark title bar -->
+                                    <Grid Grid.Column="1" Visibility="Hidden">
 
                                         <Grid.Style>
                                             <Style TargetType="{x:Type Grid}">

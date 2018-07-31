@@ -63,9 +63,10 @@
                                    FontSize="{TemplateBinding FontSize}" Text="{TemplateBinding Content}"/>
                     </Border>
 
-                    <!-- Animation -->
                     <ControlTemplate.Triggers>
+                        <!-- Mouse enter animation -->
                         <EventTrigger RoutedEvent="MouseEnter">
+                            <!-- Background -->
                             <BeginStoryboard>
                                 <Storyboard>
                                     <ColorAnimation To="{StaticResource DarkGreyHover}" Duration="0:0:0.15" 
@@ -73,7 +74,9 @@
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
+                        <!-- Mouse leave animation -->
                         <EventTrigger RoutedEvent="MouseLeave">
+                            <!-- Background -->
                             <BeginStoryboard>
                                 <Storyboard>
                                     <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.15" 
@@ -100,10 +103,11 @@
                         <TextBlock Foreground="{TemplateBinding Foreground}" FontFamily="{TemplateBinding FontFamily}" 
                                    FontSize="{TemplateBinding FontSize}" Text="{TemplateBinding Content}"/>
                     </Border>
-
-                    <!-- Animation -->
+                    
                     <ControlTemplate.Triggers>
+                        <!-- Mouse enter animation -->
                         <EventTrigger RoutedEvent="MouseEnter">
+                            <!-- Background -->
                             <BeginStoryboard>
                                 <Storyboard>
                                     <ColorAnimation To="{StaticResource RedHover}" Duration="0:0:0.15" 
@@ -111,11 +115,117 @@
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
+                        <!-- Mouse leave animation -->
                         <EventTrigger RoutedEvent="MouseLeave">
+                            <!-- Background -->
                             <BeginStoryboard>
                                 <Storyboard>
                                     <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.15" 
                                                     Storyboard.TargetName="Border" Storyboard.TargetProperty="Background.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+
+    <!--#region Light Window Control Button Style -->
+    <Style TargetType="{x:Type Button}" x:Key="LightWindowControlButton">
+        <Setter Property="Background" Value="{StaticResource VeryLightGreyBrush}"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Padding" Value="18 13 18 0"/>
+        <Setter Property="FontFamily" Value="{StaticResource Segoe-MDL2}"/>
+        <Setter Property="FontSize" Value="{StaticResource WindowControlIconFontSize}"/>
+        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <!-- Button Style -->
+                    <Border x:Name="Border" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                        <TextBlock Foreground="{TemplateBinding Foreground}" FontFamily="{TemplateBinding FontFamily}" 
+                                   FontSize="{TemplateBinding FontSize}" Text="{TemplateBinding Content}"/>
+                    </Border>
+                    
+                    <ControlTemplate.Triggers>
+                        <!-- Mouse enter animation -->
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <!-- Background -->
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource LightGrey}" Duration="0:0:0.15" 
+                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="Background.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <!-- Mouse leave animation -->
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <!-- Background -->
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource VeryLightGrey}" Duration="0:0:0.15" 
+                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="Background.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+
+    <!--#region Light Window Close Button Style-->
+    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource LightWindowControlButton}" x:Key="LightWindowCloseButton">
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <!-- Button Style -->
+                    <Border x:Name="Border" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                        <TextBlock Foreground="{TemplateBinding Foreground}" FontFamily="{TemplateBinding FontFamily}" 
+                                   FontSize="{TemplateBinding FontSize}" Text="{TemplateBinding Content}"/>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <!-- Mouse enter animations -->
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <!-- Backgrond -->
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource RedHover}" Duration="0:0:0.15" 
+                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="Background.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+
+                            <!-- Foreground -->
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="White" Duration="0:0:0.15" 
+                                                    Storyboard.TargetProperty="Foreground.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <!-- Mouse leave animations -->
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <!-- Backgrond -->
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource VeryLightGrey}" Duration="0:0:0.15" 
+                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="Background.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                            
+                            <!-- Foreground -->
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="Black" Duration="0:0:0.15" 
+                                                    Storyboard.TargetProperty="Foreground.Color" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
