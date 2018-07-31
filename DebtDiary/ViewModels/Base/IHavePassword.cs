@@ -3,7 +3,7 @@
 namespace DebtDiary
 {
     /// <summary>
-    /// An interface for a class that wants to get Secure Password
+    /// An interface for a view that have SecurePassword and you want to get it from this view
     /// </summary>
     public interface IHavePassword
     {
