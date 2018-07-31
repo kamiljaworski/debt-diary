@@ -33,7 +33,7 @@
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
 
-                                <!-- Title bar -->
+                                <!--#region Title bar-->
                                 <Grid Grid.Row="0" Background="{StaticResource DarkGreyBrush}">
                                     <!-- Title bar divided into 2 parts -->
                                     <Grid.ColumnDefinitions>
@@ -60,7 +60,7 @@
                                                Text="{Binding Title, RelativeSource={RelativeSource Mode=TemplatedParent}, FallbackValue='Debt diary'}" />
                                     </Grid>
 
-                                    <!-- Light title bar -->
+                                    <!--#region Light title bar-->
                                     <Grid Grid.Column="1" Background="{StaticResource VeryLightGreyBrush}">
 
                                         <Grid.ColumnDefinitions>
@@ -87,28 +87,58 @@
                                         <Button Grid.Column="3" Style="{StaticResource LightWindowCloseButton}" Content="{StaticResource CloseIcon}" 
                                             Command="{Binding CloseCommand}"/>
                                     </Grid>
+                                    <!--#endregion-->
                                     
-                                    <!-- Dark title bar -->
-                                    <Grid Grid.Column="1" Visibility="Hidden">
+                                    <!--#region Dark title bar -->
+                                    <Grid Grid.Column="1" Background="{StaticResource DarkGreyBrush}">
 
                                         <Grid.Style>
                                             <Style TargetType="{x:Type Grid}">
-                                                <Setter Property="Background" Value="{StaticResource DarkGreyBrush}"/>
                                                 <Style.Triggers>
+                                                    <!-- CurrentPage changed to DiaryPage data trigger -->
                                                     <DataTrigger Binding="{Binding ApplicationViewModel.CurrentPage, Source={StaticResource ViewModelLocator}}" 
                                                                  Value="DiaryPage">
 
-                                                        <DataTrigger.EnterActions>
+                                                        <!-- Set IsHitTestVisible to False -->
+                                                        <Setter Property="IsHitTestVisible" Value="False"/>
 
-                                                            <!-- Margin -->
+                                                        <!-- Animation when page is set to DiaryPage -->
+                                                        <DataTrigger.EnterActions>
+                                                            <!-- Background -->
                                                             <BeginStoryboard>
                                                                 <Storyboard>
-                                                                    <ColorAnimation Storyboard.TargetProperty="Background.Color" To="{StaticResource VeryLightGrey}" 
-                                                                                    Duration="0:0:1.0"/>
+                                                                    <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0" 
+                                                                                    Duration="0:0:1.0" />
                                                                 </Storyboard>
+                                                               
                                                             </BeginStoryboard>
                                                         </DataTrigger.EnterActions>
+
+                                                        <!-- Animation when page is set to not DiaryPage -->
+                                                        <DataTrigger.ExitActions>
+                                                            <!-- Background -->
+                                                            <BeginStoryboard>
+                                                                <Storyboard>
+                                                                    <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" 
+                                                                                    Duration="0:0:1.0" />
+                                                                </Storyboard>
+
+                                                            </BeginStoryboard>
+                                                        </DataTrigger.ExitActions>
+
                                                     </DataTrigger>
+
+                                                    <!-- Another pages data triggers to set hit test to true-->
+                                                    <DataTrigger Binding="{Binding ApplicationViewModel.CurrentPage, Source={StaticResource ViewModelLocator}}" 
+                                                                 Value="LoginPage">
+                                                        <Setter Property="IsHitTestVisible" Value="True"/>
+                                                    </DataTrigger>
+
+                                                    <DataTrigger Binding="{Binding ApplicationViewModel.CurrentPage, Source={StaticResource ViewModelLocator}}" 
+                                                                 Value="RegisterPage">
+                                                        <Setter Property="IsHitTestVisible" Value="True"/>
+                                                    </DataTrigger>
+
                                                 </Style.Triggers>
                                             </Style>
                                         </Grid.Style>
@@ -137,7 +167,10 @@
                                         <Button Grid.Column="3" Style="{StaticResource DarkWindowCloseButton}" Content="{StaticResource CloseIcon}" 
                                             Command="{Binding CloseCommand}"/>
                                     </Grid>
+                                    <!--#endregion-->
+                                    
                                 </Grid>
+                                <!--#endregion-->
 
                                 <!-- Page content -->
                                 <Border Grid.Row="1">
