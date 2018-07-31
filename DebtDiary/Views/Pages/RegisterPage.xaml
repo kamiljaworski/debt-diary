@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DebtDiary"
       xmlns:localization="clr-namespace:DebtDiary.Localization"
-      mc:Ignorable="d" 
+      mc:Ignorable="d" x:Name="Page"
       d:DesignHeight="720" d:DesignWidth="1280"
       Title="RegisterPage">
 
@@ -80,15 +80,15 @@
 
             <!-- Row 1 -->
             <!-- First Name -->
-            <TextBox Grid.Column="0" Grid.Row="1" Tag="{x:Static localization:Strings.FirstName}" Style="{StaticResource RegisterPageLeftTextBox}"/>
+            <TextBox Grid.Column="0" Grid.Row="1" Text="{Binding FirstName}" Tag="{x:Static localization:Strings.FirstName}" Style="{StaticResource RegisterPageLeftTextBox}"/>
             <!-- First Name -->
-            <TextBox Grid.Column="1" Grid.Row="1" Tag="{x:Static localization:Strings.LastName}" Style="{StaticResource RegisterPageRightTextBox}"/>
+            <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding LastName}" Tag="{x:Static localization:Strings.LastName}" Style="{StaticResource RegisterPageRightTextBox}"/>
 
             <!-- Row 2 -->
             <!-- Username -->
-            <TextBox Grid.Column="0" Grid.Row="2" Tag="{x:Static localization:Strings.Username}" Style="{StaticResource RegisterPageLeftTextBox}"/>
+            <TextBox Grid.Column="0" Grid.Row="2" Text="{Binding Username}" Tag="{x:Static localization:Strings.Username}" Style="{StaticResource RegisterPageLeftTextBox}"/>
             <!-- E-mail -->
-            <TextBox Grid.Column="1" Grid.Row="2" Tag="{x:Static localization:Strings.Email}" Style="{StaticResource RegisterPageRightTextBox}"/>
+            <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Email}" Tag="{x:Static localization:Strings.Email}" Style="{StaticResource RegisterPageRightTextBox}"/>
 
             <!-- Row 3 -->
             <!-- Password -->
@@ -109,7 +109,8 @@
             </StackPanel>
 
 
-            <Button Grid.ColumnSpan="2" Grid.Row="5" Content="{x:Static localization:Strings.SignUp}" Margin="0 20 0 40" HorizontalAlignment="Center"/>
+            <Button Grid.ColumnSpan="2" Grid.Row="5" Content="{x:Static localization:Strings.SignUp}" Margin="0 20 0 40" HorizontalAlignment="Center"
+                    Command="{Binding SignUpCommand}" CommandParameter="{Binding ElementName=Page}" />
 
         </Grid>
         <!--#endregion-->

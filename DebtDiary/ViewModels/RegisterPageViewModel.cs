@@ -1,4 +1,5 @@
 ﻿using DebtDiary.Core;
+using System;
 using System.Security;
 using System.Windows.Input;
 
@@ -11,9 +12,27 @@ namespace DebtDiary
     {
         #region Public Properties
 
+        /// <summary>
+        /// First name of a new user
+        /// </summary>
+        public string FirstName { get; set; }
+
+        /// <summary>
+        /// Last name of a new user
+        /// </summary>
+        public string LastName { get; set; }
+
+        /// <summary>
+        /// Username of a new user
+        /// </summary>
         public string Username { get; set; }
 
-        public SecureString Password { get; set; }
+        /// <summary>
+        /// E-mail of a new user
+        /// </summary>
+        public string Email { get; set; }
+
+        // TODO: GENDER
 
         #endregion
 
@@ -23,6 +42,11 @@ namespace DebtDiary
         /// Command that change current page to Login Page
         /// </summary>
         public ICommand LoginCommand { get; set; }
+
+        /// <summary>
+        /// Command that signs the user up
+        /// </summary>
+        public ICommand SignUpCommand { get; set; }
         #endregion
 
         #region Default Constructor
@@ -30,7 +54,9 @@ namespace DebtDiary
         {
             // Create commands
             LoginCommand = new RelayCommand(GoToLoginPage);
+            SignUpCommand = new RelayParameterizedCommand((parameter) => SignUp(parameter));
         }
+
         #endregion
 
         #region Private Methods
@@ -41,6 +67,17 @@ namespace DebtDiary
         private void GoToLoginPage()
         {
             IocContainer.Get<ApplicationViewModel>().GoToPageAsync(ApplicationPage.LoginPage);
+        }
+
+        /// <summary>
+        /// Method that signs the user in
+        /// </summary>
+        /// <param name="parameter">Parameter of a RelayParameterizedCommand</param>
+        private void SignUp(object parameter)
+        {
+            string password1 = (parameter as IHaveTwoPasswords)?.FirstPassword.GetPassword();
+            string password2 = (parameter as IHaveTwoPasswords)?.SecondPassword.GetPassword();
+            return;
         }
         #endregion
     }
