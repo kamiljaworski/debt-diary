@@ -45,18 +45,26 @@ namespace DebtDiary
         /// <summary>
         /// Method that change current page to RegisterPage
         /// </summary>
-        private void GoToRegisterPage()
-        {
-            IocContainer.Get<ApplicationViewModel>().GoToPageAsync(ApplicationPage.RegisterPage);
-        }
+        private void GoToRegisterPage() => ChangeCurrentApplicationPage(ApplicationPage.RegisterPage);
 
         /// <summary>
-        /// Temporary login method that only change page to the DiaryPage
+        /// Method that log the user in
         /// </summary>
         private void Login(object parameter)
         {
+            string username = Username;
             string password = (parameter as IHavePassword).Password.GetPassword();
-            IocContainer.Get<ApplicationViewModel>().GoToPageAsync(ApplicationPage.DiaryPage);
+
+            ChangeCurrentApplicationPage(ApplicationPage.DiaryPage);
+        }
+
+        /// <summary>
+        /// Helper method that change the current application page
+        /// </summary>
+        /// <param name="applicationPage">Application page you want to change to</param>
+        private void ChangeCurrentApplicationPage(ApplicationPage applicationPage)
+        {
+            IocContainer.Get<ApplicationViewModel>().GoToPageAsync(applicationPage);
         }
         #endregion
     }
