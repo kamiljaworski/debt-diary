@@ -84,7 +84,7 @@
     <Compile Include="ValueConverters\WindowStateToIconConverter.cs" />
     <Compile Include="ViewModels\Application\ApplicationViewModel.cs" />
     <Compile Include="ViewModels\Base\IHavePassword.cs" />
-    <Compile Include="ViewModels\Base\IHaveTwoPassword.cs" />
+    <Compile Include="ViewModels\Base\IHaveTwoPasswords.cs" />
     <Compile Include="ViewModels\Base\RelayParameterizedCommand.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\Pages\DiaryPage.xaml.cs">
