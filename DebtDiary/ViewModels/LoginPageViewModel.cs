@@ -1,5 +1,4 @@
 ﻿using DebtDiary.Core;
-using System.Security;
 using System.Windows.Input;
 
 namespace DebtDiary
@@ -11,9 +10,10 @@ namespace DebtDiary
     {
         #region Public Properties
 
+        /// <summary>
+        /// Username to log in
+        /// </summary>
         public string Username { get; set; }
-
-        public SecureString Password { get; set; }
 
         #endregion
 
