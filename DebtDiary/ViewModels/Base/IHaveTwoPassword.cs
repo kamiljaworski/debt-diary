@@ -5,7 +5,7 @@ namespace DebtDiary
     /// <summary>
     /// An interface for a view that have 2 SecurePasswords and you want to get them from this view
     /// </summary>
-    public interface IHaveTwoPassword
+    public interface IHaveTwoPasswords
     {
         /// <summary>
         /// First Secure Password
