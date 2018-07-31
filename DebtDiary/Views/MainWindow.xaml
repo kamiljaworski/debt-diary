@@ -60,9 +60,30 @@
                                                Text="{Binding Title, RelativeSource={RelativeSource Mode=TemplatedParent}, FallbackValue='Debt diary'}" />
                                     </Grid>
 
-                                    <Grid Grid.Column="1" Background="{Binding ApplicationViewModel.CurrentPage, Source={StaticResource ViewModelLocator}, 
-                                        Converter={local:ApplicationPageToTitleBarBackgroundConverter}}">
+                                    <Grid Grid.Column="1">
 
+                                        <Grid.Style>
+                                            <Style TargetType="{x:Type Grid}">
+                                                <Setter Property="Background" Value="{StaticResource DarkGreyBrush}"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding ApplicationViewModel.CurrentPage, Source={StaticResource ViewModelLocator}}" 
+                                                                 Value="DiaryPage">
+
+                                                        <DataTrigger.EnterActions>
+
+                                                            <!-- Margin -->
+                                                            <BeginStoryboard>
+                                                                <Storyboard>
+                                                                    <ColorAnimation Storyboard.TargetProperty="Background.Color" To="{StaticResource VeryLightGrey}" 
+                                                                                    Duration="0:0:1.0"/>
+                                                                </Storyboard>
+                                                            </BeginStoryboard>
+                                                        </DataTrigger.EnterActions>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Grid.Style>
+                                        
                                         <Grid.ColumnDefinitions>
                                             <!-- Empty stretching column -->
                                             <ColumnDefinition Width="*"/>
@@ -75,17 +96,17 @@
                                         </Grid.ColumnDefinitions>
 
                                         <!-- Minimize button -->
-                                        <Button Grid.Column="1" Style="{StaticResource WindowControlButton}" Content="{StaticResource MinimizeIcon}" 
-                                            Command="{Binding MinimizeCommand}" Background="#e5e5e5" Foreground="Black"/>
+                                        <Button Grid.Column="1" Style="{StaticResource DarkWindowControlButton}" Content="{StaticResource MinimizeIcon}" 
+                                            Command="{Binding MinimizeCommand}"/>
 
                                         <!-- Maximize / Restore button -->
-                                        <Button Grid.Column="2" Style="{StaticResource WindowControlButton}" 
+                                        <Button Grid.Column="2" Style="{StaticResource DarkWindowControlButton}" 
                                             Content="{TemplateBinding WindowState, Converter={local:WindowStateToIconConverter}}" 
-                                            Command="{Binding MaximizeCommand}" Background="#e5e5e5" Foreground="Black"/>
+                                            Command="{Binding MaximizeCommand}"/>
 
                                         <!-- Close button -->
-                                        <Button Grid.Column="3" Style="{StaticResource WindowCloseButton}" Content="{StaticResource CloseIcon}" 
-                                            Command="{Binding CloseCommand}" Background="#e5e5e5" Foreground="Black"/>
+                                        <Button Grid.Column="3" Style="{StaticResource DarkWindowCloseButton}" Content="{StaticResource CloseIcon}" 
+                                            Command="{Binding CloseCommand}"/>
                                     </Grid>
                                 </Grid>
 

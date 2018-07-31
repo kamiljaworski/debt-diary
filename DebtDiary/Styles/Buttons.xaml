@@ -45,8 +45,8 @@
     </Style>
     <!--#endregion-->
 
-    <!--#region Window Control Button Style -->
-    <Style TargetType="{x:Type Button}" x:Key="WindowControlButton">
+    <!--#region Dark Window Control Button Style -->
+    <Style TargetType="{x:Type Button}" x:Key="DarkWindowControlButton">
         <Setter Property="Background" Value="{StaticResource DarkGreyBrush}"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Padding" Value="18 13 18 0"/>
@@ -89,8 +89,8 @@
     </Style>
     <!--#endregion-->
 
-    <!--#region Window Close Button Style-->
-    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource WindowControlButton}" x:Key="WindowCloseButton">
+    <!--#region Dark Window Close Button Style-->
+    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource DarkWindowControlButton}" x:Key="DarkWindowCloseButton">
 
         <Setter Property="Template">
             <Setter.Value>
