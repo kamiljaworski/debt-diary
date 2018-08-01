@@ -1,4 +1,5 @@
-﻿using Ninject;
+﻿using DebtDiary.Core;
+using Ninject;
 
 namespace DebtDiary
 {
@@ -20,6 +21,7 @@ namespace DebtDiary
         public static void Setup()
         {
             Kernel.Bind<ApplicationViewModel>().To<ApplicationViewModel>().InSingletonScope();
+            Kernel.Bind<TestDatabase>().To<TestDatabase>().InSingletonScope();
         }
 
         /// <summary>

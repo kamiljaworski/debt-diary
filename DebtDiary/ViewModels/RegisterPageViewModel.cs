@@ -79,8 +79,21 @@ namespace DebtDiary
         private void SignUp(object parameter)
         {
             string password1 = (parameter as IHaveTwoPasswords)?.Password.GetPassword();
-            string password2 = (parameter as IHaveTwoPasswords)?.SecondPassword.GetPassword();
-            return;
+            string password2 = (parameter as IHaveTwoPasswords)?.SecondPassword.GetEncryptedPassword();
+
+
+            User user = new User
+            {
+                Username = this.Username,
+                FirstName = this.FirstName,
+                LastName = this.LastName,
+                Email = this.Email,
+                Password = password2,
+                Gender = this.Gender,
+                RegisterDate = DateTime.Now
+            };
+
+            IocContainer.Get<TestDatabase>().RegisterUser(user);
         }
         #endregion
     }

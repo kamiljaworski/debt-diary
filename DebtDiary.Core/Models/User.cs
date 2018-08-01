@@ -8,6 +8,11 @@ namespace DebtDiary.Core
     public class User
     {
         /// <summary>
+        /// User's id
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
         /// Username
         /// </summary>
         public string Username { get; set; }

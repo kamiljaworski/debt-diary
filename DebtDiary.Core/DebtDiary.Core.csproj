@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\DebtDiaryDbContext.cs" />
+    <Compile Include="Database\TestDatabase.cs" />
     <Compile Include="Helpers\SecureStringExtensions.cs" />
     <Compile Include="Models\Gender.cs" />
     <Compile Include="Models\User.cs" />
