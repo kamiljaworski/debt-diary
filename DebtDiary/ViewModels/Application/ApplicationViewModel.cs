@@ -1,5 +1,4 @@
-﻿using DebtDiary.Core;
-using System;
+﻿using System;
 using System.Threading.Tasks;
 
 namespace DebtDiary

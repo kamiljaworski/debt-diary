@@ -82,6 +82,7 @@
     <Compile Include="ValueConverters\TimeSpanToDurationConverter.cs" />
     <Compile Include="ValueConverters\VisibilityToBooleanConverter.cs" />
     <Compile Include="ValueConverters\WindowStateToIconConverter.cs" />
+    <Compile Include="ViewModels\Application\ApplicationPage.cs" />
     <Compile Include="ViewModels\Application\ApplicationViewModel.cs" />
     <Compile Include="ViewModels\Base\IHavePassword.cs" />
     <Compile Include="ViewModels\Base\IHaveTwoPasswords.cs" />
