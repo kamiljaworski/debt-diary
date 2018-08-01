@@ -94,7 +94,7 @@ namespace DebtDiary
                 RegisterDate = DateTime.Now
             };
 
-            IocContainer.Get<TestDatabase>().RegisterUser(user);
+            IocContainer.Get<IDebtDiaryDataAccess>().RegisterUser(user);
         }
         #endregion
     }
