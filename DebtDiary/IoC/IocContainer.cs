@@ -1,4 +1,4 @@
-﻿using DebtDiary.Core;
+﻿using DebtDiary.DataProvider;
 using Ninject;
 
 namespace DebtDiary

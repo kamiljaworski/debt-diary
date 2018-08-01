@@ -1,6 +1,7 @@
-﻿using System.Data.Entity;
+﻿using DebtDiary.Core;
+using System.Data.Entity;
 
-namespace DebtDiary.Core
+namespace DebtDiary.DataProvider
 {
     /// <summary>
     /// Application database context
@@ -10,9 +11,8 @@ namespace DebtDiary.Core
         /// <summary>
         /// Default constructor
         /// </summary>
-        public DebtDiaryDbContext(): base("name = DebtDiaryConnectionString")
-        {
-        }
+        public DebtDiaryDbContext(): base("DebtDiaryConnectionString")
+        {  }
 
         /// <summary>
         /// Users table

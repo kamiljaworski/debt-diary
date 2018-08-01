@@ -1,4 +1,6 @@
-﻿namespace DebtDiary.Core
+﻿using DebtDiary.Core;
+
+namespace DebtDiary.DataProvider
 {
     /// <summary>
     /// Tempoprary test class for managing database
