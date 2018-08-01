@@ -6,7 +6,7 @@ namespace DebtDiary
 {
     /// <summary>
     /// Converts <see cref="Gender"/> to <see cref="Boolean"/> and <see cref="Boolean"/> to <see cref="Gender"/> back
-    /// for xaml two-ways RadioButton binding
+    /// using ConverterParameter for xaml two-way RadioButton binding
     /// </summary>
     public class GenderToBolleanConverter : BaseValueConverter<GenderToBolleanConverter>
     {
@@ -48,10 +48,10 @@ namespace DebtDiary
             string converterParameter = parameter as string;
             bool isSet = (bool)value;
 
-            // Check is converter parameter is correct and if boolean is set to true
-            if (converterParameter == "Male" && isSet == true)
+            // Check if converter parameter is correct and if this gender is set
+            if (converterParameter == "Male" && isSet)
                 return Gender.Male;
-            else if (converterParameter == "Female" && isSet == true)
+            else if (converterParameter == "Female" && isSet)
                 return Gender.Female;
 
             // If not return null
