@@ -104,8 +104,8 @@
             <TextBlock Grid.Column="0" Grid.Row="4" Text="{x:Static localization:Strings.Gender}" Style="{StaticResource BaseFormText}"/>
 
             <StackPanel Grid.Column="1" Grid.Row="4" Orientation="Horizontal" Margin="25 20 0 0">
-                <RadioButton Content="{x:Static localization:Strings.Male}" />
-                <RadioButton Content="{x:Static localization:Strings.Female}" Margin="10 0 0 0"/>
+                <RadioButton Content="{x:Static localization:Strings.Male}" IsChecked="{Binding Gender, Converter={local:GenderToBolleanConverter}, ConverterParameter='Male'}" />
+                <RadioButton Content="{x:Static localization:Strings.Female}" IsChecked="{Binding Gender, Converter={local:GenderToBolleanConverter}, ConverterParameter='Female'}" Margin="10 0 0 0"/>
             </StackPanel>
 
 

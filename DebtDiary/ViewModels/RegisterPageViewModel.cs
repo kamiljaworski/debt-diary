@@ -32,7 +32,10 @@ namespace DebtDiary
         /// </summary>
         public string Email { get; set; }
 
-        // TODO: GENDER
+        /// <summary>
+        /// Gender of a new user
+        /// </summary>
+        public Gender Gender { get; set; }
 
         #endregion
 
