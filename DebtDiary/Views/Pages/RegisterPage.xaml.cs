@@ -11,10 +11,10 @@ namespace DebtDiary
         /// <summary>
         /// First Password of IHaveTwoPasswords interface implementation
         /// </summary>
-        public SecureString FirstPassword => UserPassword.SecurePassword;
+        public SecureString Password => UserPassword.SecurePassword;
 
         /// <summary>
-        /// First Password of IHaveTwoPasswords interface implementation
+        /// Second Password of IHaveTwoPasswords interface implementation
         /// </summary>
         public SecureString SecondPassword => RepeatUserPassword.SecurePassword;
 

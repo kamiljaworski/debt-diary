@@ -75,7 +75,7 @@ namespace DebtDiary
         /// <param name="parameter">Parameter of a RelayParameterizedCommand</param>
         private void SignUp(object parameter)
         {
-            string password1 = (parameter as IHaveTwoPasswords)?.FirstPassword.GetPassword();
+            string password1 = (parameter as IHaveTwoPasswords)?.Password.GetPassword();
             string password2 = (parameter as IHaveTwoPasswords)?.SecondPassword.GetPassword();
             return;
         }
