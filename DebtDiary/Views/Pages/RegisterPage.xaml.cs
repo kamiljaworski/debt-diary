@@ -18,11 +18,22 @@ namespace DebtDiary
         /// </summary>
         public SecureString SecondPassword => RepeatUserPassword.SecurePassword;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public RegisterPage()
         {
             DataContext = new RegisterPageViewModel();
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Clears both PasswordBoxes in the view
+        /// </summary>
+        public void ClearPassword()
+        {
+            UserPassword.Clear();
+            RepeatUserPassword.Clear();
+        }
     }
 }

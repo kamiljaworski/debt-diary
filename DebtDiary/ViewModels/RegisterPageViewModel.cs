@@ -79,10 +79,13 @@ namespace DebtDiary
         /// <param name="parameter">Parameter of a RelayParameterizedCommand</param>
         private void SignUp(object parameter)
         {
+            // Get passwords from the view
             string password1 = (parameter as IHaveTwoPasswords)?.Password.GetPassword();
             string password2 = (parameter as IHaveTwoPasswords)?.SecondPassword.GetEncryptedPassword();
 
+            // TODO: Validate data before signing up
 
+            // Make new user object
             User user = new User
             {
                 Username = this.Username,
@@ -94,7 +97,25 @@ namespace DebtDiary
                 RegisterDate = DateTime.Now
             };
 
+            // Sign up a new user
             IocContainer.Get<IDebtDiaryDataAccess>().RegisterUser(user);
+
+            // Clear all the fields in the view
+            ClearAllFields(parameter as IHaveTwoPasswords);
+        }
+
+        /// <summary>
+        /// Helper method that clears all the fields in the view
+        /// </summary>
+        /// <param name="twoPasswords">View that implements <see cref="IHaveTwoPasswords"/> interface you want to clear</param>
+        private void ClearAllFields(IHaveTwoPasswords twoPasswords)
+        { 
+            Username = string.Empty;
+            FirstName = string.Empty;
+            LastName = string.Empty;
+            Email = string.Empty;
+            Gender = 0;
+            twoPasswords.ClearPassword();
         }
         #endregion
     }

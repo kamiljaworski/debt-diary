@@ -11,5 +11,10 @@ namespace DebtDiary
         /// The Secure Password
         /// </summary>
         SecureString Password { get; }
+
+        /// <summary>
+        /// Clears the PasswordBox in the view
+        /// </summary>
+        void ClearPassword();
     }
 }

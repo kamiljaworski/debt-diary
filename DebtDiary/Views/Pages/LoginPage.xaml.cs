@@ -13,10 +13,18 @@ namespace DebtDiary
         /// </summary>
         public SecureString Password => UserPassword.SecurePassword;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public LoginPage()
         {
             DataContext = new LoginPageViewModel();
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Clear the PasswordBox
+        /// </summary>
+        public void ClearPassword() => UserPassword.Clear();
     }
 }
