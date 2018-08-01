@@ -98,7 +98,7 @@ namespace DebtDiary
             };
 
             // Sign up a new user
-            IocContainer.Get<IDebtDiaryDataAccess>().RegisterUser(user);
+            IocContainer.Get<IDebtDiaryDataAccess>().SignUp(user);
 
             // Clear all the fields in the view
             ClearAllFields(parameter as IHaveTwoPasswords);

@@ -17,7 +17,7 @@ namespace DebtDiary.DataProvider
         /// Register user method
         /// </summary>
         /// <param name="user">User you want to register in the database</param>
-        public void RegisterUser(User user)
+        public void SignUp(User user)
         {
             dbContext.Users.Add(user);
             dbContext.SaveChanges();

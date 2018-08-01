@@ -11,6 +11,6 @@ namespace DebtDiary.DataProvider
         /// Register user method
         /// </summary>
         /// <param name="user">User to register in the database</param>
-        void RegisterUser(User user);
+        void SignUp(User user);
     }
 }
