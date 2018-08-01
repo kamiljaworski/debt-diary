@@ -47,10 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityFramework\DebtDiaryDataAccess.cs" />
     <Compile Include="EntityFramework\DebtDiaryDbContext.cs" />
     <Compile Include="EntityFramework\IDebtDiaryDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="EntityFramework\TestDatabase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
