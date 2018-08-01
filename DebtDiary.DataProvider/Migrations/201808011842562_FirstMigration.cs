@@ -12,20 +12,24 @@ namespace DebtDiary.DataProvider.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Username = c.String(),
-                        FirstName = c.String(),
-                        LastName = c.String(),
-                        Email = c.String(),
-                        Password = c.String(),
+                        Username = c.String(maxLength: 80),
+                        FirstName = c.String(maxLength: 80),
+                        LastName = c.String(maxLength: 80),
+                        Email = c.String(maxLength: 80),
+                        Password = c.String(maxLength: 256),
                         Gender = c.Int(),
                         RegisterDate = c.DateTime(),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.Username, unique: true)
+                .Index(t => t.Email, unique: true);
             
         }
         
         public override void Down()
         {
+            DropIndex("dbo.Users", new[] { "Email" });
+            DropIndex("dbo.Users", new[] { "Username" });
             DropTable("dbo.Users");
         }
     }

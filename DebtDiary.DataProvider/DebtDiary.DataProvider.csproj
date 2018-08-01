@@ -50,9 +50,9 @@
     <Compile Include="EntityFramework\DebtDiaryDataAccess.cs" />
     <Compile Include="EntityFramework\DebtDiaryDbContext.cs" />
     <Compile Include="EntityFramework\IDebtDiaryDataAccess.cs" />
-    <Compile Include="Migrations\201808011735136_FirstMigration.cs" />
-    <Compile Include="Migrations\201808011735136_FirstMigration.Designer.cs">
-      <DependentUpon>201808011735136_FirstMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201808011842562_FirstMigration.cs" />
+    <Compile Include="Migrations\201808011842562_FirstMigration.Designer.cs">
+      <DependentUpon>201808011842562_FirstMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,8 +68,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808011735136_FirstMigration.resx">
-      <DependentUpon>201808011735136_FirstMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808011842562_FirstMigration.resx">
+      <DependentUpon>201808011842562_FirstMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

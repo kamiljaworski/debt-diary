@@ -13,7 +13,7 @@ namespace DebtDiary.DataProvider.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201808011735136_FirstMigration"; }
+            get { return "201808011842562_FirstMigration"; }
         }
         
         string IMigrationMetadata.Source
