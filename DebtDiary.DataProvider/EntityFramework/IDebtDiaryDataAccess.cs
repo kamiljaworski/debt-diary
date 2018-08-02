@@ -3,14 +3,14 @@
 namespace DebtDiary.DataProvider
 {
     /// <summary>
-    /// Interface for data access
+    /// Interface for application data access
     /// </summary>
     public interface IDebtDiaryDataAccess
     {
         /// <summary>
-        /// Register user method
+        /// Method that create new user in the database
         /// </summary>
-        /// <param name="user">User to register in the database</param>
-        void SignUp(User user);
+        /// <param name="user">New user to sign up</param>
+        void CreateAccount(User user);
     }
 }

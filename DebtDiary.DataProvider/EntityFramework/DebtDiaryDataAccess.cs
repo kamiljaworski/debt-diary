@@ -14,10 +14,10 @@ namespace DebtDiary.DataProvider
         private DebtDiaryDbContext dbContext = new DebtDiaryDbContext();
 
         /// <summary>
-        /// Register user method
+        /// Method that create new user in the database
         /// </summary>
-        /// <param name="user">User you want to register in the database</param>
-        public void SignUp(User user)
+        /// <param name="user">New user to sign up</param>
+        public void CreateAccount(User user)
         {
             dbContext.Users.Add(user);
             dbContext.SaveChanges();
