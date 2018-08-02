@@ -64,6 +64,16 @@ namespace DebtDiary
         /// Command that signs the user up
         /// </summary>
         public ICommand SignUpCommand { get; set; }
+
+        /// <summary>
+        /// Command that sets FirstNameMessage to FormMessage.None
+        /// </summary>
+        public ICommand ResetFirstNameMessageCommand { get; set; }
+
+        /// <summary>
+        /// Command that sets LastNameMessage to FormMessage.None
+        /// </summary>
+        public ICommand ResetLastNameMessageCommand { get; set; }
         #endregion
 
         #region Default Constructor
@@ -72,6 +82,8 @@ namespace DebtDiary
             // Create commands
             LoginCommand = new RelayCommand(GoToLoginPage);
             SignUpCommand = new RelayParameterizedCommand((parameter) => SignUp(parameter));
+            ResetFirstNameMessageCommand = new RelayCommand(() => FirstNameMessage = FormMessage.None);
+            ResetLastNameMessageCommand = new RelayCommand(() => LastNameMessage = FormMessage.None);
         }
 
         #endregion
