@@ -149,19 +149,17 @@ namespace DebtDiary
         {
             // Check if first name textbox is not empty
             if (string.IsNullOrEmpty(FirstName))
-            {
                 FirstNameMessage = FormMessage.EmptyFirstName;
-                return false;
-            }
 
             // Check if last name textbox is not empty
             if (string.IsNullOrEmpty(LastName))
-            {
-                LastNameMessage = FormMessage.EmptyLastName; ;
+                LastNameMessage = FormMessage.EmptyLastName;
+
+            // If any of the messages changed it's value return false
+            if (FirstNameMessage != FormMessage.None || LastNameMessage != FormMessage.None)
                 return false;
-            }
 
-
+            // If not return true
             return true;
         }
 

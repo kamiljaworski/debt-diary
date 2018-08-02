@@ -57,6 +57,19 @@
         <Setter Property="FontSize" Value="18"/>
         <Setter Property="FontFamily" Value="{StaticResource LatoLight}"/>
     </Style>
+
+    <!-- Left error texblock -->
+    <Style TargetType="{x:Type TextBlock}" x:Key="LeftErrorTextblock">
+        <Setter Property="Foreground" Value="Red"/>
+        <Setter Property="Margin" Value="45 3 25 0"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontFamily" Value="{StaticResource LatoRegular}"/>
+    </Style>
+    
+    <!-- Right error texblock -->
+    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource LeftErrorTextblock}" x:Key="RightErrorTextblock">
+        <Setter Property="Margin" Value="25 3 45 0"/>
+    </Style>
     <!--#endregion-->
 
     <!--#region Base TextBox Style-->
@@ -305,13 +318,13 @@
     <!--#region RegisterPage PasswordBox and TextBox Styles-->
     <!-- Left TextBox -->
     <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}" x:Key="RegisterPageLeftTextBox">
-        <Setter Property="Margin" Value="20 0 10 10"/>
+        <Setter Property="Margin" Value="20 0 10 0"/>
         <Setter Property="TextAlignment" Value="Left"/>
     </Style>
 
     <!-- Right TextBox -->
     <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource RegisterPageLeftTextBox}" x:Key="RegisterPageRightTextBox">
-        <Setter Property="Margin" Value="10 0 20 10"/>
+        <Setter Property="Margin" Value="10 0 20 0"/>
     </Style>
 
     <!-- Left PasswordBox -->
@@ -319,11 +332,14 @@
         <Setter Property="Margin" Value="20 0 10 10"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
     </Style>
-
+    
+    <!-- Right PasswordBox -->
     <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource RegisterPageLeftPasswordBox}" x:Key="RegisterPageRightPasswordBox">
         <Setter Property="Margin" Value="10 0 20 10"/>
     </Style>
     <!--#endregion-->
+
+
 
     <!--#region LoginPage PasswordBox and TextBox Styles -->
     <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}" x:Key="LoginPageTextBox">
