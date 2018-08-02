@@ -86,6 +86,7 @@
     <Compile Include="IoC\IocContainer.cs" />
     <Compile Include="ValueConverters\ApplicationPageConverter.cs" />
     <Compile Include="ValueConverters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="ValueConverters\FormMessageToBrushConverter.cs" />
     <Compile Include="ValueConverters\FormMessageToTextConverter.cs" />
     <Compile Include="ValueConverters\FormMessageToVisibilityConverter.cs" />
     <Compile Include="ValueConverters\GenderToBolleanConverter.cs" />

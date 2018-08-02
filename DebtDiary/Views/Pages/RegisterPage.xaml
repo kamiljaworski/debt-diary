@@ -81,7 +81,8 @@
             <!-- Row 1 -->
             <!-- First Name -->
             <StackPanel Grid.Column="0" Grid.Row="1">
-                <TextBox Text="{Binding FirstName}" Tag="{x:Static localization:Strings.FirstName}" Style="{StaticResource RegisterPageLeftTextBox}"/>
+                <TextBox Text="{Binding FirstName}" Tag="{x:Static localization:Strings.FirstName}" Style="{StaticResource RegisterPageLeftTextBox}"
+                         BorderBrush="{Binding FirstNameMessage, Converter={local:FormMessageToBrushConverter}}"/>
                 <TextBlock Text="{Binding FirstNameMessage, Converter={local:FormMessageToStringConverter}}" 
                            Visibility="{Binding FirstNameMessage, Converter={local:FormMessageToVisibilityConverter}}"
                            Style="{StaticResource LeftErrorTextblock}" />
@@ -89,7 +90,8 @@
             
             <!-- Last Name -->
             <StackPanel Grid.Column="1" Grid.Row="1" >
-                <TextBox Text="{Binding LastName}" Tag="{x:Static localization:Strings.LastName}" Style="{StaticResource RegisterPageRightTextBox}"/>
+                <TextBox Text="{Binding LastName}" Tag="{x:Static localization:Strings.LastName}" Style="{StaticResource RegisterPageRightTextBox}"
+                         BorderBrush="{Binding LastNameMessage, Converter={local:FormMessageToBrushConverter}}"/>
                 <TextBlock Text="{Binding LastNameMessage, Converter={local:FormMessageToStringConverter}}" 
                            Visibility="{Binding LastNameMessage, Converter={local:FormMessageToVisibilityConverter}}"
                            Style="{StaticResource RightErrorTextblock}"/>
