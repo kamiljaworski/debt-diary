@@ -80,25 +80,36 @@ namespace DebtDiary
         private void SignUp(object parameter)
         {
             // Get passwords from the view
-            string password1 = (parameter as IHaveTwoPasswords)?.Password.GetPassword();
-            string password2 = (parameter as IHaveTwoPasswords)?.SecondPassword.GetEncryptedPassword();
+            string password = (parameter as IHaveTwoPasswords)?.Password.GetEncryptedPassword();
+            string repeatedPassword = (parameter as IHaveTwoPasswords)?.SecondPassword.GetEncryptedPassword();
+
+            // Get the DataAccess reference
+            IDebtDiaryDataAccess dataAccess = IocContainer.Get<IDebtDiaryDataAccess>();
 
             // TODO: Validate data before signing up
+            if (password != repeatedPassword)
+                return;
+
+            if (dataAccess.IsUsernameAvailable(Username) == false)
+                return;
+
+            if (dataAccess.IsEmailAvailable(Email) == false)
+                return;
 
             // Make new user object
             User user = new User
             {
-                Username = this.Username,
-                FirstName = this.FirstName,
-                LastName = this.LastName,
-                Email = this.Email,
-                Password = password2,
-                Gender = this.Gender,
+                Username = Username,
+                FirstName = FirstName,
+                LastName = LastName,
+                Email = Email,
+                Password = password,
+                Gender = Gender,
                 RegisterDate = DateTime.Now
             };
 
             // Sign up a new user
-            IocContainer.Get<IDebtDiaryDataAccess>().CreateAccount(user);
+            dataAccess.CreateAccount(user);
 
             // Clear all the fields in the view
             ClearAllFields(parameter as IHaveTwoPasswords);
