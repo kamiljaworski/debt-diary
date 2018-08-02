@@ -88,6 +88,24 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter first name.
+        /// </summary>
+        public static string EmptyFirstName {
+            get {
+                return ResourceManager.GetString("EmptyFirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter last name.
+        /// </summary>
+        public static string EmptyLastName {
+            get {
+                return ResourceManager.GetString("EmptyLastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Female.
         /// </summary>
         public static string Female {

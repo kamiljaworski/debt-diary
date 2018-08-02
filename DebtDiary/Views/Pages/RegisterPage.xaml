@@ -82,15 +82,17 @@
             <!-- First Name -->
             <StackPanel Grid.Column="0" Grid.Row="1">
                 <TextBox Text="{Binding FirstName}" Tag="{x:Static localization:Strings.FirstName}" Style="{StaticResource RegisterPageLeftTextBox}"/>
-                <TextBlock Text="Enter First Name" Style="{StaticResource LeftErrorTextblock}" 
-                           Visibility="{Binding FirstNameMessage, Converter={local:FormMessageToVisibilityConverter}}"/>
+                <TextBlock Text="{Binding FirstNameMessage, Converter={local:FormMessageToStringConverter}}" 
+                           Visibility="{Binding FirstNameMessage, Converter={local:FormMessageToVisibilityConverter}}"
+                           Style="{StaticResource LeftErrorTextblock}" />
             </StackPanel>
             
             <!-- Last Name -->
             <StackPanel Grid.Column="1" Grid.Row="1" >
                 <TextBox Text="{Binding LastName}" Tag="{x:Static localization:Strings.LastName}" Style="{StaticResource RegisterPageRightTextBox}"/>
-                <TextBlock Text="Enter Last Name" Style="{StaticResource RightErrorTextblock}"
-                           Visibility="{Binding LastNameMessage, Converter={local:FormMessageToVisibilityConverter}}"/>
+                <TextBlock Text="{Binding LastNameMessage, Converter={local:FormMessageToStringConverter}}" 
+                           Visibility="{Binding LastNameMessage, Converter={local:FormMessageToVisibilityConverter}}"
+                           Style="{StaticResource RightErrorTextblock}"/>
             </StackPanel>
 
             <!-- Row 2 -->

@@ -126,6 +126,12 @@
   <data name="Email" xml:space="preserve">
     <value>E-mail</value>
   </data>
+  <data name="EmptyFirstName" xml:space="preserve">
+    <value>Enter first name</value>
+  </data>
+  <data name="EmptyLastName" xml:space="preserve">
+    <value>Enter last name</value>
+  </data>
   <data name="Female" xml:space="preserve">
     <value>Female</value>
   </data>
