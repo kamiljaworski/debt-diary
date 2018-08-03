@@ -98,7 +98,7 @@
             <!-- Last Name -->
             <StackPanel Grid.Column="1" Grid.Row="1" >
                 <TextBox Text="{Binding LastName}" Tag="{x:Static localization:Strings.LastName}" Style="{StaticResource RegisterPageRightTextBox}"
-                         local:FormMessageProperty.Value="{Binding LastNameMessage}"/>
+                         local:FormMessageProperty.Value="{Binding LastNameMessage, Mode=TwoWay}"/>
 
             </StackPanel>
 
