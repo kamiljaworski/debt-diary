@@ -11,9 +11,11 @@ namespace DebtDiary
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            // Check if value is a TimeSpan class and return its equivalent as a Duration
             if (value is TimeSpan)
                 return new Duration((TimeSpan)value);
 
+            // If it is not a TimeSpan return null
             return null;
         }
 

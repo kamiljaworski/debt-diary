@@ -11,6 +11,7 @@ namespace DebtDiary
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            // Return equivalent of HorizontalAlignment in TextAlignment
             switch ((HorizontalAlignment)value)
             {
                 case HorizontalAlignment.Left:
