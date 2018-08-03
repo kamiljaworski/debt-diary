@@ -51,6 +51,26 @@ namespace DebtDiary
         /// FormMessage of a LastName field in the view
         /// </summary>
         public FormMessage LastNameMessage { get; set; } = FormMessage.None;
+
+        /// <summary>
+        /// FormMessage of a Username field in the view
+        /// </summary>
+        public FormMessage UsernameMessage { get; set; } = FormMessage.None;
+
+        /// <summary>
+        /// FormMessage of a Email field in the view
+        /// </summary>
+        public FormMessage EmailMessage { get; set; } = FormMessage.None;
+
+        /// <summary>
+        /// FormMessage of a Password field in the view
+        /// </summary>
+        public FormMessage PasswordMessage { get; set; } = FormMessage.None;
+
+        /// <summary>
+        /// FormMessage of a repeated Password field in the view
+        /// </summary>
+        public FormMessage RepeatedPasswordMessage { get; set; } = FormMessage.None;
         #endregion
 
         #region Public Commands

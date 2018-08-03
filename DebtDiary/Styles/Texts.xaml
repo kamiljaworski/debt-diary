@@ -87,24 +87,28 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox}">
-                    <StackPanel>
-                        <Grid Margin="{TemplateBinding Margin}">
-                            <Border x:Name="Border" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" 
+                    <Grid Margin="{TemplateBinding Margin}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Border Grid.Row="0" x:Name="Border" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" 
                                     BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
                                     Margin="0 20 0 0" Padding="5 1 5 1">
-                                <ScrollViewer x:Name="PART_ContentHost" Focusable="True" 
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="True" 
                                               HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
-                            </Border>
+                        </Border>
 
-                            <TextBlock x:Name="PlaceholderText" Text="{TemplateBinding Tag}" Foreground="{StaticResource DarkGreyBrush}" FontFamily="{StaticResource LatoLight}"
-                                       TextAlignment="{TemplateBinding TextAlignment}" FontSize="{TemplateBinding FontSize}" IsHitTestVisible="False" 
-                                       Margin="0 22 0 0" Padding="5 0 5 0"/>
-                        </Grid>
+                        <TextBlock Grid.Row="0" x:Name="PlaceholderText" Text="{TemplateBinding Tag}" Foreground="{StaticResource DarkGreyBrush}" 
+                                       FontFamily="{StaticResource LatoLight}" TextAlignment="{TemplateBinding TextAlignment}" FontSize="{TemplateBinding FontSize}" 
+                                       IsHitTestVisible="False" Margin="0 22 0 0" Padding="5 0 5 0"/>
 
-                        <TextBlock Text="{TemplateBinding local:FormMessageProperty.Value, Converter={local:FormMessageToStringConverter}}"
-                                   Foreground="Red" FontFamily="{StaticResource LatoRegular}" FontSize="12" Margin="15 3 15 0" 
+                        <TextBlock Grid.Row="1" Text="{TemplateBinding local:FormMessageProperty.Value, Converter={local:FormMessageToStringConverter}}"
+                                   Foreground="Red" FontFamily="{StaticResource LatoRegular}" FontSize="12" Margin="5 3 5 0" 
                                    x:Name="ErrorMessage"/>
-                    </StackPanel>
+                    </Grid>
+
+
 
                     <!-- Animations -->
                     <ControlTemplate.Triggers>
@@ -229,10 +233,10 @@
                         <!-- Text update animations -->
                         <DataTrigger Binding="{Binding Text, RelativeSource={RelativeSource Self}, 
                                               Converter={local:TextToBooleanConverter}, UpdateSourceTrigger=PropertyChanged}" Value="True">
-                            
+
                             <!-- Hide Error Message -->
                             <DataTrigger.EnterActions>
-                                
+
                                 <BeginStoryboard>
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetName="ErrorMessage" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.2" />
