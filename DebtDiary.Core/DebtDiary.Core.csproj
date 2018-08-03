@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\DataValidator.cs" />
     <Compile Include="Helpers\SecureStringExtensions.cs" />
     <Compile Include="Models\Gender.cs" />
     <Compile Include="Models\User.cs" />
