@@ -197,20 +197,29 @@ namespace DebtDiary
             if (string.IsNullOrEmpty(_repeatedPassword.GetPassword()))
                 RepeatedPasswordMessage = FormMessage.EmptyRepeatedPassword;
 
-            //if (string.IsNullOrEmpty(FirstName))
-            //{
-            //    FirstNameMessage = FormMessage.EmptyFirstName;
-            //    return;
-            //}
+            // Check if username is avaliable in db
+            if (UsernameMessage == FormMessage.None && _dataAccess.IsUsernameAvailable(Username) == false)
+                UsernameMessage = FormMessage.TakenUsername;
 
-            //if (password != repeatedPassword)
-            //    return;
+            // Check if e-mail is avaliable in db
+            if (EmailMessage == FormMessage.None && _dataAccess.IsEmailAvailable(Email) == false)
+                EmailMessage = FormMessage.TakenEmail;
 
-            //if (dataAccess.IsUsernameAvailable(Username) == false)
-            //    return;
+            // Check if password is longer or equal to 8 characters
+            if (PasswordMessage == FormMessage.None && RepeatedPasswordMessage == FormMessage.None &&
+                _password.Length >= 8)
+            {
+                PasswordMessage = FormMessage.PasswordTooShort;
+                RepeatedPasswordMessage = FormMessage.EmptyMessage;
+            }
 
-            //if (dataAccess.IsEmailAvailable(Email) == false)
-            //    return;
+            // Check if passwords are the same
+            if (PasswordMessage == FormMessage.None && RepeatedPasswordMessage == FormMessage.None &&
+                _password.GetEncryptedPassword() != _repeatedPassword.GetEncryptedPassword())
+            {
+                PasswordMessage = FormMessage.DifferentPasswords;
+                RepeatedPasswordMessage = FormMessage.EmptyMessage;
+            }
 
             // Check if any problem was found and return right value
             return IsEnteredDataCorrect();

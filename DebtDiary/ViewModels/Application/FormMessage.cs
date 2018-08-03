@@ -12,6 +12,11 @@
         EmptyUsername,
         EmptyEmail,
         EmptyPassword,
-        EmptyRepeatedPassword
+        EmptyRepeatedPassword,
+        TakenUsername,
+        TakenEmail,
+        DifferentPasswords,
+        PasswordTooShort,
+        EmptyMessage
     }
 }

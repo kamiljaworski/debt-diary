@@ -123,6 +123,9 @@
   <data name="CreateAccount" xml:space="preserve">
     <value>Załóż konto</value>
   </data>
+  <data name="DifferentPasswords" xml:space="preserve">
+    <value>Hasła nie są takie same</value>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>E-mail</value>
   </data>
@@ -171,6 +174,9 @@
   <data name="Password" xml:space="preserve">
     <value>Hasło</value>
   </data>
+  <data name="PasswordTooShort" xml:space="preserve">
+    <value>Hasło powinno posiadać przynajmniej 8 znaków</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Rejestracja</value>
   </data>
@@ -188,6 +194,12 @@
   </data>
   <data name="SignUp" xml:space="preserve">
     <value>Załóż konto</value>
+  </data>
+  <data name="TakenEmail" xml:space="preserve">
+    <value>Adres e-mail jest zajęty</value>
+  </data>
+  <data name="TakenUsername" xml:space="preserve">
+    <value>Nazwa użytkownika jest zajęta</value>
   </data>
   <data name="Username" xml:space="preserve">
     <value>Nazwa użytkownika</value>

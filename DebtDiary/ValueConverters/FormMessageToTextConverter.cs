@@ -36,6 +36,21 @@ namespace DebtDiary
                 case FormMessage.EmptyRepeatedPassword:
                     return strings.GetString("EmptyRepeatedPassword");
 
+                case FormMessage.TakenUsername:
+                    return strings.GetString("TakenUsername");
+
+                case FormMessage.TakenEmail:
+                    return strings.GetString("TakenEmail");
+
+                case FormMessage.DifferentPasswords:
+                    return strings.GetString("DifferentPasswords");
+
+                case FormMessage.PasswordTooShort:
+                    return strings.GetString("PasswordTooShort");
+
+                case FormMessage.EmptyMessage:
+                    return string.Empty;
+
             }
 
             // If value isn't found empty string
