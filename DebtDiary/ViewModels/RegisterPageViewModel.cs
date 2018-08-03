@@ -141,21 +141,6 @@ namespace DebtDiary
             if (ValidateData() == false)
                 return;
 
-            //if (string.IsNullOrEmpty(FirstName))
-            //{
-            //    FirstNameMessage = FormMessage.EmptyFirstName;
-            //    return;
-            //}
-
-            //if (password != repeatedPassword)
-            //    return;
-
-            //if (dataAccess.IsUsernameAvailable(Username) == false)
-            //    return;
-
-            //if (dataAccess.IsEmailAvailable(Email) == false)
-            //    return;
-
             // Make new user object
             User user = new User
             {
@@ -185,6 +170,9 @@ namespace DebtDiary
         /// <returns>True if user can be added to the database or false if not</returns>
         private bool ValidateData()
         {
+            // Reset all the form messages properties
+            ResetFormMessages();
+
             // Check if first name is empty
             if (string.IsNullOrEmpty(FirstName))
                 FirstNameMessage = FormMessage.EmptyFirstName;
@@ -209,6 +197,44 @@ namespace DebtDiary
             if (string.IsNullOrEmpty(_repeatedPassword.GetPassword()))
                 RepeatedPasswordMessage = FormMessage.EmptyRepeatedPassword;
 
+            //if (string.IsNullOrEmpty(FirstName))
+            //{
+            //    FirstNameMessage = FormMessage.EmptyFirstName;
+            //    return;
+            //}
+
+            //if (password != repeatedPassword)
+            //    return;
+
+            //if (dataAccess.IsUsernameAvailable(Username) == false)
+            //    return;
+
+            //if (dataAccess.IsEmailAvailable(Email) == false)
+            //    return;
+
+            // Check if any problem was found and return right value
+            return IsEnteredDataCorrect();
+        }
+
+        /// <summary>
+        /// Helper method that resets all the <see cref="FormMessage"/> properties to <see cref="FormMessage.None"/>
+        /// </summary>
+        private void ResetFormMessages()
+        {
+            FirstNameMessage = FormMessage.None;
+            LastNameMessage = FormMessage.None;
+            UsernameMessage = FormMessage.None;
+            EmailMessage = FormMessage.None;
+            PasswordMessage = FormMessage.None;
+            RepeatedPasswordMessage = FormMessage.None;
+        }
+
+        /// <summary>
+        /// Helper method that checks if all the <see cref="FormMessage"/> properties are set to <see cref="FormMessage.None"/>
+        /// </summary>
+        /// <returns><see cref="Boolean"/> false if there are some errors and true if not</returns>
+        private bool IsEnteredDataCorrect()
+        {
             // If any of the messages changed it's value return false
             if (FirstNameMessage != FormMessage.None || LastNameMessage != FormMessage.None ||
                 UsernameMessage != FormMessage.None || EmailMessage != FormMessage.None ||
@@ -218,7 +244,6 @@ namespace DebtDiary
             // If not return true
             return true;
         }
-
 
         /// <summary>
         /// Helper method that clears all the fields in the view
@@ -233,6 +258,7 @@ namespace DebtDiary
             Gender = 0;
             twoPasswords.ClearPassword();
         }
+
         #endregion
     }
 }
