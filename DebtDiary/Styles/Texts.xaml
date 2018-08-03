@@ -65,7 +65,7 @@
         <Setter Property="FontSize" Value="12"/>
         <Setter Property="FontFamily" Value="{StaticResource LatoRegular}"/>
     </Style>
-    
+
     <!-- Right error texblock -->
     <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource LeftErrorTextblock}" x:Key="RightErrorTextblock">
         <Setter Property="Margin" Value="25 3 45 0"/>
@@ -82,22 +82,30 @@
         <Setter Property="BorderThickness" Value="0 0 0 2" />
         <Setter Property="Margin" Value="0 0 0 0"/>
         <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="local:FormMessageProperty.Value" Value="None"/>
 
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox}">
-                    <Grid Margin="{TemplateBinding Margin}">
-                        <Border x:Name="Border" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" 
+                    <StackPanel>
+                        <Grid Margin="{TemplateBinding Margin}">
+                            <Border x:Name="Border" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" 
                                 BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
                                 Margin="0 20 0 0" Padding="5 1 5 1">
-                            <ScrollViewer x:Name="PART_ContentHost" Focusable="True" 
+                                <ScrollViewer x:Name="PART_ContentHost" Focusable="True" 
                                           HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
-                        </Border>
+                            </Border>
 
-                        <TextBlock x:Name="PlaceholderText" Text="{TemplateBinding Tag}" Foreground="{StaticResource DarkGreyBrush}" FontFamily="{StaticResource LatoLight}"
+                            <TextBlock x:Name="PlaceholderText" Text="{TemplateBinding Tag}" Foreground="{StaticResource DarkGreyBrush}" FontFamily="{StaticResource LatoLight}"
                                    TextAlignment="{TemplateBinding TextAlignment}" FontSize="{TemplateBinding FontSize}" IsHitTestVisible="False" 
                                    Margin="0 22 0 0" Padding="5 0 5 0"/>
-                    </Grid>
+                        </Grid>
+
+                        <TextBlock Text="{TemplateBinding local:FormMessageProperty.Value, Converter={local:FormMessageToStringConverter}}" 
+                           Visibility="{TemplateBinding local:FormMessageProperty.Value, Converter={local:FormMessageToVisibilityConverter}}"
+                           Style="{StaticResource RightErrorTextblock}"/>
+                    </StackPanel>
+
                     <!-- Animations -->
                     <ControlTemplate.Triggers>
 
@@ -332,14 +340,12 @@
         <Setter Property="Margin" Value="20 0 10 10"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
     </Style>
-    
+
     <!-- Right PasswordBox -->
     <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource RegisterPageLeftPasswordBox}" x:Key="RegisterPageRightPasswordBox">
         <Setter Property="Margin" Value="10 0 20 10"/>
     </Style>
     <!--#endregion-->
-
-
 
     <!--#region LoginPage PasswordBox and TextBox Styles -->
     <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}" x:Key="LoginPageTextBox">
