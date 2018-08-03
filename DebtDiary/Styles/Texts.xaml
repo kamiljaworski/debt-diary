@@ -90,20 +90,20 @@
                     <StackPanel>
                         <Grid Margin="{TemplateBinding Margin}">
                             <Border x:Name="Border" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" 
-                                BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
-                                Margin="0 20 0 0" Padding="5 1 5 1">
+                                    BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
+                                    Margin="0 20 0 0" Padding="5 1 5 1">
                                 <ScrollViewer x:Name="PART_ContentHost" Focusable="True" 
-                                          HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                                              HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                             </Border>
 
                             <TextBlock x:Name="PlaceholderText" Text="{TemplateBinding Tag}" Foreground="{StaticResource DarkGreyBrush}" FontFamily="{StaticResource LatoLight}"
-                                   TextAlignment="{TemplateBinding TextAlignment}" FontSize="{TemplateBinding FontSize}" IsHitTestVisible="False" 
-                                   Margin="0 22 0 0" Padding="5 0 5 0"/>
+                                       TextAlignment="{TemplateBinding TextAlignment}" FontSize="{TemplateBinding FontSize}" IsHitTestVisible="False" 
+                                       Margin="0 22 0 0" Padding="5 0 5 0"/>
                         </Grid>
 
-                        <TextBlock Text="{TemplateBinding local:FormMessageProperty.Value, Converter={local:FormMessageToStringConverter}}" 
-                           Visibility="{TemplateBinding local:FormMessageProperty.Value, Converter={local:FormMessageToVisibilityConverter}}"
-                           Style="{StaticResource RightErrorTextblock}"/>
+                        <TextBlock Text="{TemplateBinding local:FormMessageProperty.Value, Converter={local:FormMessageToStringConverter}}"
+                                   Foreground="Red" FontFamily="{StaticResource LatoRegular}" FontSize="12" Margin="15 3 15 0" 
+                                   x:Name="ErrorMessage"/>
                     </StackPanel>
 
                     <!-- Animations -->
@@ -147,7 +147,7 @@
                             </BeginStoryboard>
                         </EventTrigger>
 
-                        <!-- Hover Text Animations -->
+                        <!-- Placeholder Text Animations -->
                         <DataTrigger Binding="{Binding Text, RelativeSource={RelativeSource Self}, Converter={local:TextToBooleanConverter}, UpdateSourceTrigger=PropertyChanged}" Value="True">
 
                             <!-- Go up -->
@@ -189,6 +189,94 @@
                                     </Storyboard>
                                 </BeginStoryboard>
                             </DataTrigger.ExitActions>
+                        </DataTrigger>
+
+
+                        <!-- FormMessageProperty animations -->
+                        <DataTrigger Binding="{Binding Path=(local:FormMessageProperty.Value), RelativeSource={RelativeSource Self}, 
+                                              Converter={local:FormMessageToBooleanConverter}}" Value="True">
+
+                            <!-- When FormMessageProperty is other than None -->
+                            <DataTrigger.EnterActions>
+
+                                <!-- Error Message -->
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="ErrorMessage" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+
+                                <!-- Border -->
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="Red" Duration="0:0:0.2" 
+                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="BorderBrush.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+
+
+                                <!-- Text -->
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="Red" Duration="0:0:0.2" 
+                                                    Storyboard.TargetName="PlaceholderText" Storyboard.TargetProperty="Foreground.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+
+                            <!-- When FormMessageProperty is equal to None -->
+                            <DataTrigger.ExitActions>
+                                <!-- Error Message -->
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="ErrorMessage" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+
+                                <!-- Border -->
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.2" 
+                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="BorderBrush.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+
+
+                                <!-- Text -->
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.2" 
+                                                    Storyboard.TargetName="PlaceholderText" Storyboard.TargetProperty="Foreground.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.ExitActions>
+
+                        </DataTrigger>
+
+
+                        <!-- Text update animations -->
+                        <DataTrigger Binding="{Binding Text, RelativeSource={RelativeSource Self}, 
+                                              Converter={local:TextToBooleanConverter}, UpdateSourceTrigger=PropertyChanged}" Value="True">
+
+                            <!-- Hide Error Message -->
+                            <DataTrigger.EnterActions>
+                                
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="ErrorMessage" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+
+                            <!-- Show Error Message -->
+                            <DataTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="ErrorMessage" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.ExitActions>
+
                         </DataTrigger>
 
                     </ControlTemplate.Triggers>
