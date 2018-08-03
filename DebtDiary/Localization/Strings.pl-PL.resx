@@ -126,11 +126,23 @@
   <data name="Email" xml:space="preserve">
     <value>E-mail</value>
   </data>
+  <data name="EmptyEmail" xml:space="preserve">
+    <value>Wprowadź adres e-mail</value>
+  </data>
   <data name="EmptyFirstName" xml:space="preserve">
     <value>Wprowadź imię</value>
   </data>
   <data name="EmptyLastName" xml:space="preserve">
     <value>Wprowadź nazwisko</value>
+  </data>
+  <data name="EmptyPassword" xml:space="preserve">
+    <value>Wprowadź hasło</value>
+  </data>
+  <data name="EmptyRepeatedPassword" xml:space="preserve">
+    <value>Powtórz hasło</value>
+  </data>
+  <data name="EmptyUsername" xml:space="preserve">
+    <value>Wprowadź nazwę użytkownika</value>
   </data>
   <data name="Female" xml:space="preserve">
     <value>Kobieta</value>

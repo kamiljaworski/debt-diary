@@ -86,6 +86,24 @@ namespace DebtDiary
         public ICommand SignUpCommand { get; set; }
         #endregion
 
+        #region Private members
+
+        /// <summary>
+        /// Reference to password from the view 
+        /// </summary>
+        private SecureString _password = null;
+
+        /// <summary>
+        /// Reference to repeated password from the view 
+        /// </summary>
+        private SecureString _repeatedPassword = null;
+
+        /// <summary>
+        /// Reference to application data access class
+        /// </summary>
+        private IDebtDiaryDataAccess _dataAccess = null;
+        #endregion
+
         #region Default Constructor
         public RegisterPageViewModel()
         {
@@ -112,12 +130,12 @@ namespace DebtDiary
         /// <param name="parameter">Parameter of a RelayParameterizedCommand</param>
         private void SignUp(object parameter)
         {
-            // Get passwords from the view
-            string password = (parameter as IHaveTwoPasswords)?.Password.GetEncryptedPassword();
-            string repeatedPassword = (parameter as IHaveTwoPasswords)?.SecondPassword.GetEncryptedPassword();
+            // Get passwords references from the view
+            _password = (parameter as IHaveTwoPasswords)?.Password;
+            _repeatedPassword = (parameter as IHaveTwoPasswords)?.SecondPassword;
 
             // Get the DataAccess reference
-            IDebtDiaryDataAccess dataAccess = IocContainer.Get<IDebtDiaryDataAccess>();
+            _dataAccess = IocContainer.Get<IDebtDiaryDataAccess>();
 
             // Validate data and if there is any problem return from method
             if (ValidateData() == false)
@@ -145,13 +163,13 @@ namespace DebtDiary
                 FirstName = FirstName,
                 LastName = LastName,
                 Email = Email,
-                Password = password,
+                Password = _password.GetEncryptedPassword(),
                 Gender = Gender,
                 RegisterDate = DateTime.Now
             };
 
             // Sign up a new user
-            dataAccess.CreateAccount(user);
+            _dataAccess.CreateAccount(user);
 
             // Clear all the fields in the view
             ClearAllFields(parameter as IHaveTwoPasswords);
@@ -167,16 +185,34 @@ namespace DebtDiary
         /// <returns>True if user can be added to the database or false if not</returns>
         private bool ValidateData()
         {
-            // Check if first name textbox is not empty
+            // Check if first name is empty
             if (string.IsNullOrEmpty(FirstName))
                 FirstNameMessage = FormMessage.EmptyFirstName;
 
-            // Check if last name textbox is not empty
+            // Check if last name is empty
             if (string.IsNullOrEmpty(LastName))
                 LastNameMessage = FormMessage.EmptyLastName;
 
+            // Check if username is empty
+            if (string.IsNullOrEmpty(Username))
+                UsernameMessage = FormMessage.EmptyUsername;
+
+            // Check if email is empty
+            if (string.IsNullOrEmpty(Email))
+                EmailMessage = FormMessage.EmptyEmail;
+
+            // Check if password is empty
+            if (string.IsNullOrEmpty(_password.GetPassword()))
+                PasswordMessage = FormMessage.EmptyPassword;
+
+            // Check if repeated password is empty
+            if (string.IsNullOrEmpty(_repeatedPassword.GetPassword()))
+                RepeatedPasswordMessage = FormMessage.EmptyRepeatedPassword;
+
             // If any of the messages changed it's value return false
-            if (FirstNameMessage != FormMessage.None || LastNameMessage != FormMessage.None)
+            if (FirstNameMessage != FormMessage.None || LastNameMessage != FormMessage.None ||
+                UsernameMessage != FormMessage.None || EmailMessage != FormMessage.None ||
+                PasswordMessage != FormMessage.None || RepeatedPasswordMessage != FormMessage.None)
                 return false;
 
             // If not return true

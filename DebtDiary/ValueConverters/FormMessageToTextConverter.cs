@@ -25,16 +25,17 @@ namespace DebtDiary
                     return strings.GetString("EmptyLastName");
 
                 case FormMessage.EmptyUsername:
-                    break;
+                    return strings.GetString("EmptyUsername");
 
                 case FormMessage.EmptyEmail:
-                    break;
+                    return strings.GetString("EmptyEmail");
 
                 case FormMessage.EmptyPassword:
-                    break;
+                    return strings.GetString("EmptyPassword");
 
                 case FormMessage.EmptyRepeatedPassword:
-                    break;
+                    return strings.GetString("EmptyRepeatedPassword");
+
             }
 
             // If value isn't found empty string

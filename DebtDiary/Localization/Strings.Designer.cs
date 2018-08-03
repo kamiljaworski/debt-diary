@@ -88,6 +88,15 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter e-mail address.
+        /// </summary>
+        public static string EmptyEmail {
+            get {
+                return ResourceManager.GetString("EmptyEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter first name.
         /// </summary>
         public static string EmptyFirstName {
@@ -102,6 +111,33 @@ namespace DebtDiary.Localization {
         public static string EmptyLastName {
             get {
                 return ResourceManager.GetString("EmptyLastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter password.
+        /// </summary>
+        public static string EmptyPassword {
+            get {
+                return ResourceManager.GetString("EmptyPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Repeat password.
+        /// </summary>
+        public static string EmptyRepeatedPassword {
+            get {
+                return ResourceManager.GetString("EmptyRepeatedPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter username.
+        /// </summary>
+        public static string EmptyUsername {
+            get {
+                return ResourceManager.GetString("EmptyUsername", resourceCulture);
             }
         }
         
