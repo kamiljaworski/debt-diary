@@ -199,13 +199,21 @@
                         <!-- FormMessageProperty animations -->
                         <Trigger Property="local:FormMessageProperty.Value" Value="None">
 
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="ErrorMessage" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            
                             <!-- When FormMessageProperty is other than None -->
                             <Trigger.ExitActions>
 
                                 <!-- Error Message -->
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="ErrorMessage" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="ErrorMessage" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.2" />
                                     </Storyboard>
                                 </BeginStoryboard>
 
@@ -228,32 +236,6 @@
                             </Trigger.ExitActions>
 
                         </Trigger>
-
-
-                        <!-- Text update animations -->
-                        <DataTrigger Binding="{Binding Text, RelativeSource={RelativeSource Self}, 
-                                              Converter={local:TextToBooleanConverter}, UpdateSourceTrigger=PropertyChanged}" Value="True">
-
-                            <!-- Hide Error Message -->
-                            <DataTrigger.EnterActions>
-
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="ErrorMessage" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.2" />
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </DataTrigger.EnterActions>
-
-                            <!-- Show Error Message -->
-                            <DataTrigger.ExitActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="ErrorMessage" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.2" />
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </DataTrigger.ExitActions>
-
-                        </DataTrigger>
 
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
