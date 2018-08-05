@@ -2,6 +2,7 @@
 using DebtDiary.DataProvider;
 using System;
 using System.Security;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace DebtDiary
@@ -109,7 +110,7 @@ namespace DebtDiary
         {
             // Create commands
             LoginCommand = new RelayCommand(GoToLoginPage);
-            SignUpCommand = new RelayParameterizedCommand((parameter) => SignUp(parameter));
+            SignUpCommand = new RelayParameterizedCommand(async (parameter) => await SignUpAsync(parameter));
         }
 
         #endregion
@@ -128,7 +129,7 @@ namespace DebtDiary
         /// Method that signs the user in
         /// </summary>
         /// <param name="parameter">Parameter of a RelayParameterizedCommand</param>
-        private void SignUp(object parameter)
+        private async Task SignUpAsync(object parameter)
         {
             // Get passwords references from the view
             _password = (parameter as IHaveTwoPasswords)?.Password;
@@ -138,7 +139,7 @@ namespace DebtDiary
             _dataAccess = IocContainer.Get<IDebtDiaryDataAccess>();
 
             // Validate data and if there is any problem return from method
-            if (ValidateData() == false)
+            if (await ValidateData() == false)
                 return;
 
             // Make new user object
@@ -168,7 +169,7 @@ namespace DebtDiary
         /// Helper method that validate if new user's data is correct 
         /// </summary>
         /// <returns>True if user can be added to the database or false if not</returns>
-        private bool ValidateData()
+        private Task<bool> ValidateData()
         {
             // Reset all the form messages properties
             ResetFormMessages();
@@ -222,7 +223,7 @@ namespace DebtDiary
             }
 
             // Check if any problem was found and return right value
-            return IsEnteredDataCorrect();
+            return Task.FromResult(IsEnteredDataCorrect());
         }
 
         /// <summary>
