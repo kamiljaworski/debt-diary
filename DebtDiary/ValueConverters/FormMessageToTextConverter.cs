@@ -48,6 +48,18 @@ namespace DebtDiary
                 case FormMessage.PasswordTooShort:
                     return strings.GetString("PasswordTooShort");
 
+                case FormMessage.IncorrectEmail:
+                    return strings.GetString("IncorrectEmail");
+
+                case FormMessage.IncorrectFirstName:
+                    return strings.GetString("IncorrectFirstName");
+
+                case FormMessage.IncorrectLastName:
+                    return strings.GetString("IncorrectLastName");
+
+                case FormMessage.IncorrectUsername:
+                    return strings.GetString("IncorrectUsername");
+
                 case FormMessage.EmptyMessage:
                     return string.Empty;
 

@@ -159,6 +159,18 @@
   <data name="Gender" xml:space="preserve">
     <value>Płeć</value>
   </data>
+  <data name="IncorrectEmail" xml:space="preserve">
+    <value>Niepoprawny adres e-mail</value>
+  </data>
+  <data name="IncorrectFirstName" xml:space="preserve">
+    <value>Niepoprawne imię</value>
+  </data>
+  <data name="IncorrectLastName" xml:space="preserve">
+    <value>Niepoprawne nazwisko</value>
+  </data>
+  <data name="IncorrectUsername" xml:space="preserve">
+    <value>Niepoprawna nazwa użytkownika</value>
+  </data>
   <data name="LastName" xml:space="preserve">
     <value>Nazwisko</value>
   </data>

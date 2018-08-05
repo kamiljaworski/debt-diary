@@ -198,6 +198,22 @@ namespace DebtDiary
             if (string.IsNullOrEmpty(_repeatedPassword.GetPassword()))
                 RepeatedPasswordMessage = FormMessage.EmptyRepeatedPassword;
 
+            // Check if first name is correct
+            if (FirstNameMessage == FormMessage.None && DataValidator.IsNameCorrect(FirstName) == false)
+                FirstNameMessage = FormMessage.IncorrectFirstName;
+
+            // Check if first name is correct
+            if (LastNameMessage == FormMessage.None && DataValidator.IsNameCorrect(LastName) == false)
+                LastNameMessage = FormMessage.IncorrectLastName;
+
+            // Check if username is correct
+            if (UsernameMessage == FormMessage.None && DataValidator.IsUsernameNameCorrect(Username) == false)
+                UsernameMessage = FormMessage.IncorrectUsername;
+
+            // Check if e-mail is in correct format
+            if (EmailMessage == FormMessage.None && DataValidator.IsEmailCorrect(Email) == false)
+                EmailMessage = FormMessage.IncorrectEmail;
+
             // Check if username is avaliable in db
             if (UsernameMessage == FormMessage.None && _dataAccess.IsUsernameAvailable(Username) == false)
                 UsernameMessage = FormMessage.TakenUsername;

@@ -187,6 +187,42 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Incorrect e-mail address.
+        /// </summary>
+        public static string IncorrectEmail {
+            get {
+                return ResourceManager.GetString("IncorrectEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Incorrect first name.
+        /// </summary>
+        public static string IncorrectFirstName {
+            get {
+                return ResourceManager.GetString("IncorrectFirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Incorrect last name.
+        /// </summary>
+        public static string IncorrectLastName {
+            get {
+                return ResourceManager.GetString("IncorrectLastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Incorrect username.
+        /// </summary>
+        public static string IncorrectUsername {
+            get {
+                return ResourceManager.GetString("IncorrectUsername", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last name.
         /// </summary>
         public static string LastName {

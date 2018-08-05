@@ -17,6 +17,10 @@
         TakenEmail,
         DifferentPasswords,
         PasswordTooShort,
-        EmptyMessage
+        EmptyMessage,
+        IncorrectEmail,
+        IncorrectFirstName,
+        IncorrectLastName,
+        IncorrectUsername
     }
 }
