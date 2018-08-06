@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\DataValidator.cs" />
+    <Compile Include="Helpers\ExpressionHelpers.cs" />
     <Compile Include="Helpers\SecureStringExtensions.cs" />
     <Compile Include="Models\Gender.cs" />
     <Compile Include="Models\User.cs" />

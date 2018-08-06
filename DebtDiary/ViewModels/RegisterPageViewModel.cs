@@ -39,6 +39,11 @@ namespace DebtDiary
         /// </summary>
         public Gender Gender { get; set; } = Gender.None;
 
+        /// <summary>
+        /// Property used for turning on spinning text in button
+        /// </summary>
+        public bool IsRegisterRunning { get; set; }
+
         #endregion
 
         #region Form Messages
@@ -136,34 +141,40 @@ namespace DebtDiary
         /// <param name="parameter">Parameter of a RelayParameterizedCommand</param>
         private async Task SignUpAsync(object parameter)
         {
-            // Get passwords references from the view
-            _password = (parameter as IHaveTwoPasswords)?.Password;
-            _repeatedPassword = (parameter as IHaveTwoPasswords)?.SecondPassword;
-
-            // Get the DataAccess reference
-            _dataAccess = IocContainer.Get<IDebtDiaryDataAccess>();
-
-            // Validate data and if there is any problem return from method
-            if (await ValidateData() == false)
-                return;
-
-            // Make new user object
-            User user = new User
+            await RunCommandAsync(() => IsRegisterRunning, async () =>
             {
-                Username = Username,
-                FirstName = FirstName,
-                LastName = LastName,
-                Email = Email,
-                Password = _password.GetEncryptedPassword(),
-                Gender = Gender,
-                RegisterDate = DateTime.Now
-            };
+                await Task.Delay(1);
 
-            // Sign up a new user
-            _dataAccess.CreateAccount(user);
+                // Get passwords references from the view
+                _password = (parameter as IHaveTwoPasswords)?.Password;
+                _repeatedPassword = (parameter as IHaveTwoPasswords)?.SecondPassword;
 
-            // Clear all the fields in the view
-            ClearAllFields(parameter as IHaveTwoPasswords);
+                // Get the DataAccess reference
+                _dataAccess = IocContainer.Get<IDebtDiaryDataAccess>();
+
+                // Validate data and if there is any problem return from method
+                if (await ValidateData() == false)
+                    return;
+
+                // Make new user object
+                User user = new User
+                {
+                    Username = Username,
+                    FirstName = FirstName,
+                    LastName = LastName,
+                    Email = Email,
+                    Password = _password.GetEncryptedPassword(),
+                    Gender = Gender,
+                    RegisterDate = DateTime.Now
+                };
+
+                // Sign up a new user
+                _dataAccess.CreateAccount(user);
+
+                // Clear all the fields in the view
+                ClearAllFields(parameter as IHaveTwoPasswords);
+
+            });
         }
 
         #endregion

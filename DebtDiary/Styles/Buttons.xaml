@@ -9,6 +9,7 @@
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="Padding" Value="40 10 40 10"/>
+        <Setter Property="local:IsBusyProperty.Value" Value="False"/>
 
         <Setter Property="Template">
             <Setter.Value>
@@ -16,8 +17,18 @@
                     <!-- Button style -->
                     <Border x:Name="Border" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" 
                             CornerRadius="10" Padding="{TemplateBinding Padding}">
-                        <TextBlock Text="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}" 
-                                   FontFamily="{StaticResource LatoSemiBold}" FontSize="{TemplateBinding FontSize}"/>
+                        <Grid>
+                            <TextBlock Text="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}" 
+                                       FontFamily="{StaticResource LatoSemiBold}" FontSize="{TemplateBinding FontSize}"
+                                       Visibility="{TemplateBinding local:IsBusyProperty.Value, Converter={local:BooleanToVisibilityConverter}, ConverterParameter='ButtonText'}"/>
+
+                            <TextBlock Style="{StaticResource SpinningTextBlock}" 
+                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                   FontSize="{TemplateBinding FontSize}"
+                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                   Visibility="{TemplateBinding local:IsBusyProperty.Value, Converter={local:BooleanToVisibilityConverter}, ConverterParameter='SpinningText'}"/>
+                        </Grid>
+
                     </Border>
 
                     <!-- Animation -->
