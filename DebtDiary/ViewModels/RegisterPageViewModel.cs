@@ -169,10 +169,10 @@ namespace DebtDiary
                 };
 
                 // Sign up a new user
-                //_dataAccess.CreateAccount(user);
+                await _dataAccess.CreateAccountAsync(user);
 
                 // Clear all the fields in the view
-                //ClearAllFields(parameter as IHaveTwoPasswords);
+                ClearAllFields(parameter as IHaveTwoPasswords);
 
             });
         }

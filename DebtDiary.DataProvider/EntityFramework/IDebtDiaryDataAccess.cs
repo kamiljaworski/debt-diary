@@ -1,4 +1,5 @@
 ﻿using DebtDiary.Core;
+using System.Threading.Tasks;
 
 namespace DebtDiary.DataProvider
 {
@@ -11,7 +12,7 @@ namespace DebtDiary.DataProvider
         /// Method that create new user in the database
         /// </summary>
         /// <param name="user">New user to sign up</param>
-        void CreateAccount(User user);
+        Task CreateAccountAsync(User user);
 
         /// <summary>
         /// Method that check if account with this username can be added to the database
