@@ -195,7 +195,6 @@
                             </DataTrigger.ExitActions>
                         </DataTrigger>
 
-
                         <!-- FormMessageProperty animations -->
                         <Trigger Property="local:FormMessageProperty.Value" Value="None">
 
@@ -255,23 +254,34 @@
         <Setter Property="Margin" Value="0 0 0 0"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="local:MonitorPasswordProperty.Value" Value="True"/>
+        <Setter Property="local:FormMessageProperty.Value" Value="None"/>
 
 
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type PasswordBox}">
                     <Grid Margin="{TemplateBinding Margin}">
-                        <Border x:Name="Border" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" 
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        
+                        <Border Grid.Row="0" x:Name="Border" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" 
                                 BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
                                 Margin="0 20 0 0" Padding="5 1 5 1">
                             <ScrollViewer x:Name="PART_ContentHost" Focusable="True" 
                                           HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                         </Border>
 
-                        <TextBlock x:Name="PlaceholderText" Text="{TemplateBinding Tag}" Foreground="{TemplateBinding Foreground}" FontFamily="{StaticResource LatoLight}"
+                        <TextBlock Grid.Row="0" x:Name="PlaceholderText" Text="{TemplateBinding Tag}" Foreground="{TemplateBinding Foreground}" FontFamily="{StaticResource LatoLight}"
                                    TextAlignment="{TemplateBinding HorizontalContentAlignment, Converter={local:HorizontalAlignmentToTextAlignmentConverter}}" 
                                    FontSize="{TemplateBinding FontSize}" IsHitTestVisible="False" Margin="0 22 0 0" Padding="5 0 5 0"/>
 
+
+                        <TextBlock Grid.Row="1" Text="{TemplateBinding local:FormMessageProperty.Value, Converter={local:FormMessageToStringConverter}}"
+                                   Foreground="Red" FontFamily="{StaticResource LatoRegular}" FontSize="12" Margin="5 3 5 0" 
+                                   x:Name="ErrorMessage"/>
+                        
                         <!-- Helper blank textblock used to fix hover text animation -->
                         <TextBlock x:Name="HelperTextBlock" Visibility="{TemplateBinding local:HasTextProperty.Value, Converter={local:BooleanToVisibilityConverter}}"
                                    IsHitTestVisible="False" />
@@ -317,7 +327,7 @@
                             </BeginStoryboard>
                         </EventTrigger>
 
-                        <!-- Hover Text Animations -->
+                        <!-- Placeholder Text Animations -->
                         <DataTrigger Binding="{Binding ElementName=HelperTextBlock, Path=Visibility, Converter={local:VisibilityToBooleanConverter}}" Value="False">
 
                             <!-- Go up -->
@@ -360,6 +370,47 @@
                                 </BeginStoryboard>
                             </DataTrigger.ExitActions>
                         </DataTrigger>
+
+                        <!-- FormMessageProperty animations -->
+                        <Trigger Property="local:FormMessageProperty.Value" Value="None">
+
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="ErrorMessage" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+
+                            <!-- When FormMessageProperty is other than None -->
+                            <Trigger.ExitActions>
+
+                                <!-- Error Message -->
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="ErrorMessage" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+
+                                <!-- Border -->
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="Red" Duration="0:0:0.2" 
+                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="BorderBrush.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+
+
+                                <!-- Text -->
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="Red" Duration="0:0:0.2" 
+                                                    Storyboard.TargetName="PlaceholderText" Storyboard.TargetProperty="Foreground.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+
+                        </Trigger>
 
                     </ControlTemplate.Triggers>
 

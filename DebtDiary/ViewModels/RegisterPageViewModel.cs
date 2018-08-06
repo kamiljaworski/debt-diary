@@ -224,7 +224,7 @@ namespace DebtDiary
 
             // Check if password is longer or equal to 8 characters
             if (PasswordMessage == FormMessage.None && RepeatedPasswordMessage == FormMessage.None &&
-                _password.Length >= 8)
+                _password.Length < 8)
             {
                 PasswordMessage = FormMessage.PasswordTooShort;
                 RepeatedPasswordMessage = FormMessage.EmptyMessage;
