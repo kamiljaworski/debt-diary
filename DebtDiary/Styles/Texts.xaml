@@ -58,18 +58,66 @@
         <Setter Property="FontFamily" Value="{StaticResource LatoLight}"/>
     </Style>
 
-    <!-- Left error texblock -->
-    <Style TargetType="{x:Type TextBlock}" x:Key="LeftErrorTextblock">
+    <!-- Form Message TextBlock -->
+    <Style TargetType="{x:Type TextBlock}" x:Key="FormMessageTextBlock">
         <Setter Property="Foreground" Value="Red"/>
-        <Setter Property="Margin" Value="45 3 25 0"/>
-        <Setter Property="FontSize" Value="12"/>
         <Setter Property="FontFamily" Value="{StaticResource LatoRegular}"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="local:FormMessageProperty.Value" Value="None"/>
+        <Setter Property="Opacity" Value="0"/>
+
+        <Style.Triggers>
+            <Trigger Property="local:FormMessageProperty.Value" Value="None">
+                <!-- When form message is set to none then hide this textblock -->
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation To="0" Duration="0:0:0.2" Storyboard.TargetProperty="Opacity" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+
+                <!-- When form message is set to none then show this textblock -->
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation To="1" Duration="0:0:0.2" Storyboard.TargetProperty="Opacity" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
-    <!-- Right error texblock -->
-    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource LeftErrorTextblock}" x:Key="RightErrorTextblock">
-        <Setter Property="Margin" Value="25 3 45 0"/>
+    <!-- Form Message Title TextBlock -->
+    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseFormText}" x:Key="FormMessageTitleTextBlock">
+        <Setter Property="local:FormMessageProperty.Value" Value="None"/>
+
+        <Style.Triggers>
+            <Trigger Property="local:FormMessageProperty.Value" Value="None">
+                <!-- When form message is set to none then hide this textblock -->
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.2" Storyboard.TargetProperty="Foreground.Color" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+
+                <!-- When form message is set to none then show this textblock -->
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation To="Red" Duration="0:0:0.2" Storyboard.TargetProperty="Foreground.Color" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+        </Style.Triggers>
     </Style>
+
+
+
     <!--#endregion-->
 
     <!--#region Base TextBox Style-->

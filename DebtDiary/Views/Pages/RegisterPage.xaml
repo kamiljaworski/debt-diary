@@ -104,8 +104,8 @@
 
             <!-- Gender -->
             <!-- Text -->
-            <TextBlock Grid.Column="0" Grid.Row="4" Text="{x:Static localization:Strings.Gender}" Style="{StaticResource BaseFormText}"
-                       Foreground="{Binding GenderMessage, Converter={local:FormMessageToBrushConverter}}"/>
+            <TextBlock Grid.Column="0" Grid.Row="4" Text="{x:Static localization:Strings.Gender}" Style="{StaticResource FormMessageTitleTextBlock}"
+                       local:FormMessageProperty.Value="{Binding GenderMessage}"/>
 
             <!-- Radio buttons -->
             <StackPanel  Grid.Column="1" Grid.Row="4" >
@@ -118,9 +118,8 @@
                              local:FormMessageProperty.Value="{Binding GenderMessage}"/>
                 </StackPanel>
 
-                <TextBlock Text="{Binding GenderMessage, Converter={local:FormMessageToStringConverter}}"
-                                   Foreground="Red" FontFamily="{StaticResource LatoRegular}" FontSize="12" Margin="25 3 5 0" 
-                                   Visibility="{Binding GenderMessage, Converter={local:FormMessageToVisibilityConverter}}"/>
+                <TextBlock Text="{Binding GenderMessage, Converter={local:FormMessageToStringConverter}}"  local:FormMessageProperty.Value="{Binding GenderMessage}" 
+                           Style="{StaticResource FormMessageTextBlock}" Margin="25 3 5 0" />
             </StackPanel>
 
 
