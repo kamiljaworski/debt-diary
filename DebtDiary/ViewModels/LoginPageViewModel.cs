@@ -53,7 +53,7 @@ namespace DebtDiary
         private void Login(object parameter)
         {
             string username = Username;
-            string password = (parameter as IHavePassword).Password.GetPassword();
+            string password = (parameter as IHavePassword).Password.GetEncryptedPassword();
 
             ChangeCurrentApplicationPage(ApplicationPage.DiaryPage);
         }

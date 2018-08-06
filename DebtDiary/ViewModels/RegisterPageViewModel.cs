@@ -191,11 +191,11 @@ namespace DebtDiary
                 EmailMessage = FormMessage.EmptyEmail;
 
             // Check if password is empty
-            if (string.IsNullOrEmpty(_password.GetPassword()))
+            if (_password.IsNullOrEmpty())
                 PasswordMessage = FormMessage.EmptyPassword;
 
             // Check if repeated password is empty
-            if (string.IsNullOrEmpty(_repeatedPassword.GetPassword()))
+            if (_repeatedPassword.IsNullOrEmpty())
                 RepeatedPasswordMessage = FormMessage.EmptyRepeatedPassword;
 
             // Check if first name is correct

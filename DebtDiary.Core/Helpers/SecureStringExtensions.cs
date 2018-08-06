@@ -16,7 +16,7 @@ namespace DebtDiary.Core
         /// </summary>
         /// <param name="secureString">SecureString you want to get password from</param>
         /// <returns>Password</returns>
-        public static string GetPassword(this SecureString secureString)
+        private static string GetPassword(this SecureString secureString)
         {
             IntPtr value = IntPtr.Zero;
             try
@@ -29,6 +29,12 @@ namespace DebtDiary.Core
                 Marshal.ZeroFreeGlobalAllocUnicode(value);
             }
         }
+
+        /// <summary>
+        /// Method that check if secure string has a value and is not null
+        /// </summary>
+        /// <param name="secureString">Secure string you want to check</param>
+        public static bool IsNullOrEmpty(this SecureString secureString) => string.IsNullOrEmpty(secureString.GetPassword());
 
         /// <summary>
         /// Returns a password from SecureString encrypted with SHA265 algorithm
