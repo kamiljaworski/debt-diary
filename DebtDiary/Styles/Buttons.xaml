@@ -242,7 +242,7 @@
         <Setter Property="FontFamily" Value="{StaticResource LatoLight}"/>
         <Setter Property="FontSize" Value="18"/>
         <Setter Property="Foreground" Value="{StaticResource DarkGreyBrush}"/>
-
+        <Setter Property="local:FormMessageProperty.Value" Value="None"/>
 
         <Setter Property="Template">
             <Setter.Value>
@@ -319,7 +319,40 @@
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
-                        
+
+                        <!-- FormMessageProperty animations -->
+                        <Trigger Property="local:FormMessageProperty.Value" Value="None">
+
+                            <!-- When FormMessageProperty is other than None -->
+                            <Trigger.ExitActions>
+
+                                <!-- RadioOuter -->
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="Red" Duration="0:0:0.2" 
+                                                    Storyboard.TargetName="RadioOuter" Storyboard.TargetProperty="BorderBrush.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+
+                                <!-- RadioMark -->
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="Red" Duration="0:0:0.2" 
+                                                    Storyboard.TargetName="RadioMark" Storyboard.TargetProperty="Background.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+
+                                <!-- Text -->
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="Red" Duration="0:0:0.2" 
+                                                    Storyboard.TargetName="Text" Storyboard.TargetProperty="Foreground.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+
+                        </Trigger>
+
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
