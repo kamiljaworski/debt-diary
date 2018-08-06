@@ -89,30 +89,40 @@
             <!-- Username -->
             <TextBox Grid.Column="0" Grid.Row="2" Text="{Binding Username}" Tag="{x:Static localization:Strings.Username}" Style="{StaticResource RegisterPageLeftTextBox}"
                      local:FormMessageProperty.Value="{Binding UsernameMessage}"/>
-            
+
             <!-- E-mail -->
             <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Email}" Tag="{x:Static localization:Strings.Email}" Style="{StaticResource RegisterPageRightTextBox}"
                      local:FormMessageProperty.Value="{Binding EmailMessage}"/>
-            
+
             <!-- Password -->
             <PasswordBox x:Name="UserPassword" Grid.Column="0" Grid.Row="3" Tag="{x:Static localization:Strings.Password}" 
                          Style="{StaticResource RegisterPageLeftPasswordBox}" local:FormMessageProperty.Value="{Binding PasswordMessage}"/>
-            
+
             <!-- Repeat Password -->
             <PasswordBox x:Name="RepeatUserPassword" Grid.Column="1" Grid.Row="3" Tag="{x:Static localization:Strings.RepeatPassword}" 
                          Style="{StaticResource RegisterPageRightPasswordBox}" local:FormMessageProperty.Value="{Binding RepeatedPasswordMessage}"/>
 
             <!-- Gender -->
             <!-- Text -->
-            <TextBlock Grid.Column="0" Grid.Row="4" Text="{x:Static localization:Strings.Gender}" Style="{StaticResource BaseFormText}"/>
+            <TextBlock Grid.Column="0" Grid.Row="4" Text="{x:Static localization:Strings.Gender}" Style="{StaticResource BaseFormText}"
+                       Foreground="{Binding GenderMessage, Converter={local:FormMessageToBrushConverter}}"/>
 
             <!-- Radio buttons -->
-            <StackPanel Grid.Column="1" Grid.Row="4" Orientation="Horizontal" Margin="25 20 0 0">
-                <RadioButton Content="{x:Static localization:Strings.Male}" 
-                             IsChecked="{Binding Gender, Converter={local:GenderToBolleanConverter}, ConverterParameter='Male'}" />
-                <RadioButton Content="{x:Static localization:Strings.Female}" Margin="10 0 0 0"
-                             IsChecked="{Binding Gender, Converter={local:GenderToBolleanConverter}, ConverterParameter='Female'}"/>
+            <StackPanel  Grid.Column="1" Grid.Row="4" >
+                <StackPanel Orientation="Horizontal" Margin="25 20 0 0">
+                    <RadioButton Content="{x:Static localization:Strings.Male}" 
+                             IsChecked="{Binding Gender, Converter={local:GenderToBolleanConverter}, ConverterParameter='Male'}"
+                             local:FormMessageProperty.Value="{Binding GenderMessage}"/>
+                    <RadioButton Content="{x:Static localization:Strings.Female}" Margin="10 0 0 0"
+                             IsChecked="{Binding Gender, Converter={local:GenderToBolleanConverter}, ConverterParameter='Female'}"
+                             local:FormMessageProperty.Value="{Binding GenderMessage}"/>
+                </StackPanel>
+
+                <TextBlock Text="{Binding GenderMessage, Converter={local:FormMessageToStringConverter}}"
+                                   Foreground="Red" FontFamily="{StaticResource LatoRegular}" FontSize="12" Margin="25 3 5 0" 
+                                   Visibility="{Binding GenderMessage, Converter={local:FormMessageToVisibilityConverter}}"/>
             </StackPanel>
+
 
             <!-- Sign Up button -->
             <Button Grid.ColumnSpan="2" Grid.Row="5" Content="{x:Static localization:Strings.SignUp}" Margin="0 20 0 40" HorizontalAlignment="Center"

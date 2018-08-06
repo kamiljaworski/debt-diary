@@ -349,6 +349,15 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Gender is unselected.
+        /// </summary>
+        public static string UnselectedGender {
+            get {
+                return ResourceManager.GetString("UnselectedGender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username.
         /// </summary>
         public static string Username {

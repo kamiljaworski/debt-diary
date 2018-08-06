@@ -37,7 +37,7 @@ namespace DebtDiary
         /// <summary>
         /// Gender of a new user
         /// </summary>
-        public Gender Gender { get; set; }
+        public Gender Gender { get; set; } = Gender.None;
 
         #endregion
 
@@ -72,6 +72,11 @@ namespace DebtDiary
         /// FormMessage of a repeated Password field in the view
         /// </summary>
         public FormMessage RepeatedPasswordMessage { get; set; } = FormMessage.None;
+
+        /// <summary>
+        /// FormMessage of a Gender RadioButton in the view
+        /// </summary>
+        public FormMessage GenderMessage { get; set; } = FormMessage.None;
         #endregion
 
         #region Public Commands
@@ -198,6 +203,10 @@ namespace DebtDiary
             if (_repeatedPassword.IsNullOrEmpty())
                 RepeatedPasswordMessage = FormMessage.EmptyRepeatedPassword;
 
+            // Check if gender was selected
+            if (Gender == Gender.None)
+                GenderMessage = FormMessage.UnselectedGender;
+
             // Check if first name is correct
             if (FirstNameMessage == FormMessage.None && DataValidator.IsNameCorrect(FirstName) == false)
                 FirstNameMessage = FormMessage.IncorrectFirstName;
@@ -253,6 +262,7 @@ namespace DebtDiary
             EmailMessage = FormMessage.None;
             PasswordMessage = FormMessage.None;
             RepeatedPasswordMessage = FormMessage.None;
+            GenderMessage = FormMessage.None;
         }
 
         /// <summary>
@@ -264,7 +274,8 @@ namespace DebtDiary
             // If any of the messages changed it's value return false
             if (FirstNameMessage != FormMessage.None || LastNameMessage != FormMessage.None ||
                 UsernameMessage != FormMessage.None || EmailMessage != FormMessage.None ||
-                PasswordMessage != FormMessage.None || RepeatedPasswordMessage != FormMessage.None)
+                PasswordMessage != FormMessage.None || RepeatedPasswordMessage != FormMessage.None ||
+                GenderMessage != FormMessage.None)
                 return false;
 
             // If not return true

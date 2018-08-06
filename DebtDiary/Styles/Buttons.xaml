@@ -323,6 +323,34 @@
                         <!-- FormMessageProperty animations -->
                         <Trigger Property="local:FormMessageProperty.Value" Value="None">
 
+                            <!-- When FormMessageProperty is equal to None -->
+                            <Trigger.EnterActions>
+
+                                <!-- RadioOuter -->
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.2" 
+                                                    Storyboard.TargetName="RadioOuter" Storyboard.TargetProperty="BorderBrush.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+
+                                <!-- RadioMark -->
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.2" 
+                                                    Storyboard.TargetName="RadioMark" Storyboard.TargetProperty="Background.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+
+                                <!-- Text -->
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.2" 
+                                                    Storyboard.TargetName="Text" Storyboard.TargetProperty="Foreground.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            
                             <!-- When FormMessageProperty is other than None -->
                             <Trigger.ExitActions>
 

@@ -187,7 +187,7 @@
     <value>Hasło</value>
   </data>
   <data name="PasswordTooShort" xml:space="preserve">
-    <value>Hasło powinno posiadać przynajmniej 8 znaków</value>
+    <value>Hasło musi posiadać minimum 8 znaków</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Rejestracja</value>
@@ -212,6 +212,9 @@
   </data>
   <data name="TakenUsername" xml:space="preserve">
     <value>Nazwa użytkownika jest zajęta</value>
+  </data>
+  <data name="UnselectedGender" xml:space="preserve">
+    <value>Płeć nie została wybrana</value>
   </data>
   <data name="Username" xml:space="preserve">
     <value>Nazwa użytkownika</value>

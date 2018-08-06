@@ -213,6 +213,9 @@
   <data name="TakenUsername" xml:space="preserve">
     <value>Username is already taken</value>
   </data>
+  <data name="UnselectedGender" xml:space="preserve">
+    <value>Gender is unselected</value>
+  </data>
   <data name="Username" xml:space="preserve">
     <value>Username</value>
   </data>

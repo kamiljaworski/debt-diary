@@ -21,6 +21,7 @@
         IncorrectEmail,
         IncorrectFirstName,
         IncorrectLastName,
-        IncorrectUsername
+        IncorrectUsername,
+        UnselectedGender
     }
 }
