@@ -153,7 +153,7 @@ namespace DebtDiary
                 _dataAccess = IocContainer.Get<IDebtDiaryDataAccess>();
 
                 // Validate data and if there is any problem return from method
-                if (await ValidateData() == false)
+                if (await ValidateDataAsync() == false)
                     return;
 
                 // Make new user object
@@ -169,10 +169,10 @@ namespace DebtDiary
                 };
 
                 // Sign up a new user
-                _dataAccess.CreateAccount(user);
+                //_dataAccess.CreateAccount(user);
 
                 // Clear all the fields in the view
-                ClearAllFields(parameter as IHaveTwoPasswords);
+                //ClearAllFields(parameter as IHaveTwoPasswords);
 
             });
         }
@@ -185,81 +185,84 @@ namespace DebtDiary
         /// Helper method that validate if new user's data is correct 
         /// </summary>
         /// <returns>True if user can be added to the database or false if not</returns>
-        private Task<bool> ValidateData()
+        private async Task<bool> ValidateDataAsync()
         {
-            // Reset all the form messages properties
-            ResetFormMessages();
-
-            // Check if first name is empty
-            if (string.IsNullOrEmpty(FirstName))
-                FirstNameMessage = FormMessage.EmptyFirstName;
-
-            // Check if last name is empty
-            if (string.IsNullOrEmpty(LastName))
-                LastNameMessage = FormMessage.EmptyLastName;
-
-            // Check if username is empty
-            if (string.IsNullOrEmpty(Username))
-                UsernameMessage = FormMessage.EmptyUsername;
-
-            // Check if email is empty
-            if (string.IsNullOrEmpty(Email))
-                EmailMessage = FormMessage.EmptyEmail;
-
-            // Check if password is empty
-            if (_password.IsNullOrEmpty())
-                PasswordMessage = FormMessage.EmptyPassword;
-
-            // Check if repeated password is empty
-            if (_repeatedPassword.IsNullOrEmpty())
-                RepeatedPasswordMessage = FormMessage.EmptyRepeatedPassword;
-
-            // Check if gender was selected
-            if (Gender == Gender.None)
-                GenderMessage = FormMessage.UnselectedGender;
-
-            // Check if first name is correct
-            if (FirstNameMessage == FormMessage.None && DataValidator.IsNameCorrect(FirstName) == false)
-                FirstNameMessage = FormMessage.IncorrectFirstName;
-
-            // Check if first name is correct
-            if (LastNameMessage == FormMessage.None && DataValidator.IsNameCorrect(LastName) == false)
-                LastNameMessage = FormMessage.IncorrectLastName;
-
-            // Check if username is correct
-            if (UsernameMessage == FormMessage.None && DataValidator.IsUsernameNameCorrect(Username) == false)
-                UsernameMessage = FormMessage.IncorrectUsername;
-
-            // Check if e-mail is in correct format
-            if (EmailMessage == FormMessage.None && DataValidator.IsEmailCorrect(Email) == false)
-                EmailMessage = FormMessage.IncorrectEmail;
-
-            // Check if username is avaliable in db
-            if (UsernameMessage == FormMessage.None && _dataAccess.IsUsernameAvailable(Username) == false)
-                UsernameMessage = FormMessage.TakenUsername;
-
-            // Check if e-mail is avaliable in db
-            if (EmailMessage == FormMessage.None && _dataAccess.IsEmailAvailable(Email) == false)
-                EmailMessage = FormMessage.TakenEmail;
-
-            // Check if password is longer or equal to 8 characters
-            if (PasswordMessage == FormMessage.None && RepeatedPasswordMessage == FormMessage.None &&
-                _password.Length < 8)
+            await Task.Run(() =>
             {
-                PasswordMessage = FormMessage.PasswordTooShort;
-                RepeatedPasswordMessage = FormMessage.EmptyMessage;
-            }
+                // Reset all the form messages properties
+                ResetFormMessages();
 
-            // Check if passwords are the same
-            if (PasswordMessage == FormMessage.None && RepeatedPasswordMessage == FormMessage.None &&
-                _password.GetEncryptedPassword() != _repeatedPassword.GetEncryptedPassword())
-            {
-                PasswordMessage = FormMessage.DifferentPasswords;
-                RepeatedPasswordMessage = FormMessage.EmptyMessage;
-            }
+                // Check if first name is empty
+                if (string.IsNullOrEmpty(FirstName))
+                    FirstNameMessage = FormMessage.EmptyFirstName;
+
+                // Check if last name is empty
+                if (string.IsNullOrEmpty(LastName))
+                    LastNameMessage = FormMessage.EmptyLastName;
+
+                // Check if username is empty
+                if (string.IsNullOrEmpty(Username))
+                    UsernameMessage = FormMessage.EmptyUsername;
+
+                // Check if email is empty
+                if (string.IsNullOrEmpty(Email))
+                    EmailMessage = FormMessage.EmptyEmail;
+
+                // Check if password is empty
+                if (_password.IsNullOrEmpty())
+                    PasswordMessage = FormMessage.EmptyPassword;
+
+                // Check if repeated password is empty
+                if (_repeatedPassword.IsNullOrEmpty())
+                    RepeatedPasswordMessage = FormMessage.EmptyRepeatedPassword;
+
+                // Check if gender was selected
+                if (Gender == Gender.None)
+                    GenderMessage = FormMessage.UnselectedGender;
+
+                // Check if first name is correct
+                if (FirstNameMessage == FormMessage.None && DataValidator.IsNameCorrect(FirstName) == false)
+                    FirstNameMessage = FormMessage.IncorrectFirstName;
+
+                // Check if first name is correct
+                if (LastNameMessage == FormMessage.None && DataValidator.IsNameCorrect(LastName) == false)
+                    LastNameMessage = FormMessage.IncorrectLastName;
+
+                // Check if username is correct
+                if (UsernameMessage == FormMessage.None && DataValidator.IsUsernameNameCorrect(Username) == false)
+                    UsernameMessage = FormMessage.IncorrectUsername;
+
+                // Check if e-mail is in correct format
+                if (EmailMessage == FormMessage.None && DataValidator.IsEmailCorrect(Email) == false)
+                    EmailMessage = FormMessage.IncorrectEmail;
+
+                // Check if username is avaliable in db
+                if (UsernameMessage == FormMessage.None && _dataAccess.IsUsernameAvailable(Username) == false)
+                    UsernameMessage = FormMessage.TakenUsername;
+
+                // Check if e-mail is avaliable in db
+                if (EmailMessage == FormMessage.None && _dataAccess.IsEmailAvailable(Email) == false)
+                    EmailMessage = FormMessage.TakenEmail;
+
+                // Check if password is longer or equal to 8 characters
+                if (PasswordMessage == FormMessage.None && RepeatedPasswordMessage == FormMessage.None &&
+                    _password.Length < 8)
+                {
+                    PasswordMessage = FormMessage.PasswordTooShort;
+                    RepeatedPasswordMessage = FormMessage.EmptyMessage;
+                }
+
+                // Check if passwords are the same
+                if (PasswordMessage == FormMessage.None && RepeatedPasswordMessage == FormMessage.None &&
+                    _password.GetEncryptedPassword() != _repeatedPassword.GetEncryptedPassword())
+                {
+                    PasswordMessage = FormMessage.DifferentPasswords;
+                    RepeatedPasswordMessage = FormMessage.EmptyMessage;
+                }
+            });
 
             // Check if any problem was found and return right value
-            return Task.FromResult(IsEnteredDataCorrect());
+            return IsEnteredDataCorrect();
         }
 
         /// <summary>
