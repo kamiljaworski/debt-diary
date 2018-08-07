@@ -35,17 +35,12 @@ namespace DebtDiary
         public LoginPageViewModel()
         {
             // Create commands
-            CreateAccountCommand = new RelayCommand(GoToRegisterPage);
+            CreateAccountCommand = new RelayCommand(() => ChangeApplicationPage(ApplicationPage.RegisterPage));
             LoginCommand = new RelayParameterizedCommand((parameter) => Login(parameter));
         }
         #endregion
 
         #region Private Methods
-
-        /// <summary>
-        /// Method that change current page to RegisterPage
-        /// </summary>
-        private void GoToRegisterPage() => ChangeCurrentApplicationPage(ApplicationPage.RegisterPage);
 
         /// <summary>
         /// Method that log the user in
@@ -55,16 +50,7 @@ namespace DebtDiary
             string username = Username;
             string password = (parameter as IHavePassword).Password.GetEncryptedPassword();
 
-            ChangeCurrentApplicationPage(ApplicationPage.DiaryPage);
-        }
-
-        /// <summary>
-        /// Helper method that change the current application page
-        /// </summary>
-        /// <param name="applicationPage">Application page you want to change to</param>
-        private void ChangeCurrentApplicationPage(ApplicationPage applicationPage)
-        {
-            IocContainer.Get<ApplicationViewModel>().GoToPageAsync(applicationPage);
+            ChangeApplicationPage(ApplicationPage.DiaryPage);
         }
         #endregion
     }

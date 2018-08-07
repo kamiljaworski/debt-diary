@@ -119,21 +119,13 @@ namespace DebtDiary
         public RegisterPageViewModel()
         {
             // Create commands
-            LoginCommand = new RelayCommand(GoToLoginPage);
+            LoginCommand = new RelayCommand(() => ChangeApplicationPage(ApplicationPage.LoginPage));
             SignUpCommand = new RelayParameterizedCommand(async (parameter) => await SignUpAsync(parameter));
         }
 
         #endregion
 
         #region Private Methods
-
-        /// <summary>
-        /// Method that change current page to Login Page
-        /// </summary>
-        private void GoToLoginPage()
-        {
-            IocContainer.Get<ApplicationViewModel>().GoToPageAsync(ApplicationPage.LoginPage);
-        }
 
         /// <summary>
         /// Method that signs the user in
