@@ -51,5 +51,12 @@ namespace DebtDiary
                 updatingFlag.SetPropertyValue(false);
             }
         }
+
+        /// <summary>
+        /// Changes current application page
+        /// </summary>
+        /// <param name="page"><see cref="ApplicationPage"/> you want to go to</param>
+        protected void ChangeApplicationPage(ApplicationPage page) => IocContainer.Get<ApplicationViewModel>().GoToPageAsync(ApplicationPage.LoginPage);
+
     }
 }
