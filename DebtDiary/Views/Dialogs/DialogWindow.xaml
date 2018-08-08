@@ -7,7 +7,7 @@
         mc:Ignorable="d" WindowStyle="None" 
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
         Title="Dialog window title" 
-        Width="400" Height="300">
+        Width="400" Height="280">
 
     <!--#region DialogWindow Style-->
     <Window.Resources>
@@ -17,41 +17,23 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Window}">
                         <!-- Outer border -->
-                        <Border Background="Gray">
+                        <Border Background="{StaticResource VeryLightGreyBrush}">
                             <Grid>
-                                <Grid.RowDefinitions>
-                                    <!-- Title bar -->
-                                    <RowDefinition Height="{Binding TitleBarHeight, FallbackValue=35}"/>
-                                    <!-- Window Content -->
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-
-                                <!--#region Title bar-->
-                                <Grid Grid.Row="0" Background="{StaticResource DarkGreyBrush}">
-                                    <!-- Title bar divided into 2 parts -->
-                                    <Grid.ColumnDefinitions>
-                                        <!-- User control part -->
-                                        <ColumnDefinition Width="*"/>
-                                        <!-- Content part -->
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <!-- Title -->
-                                    <TextBlock  Grid.Column="0" Margin="5 9 2 0" Style="{StaticResource TitleBarStyle}" 
-                                               Text="{Binding Title, RelativeSource={RelativeSource Mode=TemplatedParent}, FallbackValue='Dialog window title'}" />
-
-                                    <!-- Close button -->
-                                    <Button Grid.Column="1" Style="{StaticResource DarkWindowCloseButton}" Content="{StaticResource CloseIcon}" 
-                                            Command="{Binding CloseCommand}"/>
-
-                                </Grid>
-                                <!--#endregion-->
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
 
                                 <!-- Page content -->
-                                <Border Grid.Row="1">
+                                <Border Grid.ColumnSpan="2">
                                     <ContentPresenter Content="{TemplateBinding Content}"/>
                                 </Border>
 
+
+                                <!-- Close window button -->
+                                <Button Grid.Column="1" Style="{StaticResource LightWindowCloseButton}" Content="{StaticResource CloseIcon}" 
+                                            Command="{Binding CloseCommand}" VerticalAlignment="Top" Padding="18 13 18 13"/>
+                                
                             </Grid>
                         </Border>
                     </ControlTemplate>
@@ -68,7 +50,7 @@
     <!--#endregion-->
 
     <!--#region Window Content -->
-    <Grid Background="{StaticResource DarkGreyBrush}">
+    <Grid Background="{StaticResource VeryLightGreyBrush}">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -80,13 +62,13 @@
             <Border Width="70" Height="70" Background="{StaticResource ButtonGreenBrush}" CornerRadius="50" Margin="10">
                 <TextBlock Text="&#xE73E;" FontFamily="{StaticResource Segoe-MDL2}" Foreground="White" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Border>
-            <TextBlock Text="Your account has been created" FontSize="18" Foreground="White" FontFamily="{StaticResource LatoRegular}" HorizontalAlignment="Center"/>
-            <TextBlock Text="You now log in" FontSize="18" Foreground="White" FontFamily="{StaticResource LatoThin}" HorizontalAlignment="Center"/>
+            <TextBlock Text="Your account has been created" FontSize="18" Foreground="{StaticResource DarkGreyBrush}" FontFamily="{StaticResource LatoRegular}" HorizontalAlignment="Center"/>
+            <TextBlock Text="You can now log in" FontSize="18" Foreground="{StaticResource DarkGreyBrush}" FontFamily="{StaticResource LatoThin}" HorizontalAlignment="Center"/>
         </StackPanel>
         
         <!-- Button -->
-        <StackPanel Grid.Row="1" Background="White">
-            <Polygon Points="0,0 15,10, 30,0" Stroke="{StaticResource DarkGreyBrush}" Fill="{StaticResource DarkGreyBrush}" HorizontalAlignment="Center" />
+        <StackPanel Grid.Row="1" Background="{StaticResource DarkGreyBrush}">
+            <Polygon Points="0,0 15,10, 30,0" Stroke="{StaticResource VeryLightGreyBrush}" Fill="{StaticResource VeryLightGreyBrush}" HorizontalAlignment="Center" />
 
             <Button Grid.Row="1" Content="OK" HorizontalAlignment="Center" Margin="10"/>
         </StackPanel>
