@@ -126,6 +126,7 @@
     <Compile Include="ViewModels\Application\ApplicationPage.cs" />
     <Compile Include="ViewModels\Application\ApplicationViewModel.cs" />
     <Compile Include="ViewModels\Application\FormMessage.cs" />
+    <Compile Include="ViewModels\Application\IApplicationViewModel.cs" />
     <Compile Include="ViewModels\Base\IHavePassword.cs" />
     <Compile Include="ViewModels\Base\IHaveTwoPasswords.cs" />
     <Compile Include="ViewModels\Base\RelayParameterizedCommand.cs" />
