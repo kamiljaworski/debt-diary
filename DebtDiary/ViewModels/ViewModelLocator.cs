@@ -8,6 +8,6 @@
         /// <summary>
         /// ApplicationViewModel Property
         /// </summary>
-        public ApplicationViewModel ApplicationViewModel { get => IocContainer.Get<ApplicationViewModel>(); }
+        public IApplicationViewModel ApplicationViewModel { get => IocContainer.Get<IApplicationViewModel>(); }
     }
 }

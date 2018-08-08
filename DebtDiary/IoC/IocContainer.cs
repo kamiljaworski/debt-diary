@@ -20,7 +20,7 @@ namespace DebtDiary
         /// </summary>
         public static void Setup()
         {
-            Kernel.Bind<ApplicationViewModel>().To<ApplicationViewModel>().InSingletonScope();
+            Kernel.Bind<IApplicationViewModel>().To<ApplicationViewModel>().InSingletonScope();
             Kernel.Bind<IDebtDiaryDataAccess>().To<DebtDiaryDataAccess>().InSingletonScope();
         }
 
