@@ -1,12 +1,97 @@
-﻿<Window x:Class="DebtDiary.Views.Dialogs.DialogWindow"
+﻿<Window x:Class="DebtDiary.DialogWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DebtDiary.Views.Dialogs"
-        mc:Ignorable="d"
-        Title="DialogWindow" Height="450" Width="800">
-    <Grid>
+        xmlns:local="clr-namespace:DebtDiary"
+        mc:Ignorable="d" WindowStyle="None" 
+        AllowsTransparency="True" WindowStartupLocation="CenterScreen"
+        Title="Dialog window title" 
+        Width="400" Height="300">
+
+    <!--#region DialogWindow Style-->
+    <Window.Resources>
+        <Style TargetType="{x:Type local:DialogWindow}">
+            <!-- New window template -->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Window}">
+                        <!-- Outer border -->
+                        <Border Background="Gray">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <!-- Title bar -->
+                                    <RowDefinition Height="{Binding TitleBarHeight, FallbackValue=35}"/>
+                                    <!-- Window Content -->
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <!--#region Title bar-->
+                                <Grid Grid.Row="0" Background="{StaticResource DarkGreyBrush}">
+                                    <!-- Title bar divided into 2 parts -->
+                                    <Grid.ColumnDefinitions>
+                                        <!-- User control part -->
+                                        <ColumnDefinition Width="*"/>
+                                        <!-- Content part -->
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- Title -->
+                                    <TextBlock  Grid.Column="0" Margin="5 9 2 0" Style="{StaticResource TitleBarStyle}" 
+                                               Text="{Binding Title, RelativeSource={RelativeSource Mode=TemplatedParent}, FallbackValue='Dialog window title'}" />
+
+                                    <!-- Close button -->
+                                    <Button Grid.Column="1" Style="{StaticResource DarkWindowCloseButton}" Content="{StaticResource CloseIcon}" 
+                                            Command="{Binding CloseCommand}"/>
+
+                                </Grid>
+                                <!--#endregion-->
+
+                                <!-- Page content -->
+                                <Border Grid.Row="1">
+                                    <ContentPresenter Content="{TemplateBinding Content}"/>
+                                </Border>
+
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <!--#endregion-->
+
+    <!--#region Window Chrome Settings -->
+    <WindowChrome.WindowChrome>
+        <WindowChrome ResizeBorderThickness="{Binding ResizeBorderThickness}" CaptionHeight="{Binding TitleBarHeight}"/>
+    </WindowChrome.WindowChrome>
+    <!--#endregion-->
+
+    <!--#region Window Content -->
+    <Grid Background="{StaticResource DarkGreyBrush}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Text -->
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Border Width="70" Height="70" Background="{StaticResource ButtonGreenBrush}" CornerRadius="50" Margin="10">
+                <TextBlock Text="&#xE73E;" FontFamily="{StaticResource Segoe-MDL2}" Foreground="White" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            <TextBlock Text="Your account has been created" FontSize="18" Foreground="White" FontFamily="{StaticResource LatoRegular}" HorizontalAlignment="Center"/>
+            <TextBlock Text="You now log in" FontSize="18" Foreground="White" FontFamily="{StaticResource LatoThin}" HorizontalAlignment="Center"/>
+        </StackPanel>
         
+        <!-- Button -->
+        <StackPanel Grid.Row="1" Background="White">
+            <Polygon Points="0,0 15,10, 30,0" Stroke="{StaticResource DarkGreyBrush}" Fill="{StaticResource DarkGreyBrush}" HorizontalAlignment="Center" />
+
+            <Button Grid.Row="1" Content="OK" HorizontalAlignment="Center" Margin="10"/>
+        </StackPanel>
+
     </Grid>
+    <!--#endregion-->
+
 </Window>
