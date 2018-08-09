@@ -40,7 +40,7 @@ namespace DebtDiary.Core
                 StringBuilder stringBuilder = new StringBuilder();
                 stringBuilder.Append(FirstName[0], 1);
                 stringBuilder.Append(LastName[0], 1);
-                return stringBuilder.ToString();
+                return stringBuilder.ToString().ToUpper();
             }
         }
     }
