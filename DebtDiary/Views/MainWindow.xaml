@@ -13,8 +13,8 @@
         Title="{x:Static localization:Strings.ApplicationName}"
         MinWidth="{Binding MinimumWidth}"
         MinHeight="{Binding MinimumHeight}"
-        Width="{Binding MinimumWidth, FallbackValue=1280}"
-        Height="{Binding MinimumHeight, FallbackValue=720}">
+        Width="{Binding Width, FallbackValue=1280}"
+        Height="{Binding Height, FallbackValue=720}">
 
     <!--#region MainWindow Style-->
     <Window.Resources>
