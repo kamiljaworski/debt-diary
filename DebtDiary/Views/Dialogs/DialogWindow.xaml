@@ -7,7 +7,10 @@
         mc:Ignorable="d" WindowStyle="None" 
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
         Title="Dialog window title" 
-        Width="400" Height="280">
+        MinWidth="{Binding MinimumWidth}"
+        MinHeight="{Binding MinimumHeight}"
+        Width="{Binding Width, FallbackValue=400}"
+        Height="{Binding Height, FallbackValue=280}">
 
     <!--#region DialogWindow Style-->
     <Window.Resources>
@@ -33,7 +36,7 @@
                                 <!-- Close window button -->
                                 <Button Grid.Column="1" Style="{StaticResource LightWindowCloseButton}" Content="{StaticResource CloseIcon}" 
                                             Command="{Binding CloseCommand}" VerticalAlignment="Top" Padding="18 13 18 13"/>
-                                
+
                             </Grid>
                         </Border>
                     </ControlTemplate>
@@ -65,7 +68,7 @@
             <TextBlock Text="Your account has been created" FontSize="18" Foreground="{StaticResource DarkGreyBrush}" FontFamily="{StaticResource LatoRegular}" HorizontalAlignment="Center"/>
             <TextBlock Text="You can now log in" FontSize="18" Foreground="{StaticResource DarkGreyBrush}" FontFamily="{StaticResource LatoThin}" HorizontalAlignment="Center"/>
         </StackPanel>
-        
+
         <!-- Button -->
         <StackPanel Grid.Row="1" Background="{StaticResource DarkGreyBrush}">
             <Polygon Points="0,0 15,10, 30,0" Stroke="{StaticResource VeryLightGreyBrush}" Fill="{StaticResource VeryLightGreyBrush}" HorizontalAlignment="Center" />
