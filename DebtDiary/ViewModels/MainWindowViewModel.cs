@@ -43,6 +43,16 @@ namespace DebtDiary
         public int MinimumHeight { get; set; } = 720;
 
         /// <summary>
+        /// Actual width of the window
+        /// </summary>
+        public int Width { get; set; } = 1280;
+
+        /// <summary>
+        /// Actual height of the window
+        /// </summary>
+        public int Height { get; set; } = 720;
+
+        /// <summary>
         /// Height of the title bar
         /// </summary>
         public int TitleBarHeight { get; set; } = 35;
