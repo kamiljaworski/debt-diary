@@ -12,64 +12,71 @@ namespace DebtDiary
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            // Create a resource manager to retrieve resources.
-            ResourceManager strings = new ResourceManager("DebtDiary.Localization.Strings", Assembly.GetExecutingAssembly());
-
-            // Find value and return proper text
-            switch ((FormMessage)value)
+            try
             {
-                case FormMessage.EmptyFirstName:
-                    return strings.GetString("EmptyFirstName");
+                // Create a resource manager to retrieve resources.
+                ResourceManager strings = new ResourceManager("DebtDiary.Localization.Strings", Assembly.GetExecutingAssembly());
 
-                case FormMessage.EmptyLastName:
-                    return strings.GetString("EmptyLastName");
+                // Find value and return proper text
+                switch ((FormMessage)value)
+                {
+                    case FormMessage.EmptyFirstName:
+                        return strings.GetString("EmptyFirstName");
 
-                case FormMessage.EmptyUsername:
-                    return strings.GetString("EmptyUsername");
+                    case FormMessage.EmptyLastName:
+                        return strings.GetString("EmptyLastName");
 
-                case FormMessage.EmptyEmail:
-                    return strings.GetString("EmptyEmail");
+                    case FormMessage.EmptyUsername:
+                        return strings.GetString("EmptyUsername");
 
-                case FormMessage.EmptyPassword:
-                    return strings.GetString("EmptyPassword");
+                    case FormMessage.EmptyEmail:
+                        return strings.GetString("EmptyEmail");
 
-                case FormMessage.EmptyRepeatedPassword:
-                    return strings.GetString("EmptyRepeatedPassword");
+                    case FormMessage.EmptyPassword:
+                        return strings.GetString("EmptyPassword");
 
-                case FormMessage.TakenUsername:
-                    return strings.GetString("TakenUsername");
+                    case FormMessage.EmptyRepeatedPassword:
+                        return strings.GetString("EmptyRepeatedPassword");
 
-                case FormMessage.TakenEmail:
-                    return strings.GetString("TakenEmail");
+                    case FormMessage.TakenUsername:
+                        return strings.GetString("TakenUsername");
 
-                case FormMessage.DifferentPasswords:
-                    return strings.GetString("DifferentPasswords");
+                    case FormMessage.TakenEmail:
+                        return strings.GetString("TakenEmail");
 
-                case FormMessage.PasswordTooShort:
-                    return strings.GetString("PasswordTooShort");
+                    case FormMessage.DifferentPasswords:
+                        return strings.GetString("DifferentPasswords");
 
-                case FormMessage.IncorrectEmail:
-                    return strings.GetString("IncorrectEmail");
+                    case FormMessage.PasswordTooShort:
+                        return strings.GetString("PasswordTooShort");
 
-                case FormMessage.IncorrectFirstName:
-                    return strings.GetString("IncorrectFirstName");
+                    case FormMessage.IncorrectEmail:
+                        return strings.GetString("IncorrectEmail");
 
-                case FormMessage.IncorrectLastName:
-                    return strings.GetString("IncorrectLastName");
+                    case FormMessage.IncorrectFirstName:
+                        return strings.GetString("IncorrectFirstName");
 
-                case FormMessage.IncorrectUsername:
-                    return strings.GetString("IncorrectUsername");
+                    case FormMessage.IncorrectLastName:
+                        return strings.GetString("IncorrectLastName");
 
-                case FormMessage.UnselectedGender:
-                    return strings.GetString("UnselectedGender");
+                    case FormMessage.IncorrectUsername:
+                        return strings.GetString("IncorrectUsername");
 
-                case FormMessage.EmptyMessage:
-                    return string.Empty;
+                    case FormMessage.UnselectedGender:
+                        return strings.GetString("UnselectedGender");
 
+                    case FormMessage.EmptyMessage:
+                        return string.Empty;
+                }
+
+                // If value isn't found empty string
+                return String.Empty;
+            }
+            catch (Exception)
+            {
+                return string.Empty;
             }
 
-            // If value isn't found empty string
-            return String.Empty;
         }
 
         public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => throw new NotImplementedException();
