@@ -339,7 +339,7 @@
                                           HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                         </Border>
 
-                        <TextBlock Grid.Row="0" x:Name="PlaceholderText" Text="{TemplateBinding Tag}" Foreground="{TemplateBinding Foreground}" FontFamily="{StaticResource LatoLight}"
+                        <TextBlock Grid.Row="0" x:Name="PlaceholderText" Text="{TemplateBinding Tag}" Foreground="{TemplateBinding BorderBrush}" FontFamily="{StaticResource LatoLight}"
                                    TextAlignment="{TemplateBinding HorizontalContentAlignment, Converter={local:HorizontalAlignmentToTextAlignmentConverter}}" 
                                    FontSize="{TemplateBinding FontSize}" IsHitTestVisible="False" Margin="0 22 0 0" Padding="5 0 5 0"/>
 
@@ -355,43 +355,30 @@
 
                     <ControlTemplate.Triggers>
 
-                        <!-- GotFocus animations -->
-                        <EventTrigger RoutedEvent="GotFocus">
-                            <!-- Border -->
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <ColorAnimation To="{StaticResource ButtonGreen}" Duration="0:0:0.2" 
-                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="BorderBrush.Color" />
-                                </Storyboard>
-                            </BeginStoryboard>
+                        <!-- Focus animations -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsFocused" Value="True"/>
+                                <Condition Property="local:FormMessageProperty.Value" Value="None"/>
+                            </MultiTrigger.Conditions>
 
-                            <!-- Text -->
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <ColorAnimation To="{StaticResource ButtonGreen}" Duration="0:0:0.2" 
-                                                    Storyboard.TargetName="PlaceholderText" Storyboard.TargetProperty="Foreground.Color" />
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource ButtonGreen}" Duration="0:0:0.2" Storyboard.TargetProperty="BorderBrush.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
 
-                        <!-- LostFocus animations -->
-                        <EventTrigger RoutedEvent="LostFocus">
-                            <!-- Border -->
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.2" 
-                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="BorderBrush.Color" />
-                                </Storyboard>
-                            </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
 
-                            <!-- Text -->
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.2" 
-                                                    Storyboard.TargetName="PlaceholderText" Storyboard.TargetProperty="Foreground.Color" />
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.2" Storyboard.TargetProperty="BorderBrush.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
 
                         <!-- Placeholder Text Animations -->
                         <DataTrigger Binding="{Binding ElementName=HelperTextBlock, Path=Visibility, Converter={local:VisibilityToBooleanConverter}}" Value="False">
@@ -437,13 +424,26 @@
                             </DataTrigger.ExitActions>
                         </DataTrigger>
 
+
                         <!-- FormMessageProperty animations -->
                         <Trigger Property="local:FormMessageProperty.Value" Value="None">
 
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="ErrorMessage" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:0.2" />
+                                        <DoubleAnimation To="0" Duration="0:0:0.2" Storyboard.TargetName="ErrorMessage" Storyboard.TargetProperty="Opacity" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.2" Storyboard.TargetName="Border" Storyboard.TargetProperty="BorderBrush.Color"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.2" Storyboard.TargetName="PlaceholderText" Storyboard.TargetProperty="Foreground.Color"/>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.EnterActions>
@@ -451,31 +451,25 @@
                             <!-- When FormMessageProperty is other than None -->
                             <Trigger.ExitActions>
 
-                                <!-- Error Message -->
                                 <BeginStoryboard>
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetName="ErrorMessage" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.2" />
                                     </Storyboard>
                                 </BeginStoryboard>
 
-                                <!-- Border -->
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <ColorAnimation To="Red" Duration="0:0:0.2" 
-                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="BorderBrush.Color" />
+                                        <ColorAnimation To="Red" Duration="0:0:0.2" Storyboard.TargetName="Border" Storyboard.TargetProperty="BorderBrush.Color" />
                                     </Storyboard>
                                 </BeginStoryboard>
 
-
-                                <!-- Text -->
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <ColorAnimation To="Red" Duration="0:0:0.2" 
-                                                    Storyboard.TargetName="PlaceholderText" Storyboard.TargetProperty="Foreground.Color" />
+                                        <ColorAnimation To="Red" Duration="0:0:0.2" Storyboard.TargetName="PlaceholderText" Storyboard.TargetProperty="Foreground.Color"/>
                                     </Storyboard>
                                 </BeginStoryboard>
+
                             </Trigger.ExitActions>
-
                         </Trigger>
 
                     </ControlTemplate.Triggers>
