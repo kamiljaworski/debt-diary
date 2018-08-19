@@ -253,6 +253,8 @@
         <Setter Property="FontFamily" Value="{StaticResource LatoLight}"/>
         <Setter Property="FontSize" Value="18"/>
         <Setter Property="Foreground" Value="{StaticResource DarkGreyBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource DarkGreyBrush}"/>
+        <Setter Property="Background" Value="{StaticResource DarkGreyBrush}"/>
         <Setter Property="local:FormMessageProperty.Value" Value="None"/>
 
         <Setter Property="Template">
@@ -262,8 +264,8 @@
 
                         <!-- Radio -->
                         <Grid Height="16" Width="16">
-                            <Border Name="RadioOuter" Background="Transparent" BorderBrush="{StaticResource DarkGreyBrush}" BorderThickness="1" CornerRadius="16" />
-                            <Border Name="RadioMark" CornerRadius="8" Margin="4" Background="{StaticResource DarkGreyBrush}" Visibility="Hidden" />
+                            <Border Name="RadioOuter" Background="Transparent" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="16" />
+                            <Border Name="RadioMark" CornerRadius="8" Margin="4" Background="{TemplateBinding Background}" Visibility="Hidden" />
                         </Grid>
 
                         <!-- Text  -->
@@ -272,65 +274,65 @@
                     </StackPanel>
 
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsChecked" Value="true">
+                        <Trigger Property="IsChecked" Value="True">
                             <!-- If item is checked set Visibility of a RadioMark to Visible -->
                             <Setter TargetName="RadioMark" Property="Visibility" Value="Visible"/>
                         </Trigger>
+                        
+                        <!-- Focus animations -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsFocused" Value="True"/>
+                                <Condition Property="local:FormMessageProperty.Value" Value="None"/>
+                            </MultiTrigger.Conditions>
 
-                        <!-- GotFocus animations -->
-                        <EventTrigger RoutedEvent="GotFocus">
-                            <!-- RadioOuter -->
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <ColorAnimation To="{StaticResource ButtonGreen}" Duration="0:0:0.2" 
-                                                    Storyboard.TargetName="RadioOuter" Storyboard.TargetProperty="BorderBrush.Color" />
-                                </Storyboard>
-                            </BeginStoryboard>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource ButtonGreen}" Duration="0:0:0.2" 
+                                                    Storyboard.TargetProperty="BorderBrush.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
 
-                            <!-- RadioMark -->
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <ColorAnimation To="{StaticResource ButtonGreen}" Duration="0:0:0.2" 
-                                                    Storyboard.TargetName="RadioMark" Storyboard.TargetProperty="Background.Color" />
-                                </Storyboard>
-                            </BeginStoryboard>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource ButtonGreen}" Duration="0:0:0.2" 
+                                                    Storyboard.TargetProperty="Background.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
 
-                            <!-- Text -->
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <ColorAnimation To="{StaticResource ButtonGreen}" Duration="0:0:0.2" 
-                                                    Storyboard.TargetName="Text" Storyboard.TargetProperty="Foreground.Color" />
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource ButtonGreen}" Duration="0:0:0.2" 
+                                                    Storyboard.TargetProperty="Foreground.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
 
-                        <!-- LostFocus animations -->
-                        <EventTrigger RoutedEvent="LostFocus">
-                            <!-- RadioOuter -->
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.2" 
-                                                    Storyboard.TargetName="RadioOuter" Storyboard.TargetProperty="BorderBrush.Color" />
-                                </Storyboard>
-                            </BeginStoryboard>
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.2" 
+                                                   Storyboard.TargetProperty="BorderBrush.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
 
-                            <!-- RadioMark -->
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.2" 
-                                                    Storyboard.TargetName="RadioMark" Storyboard.TargetProperty="Background.Color" />
-                                </Storyboard>
-                            </BeginStoryboard>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.2" 
+                                                    Storyboard.TargetProperty="Background.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
 
-                            <!-- Text -->
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.2" 
-                                                    Storyboard.TargetName="Text" Storyboard.TargetProperty="Foreground.Color" />
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.2" 
+                                                    Storyboard.TargetProperty="Foreground.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
+                        
                         <!-- FormMessageProperty animations -->
                         <Trigger Property="local:FormMessageProperty.Value" Value="None">
 
