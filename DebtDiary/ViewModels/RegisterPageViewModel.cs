@@ -233,14 +233,6 @@ namespace DebtDiary
                 if (EmailMessage == FormMessage.None && DataValidator.IsEmailCorrect(Email) == false)
                     EmailMessage = FormMessage.IncorrectEmail;
 
-                // Check if username is avaliable in db
-                if (UsernameMessage == FormMessage.None && _dataAccess.IsUsernameAvailable(Username) == false)
-                    UsernameMessage = FormMessage.TakenUsername;
-
-                // Check if e-mail is avaliable in db
-                if (EmailMessage == FormMessage.None && _dataAccess.IsEmailAvailable(Email) == false)
-                    EmailMessage = FormMessage.TakenEmail;
-
                 // Check if password is longer or equal to 8 characters
                 if (PasswordMessage == FormMessage.None && RepeatedPasswordMessage == FormMessage.None &&
                     _password.Length < 8)
@@ -256,6 +248,16 @@ namespace DebtDiary
                     PasswordMessage = FormMessage.DifferentPasswords;
                     RepeatedPasswordMessage = FormMessage.EmptyMessage;
                 }
+
+                // Check if username is avaliable in db
+                if (UsernameMessage == FormMessage.None && _dataAccess.IsUsernameAvailable(Username) == false)
+                    UsernameMessage = FormMessage.TakenUsername;
+
+                // Check if e-mail is avaliable in db
+                if (EmailMessage == FormMessage.None && _dataAccess.IsEmailAvailable(Email) == false)
+                    EmailMessage = FormMessage.TakenEmail;
+
+
             });
 
             // Check if any problem was found and return right value
