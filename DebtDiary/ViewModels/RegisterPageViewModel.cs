@@ -168,6 +168,9 @@ namespace DebtDiary
 
                 // Clear all the fields in the view
                 ClearAllFields(parameter as IHaveTwoPasswords);
+
+                // And go to login page
+                ChangeApplicationPage(ApplicationPage.LoginPage);
             });
         }
 
