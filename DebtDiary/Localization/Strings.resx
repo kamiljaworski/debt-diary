@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccountCreatedSubtitle" xml:space="preserve">
+    <value>You can log in now</value>
+  </data>
+  <data name="AccountCreatedTitle" xml:space="preserve">
+    <value>Your account has been created</value>
+  </data>
   <data name="ApplicationName" xml:space="preserve">
     <value>Debt diary</value>
   </data>
@@ -182,6 +188,9 @@
   </data>
   <data name="Male" xml:space="preserve">
     <value>Male</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>OK</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>

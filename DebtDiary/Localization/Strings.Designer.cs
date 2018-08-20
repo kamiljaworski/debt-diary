@@ -61,6 +61,24 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You can log in now.
+        /// </summary>
+        public static string AccountCreatedSubtitle {
+            get {
+                return ResourceManager.GetString("AccountCreatedSubtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your account has been created.
+        /// </summary>
+        public static string AccountCreatedTitle {
+            get {
+                return ResourceManager.GetString("AccountCreatedTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Debt diary.
         /// </summary>
         public static string ApplicationName {
@@ -255,6 +273,15 @@ namespace DebtDiary.Localization {
         public static string Male {
             get {
                 return ResourceManager.GetString("Male", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        public static string Ok {
+            get {
+                return ResourceManager.GetString("Ok", resourceCulture);
             }
         }
         
