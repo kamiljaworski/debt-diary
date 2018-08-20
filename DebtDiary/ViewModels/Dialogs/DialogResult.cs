@@ -1,8 +1,10 @@
 ﻿namespace DebtDiary
 {
-    public enum DialogResult
+    /// <summary>
+    /// Defines message of a new dialog window
+    /// </summary>
+    public enum DialogMessage
     {
-        Undefined,
-        Ok
+        AccountCreated
     }
 }

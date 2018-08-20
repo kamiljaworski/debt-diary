@@ -30,14 +30,6 @@ namespace DebtDiary
         /// </summary>
         /// <param name="page"><see cref="ApplicationPage"/> you want to change to</param>
         public void ChangeCurrentPage(ApplicationPage page) => ChangeCurrentPageAsync(page);
-
-
-        public DialogResult OpenDialog()
-        {
-            DialogWindow win = new DialogWindow();
-            win.ShowDialog();
-            return DialogResult.Undefined;
-        }
         #endregion
 
         #region Private methods
