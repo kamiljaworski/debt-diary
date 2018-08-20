@@ -27,5 +27,11 @@ namespace DebtDiary
         /// </summary>
         /// <param name="page"><see cref="ApplicationPage"/> you want to change to</param>
         void ChangeCurrentPage(ApplicationPage page);
+
+        /// <summary>
+        /// Open a new dialog window
+        /// </summary>
+        /// <returns><see cref="DialogResult"/></returns>
+        DialogResult OpenDialog();
     }
 }
