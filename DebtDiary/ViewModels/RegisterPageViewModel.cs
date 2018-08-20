@@ -162,11 +162,12 @@ namespace DebtDiary
 
                 // Sign up a new user
                 await _dataAccess.CreateAccountAsync(user);
-
-                // Clear all the fields in the view
-                ClearAllFields(parameter as IHaveTwoPasswords);
-
             });
+
+            var result = IocContainer.Get<IApplicationViewModel>().OpenDialog();
+
+            // Clear all the fields in the view
+            ClearAllFields(parameter as IHaveTwoPasswords);
         }
 
         #endregion
