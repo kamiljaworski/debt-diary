@@ -47,10 +47,12 @@ namespace DebtDiary
         /// </summary>
         private void Login(object parameter)
         {
-            string username = Username;
-            string password = (parameter as IHavePassword).Password.GetEncryptedPassword();
+            //string username = Username;
+            //string password = (parameter as IHavePassword).Password.GetEncryptedPassword();
 
-            ChangeApplicationPage(ApplicationPage.DiaryPage);
+            //ChangeApplicationPage(ApplicationPage.DiaryPage);
+
+            var result = IocContainer.Get<IApplicationViewModel>().OpenDialog();
         }
         #endregion
     }
