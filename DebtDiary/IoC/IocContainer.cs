@@ -22,6 +22,7 @@ namespace DebtDiary
         {
             Kernel.Bind<IApplicationViewModel>().To<ApplicationViewModel>().InSingletonScope();
             Kernel.Bind<IDebtDiaryDataAccess>().To<DebtDiaryDataAccess>().InSingletonScope();
+            Kernel.Bind<IDialogFacade>().To<DialogFacade>().InSingletonScope();
         }
 
         /// <summary>
