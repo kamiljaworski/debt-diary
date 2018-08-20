@@ -20,5 +20,6 @@
     <system:String x:Key="MaximizeIcon">&#xE922;</system:String>
     <system:String x:Key="RestoreIcon">&#xE923;</system:String>
     <system:String x:Key="CloseIcon">&#xE8BB;</system:String>
+    <system:String x:Key="SuccessIcon">&#xE73E;</system:String>
 
 </ResourceDictionary>
