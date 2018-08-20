@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AccountCreatedSubtitle" xml:space="preserve">
-    <value>Możesz się teraz zalogować</value>
+    <value>Możesz się zalogować</value>
   </data>
   <data name="AccountCreatedTitle" xml:space="preserve">
     <value>Twoje konto zostało utworzone</value>

@@ -246,7 +246,7 @@
                                         <ThicknessAnimation To="0 22 0 0" Duration="0:0:0.2"  Storyboard.TargetName="PlaceholderText" Storyboard.TargetProperty="Margin" />
                                     </Storyboard>
                                 </BeginStoryboard>
-                                
+
                                 <BeginStoryboard>
                                     <Storyboard>
                                         <DoubleAnimation  To="18" Duration="0:0:0.2" Storyboard.TargetName="PlaceholderText" Storyboard.TargetProperty="FontSize"/>
@@ -513,6 +513,34 @@
     <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource {x:Type PasswordBox}}" x:Key="LoginPagePasswordBox">
         <Setter Property="Margin" Value="20 0 20 0"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    </Style>
+    <!--#endregion-->
+
+
+    <!--#region Dialog Window Icon TextBlock-->
+    <Style TargetType="{x:Type Label}" x:Key="DialogIconLabel">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="Green"/>
+        <Setter Property="Content" Value="{StaticResource SuccessIcon}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Width" Value="70"/>
+        <Setter Property="Padding" Value="10"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Label}">
+                    <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Width}" CornerRadius="{Binding Width, RelativeSource={RelativeSource Self}}" 
+                            Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                        <Viewbox Stretch="Uniform">
+                            <TextBlock Text="{TemplateBinding Content}" FontFamily="{StaticResource Segoe-MDL2}" Foreground="{TemplateBinding Foreground}" 
+                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Viewbox>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
     </Style>
     <!--#endregion-->
 

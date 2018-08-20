@@ -61,19 +61,24 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Text -->
+        <!-- Content -->
         <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Border Width="70" Height="70" Background="Green" CornerRadius="50" Margin="10">
-                <TextBlock Text="&#xE73E;" FontFamily="{StaticResource Segoe-MDL2}" Foreground="White" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            </Border>
+
+            <!-- Icon -->
+            <Label Style="{StaticResource DialogIconLabel}" Content="{Binding DialogMessage, Converter={local:DialogMessageToIconConverter}, FallbackValue={StaticResource SuccessIcon}}" 
+                   Background="{Binding DialogMessage, Converter={local:DialogMessageToBrushConverter}, FallbackValue=Green}" Margin="10"/>
+            
+            <!-- Title -->
             <TextBlock Text="{Binding DialogMessage, Converter={local:DialogMessageToStringConverter}, FallbackValue='Title'}" FontSize="18" 
                        Foreground="{StaticResource DarkGreyBrush}" FontFamily="{StaticResource LatoSemiBold}" HorizontalAlignment="Center"/>
+            
+            <!-- Subtitle -->
             <TextBlock Text="{Binding DialogMessage, Converter={local:DialogMessageToStringConverter}, ConverterParameter='Subtitle', FallbackValue='Subtitle'}" 
                        FontSize="18" Foreground="{StaticResource DarkGreyBrush}" FontFamily="{StaticResource LatoLight}" HorizontalAlignment="Center"/>
         </StackPanel>
 
         <!-- Button -->
-        <StackPanel Grid.Row="1" Background="{StaticResource DarkGreyBrush}">
+        <StackPanel Grid.Row="1" Background="{StaticResource GreyBrush}">
             <Polygon Points="0,0 15,10, 30,0" Stroke="{StaticResource VeryLightGreyBrush}" Fill="{StaticResource VeryLightGreyBrush}" HorizontalAlignment="Center" />
 
             <Button Grid.Row="1" Content="{x:Static localization:Strings.Ok}" HorizontalAlignment="Center" Margin="10" Command="{Binding CloseCommand}"/>
