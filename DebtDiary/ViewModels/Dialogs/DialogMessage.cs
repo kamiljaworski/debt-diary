@@ -5,6 +5,7 @@
     /// </summary>
     public enum DialogMessage
     {
+        None,
         AccountCreated
     }
 }

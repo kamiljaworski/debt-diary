@@ -131,7 +131,7 @@
     <Compile Include="ViewModels\Base\IHaveTwoPasswords.cs" />
     <Compile Include="ViewModels\Base\RelayParameterizedCommand.cs" />
     <Compile Include="ViewModels\Dialogs\DialogFacade.cs" />
-    <Compile Include="ViewModels\Dialogs\DialogResult.cs" />
+    <Compile Include="ViewModels\Dialogs\DialogMessage.cs" />
     <Compile Include="ViewModels\Dialogs\DialogWindowViewModel.cs" />
     <Compile Include="ViewModels\Dialogs\IDialogFacade.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />

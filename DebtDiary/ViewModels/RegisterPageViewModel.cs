@@ -164,7 +164,7 @@ namespace DebtDiary
                 await _dataAccess.CreateAccountAsync(user);
 
                 // Show successful dialog window 
-                IocContainer.Get<IDialogFacade>().OpenDialog();
+                IocContainer.Get<IDialogFacade>().OpenDialog(DialogMessage.AccountCreated);
 
                 // Clear all the fields in the view
                 ClearAllFields(parameter as IHaveTwoPasswords);

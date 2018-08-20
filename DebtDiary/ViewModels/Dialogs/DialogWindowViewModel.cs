@@ -1,6 +1,4 @@
-﻿using DebtDiary.Core;
-using System.Windows.Input;
-using System.Windows;
+﻿using System.Windows;
 
 namespace DebtDiary
 {
@@ -9,6 +7,11 @@ namespace DebtDiary
     /// </summary>
     public class DialogWindowViewModel : MainWindowViewModel
     {
+        /// <summary>
+        /// Dialog message of this dialog window
+        /// </summary>
+        public DialogMessage DialogMessage { get; set; } = IocContainer.Get<IDialogFacade>().DialogMessage;
+
         /// <summary>
         /// Constructor
         /// </summary>

@@ -3,9 +3,14 @@
     public interface IDialogFacade
     {
         /// <summary>
-        /// Open a new dialog window
+        /// Opens a new dialog window
         /// </summary>
-        /// <returns><see cref="DialogResult"/></returns>
-        void OpenDialog();
+        /// <param name="dialogMessage"><see cref="DialogMessage"/> you want to show</param>
+        void OpenDialog(DialogMessage dialogMessage);
+
+        /// <summary>
+        /// Dialog Message of an actual dialog window
+        /// </summary>
+        DialogMessage DialogMessage { get; }
     }
 }
