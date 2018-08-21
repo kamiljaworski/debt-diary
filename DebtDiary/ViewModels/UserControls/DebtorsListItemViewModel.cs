@@ -1,4 +1,5 @@
 ﻿using DebtDiary.Core;
+using System.Globalization;
 
 namespace DebtDiary
 {
@@ -15,5 +16,18 @@ namespace DebtDiary
 
         public AvatarColor AvatarColor { get; set; }
 
+        /// <summary>
+        /// Debt showed as local currency pattern
+        /// </summary>
+        public string FormattedDebt
+        {
+            get
+            {
+                var numberFormat = (NumberFormatInfo)CultureInfo.CurrentCulture.NumberFormat.Clone();
+                numberFormat.CurrencyNegativePattern = 1;
+
+                return Debt.ToString("C", numberFormat);
+            }
+        }
     }
 }
