@@ -53,25 +53,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Border Grid.Column="0" Width="70" Height="{Binding Width, RelativeSource={RelativeSource Self}}" CornerRadius="{Binding Width, RelativeSource={RelativeSource Self}}" Background="Green">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="5*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="5*"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-
-                            <Viewbox Grid.Row="1" Grid.Column="1" Stretch="Uniform">
-                                <TextBlock Text="KJ" Foreground="White" FontFamily="{StaticResource LatoThin}"/>
-                            </Viewbox>
-                        </Grid>
-
-                    </Border>
+                    <Label Grid.Column="0" Style="{StaticResource AvatarLabel}" Content="KJ"/>
 
 
                     <StackPanel Grid.Column="1" Margin="10">
@@ -110,25 +92,8 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Border Grid.Column="0" Width="40" Height="{Binding Width, RelativeSource={RelativeSource Self}}" CornerRadius="{Binding Width, RelativeSource={RelativeSource Self}}" Background="Orange">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="5*"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="5*"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
+                        <Label Grid.Column="0" Width="40" Style="{StaticResource AvatarLabel}" Content="JK" Background="Orange"/>
 
-                                <Viewbox Grid.Row="1" Grid.Column="1" Stretch="Uniform">
-                                    <TextBlock Text="JK" Foreground="White" FontFamily="{StaticResource LatoThin}"/>
-                                </Viewbox>
-                            </Grid>
-
-                        </Border>
 
 
                         <StackPanel Grid.Column="1" Margin="10">
@@ -144,25 +109,8 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Border Grid.Column="0" Width="40" Height="{Binding Width, RelativeSource={RelativeSource Self}}" CornerRadius="{Binding Width, RelativeSource={RelativeSource Self}}" Background="LightSeaGreen">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="5*"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="5*"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
+                        <Label Grid.Column="0" Width="40" Style="{StaticResource AvatarLabel}" Content="AN" Background="LightSeaGreen"/>
 
-                                <Viewbox Grid.Row="1" Grid.Column="1" Stretch="Uniform">
-                                    <TextBlock Text="AN" Foreground="White" FontFamily="{StaticResource LatoThin}"/>
-                                </Viewbox>
-                            </Grid>
-
-                        </Border>
 
 
                         <StackPanel Grid.Column="1" Margin="10">
