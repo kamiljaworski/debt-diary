@@ -1,6 +1,19 @@
-﻿namespace DebtDiary
+﻿using DebtDiary.Core;
+
+namespace DebtDiary
 {
-    public class DebtorsListItemViewModel: BaseViewModel
+    /// <summary>
+    /// View model for each of debtors list item
+    /// </summary>
+    public class DebtorsListItemViewModel : BaseViewModel
     {
+        public string FullName { get; set; }
+
+        public string Initials { get; set; }
+
+        public decimal Debt { get; set; }
+
+        public AvatarColor AvatarColor { get; set; }
+
     }
 }

@@ -37,5 +37,5 @@
         </Style>
     </UserControl.Resources>
 
-    <ContentControl Style="{StaticResource ContentStyle}" />
+    <ContentControl d:DataContext="{x:Static local:DebtorsListItemDesignViewModel.Instance}" Style="{StaticResource ContentStyle}" />
 </UserControl>
