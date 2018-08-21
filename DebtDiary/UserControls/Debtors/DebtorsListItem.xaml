@@ -21,7 +21,7 @@
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
 
-                                <Label Grid.Column="0" Width="40" Style="{StaticResource AvatarLabel}" Content="{Binding Initials}" Background="Orange"/>
+                                <Label Grid.Column="0" Width="40" Style="{StaticResource AvatarLabel}" Content="{Binding Initials}" Background="{Binding AvatarColor, Converter={local:AvatarColorToBrushConverter}}"/>
 
                                 <StackPanel Grid.Column="1" Margin="10">
                                     <TextBlock Text="{Binding FullName}" Foreground="White" FontFamily="{StaticResource LatoRegular}" FontSize="18"/>

@@ -114,6 +114,7 @@
       <DependentUpon>DebtorsListItem.xaml</DependentUpon>
     </Compile>
     <Compile Include="ValueConverters\ApplicationPageConverter.cs" />
+    <Compile Include="ValueConverters\AvatarColorToBrushConverter.cs" />
     <Compile Include="ValueConverters\BooleanToVisibilityConverter.cs" />
     <Compile Include="ValueConverters\DialogMessageToBrushConverter.cs" />
     <Compile Include="ValueConverters\DialogMessageToIconConverter.cs" />
