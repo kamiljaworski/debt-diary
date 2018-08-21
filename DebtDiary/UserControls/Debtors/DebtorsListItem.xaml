@@ -21,11 +21,11 @@
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
 
-                                <Label Grid.Column="0" Width="40" Style="{StaticResource AvatarLabel}" Content="JK" Background="Orange"/>
+                                <Label Grid.Column="0" Width="40" Style="{StaticResource AvatarLabel}" Content="{Binding Initials}" Background="Orange"/>
 
                                 <StackPanel Grid.Column="1" Margin="10">
-                                    <TextBlock Text="Jan Kowalski" Foreground="White" FontFamily="{StaticResource LatoRegular}" FontSize="18"/>
-                                    <TextBlock Text="-400.00 zł" Foreground="Coral" FontFamily="{StaticResource LatoLight}" FontSize="16"/>
+                                    <TextBlock Text="{Binding FullName}" Foreground="White" FontFamily="{StaticResource LatoRegular}" FontSize="18"/>
+                                    <TextBlock Text="{Binding Debt}" Foreground="Coral" FontFamily="{StaticResource LatoLight}" FontSize="16"/>
                                 </StackPanel>
 
                             </Grid>
@@ -37,5 +37,5 @@
         </Style>
     </UserControl.Resources>
 
-    <ContentControl d:DataContext="{x:Static local:DebtorsListItemDesignViewModel.Instance}" Style="{StaticResource ContentStyle}" />
+    <ContentControl d:DataContext="{x:Static local:DebtorsListItemDesignModel.Instance}" Style="{StaticResource ContentStyle}" />
 </UserControl>

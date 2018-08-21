@@ -5,11 +5,11 @@ namespace DebtDiary
     /// <summary>
     /// The design time data for <see cref="DebtorsListItemViewModel"/>
     /// </summary>
-    public class DebtorsListItemDesignViewModel : DebtorsListItemViewModel
+    public class DebtorsListItemDesignModel : DebtorsListItemViewModel
     {
-        public DebtorsListItemDesignViewModel Instance { get; set; } = new DebtorsListItemDesignViewModel();
+        public static DebtorsListItemDesignModel Instance => new DebtorsListItemDesignModel();
 
-        public DebtorsListItemDesignViewModel()
+        public DebtorsListItemDesignModel()
         {
             FullName = "Kamil Jaworski";
             Initials = "KJ";
