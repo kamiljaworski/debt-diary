@@ -58,6 +58,10 @@
     <Compile Include="Migrations\201808091658087_Users-Initials.Designer.cs">
       <DependentUpon>201808091658087_Users-Initials.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808211544146_UserAvatarColor.cs" />
+    <Compile Include="Migrations\201808211544146_UserAvatarColor.Designer.cs">
+      <DependentUpon>201808211544146_UserAvatarColor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -77,6 +81,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808091658087_Users-Initials.resx">
       <DependentUpon>201808091658087_Users-Initials.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808211544146_UserAvatarColor.resx">
+      <DependentUpon>201808211544146_UserAvatarColor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -29,9 +29,11 @@ namespace DebtDiary.Core
         [StringLength(256)]
         public string Password { get; set; }
 
+        public DateTime? RegisterDate { get; set; }
+
         public Gender? Gender { get; set; }
 
-        public DateTime? RegisterDate { get; set; }
+        public AvatarColor AvatarColor { get; set; } = AvatarColor.Green;
 
         public string Initials
         {
