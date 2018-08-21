@@ -5,8 +5,37 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DebtDiary"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+             Height="60"
+             d:DesignHeight="60" d:DesignWidth="280">
+    <UserControl.Resources>
+        <Style x:Key="ContentStyle" TargetType="{x:Type ContentControl}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ContentControl}">
+
+                        <!-- Content -->
+                        <Border Background="{StaticResource DarkGreyBrush}">
+                            <Grid Margin="10 0 10 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Column="0" Width="40" Style="{StaticResource AvatarLabel}" Content="JK" Background="Orange"/>
+
+                                <StackPanel Grid.Column="1" Margin="10">
+                                    <TextBlock Text="Jan Kowalski" Foreground="White" FontFamily="{StaticResource LatoRegular}" FontSize="18"/>
+                                    <TextBlock Text="-400.00 zł" Foreground="Coral" FontFamily="{StaticResource LatoLight}" FontSize="16"/>
+                                </StackPanel>
+
+                            </Grid>
+                        </Border>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <ContentControl Style="{StaticResource ContentStyle}" />
 </UserControl>
