@@ -86,6 +86,8 @@
 
 
 
+                    <local:DebtorsListItem DataContext="{x:Static local:DebtorsListItemDesignModel.Instance}"/>
+                    
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
