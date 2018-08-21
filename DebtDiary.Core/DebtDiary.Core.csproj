@@ -52,6 +52,7 @@
     <Compile Include="Helpers\DataValidator.cs" />
     <Compile Include="Helpers\ExpressionHelpers.cs" />
     <Compile Include="Helpers\SecureStringExtensions.cs" />
+    <Compile Include="Models\AvatarColor.cs" />
     <Compile Include="Models\Gender.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
