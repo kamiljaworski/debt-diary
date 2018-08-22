@@ -63,7 +63,7 @@
 
                 </Grid>
             </Border>
-            <StackPanel Margin="10">
+            <StackPanel>
                 <TextBlock Text="Ogólne" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="24"/>
                 <StackPanel Orientation="Horizontal" Margin="10 5 0 0">
                     <TextBlock Text="&#xEA8A;" Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="18"/>
@@ -82,46 +82,9 @@
 
                 <TextBlock Text="Dłużnicy" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="24" Margin="0 10 0 0"/>
 
-                <StackPanel Margin="10 0 0 0">
+                <!-- TODO: Grids rows to make responsive menu -->
+                <local:DebtorsList Height="466" />
 
-
-
-                    <local:DebtorsListItem DataContext="{x:Static local:DebtorsListItemDesignModel.Instance}"/>
-                    
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Label Grid.Column="0" Width="40" Style="{StaticResource AvatarLabel}" Content="JK" Background="Orange"/>
-
-
-
-                        <StackPanel Grid.Column="1" Margin="10">
-                            <TextBlock Text="Jan Kowalski" Foreground="White" FontFamily="{StaticResource LatoRegular}" FontSize="18"/>
-                            <TextBlock Text="-400.00 zł" Foreground="Coral" FontFamily="{StaticResource LatoThin}" FontSize="16"/>
-                        </StackPanel>
-
-                    </Grid>
-
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Label Grid.Column="0" Width="40" Style="{StaticResource AvatarLabel}" Content="AN" Background="LightSeaGreen"/>
-
-
-
-                        <StackPanel Grid.Column="1" Margin="10">
-                            <TextBlock Text="Adam Nowak" Foreground="White" FontFamily="{StaticResource LatoRegular}" FontSize="18"/>
-                            <TextBlock Text="690.00 zł" Foreground="LightGreen" FontFamily="{StaticResource LatoThin}" FontSize="16"/>
-                        </StackPanel>
-
-                    </Grid>
-                </StackPanel>
 
             </StackPanel>
         </StackPanel>

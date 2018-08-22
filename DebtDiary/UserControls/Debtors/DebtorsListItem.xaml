@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:DebtDiary"
              mc:Ignorable="d" 
              Height="60"
-             d:DesignHeight="60" d:DesignWidth="280">
+             d:DesignHeight="60" d:DesignWidth="260">
     <UserControl.Resources>
         <Style x:Key="ContentStyle" TargetType="{x:Type ContentControl}">
             <Setter Property="Template">
