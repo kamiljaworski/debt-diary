@@ -12,7 +12,7 @@ namespace DebtDiary
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (!(value is decimal))
-                return Brushes.Green;
+                return Brushes.LightGreen;
 
             decimal debt = (decimal)value;
 
@@ -21,7 +21,7 @@ namespace DebtDiary
             else if (debt < 0)
                 return Brushes.Coral;
             else
-                return Brushes.White;
+                return Brushes.LightGoldenrodYellow;
 
         }
 
