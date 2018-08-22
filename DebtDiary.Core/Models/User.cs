@@ -8,19 +8,13 @@ namespace DebtDiary.Core
     /// <summary>
     /// User
     /// </summary>
-    public class User
+    public class User : Person
     {
         public int Id { get; set; }
 
         [StringLength(80)]
         [Index(IsUnique = true)]
         public string Username { get; set; }
-
-        [StringLength(80)]
-        public string FirstName { get; set; }
-
-        [StringLength(80)]
-        public string LastName { get; set; }
 
         [StringLength(80)]
         [Index(IsUnique = true)]
@@ -31,19 +25,7 @@ namespace DebtDiary.Core
 
         public DateTime? RegisterDate { get; set; }
 
-        public Gender? Gender { get; set; }
-
         public AvatarColor AvatarColor { get; set; } = AvatarColor.Green;
 
-        public string Initials
-        {
-            get
-            {
-                StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.Append(FirstName[0], 1);
-                stringBuilder.Append(LastName[0], 1);
-                return stringBuilder.ToString().ToUpper();
-            }
-        }
     }
 }
