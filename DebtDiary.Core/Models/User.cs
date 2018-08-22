@@ -28,7 +28,7 @@ namespace DebtDiary.Core
 
         public AvatarColor AvatarColor { get; set; } = AvatarColor.Green;
 
-        public List<Debtor> Debtors { get; set; }
+        public List<Debtor> Debtors { get; set; } = new List<Debtor>();
 
     }
 }
