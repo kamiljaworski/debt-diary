@@ -66,6 +66,10 @@
     <Compile Include="Migrations\201808221930523_AddPerson.Designer.cs">
       <DependentUpon>201808221930523_AddPerson.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808221934344_AddDebtorModel.cs" />
+    <Compile Include="Migrations\201808221934344_AddDebtorModel.Designer.cs">
+      <DependentUpon>201808221934344_AddDebtorModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -91,6 +95,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808221930523_AddPerson.resx">
       <DependentUpon>201808221930523_AddPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808221934344_AddDebtorModel.resx">
+      <DependentUpon>201808221934344_AddDebtorModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

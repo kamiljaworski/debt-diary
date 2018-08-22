@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
@@ -26,6 +27,8 @@ namespace DebtDiary.Core
         public DateTime? RegisterDate { get; set; }
 
         public AvatarColor AvatarColor { get; set; } = AvatarColor.Green;
+
+        public List<Debtor> Debtors { get; set; }
 
     }
 }
