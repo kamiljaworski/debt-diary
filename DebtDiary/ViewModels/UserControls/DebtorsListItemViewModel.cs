@@ -25,6 +25,7 @@ namespace DebtDiary
             {
                 var numberFormat = (NumberFormatInfo)CultureInfo.CurrentCulture.NumberFormat.Clone();
                 numberFormat.CurrencyNegativePattern = 8;
+                numberFormat.CurrencyPositivePattern = 3;
 
                 return Debt.ToString("C", numberFormat);
             }

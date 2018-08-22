@@ -17,7 +17,7 @@ namespace DebtDiary
             decimal debt = (decimal)value;
 
             if (debt > 0)
-                return Brushes.Green;
+                return Brushes.LightGreen;
             else if (debt < 0)
                 return Brushes.Coral;
             else
