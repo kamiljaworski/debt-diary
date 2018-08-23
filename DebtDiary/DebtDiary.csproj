@@ -148,10 +148,10 @@
     <Compile Include="ViewModels\Dialogs\DialogMessage.cs" />
     <Compile Include="ViewModels\Dialogs\DialogWindowViewModel.cs" />
     <Compile Include="ViewModels\Dialogs\IDialogFacade.cs" />
-    <Compile Include="ViewModels\UserControls\DebtorsListItemViewModel.cs" />
-    <Compile Include="ViewModels\UserControls\DebtorsListViewModel.cs" />
-    <Compile Include="ViewModels\UserControls\Design\DebtorsListDesignModel.cs" />
-    <Compile Include="ViewModels\UserControls\Design\DebtorsListItemDesignModel.cs" />
+    <Compile Include="ViewModels\UserControls\DebtorsList\DebtorsListItemViewModel.cs" />
+    <Compile Include="ViewModels\UserControls\DebtorsList\DebtorsListViewModel.cs" />
+    <Compile Include="ViewModels\UserControls\DebtorsList\Design\DebtorsListDesignModel.cs" />
+    <Compile Include="ViewModels\UserControls\DebtorsList\Design\DebtorsListItemDesignModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\Dialogs\DialogWindow.xaml.cs">
       <DependentUpon>DialogWindow.xaml</DependentUpon>
