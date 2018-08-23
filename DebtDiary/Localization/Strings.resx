@@ -129,6 +129,9 @@
   <data name="CreateAccount" xml:space="preserve">
     <value>Create account</value>
   </data>
+  <data name="Debtors" xml:space="preserve">
+    <value>Debtors</value>
+  </data>
   <data name="DifferentPasswords" xml:space="preserve">
     <value>Entered passwords are not the same</value>
   </data>
@@ -165,6 +168,9 @@
   <data name="Gender" xml:space="preserve">
     <value>Gender</value>
   </data>
+  <data name="General" xml:space="preserve">
+    <value>General</value>
+  </data>
   <data name="IncorrectEmail" xml:space="preserve">
     <value>Incorrect e-mail address</value>
   </data>
@@ -186,8 +192,14 @@
   <data name="LoginPageSubtitle" xml:space="preserve">
     <value>Do you need a place to store your debts information?</value>
   </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
   <data name="Male" xml:space="preserve">
     <value>Male</value>
+  </data>
+  <data name="MyAccount" xml:space="preserve">
+    <value>My account</value>
   </data>
   <data name="Ok" xml:space="preserve">
     <value>OK</value>
@@ -215,6 +227,9 @@
   </data>
   <data name="SignUp" xml:space="preserve">
     <value>Sign up</value>
+  </data>
+  <data name="Summary" xml:space="preserve">
+    <value>Summary</value>
   </data>
   <data name="TakenEmail" xml:space="preserve">
     <value>E-mail is already taken</value>

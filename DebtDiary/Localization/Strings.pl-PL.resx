@@ -129,6 +129,9 @@
   <data name="CreateAccount" xml:space="preserve">
     <value>Załóż konto</value>
   </data>
+  <data name="Debtors" xml:space="preserve">
+    <value>Dłużnicy</value>
+  </data>
   <data name="DifferentPasswords" xml:space="preserve">
     <value>Hasła nie są takie same</value>
   </data>
@@ -165,6 +168,9 @@
   <data name="Gender" xml:space="preserve">
     <value>Płeć</value>
   </data>
+  <data name="General" xml:space="preserve">
+    <value>Ogólne</value>
+  </data>
   <data name="IncorrectEmail" xml:space="preserve">
     <value>Niepoprawny adres e-mail</value>
   </data>
@@ -186,8 +192,14 @@
   <data name="LoginPageSubtitle" xml:space="preserve">
     <value>Potrzebujesz miejsca do zapisania informacji o długach?</value>
   </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Wyloguj</value>
+  </data>
   <data name="Male" xml:space="preserve">
     <value>Mężczyzna</value>
+  </data>
+  <data name="MyAccount" xml:space="preserve">
+    <value>Moje konto</value>
   </data>
   <data name="Ok" xml:space="preserve">
     <value>OK</value>
@@ -215,6 +227,9 @@
   </data>
   <data name="SignUp" xml:space="preserve">
     <value>Załóż konto</value>
+  </data>
+  <data name="Summary" xml:space="preserve">
+    <value>Podsumowanie</value>
   </data>
   <data name="TakenEmail" xml:space="preserve">
     <value>Adres e-mail jest zajęty</value>
