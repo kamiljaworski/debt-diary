@@ -46,63 +46,15 @@
         <!--#endregion-->
 
         <!--#region Menu-->
-        <StackPanel Grid.Column="0" Background="{StaticResource DarkGreyBrush}">
-
-            <!-- Account info -->
-            <Border Background="#444444">
-                <Grid Margin="10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Label Grid.Column="0" Style="{StaticResource AvatarLabel}" Content="KJ"/>
+        <Grid Grid.Column="0" Background="{StaticResource DarkGreyBrush}">
 
 
-                    <StackPanel Grid.Column="1" Margin="10">
-                        <TextBlock Text="Kamil Jaworski" Foreground="White" FontFamily="{StaticResource LatoRegular}" FontSize="24"/>
-                        <TextBlock Text="kamilj610" Foreground="White" FontFamily="{StaticResource LatoThin}" FontSize="22"/>
-                    </StackPanel>
-
-                </Grid>
-            </Border>
-            
-            <!-- Menu -->
-            <Grid VerticalAlignment="Stretch">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+            <local:SideMenu>
+                <local:DebtorsList/>
+            </local:SideMenu>
 
 
-                <StackPanel Grid.Row="0">
-                    <TextBlock Text="Ogólne" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="24"/>
-                    <StackPanel Orientation="Horizontal" Margin="10 5 0 0">
-                        <TextBlock Text="&#xEA8A;" Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="18"/>
-                        <TextBlock Text="Podsumowanie" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="18" Margin="5 0 0 0"/>
-                    </StackPanel>
-
-                    <StackPanel Orientation="Horizontal" Margin="10 5 0 0">
-                        <TextBlock Text="&#xEA8C;" Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="18"/>
-                        <TextBlock Text="Moje konto" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="18" Margin="5 0 0 0"/>
-                    </StackPanel>
-
-                    <StackPanel Orientation="Horizontal" Margin="10 5 0 0">
-                        <TextBlock Text="&#xE7E8;" Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="18"/>
-                        <TextBlock Text="Wyloguj" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="18" Margin="5 0 0 0"/>
-                    </StackPanel>
-
-                    <TextBlock Text="Dłużnicy" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="24" Margin="0 10 0 0"/>
-                </StackPanel>
-
-                <StackPanel Grid.Row="1" VerticalAlignment="Stretch">
-                    <local:DebtorsList />
-                </StackPanel>
-                
-            </Grid>
-            
-
-        </StackPanel>
+        </Grid>
         <!--#endregion-->
 
         <Grid Grid.Column="1" Background="#e5e5e5">

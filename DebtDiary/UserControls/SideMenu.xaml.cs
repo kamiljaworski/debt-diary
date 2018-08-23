@@ -3,11 +3,11 @@
 namespace DebtDiary
 {
     /// <summary>
-    /// Interaction logic for VerticalMenu.xaml
+    /// Interaction logic for SideMenu.xaml
     /// </summary>
-    public partial class VerticalMenu : UserControl
+    public partial class SideMenu : UserControl
     {
-        public VerticalMenu()
+        public SideMenu()
         {
             InitializeComponent();
         }
