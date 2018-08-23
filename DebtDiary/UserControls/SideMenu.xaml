@@ -23,12 +23,12 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
-                            <Label Grid.Column="0" Style="{StaticResource AvatarLabel}" Content="KJ"/>
+                            <Label Grid.Column="0" Style="{StaticResource AvatarLabel}" Content="{Binding Initials}"/>
 
 
                             <StackPanel Grid.Column="1" Margin="10">
-                                <TextBlock Text="Kamil Jaworski" Foreground="White" FontFamily="{StaticResource LatoRegular}" FontSize="24"/>
-                                <TextBlock Text="kamilj610" Foreground="White" FontFamily="{StaticResource LatoThin}" FontSize="22"/>
+                                <TextBlock Text="{Binding FullName}" Foreground="White" FontFamily="{StaticResource LatoRegular}" FontSize="24"/>
+                                <TextBlock Text="{Binding Username}" Foreground="White" FontFamily="{StaticResource LatoThin}" FontSize="22"/>
                             </StackPanel>
 
                         </Grid>
