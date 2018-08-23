@@ -152,6 +152,8 @@
     <Compile Include="ViewModels\UserControls\DebtorsList\DebtorsListViewModel.cs" />
     <Compile Include="ViewModels\UserControls\DebtorsList\Design\DebtorsListDesignModel.cs" />
     <Compile Include="ViewModels\UserControls\DebtorsList\Design\DebtorsListItemDesignModel.cs" />
+    <Compile Include="ViewModels\UserControls\SideMenu\Design\SideMenuDesignModel.cs" />
+    <Compile Include="ViewModels\UserControls\SideMenu\SideMenuViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\Dialogs\DialogWindow.xaml.cs">
       <DependentUpon>DialogWindow.xaml</DependentUpon>
