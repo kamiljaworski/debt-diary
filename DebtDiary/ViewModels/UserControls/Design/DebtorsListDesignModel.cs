@@ -80,6 +80,26 @@ namespace DebtDiary
                     Initials = "JD",
                     Debt = 999.00m,
                     AvatarColor = AvatarColor.LightSeaGreen
+               },               new DebtorsListItemViewModel
+               {
+                    FullName = "Adam Nowak",
+                    Initials = "AN",
+                    Debt = 9999.00m,
+                    AvatarColor = AvatarColor.LightSeaGreen
+               },
+               new DebtorsListItemViewModel
+               {
+                    FullName = "Marek Maślana",
+                    Initials = "MM",
+                    Debt = 0.00m,
+                    AvatarColor = AvatarColor.Green
+               },
+               new DebtorsListItemViewModel
+               {
+                    FullName = "Jacek Dzięcioł",
+                    Initials = "JD",
+                    Debt = 999.00m,
+                    AvatarColor = AvatarColor.LightSeaGreen
                }
             };
         }

@@ -1,4 +1,4 @@
-﻿<Page x:Class="DebtDiary.DiaryPage"
+﻿<Page x:Class="DebtDiary.DiaryPage" x:Name="Page"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:DebtDiary"
       xmlns:localization="clr-namespace:DebtDiary.Localization"
       xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
       d:DesignHeight="720" d:DesignWidth="1280"
       Title="DiaryPage">
 
@@ -38,15 +38,18 @@
         </Grid.Triggers>
         <!--#endregion-->
 
-
+        <!--#region Page column definitions-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="280"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <!--#endregion-->
 
+        <!--#region Menu-->
         <StackPanel Grid.Column="0" Background="{StaticResource DarkGreyBrush}">
-            <Border Background="#444444">
 
+            <!-- Account info -->
+            <Border Background="#444444">
                 <Grid Margin="10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
@@ -63,31 +66,44 @@
 
                 </Grid>
             </Border>
-            <StackPanel>
-                <TextBlock Text="Ogólne" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="24"/>
-                <StackPanel Orientation="Horizontal" Margin="10 5 0 0">
-                    <TextBlock Text="&#xEA8A;" Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="18"/>
-                    <TextBlock Text="Podsumowanie" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="18" Margin="5 0 0 0"/>
+            
+            <!-- Menu -->
+            <Grid VerticalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+
+                <StackPanel Grid.Row="0">
+                    <TextBlock Text="Ogólne" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="24"/>
+                    <StackPanel Orientation="Horizontal" Margin="10 5 0 0">
+                        <TextBlock Text="&#xEA8A;" Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="18"/>
+                        <TextBlock Text="Podsumowanie" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="18" Margin="5 0 0 0"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="10 5 0 0">
+                        <TextBlock Text="&#xEA8C;" Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="18"/>
+                        <TextBlock Text="Moje konto" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="18" Margin="5 0 0 0"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="10 5 0 0">
+                        <TextBlock Text="&#xE7E8;" Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="18"/>
+                        <TextBlock Text="Wyloguj" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="18" Margin="5 0 0 0"/>
+                    </StackPanel>
+
+                    <TextBlock Text="Dłużnicy" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="24" Margin="0 10 0 0"/>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal" Margin="10 5 0 0">
-                    <TextBlock Text="&#xEA8C;" Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="18"/>
-                    <TextBlock Text="Moje konto" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="18" Margin="5 0 0 0"/>
+                <StackPanel Grid.Row="1" VerticalAlignment="Stretch">
+                    <local:DebtorsList />
                 </StackPanel>
+                
+            </Grid>
+            
 
-                <StackPanel Orientation="Horizontal" Margin="10 5 0 0">
-                    <TextBlock Text="&#xE7E8;" Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="18"/>
-                    <TextBlock Text="Wyloguj" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="18" Margin="5 0 0 0"/>
-                </StackPanel>
-
-                <TextBlock Text="Dłużnicy" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="24" Margin="0 10 0 0"/>
-
-                <!-- TODO: Grids rows to make responsive menu -->
-                <local:DebtorsList Height="466" />
-
-
-            </StackPanel>
         </StackPanel>
+        <!--#endregion-->
 
         <Grid Grid.Column="1" Background="#e5e5e5">
             <Grid.RowDefinitions>
