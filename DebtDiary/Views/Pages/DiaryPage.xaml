@@ -47,16 +47,13 @@
 
         <!--#region Menu-->
         <Grid Grid.Column="0" Background="{StaticResource DarkGreyBrush}">
-
-
             <local:SideMenu>
                 <local:DebtorsList/>
             </local:SideMenu>
-
-
         </Grid>
         <!--#endregion-->
 
+        <!--#region SubPage-->
         <Grid Grid.Column="1" Background="#e5e5e5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -229,7 +226,7 @@
             </StackPanel>
 
         </Grid>
-
+        <!--#endregion-->
 
     </Grid>
 </Page>
