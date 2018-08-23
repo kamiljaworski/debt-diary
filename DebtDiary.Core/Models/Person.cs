@@ -36,5 +36,7 @@ namespace DebtDiary.Core
                 return stringBuilder.ToString().ToUpper();
             }
         }
+
+        public string FullName => $"{FirstName} {LastName}";
     }
 }
