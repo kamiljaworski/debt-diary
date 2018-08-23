@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Text;
+
 
 namespace DebtDiary.Core
 {
@@ -20,6 +22,14 @@ namespace DebtDiary.Core
         {
             get
             {
+                // Check if first and last name has at least 1 character
+                if (FirstName == null || FirstName.Count() == 0)
+                    return string.Empty;
+
+                if (LastName == null || LastName.Count() == 0)
+                    return string.Empty;
+
+                // Build Initials
                 StringBuilder stringBuilder = new StringBuilder();
                 stringBuilder.Append(FirstName[0], 1);
                 stringBuilder.Append(LastName[0], 1);
