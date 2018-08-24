@@ -1,4 +1,6 @@
 ﻿using DebtDiary.Core;
+using DebtDiary.DataProvider;
+using System.Security;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -9,12 +11,30 @@ namespace DebtDiary
     /// </summary>
     class LoginPageViewModel : BaseViewModel
     {
+        #region Private members
+
+        /// <summary>
+        /// Reference to password from the view 
+        /// </summary>
+        private SecureString _password = null;
+
+        /// <summary>
+        /// Reference to application data access class
+        /// </summary>
+        private IDebtDiaryDataAccess _dataAccess = IocContainer.Get<IDebtDiaryDataAccess>();
+        #endregion
+
         #region Public Properties
 
         /// <summary>
         /// Username to log in
         /// </summary>
         public string Username { get; set; }
+
+        /// <summary>
+        /// Property used for turning on spinning text in button
+        /// </summary>
+        public bool IsLoginRunning { get; set; }
 
         #endregion
 
@@ -45,10 +65,13 @@ namespace DebtDiary
 
         private async Task LoginAsync(object parameter)
         {
-            string username = Username;
-            string password = (parameter as IHavePassword).Password.GetEncryptedPassword();
+            await RunCommandAsync(() => IsLoginRunning, async () =>
+            {
+                await Task.Delay(1);
+                _password = (parameter as IHavePassword)?.Password;
 
-            ChangeApplicationPage(ApplicationPage.DiaryPage);
+
+            });
         }
         #endregion
     }
