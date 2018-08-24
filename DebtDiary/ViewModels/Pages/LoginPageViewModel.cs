@@ -98,9 +98,6 @@ namespace DebtDiary
 
                 // TODO: Add user to IoC new class
 
-                // Show successful dialog window 
-                IocContainer.Get<IDialogFacade>().OpenDialog(DialogMessage.AccountCreated);
-
                 // And go to diary page
                 ChangeApplicationPage(ApplicationPage.DiaryPage);
             });
