@@ -51,6 +51,20 @@ namespace DebtDiary
         public ICommand LoginCommand { get; set; }
         #endregion
 
+        #region Form Messages
+
+        /// <summary>
+        /// FormMessage of a Username field in the view
+        /// </summary>
+        public FormMessage UsernameMessage { get; set; } = FormMessage.None;
+
+        /// <summary>
+        /// FormMessage of a Password field in the view
+        /// </summary>
+        public FormMessage PasswordMessage { get; set; } = FormMessage.None;
+
+        #endregion
+
         #region Default Constructor
 
         public LoginPageViewModel()
@@ -77,7 +91,7 @@ namespace DebtDiary
 
             });
         }
-
+        #endregion
 
         #region Helpers private methods
 
@@ -89,12 +103,43 @@ namespace DebtDiary
         {
             await Task.Run(() =>
             {
-                return true;
+                ResetFormMessages();
+
+                // Check if username is empty
+                if (string.IsNullOrEmpty(Username))
+                    UsernameMessage = FormMessage.EmptyUsername;
+
+                // Check if password is empty
+                if (_password.IsNullOrEmpty())
+                    PasswordMessage = FormMessage.EmptyPassword;
             });
+
+            return IsEnteredDataCorrect();
+        }
+
+        /// <summary>
+        /// Reset all the <see cref="FormMessage"/> to None
+        /// </summary>
+        private void ResetFormMessages()
+        {
+            UsernameMessage = FormMessage.None;
+            PasswordMessage = FormMessage.None;
+        }
+
+        /// <summary>
+        /// Check if all the <see cref="FormMessage"/> properties are set to <see cref="FormMessage.None"/>
+        /// </summary>
+        /// <returns><see cref="bool"/> false if there are some errors and true if not</returns>
+        private bool IsEnteredDataCorrect()
+        {
+            // If any of the messages changed it's value return false
+            if (UsernameMessage != FormMessage.None || PasswordMessage != FormMessage.None)
+                return false;
+
+            // If not return true
             return true;
-            
         }
         #endregion
-        #endregion
+
     }
 }
