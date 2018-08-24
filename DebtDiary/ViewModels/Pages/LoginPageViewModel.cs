@@ -90,13 +90,15 @@ namespace DebtDiary
         {
             await RunCommandAsync(() => IsLoginRunning, async () =>
             {
-                await Task.Delay(100);
+                // Get password from the view
                 _password = (parameter as IHavePassword)?.Password;
 
+                // Validate data
                 if (await ValidateDataAsync() == false)
                     return;
 
-                // TODO: Add user to IoC new class
+                // Save user in the application data
+                IocContainer.Get<IClientDataStore>().LoginUser(_loggedUser);
 
                 // And go to diary page
                 ChangeApplicationPage(ApplicationPage.DiaryPage);

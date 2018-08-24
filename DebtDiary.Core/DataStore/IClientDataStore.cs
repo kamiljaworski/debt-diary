@@ -2,8 +2,12 @@
 {
     public interface IClientDataStore
     {
-        bool IsUserLoggedIn { get; set; }
+        bool IsUserLoggedIn { get; }
 
-        User CurrentUser { get; set; }
+        User CurrentUser { get; }
+
+        void LoginUser(User user);
+
+        void LogoutUser();
     }
 }
