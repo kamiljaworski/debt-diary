@@ -506,7 +506,7 @@
 
     <!--#region LoginPage PasswordBox and TextBox Styles -->
     <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}" x:Key="LoginPageTextBox">
-        <Setter Property="Margin" Value="20 0 20 10"/>
+        <Setter Property="Margin" Value="20 0 20 0"/>
         <Setter Property="TextAlignment" Value="Center"/>
     </Style>
 

@@ -65,12 +65,14 @@
                 <!-- Sign In Title -->
                 <TextBlock Text="{x:Static localization:Strings.SignIn}" Style="{StaticResource WhitePanelTitle}"/>
                 <!-- Username -->
-                <TextBox Text="{Binding Username}" Tag="{x:Static localization:Strings.Username}" Style="{StaticResource LoginPageTextBox}"/>
+                <TextBox Text="{Binding Username}" Tag="{x:Static localization:Strings.Username}" Style="{StaticResource LoginPageTextBox}"
+                         local:FormMessageProperty.Value="{Binding UsernameMessage}"/>
                 <!-- Password -->
-                <PasswordBox x:Name="UserPassword" Tag="{x:Static localization:Strings.Password}" Style="{StaticResource LoginPagePasswordBox}"/>
+                <PasswordBox x:Name="UserPassword" Tag="{x:Static localization:Strings.Password}" Style="{StaticResource LoginPagePasswordBox}"
+                             local:FormMessageProperty.Value="{Binding PasswordMessage}"/>
                 <!-- Login Button -->
                 <Button Content="{x:Static localization:Strings.Login}" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=Page}"
-                        local:IsBusyProperty.Value="{Binding IsLoginRunning}" Margin="0 40 0 40" HorizontalAlignment="Center"/>
+                        local:IsBusyProperty.Value="{Binding IsLoginRunning}" Margin="0 20 0 40" HorizontalAlignment="Center"/>
             </StackPanel>
         </Grid>
         <!--#endregion-->

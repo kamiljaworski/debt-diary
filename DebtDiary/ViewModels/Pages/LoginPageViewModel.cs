@@ -88,6 +88,7 @@ namespace DebtDiary
                 await Task.Delay(100);
                 _password = (parameter as IHavePassword)?.Password;
 
+                await ValidateDataAsync();
 
             });
         }
