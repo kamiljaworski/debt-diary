@@ -135,8 +135,6 @@ namespace DebtDiary
         {
             await RunCommandAsync(() => IsRegisterRunning, async () =>
             {
-                await Task.Delay(1);
-
                 // Get passwords references from the view
                 _password = (parameter as IHaveTwoPasswords)?.Password;
                 _repeatedPassword = (parameter as IHaveTwoPasswords)?.SecondPassword;
