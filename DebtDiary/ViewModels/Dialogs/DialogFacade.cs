@@ -2,14 +2,11 @@
 {
     class DialogFacade : IDialogFacade
     {
-        private DialogMessage _dialogMessage = DialogMessage.None;
-
-
-        public DialogMessage DialogMessage => _dialogMessage;
+        public DialogMessage DialogMessage { get; private set; }
 
         public void OpenDialog(DialogMessage dialogMessage)
         {
-            _dialogMessage = dialogMessage;
+            DialogMessage = dialogMessage;
             DialogWindow win = new DialogWindow();
             win.ShowDialog();
         }
