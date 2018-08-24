@@ -27,5 +27,13 @@ namespace DebtDiary.DataProvider
         /// <param name="email">New user's e-mail</param>
         /// <returns><see cref="bool"/> false if this e-mail exist in the database and true if not</returns>
         bool IsEmailAvailable(string email);
+
+        /// <summary>
+        /// Get user from the database
+        /// </summary>
+        /// <param name="username">Username</param>
+        /// <param name="hashedPassword">Hashed password</param>
+        /// <returns><see cref="User"/> if user exist or <see cref="null"/> if not</returns>
+        User GetUser(string username, string hashedPassword);
     }
 }

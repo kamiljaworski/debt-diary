@@ -64,6 +64,18 @@ namespace DebtDiary.DataProvider
             return false;
         }
 
+        public User GetUser(string username, string hashedPassword)
+        {
+            var query = dbContext.Users.Where(u => u.Username == username && u.Password == hashedPassword);
+
+            // If user wasn't found return null
+            if (query == null || query.Count() == 0)
+                return null;
+
+            // Return user
+            return query.ToList().First();
+        }
+
         /// <summary>
         /// IDisposable interface implementation method
         /// </summary>
