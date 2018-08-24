@@ -66,14 +66,14 @@ namespace DebtDiary.DataProvider
 
         public User GetUser(string username, string hashedPassword)
         {
-            var query = dbContext.Users.Where(u => u.Username == username && u.Password == hashedPassword);
+            var query = dbContext.Users.Where(u => u.Username == username && u.Password == hashedPassword).ToList();
 
             // If user wasn't found return null
             if (query == null || query.Count() == 0)
                 return null;
 
-            // Return user
-            return query.ToList().First();
+            // If user exist return them
+            return query.First();
         }
 
         /// <summary>

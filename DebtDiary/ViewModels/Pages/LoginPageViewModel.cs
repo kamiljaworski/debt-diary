@@ -22,6 +22,11 @@ namespace DebtDiary
         /// Reference to application data access class
         /// </summary>
         private IDebtDiaryDataAccess _dataAccess = IocContainer.Get<IDebtDiaryDataAccess>();
+
+        /// <summary>
+        /// Logged user from login method
+        /// </summary>
+        private User _loggedUser = null;
         #endregion
 
         #region Public Properties
@@ -88,7 +93,10 @@ namespace DebtDiary
                 await Task.Delay(100);
                 _password = (parameter as IHavePassword)?.Password;
 
-                await ValidateDataAsync();
+                if (await ValidateDataAsync() == false)
+                    return;
+
+
 
             });
         }
@@ -113,6 +121,17 @@ namespace DebtDiary
                 // Check if password is empty
                 if (_password.IsNullOrEmpty())
                     PasswordMessage = FormMessage.EmptyPassword;
+
+                // Try to get user from db
+                _loggedUser = _dataAccess.GetUser(Username, _password.GetEncryptedPassword());
+
+                // Check if user was succesfully logged in
+                if (_loggedUser == null)
+                {
+                    UsernameMessage = FormMessage.IncorrectUsername;
+                    PasswordMessage = FormMessage.EmptyMessage;
+                }
+
             });
 
             return IsEnteredDataCorrect();
