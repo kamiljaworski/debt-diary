@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:DebtDiary"
              xmlns:localization="clr-namespace:DebtDiary.Localization"
              mc:Ignorable="d" Width="280"
-             d:DesignHeight="720" d:DesignWidth="280" DataContext="{x:Static local:SideMenuDesignModel.Instance}">
+             d:DesignHeight="720" d:DesignWidth="280" d:DataContext="{x:Static local:SideMenuDesignModel.Instance}">
     <UserControl.Template>
         <ControlTemplate TargetType="UserControl">
 

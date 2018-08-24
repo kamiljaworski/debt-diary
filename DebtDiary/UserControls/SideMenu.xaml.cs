@@ -9,6 +9,7 @@ namespace DebtDiary
     {
         public SideMenu()
         {
+            DataContext = new SideMenuViewModel();
             InitializeComponent();
         }
     }
