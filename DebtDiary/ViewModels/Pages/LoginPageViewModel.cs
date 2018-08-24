@@ -1,4 +1,5 @@
 ﻿using DebtDiary.Core;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace DebtDiary
@@ -36,16 +37,13 @@ namespace DebtDiary
         {
             // Create commands
             CreateAccountCommand = new RelayCommand(() => ChangeApplicationPage(ApplicationPage.RegisterPage));
-            LoginCommand = new RelayParameterizedCommand((parameter) => Login(parameter));
+            LoginCommand = new RelayParameterizedCommand(async (parameter) => await LoginAsync(parameter));
         }
         #endregion
 
         #region Private Methods
 
-        /// <summary>
-        /// Method that log the user in
-        /// </summary>
-        private void Login(object parameter)
+        private async Task LoginAsync(object parameter)
         {
             string username = Username;
             string password = (parameter as IHavePassword).Password.GetEncryptedPassword();
