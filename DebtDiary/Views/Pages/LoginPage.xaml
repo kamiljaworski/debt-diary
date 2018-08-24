@@ -25,7 +25,7 @@
             </EventTrigger>
 
             <!-- Fade out animation -->
-            <EventTrigger RoutedEvent="Button.Click">
+            <EventTrigger RoutedEvent="Button.Click" SourceName="CreateAccountButton">
                 <BeginStoryboard>
                     <Storyboard>
                         <DoubleAnimation  Storyboard.TargetName="MainGrid" Storyboard.TargetProperty="Opacity" 
@@ -70,7 +70,7 @@
                 <PasswordBox x:Name="UserPassword" Tag="{x:Static localization:Strings.Password}" Style="{StaticResource LoginPagePasswordBox}"/>
                 <!-- Login Button -->
                 <Button Content="{x:Static localization:Strings.Login}" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=Page}"
-                        Margin="0 40 0 40" HorizontalAlignment="Center"/>
+                        local:IsBusyProperty.Value="{Binding IsLoginRunning}" Margin="0 40 0 40" HorizontalAlignment="Center"/>
             </StackPanel>
         </Grid>
         <!--#endregion-->

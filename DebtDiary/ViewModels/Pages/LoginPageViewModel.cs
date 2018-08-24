@@ -63,16 +63,38 @@ namespace DebtDiary
 
         #region Private Methods
 
+        /// <summary>
+        /// Log the user in
+        /// </summary>
+        /// <param name="parameter">View as <see cref="IHavePassword"/></param>
         private async Task LoginAsync(object parameter)
         {
             await RunCommandAsync(() => IsLoginRunning, async () =>
             {
-                await Task.Delay(1);
+                await Task.Delay(100);
                 _password = (parameter as IHavePassword)?.Password;
 
 
             });
         }
+
+
+        #region Helpers private methods
+
+        /// <summary>
+        /// Validate if entered data is correct
+        /// </summary>
+        /// <returns>True if user can be loged in or false if not</returns>
+        private async Task<bool> ValidateDataAsync()
+        {
+            await Task.Run(() =>
+            {
+                return true;
+            });
+            return true;
+            
+        }
+        #endregion
         #endregion
     }
 }
