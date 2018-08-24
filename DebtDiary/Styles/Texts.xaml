@@ -345,8 +345,8 @@
 
 
                         <TextBlock Grid.Row="1" Text="{TemplateBinding local:FormMessageProperty.Value, Converter={local:FormMessageToStringConverter}}"
-                                   Foreground="Red" FontFamily="{StaticResource LatoRegular}" FontSize="12" Margin="5 3 5 0" 
-                                   x:Name="ErrorMessage"/>
+                                   Foreground="Red" FontFamily="{StaticResource LatoRegular}" FontSize="12" Margin="5 3 5 0" x:Name="ErrorMessage"
+                                   TextAlignment="{TemplateBinding HorizontalContentAlignment, Converter={local:HorizontalAlignmentToTextAlignmentConverter}}"/>
 
                         <!-- Helper blank textblock used to fix hover text animation -->
                         <TextBlock x:Name="HelperTextBlock" Visibility="{TemplateBinding local:HasTextProperty.Value, Converter={local:BooleanToVisibilityConverter}}"
