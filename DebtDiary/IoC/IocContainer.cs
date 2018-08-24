@@ -1,4 +1,5 @@
-﻿using DebtDiary.DataProvider;
+﻿using DebtDiary.Core;
+using DebtDiary.DataProvider;
 using Ninject;
 
 namespace DebtDiary
@@ -23,6 +24,7 @@ namespace DebtDiary
             Kernel.Bind<IApplicationViewModel>().To<ApplicationViewModel>().InSingletonScope();
             Kernel.Bind<IDebtDiaryDataAccess>().To<DebtDiaryDataAccess>().InSingletonScope();
             Kernel.Bind<IDialogFacade>().To<DialogFacade>().InSingletonScope();
+            Kernel.Bind<IClientDataStore>().To<ClientDataStore>().InSingletonScope();
         }
 
         /// <summary>
