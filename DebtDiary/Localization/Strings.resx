@@ -180,6 +180,9 @@
   <data name="IncorrectLastName" xml:space="preserve">
     <value>Incorrect last name</value>
   </data>
+  <data name="IncorrectPassword" xml:space="preserve">
+    <value>Incorrect password</value>
+  </data>
   <data name="IncorrectUsername" xml:space="preserve">
     <value>Incorrect username</value>
   </data>

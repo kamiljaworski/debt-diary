@@ -65,6 +65,9 @@ namespace DebtDiary
                     case FormMessage.UnselectedGender:
                         return strings.GetString("UnselectedGender");
 
+                    case FormMessage.IncorrectPassword:
+                        return strings.GetString("IncorrectPassword");
+
                     case FormMessage.EmptyMessage:
                         return string.Empty;
                 }

@@ -96,8 +96,13 @@ namespace DebtDiary
                 if (await ValidateDataAsync() == false)
                     return;
 
+                // TODO: Add user to IoC new class
 
+                // Show successful dialog window 
+                IocContainer.Get<IDialogFacade>().OpenDialog(DialogMessage.AccountCreated);
 
+                // And go to diary page
+                ChangeApplicationPage(ApplicationPage.DiaryPage);
             });
         }
         #endregion
@@ -129,9 +134,8 @@ namespace DebtDiary
                 if (_loggedUser == null)
                 {
                     UsernameMessage = FormMessage.IncorrectUsername;
-                    PasswordMessage = FormMessage.EmptyMessage;
+                    PasswordMessage = FormMessage.IncorrectPassword;
                 }
-
             });
 
             return IsEnteredDataCorrect();
