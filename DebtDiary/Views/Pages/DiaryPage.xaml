@@ -10,33 +10,7 @@
       Title="DiaryPage" d:DataContext="{x:Static local:DiaryPageDesignModel.Instance}">
 
     <Grid x:Name="MainGrid">
-
-        <!--#region Animations-->
-        <Grid.Triggers>
-            <!-- Fade in animation -->
-            <EventTrigger RoutedEvent="Loaded">
-                <BeginStoryboard>
-                    <Storyboard >
-                        <DoubleAnimation  Storyboard.TargetName="MainGrid" Storyboard.TargetProperty="Opacity" 
-                                          Duration="{Binding ApplicationViewModel.FadeInDuration, Source={StaticResource ViewModelLocator}, 
-                                                    Converter={local:TimeSpanToDurationConverter}}" From="0" To="1" />
-                    </Storyboard>
-                </BeginStoryboard>
-            </EventTrigger>
-
-            <!-- Fade out animation -->
-            <EventTrigger RoutedEvent="Button.Click">
-                <BeginStoryboard>
-                    <Storyboard>
-                        <DoubleAnimation  Storyboard.TargetName="MainGrid" Storyboard.TargetProperty="Opacity" 
-                                          Duration="{Binding ApplicationViewModel.FadeOutDuration, Source={StaticResource ViewModelLocator}, 
-                                                    Converter={local:TimeSpanToDurationConverter}}" From="1" To="0" />
-                    </Storyboard>
-                </BeginStoryboard>
-            </EventTrigger>
-        </Grid.Triggers>
-        <!--#endregion-->
-
+        
         <!--#region Page column definitions-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="280"/>
