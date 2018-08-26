@@ -1,5 +1,4 @@
 ﻿using DebtDiary.Core;
-using DebtDiary.DataProvider;
 using System.Collections.Generic;
 
 namespace DebtDiary
@@ -13,10 +12,8 @@ namespace DebtDiary
             if (designTime == false)
             {
                 User loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
-                IDebtDiaryDataAccess dataAccess = IocContainer.Get<IDebtDiaryDataAccess>();
 
-
-                foreach (Debtor debtor in dataAccess.GetDebtorsList(loggedUser))
+                foreach (Debtor debtor in loggedUser.Debtors)
                     Debtors.Add(new DebtorsListItemViewModel(debtor));
             }
         }
