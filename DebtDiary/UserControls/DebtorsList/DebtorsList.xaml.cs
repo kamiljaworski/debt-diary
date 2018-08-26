@@ -9,6 +9,7 @@ namespace DebtDiary
     {
         public DebtorsList()
         {
+            DataContext = new DebtorsListViewModel();
             InitializeComponent();
         }
     }

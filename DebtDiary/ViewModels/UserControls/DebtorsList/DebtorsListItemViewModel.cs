@@ -30,5 +30,22 @@ namespace DebtDiary
                 return Debt.ToString("C", numberFormat);
             }
         }
+
+        public DebtorsListItemViewModel()
+        {
+
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="debtor"><see cref="Debtor"/> you want to make <see cref="DebtorsListItemViewModel"/> from</param>
+        public DebtorsListItemViewModel(Debtor debtor)
+        {
+            FullName = debtor.FullName;
+            Initials = debtor.Initials;
+            Debt = debtor.Debt;
+            //AvatarColor = debtor.AvatarColor;
+        }
     }
 }

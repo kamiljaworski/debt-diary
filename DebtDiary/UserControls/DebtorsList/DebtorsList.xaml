@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:DebtDiary"
              mc:Ignorable="d" Width="280"
              d:DesignHeight="240" d:DesignWidth="260">
-    <Grid DataContext="{x:Static local:DebtorsListDesignModel.Instance}" Background="{StaticResource DarkGreyBrush}">
+    <Grid d:DataContext="{x:Static local:DebtorsListDesignModel.Instance}" Background="{StaticResource DarkGreyBrush}">
         <!-- TODO: Custom scroll bar style -->
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <ItemsControl ItemsSource="{Binding Debtors}">
