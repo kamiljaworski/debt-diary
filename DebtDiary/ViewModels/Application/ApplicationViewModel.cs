@@ -16,6 +16,11 @@ namespace DebtDiary
         public ApplicationPage CurrentPage { get; private set; } = ApplicationPage.LoginPage;
 
         /// <summary>
+        /// Current subpage in the application after logging in
+        /// </summary>
+        public ApplicationSubpage CurrentSubpage { get; set; } = ApplicationSubpage.SummarySubpage;
+
+        /// <summary>
         /// Page fade in animation duration
         /// </summary>
         public TimeSpan FadeInDuration { get; set; } = TimeSpan.FromSeconds(0.8);
