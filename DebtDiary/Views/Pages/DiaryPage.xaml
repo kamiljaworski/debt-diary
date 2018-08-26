@@ -97,6 +97,9 @@
                                 <TextBlock Text="{x:Static localization:Strings.Logout}" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="18" Margin="5 0 0 0"/>
                             </StackPanel>
 
+                            <!-- Temporary button -->
+                            <Button Content="Add Debtor" HorizontalAlignment="Left" Margin="10 10 0 0"/>
+                            
                             <TextBlock Text="{x:Static localization:Strings.Debtors}" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="24" Margin="0 10 0 0"/>
                         </StackPanel>
 
