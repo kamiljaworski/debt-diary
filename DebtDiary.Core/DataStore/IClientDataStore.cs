@@ -4,7 +4,7 @@
     {
         bool IsUserLoggedIn { get; }
 
-        User CurrentUser { get; }
+        User LoggedUser { get; }
 
         void LoginUser(User user);
 

@@ -14,7 +14,7 @@ namespace DebtDiary
         {
             if (designTime == false)
             {
-                User loggedUser = IocContainer.Get<IClientDataStore>().CurrentUser;
+                User loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
 
                 FullName = loggedUser.FullName;
                 Username = loggedUser.Username;

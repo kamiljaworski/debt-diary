@@ -11,7 +11,7 @@ namespace DebtDiary
         {
             if (designTime == false)
             {
-                User loggedUser = IocContainer.Get<IClientDataStore>().CurrentUser;
+                User loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
 
                 foreach (Debtor debtor in loggedUser.Debtors)
                     Debtors.Add(new DebtorsListItemViewModel(debtor));
