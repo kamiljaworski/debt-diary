@@ -8,7 +8,7 @@
       xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       mc:Ignorable="d"
       d:DesignHeight="720" d:DesignWidth="1280"
-      Title="DiaryPage">
+      Title="DiaryPage" d:DataContext="{x:Static local:DiaryPageDesignModel.Instance}">
 
     <Grid x:Name="MainGrid">
 
@@ -47,9 +47,67 @@
 
         <!--#region Menu-->
         <Grid Grid.Column="0" Background="{StaticResource DarkGreyBrush}">
-            <local:SideMenu>
-                <local:DebtorsList/>
-            </local:SideMenu>
+            <Border Background="{StaticResource DarkGreyBrush}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <!-- Account info -->
+                    <Border Grid.Row="0" Background="#444444">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Column="0" Style="{StaticResource AvatarLabel}" Content="{Binding Initials}"/>
+
+
+                            <StackPanel Grid.Column="1" Margin="10">
+                                <TextBlock Text="{Binding FullName}" Foreground="White" FontFamily="{StaticResource LatoRegular}" FontSize="24"/>
+                                <TextBlock Text="{Binding Username}" Foreground="White" FontFamily="{StaticResource LatoThin}" FontSize="22"/>
+                            </StackPanel>
+
+                        </Grid>
+                    </Border>
+
+                    <!-- Menu -->
+                    <Grid VerticalAlignment="Stretch" Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+
+                        <StackPanel Grid.Row="0">
+                            <TextBlock Text="{x:Static localization:Strings.General}" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="24"/>
+                            <StackPanel Orientation="Horizontal" Margin="10 5 0 0">
+                                <TextBlock Text="&#xEA8A;" Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="18"/>
+                                <TextBlock Text="{x:Static localization:Strings.Summary}" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="18" Margin="5 0 0 0"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="10 5 0 0">
+                                <TextBlock Text="&#xEA8C;" Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="18"/>
+                                <TextBlock Text="{x:Static localization:Strings.MyAccount}" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="18" Margin="5 0 0 0"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="10 5 0 0">
+                                <TextBlock Text="&#xE7E8;" Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="18"/>
+                                <TextBlock Text="{x:Static localization:Strings.Logout}" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="18" Margin="5 0 0 0"/>
+                            </StackPanel>
+
+                            <TextBlock Text="{x:Static localization:Strings.Debtors}" Foreground="White" FontFamily="{StaticResource LatoLight}" FontSize="24" Margin="0 10 0 0"/>
+                        </StackPanel>
+
+
+                        <local:DebtorsList Grid.Row="1"/>
+
+                    </Grid>
+
+
+                </Grid>
+            </Border>
         </Grid>
         <!--#endregion-->
 

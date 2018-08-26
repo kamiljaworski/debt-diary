@@ -17,6 +17,7 @@ namespace DebtDiary
 
         public DiaryPage()
         {
+            DataContext = new DiaryPageViewModel();
             InitializeComponent();
 
             SeriesCollection = new SeriesCollection
@@ -31,7 +32,7 @@ namespace DebtDiary
             YFormatter = value => value.ToString("C");
 
 
-            DataContext = this;
+            //DataContext = this;
         }
     }
 }

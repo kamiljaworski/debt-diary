@@ -116,9 +116,6 @@
     <Compile Include="UserControls\DebtorsList\DebtorsListItem.xaml.cs">
       <DependentUpon>DebtorsListItem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\SideMenu.xaml.cs">
-      <DependentUpon>SideMenu.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ValueConverters\ApplicationPageConverter.cs" />
     <Compile Include="ValueConverters\AvatarColorToBrushConverter.cs" />
     <Compile Include="ValueConverters\BooleanToVisibilityConverter.cs" />
@@ -148,12 +145,12 @@
     <Compile Include="ViewModels\Dialogs\DialogMessage.cs" />
     <Compile Include="ViewModels\Dialogs\DialogWindowViewModel.cs" />
     <Compile Include="ViewModels\Dialogs\IDialogFacade.cs" />
+    <Compile Include="ViewModels\Pages\Design\DiaryPageDesignModel.cs" />
+    <Compile Include="ViewModels\Pages\DiaryPageViewModel.cs" />
     <Compile Include="ViewModels\UserControls\DebtorsList\DebtorsListItemViewModel.cs" />
     <Compile Include="ViewModels\UserControls\DebtorsList\DebtorsListViewModel.cs" />
     <Compile Include="ViewModels\UserControls\DebtorsList\Design\DebtorsListDesignModel.cs" />
     <Compile Include="ViewModels\UserControls\DebtorsList\Design\DebtorsListItemDesignModel.cs" />
-    <Compile Include="ViewModels\UserControls\SideMenu\Design\SideMenuDesignModel.cs" />
-    <Compile Include="ViewModels\UserControls\SideMenu\SideMenuViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\Dialogs\DialogWindow.xaml.cs">
       <DependentUpon>DialogWindow.xaml</DependentUpon>
@@ -191,10 +188,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\DebtorsList\DebtorsListItem.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\SideMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
