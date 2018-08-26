@@ -185,6 +185,9 @@
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\Pages\RegisterPageViewModel.cs" />
     <Compile Include="Views\Helpers\WindowResizer.cs" />
+    <Compile Include="Views\Subpages\AddDebtorSubpage.xaml.cs">
+      <DependentUpon>AddDebtorSubpage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Subpages\SummarySubpage.xaml.cs">
       <DependentUpon>SummarySubpage.xaml</DependentUpon>
     </Compile>
@@ -237,6 +240,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Styles\Colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Subpages\AddDebtorSubpage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
