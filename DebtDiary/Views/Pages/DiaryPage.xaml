@@ -101,7 +101,7 @@
                         </StackPanel>
 
 
-                        <local:DebtorsList Grid.Row="1"/>
+                        <local:DebtorsList Grid.Row="1" d:DataContext="{x:Static local:DebtorsListDesignModel.Instance}"/>
 
                     </Grid>
 

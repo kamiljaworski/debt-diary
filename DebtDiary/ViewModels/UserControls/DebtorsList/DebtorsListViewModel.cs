@@ -11,10 +11,17 @@ namespace DebtDiary
         {
             if (designTime == false)
             {
-                User loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
+                // Try to get logged user info while application is working
+                try
+                {
+                    User loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
 
-                foreach (Debtor debtor in loggedUser.Debtors)
-                    Debtors.Add(new DebtorsListItemViewModel(debtor));
+                    // Fill debtors list
+                    foreach (Debtor debtor in loggedUser.Debtors)
+                        Debtors.Add(new DebtorsListItemViewModel(debtor));
+                }
+                // If IoC isn't working (when it is in design mode) do nothing
+                catch { }
             }
         }
     }
