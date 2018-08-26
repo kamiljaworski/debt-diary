@@ -18,7 +18,7 @@ namespace DebtDiary
         /// <summary>
         /// Current subpage in the application after logging in
         /// </summary>
-        public ApplicationSubpage CurrentSubpage { get; set; } = ApplicationSubpage.SummarySubpage;
+        public ApplicationSubpage CurrentSubpage { get; private set; } = ApplicationSubpage.SummarySubpage;
 
         /// <summary>
         /// Page fade in animation duration
@@ -35,6 +35,12 @@ namespace DebtDiary
         /// </summary>
         /// <param name="page"><see cref="ApplicationPage"/> you want to change to</param>
         public void ChangeCurrentPage(ApplicationPage page) => ChangeCurrentPageAsync(page);
+
+        /// <summary>
+        /// Changes current subpage in the application
+        /// </summary>
+        /// <param name="subpage"><see cref="ApplicationSubpage"/> you want to change to</param>
+        public void ChangeCurrentSubpage(ApplicationSubpage subpage) => CurrentSubpage = subpage;
         #endregion
 
         #region Private methods

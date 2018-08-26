@@ -13,6 +13,11 @@ namespace DebtDiary
         ApplicationPage CurrentPage { get; }
 
         /// <summary>
+        /// Current subpage in the application after logging in
+        /// </summary>
+        ApplicationSubpage CurrentSubpage { get; }
+
+        /// <summary>
         /// Page fade in animation duration
         /// </summary>
         TimeSpan FadeInDuration { get; set; }
@@ -27,5 +32,11 @@ namespace DebtDiary
         /// </summary>
         /// <param name="page"><see cref="ApplicationPage"/> you want to change to</param>
         void ChangeCurrentPage(ApplicationPage page);
+
+        /// <summary>
+        /// Changes current subpage in the application
+        /// </summary>
+        /// <param name="subpage"><see cref="ApplicationSubpage"/> you want to change to</param>
+        void ChangeCurrentSubpage(ApplicationSubpage subpage);
     }
 }

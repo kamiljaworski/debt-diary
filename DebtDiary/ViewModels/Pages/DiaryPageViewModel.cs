@@ -1,4 +1,5 @@
 ﻿using DebtDiary.Core;
+using System.Windows.Input;
 
 namespace DebtDiary
 {
@@ -10,6 +11,8 @@ namespace DebtDiary
 
         public string Initials { get; set; }
 
+        public ICommand AddDebtorCommand { get; set; }
+
         public DiaryPageViewModel(bool designTime = false)
         {
             if (designTime == false)
@@ -20,6 +23,8 @@ namespace DebtDiary
                 Username = loggedUser.Username;
                 Initials = loggedUser.Initials;
             }
+
+            AddDebtorCommand = new RelayCommand(() => IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.AddDebtorSubpage));
         }
 
     }
