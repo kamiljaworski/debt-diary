@@ -5,7 +5,7 @@ namespace DebtDiary
 {
     public class DebtorsListViewModel : BaseViewModel
     {
-        public List<DebtorsListItemViewModel> Debtors { get; set; }
+        public List<DebtorsListItemViewModel> Debtors { get; set; } = new List<DebtorsListItemViewModel>();
 
         public DebtorsListViewModel(bool designTime = false)
         {
