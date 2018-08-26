@@ -11,12 +11,17 @@ namespace DebtDiary.DataProvider
         /// <summary>
         /// Default constructor
         /// </summary>
-        public DebtDiaryDbContext(): base("DebtDiaryConnectionString")
-        {  }
+        public DebtDiaryDbContext() : base("DebtDiaryConnectionString")
+        { }
 
         /// <summary>
         /// Users table
         /// </summary>
         public DbSet<User> Users { get; set; }
+
+        /// <summary>
+        /// Debtors
+        /// </summary>
+        public DbSet<Debtor> Debtors { get; set; }
     }
 }

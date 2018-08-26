@@ -7,7 +7,7 @@ namespace DebtDiary
     {
         public static DebtorsListDesignModel Instance => new DebtorsListDesignModel();
 
-        public DebtorsListDesignModel()
+        public DebtorsListDesignModel() : base(true)
         {
             Debtors = new List<DebtorsListItemViewModel>
             {
@@ -46,8 +46,8 @@ namespace DebtDiary
                     Debt = 999.00m,
                     AvatarColor = AvatarColor.LightSeaGreen
                },
-                               new DebtorsListItemViewModel
-                {
+               new DebtorsListItemViewModel
+               {
                     FullName = "Kamil Jaworski",
                     Initials = "KJ",
                     Debt = -190.00m,

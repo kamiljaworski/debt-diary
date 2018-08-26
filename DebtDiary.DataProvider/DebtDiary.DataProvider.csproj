@@ -78,6 +78,14 @@
     <Compile Include="Migrations\201808261148210_MoveAvatarColorToPerson.Designer.cs">
       <DependentUpon>201808261148210_MoveAvatarColorToPerson.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808261229108_AddUserReferenceToDebtor.cs" />
+    <Compile Include="Migrations\201808261229108_AddUserReferenceToDebtor.Designer.cs">
+      <DependentUpon>201808261229108_AddUserReferenceToDebtor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808261230229_AddDebtorsDbSet.cs" />
+    <Compile Include="Migrations\201808261230229_AddDebtorsDbSet.Designer.cs">
+      <DependentUpon>201808261230229_AddDebtorsDbSet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -112,6 +120,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808261148210_MoveAvatarColorToPerson.resx">
       <DependentUpon>201808261148210_MoveAvatarColorToPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808261229108_AddUserReferenceToDebtor.resx">
+      <DependentUpon>201808261229108_AddUserReferenceToDebtor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808261230229_AddDebtorsDbSet.resx">
+      <DependentUpon>201808261230229_AddDebtorsDbSet.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

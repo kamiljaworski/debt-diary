@@ -1,5 +1,6 @@
 ﻿using DebtDiary.Core;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -82,6 +83,11 @@ namespace DebtDiary.DataProvider
         public void Dispose()
         {
             dbContext.Dispose();
+        }
+
+        public List<Debtor> GetDebtorsList(User user)
+        {
+            return dbContext.Debtors.Where(d => d.User.Id == user.Id).ToList();
         }
     }
 }

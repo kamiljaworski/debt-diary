@@ -9,6 +9,8 @@
 
         public decimal Debt { get; set; } = 0;
 
+        public User User { get; set; }
+
 
     }
 }

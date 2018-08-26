@@ -1,4 +1,5 @@
 ﻿using DebtDiary.Core;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace DebtDiary.DataProvider
@@ -35,5 +36,11 @@ namespace DebtDiary.DataProvider
         /// <param name="hashedPassword">Hashed password</param>
         /// <returns><see cref="User"/> if user exist or <see cref="null"/> if not</returns>
         User GetUser(string username, string hashedPassword);
+
+        /// <summary>
+        /// Get users debtors list
+        /// </summary>
+        /// <param name="user">Logged user</param>
+        List<Debtor> GetDebtorsList(User user);
     }
 }
