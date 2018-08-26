@@ -45,7 +45,7 @@ namespace DebtDiary
             FullName = debtor.FullName;
             Initials = debtor.Initials;
             Debt = debtor.Debt;
-            //AvatarColor = debtor.AvatarColor;
+            AvatarColor = debtor.AvatarColor;
         }
     }
 }
