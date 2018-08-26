@@ -126,14 +126,18 @@ namespace DebtDiary
                 if (_password.IsNullOrEmpty())
                     PasswordMessage = FormMessage.EmptyPassword;
 
-                // Try to get user from db
-                _loggedUser = _dataAccess.GetUser(Username, _password.GetEncryptedPassword());
+                // If fields arent empty check if user exist
+                if (IsEnteredDataCorrect())
+                {                
+                    // Try to get user from db
+                    _loggedUser = _dataAccess.GetUser(Username, _password.GetEncryptedPassword());
 
-                // Check if user was succesfully logged in
-                if (_loggedUser == null)
-                {
-                    UsernameMessage = FormMessage.IncorrectUsername;
-                    PasswordMessage = FormMessage.IncorrectPassword;
+                    // Check if user was succesfully logged in
+                    if (_loggedUser == null)
+                    {
+                        UsernameMessage = FormMessage.IncorrectUsername;
+                        PasswordMessage = FormMessage.IncorrectPassword;
+                    }
                 }
             });
 
