@@ -26,9 +26,6 @@ namespace DebtDiary.Core
 
         public DateTime? RegisterDate { get; set; }
 
-        public AvatarColor AvatarColor { get; set; } = AvatarColor.Green;
-
         public List<Debtor> Debtors { get; set; } = new List<Debtor>();
-
     }
 }

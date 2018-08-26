@@ -74,6 +74,10 @@
     <Compile Include="Migrations\201808221951320_AddDebtorsListInitializer.Designer.cs">
       <DependentUpon>201808221951320_AddDebtorsListInitializer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808261148210_MoveAvatarColorToPerson.cs" />
+    <Compile Include="Migrations\201808261148210_MoveAvatarColorToPerson.Designer.cs">
+      <DependentUpon>201808261148210_MoveAvatarColorToPerson.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -105,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808221951320_AddDebtorsListInitializer.resx">
       <DependentUpon>201808221951320_AddDebtorsListInitializer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808261148210_MoveAvatarColorToPerson.resx">
+      <DependentUpon>201808261148210_MoveAvatarColorToPerson.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

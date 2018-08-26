@@ -18,6 +18,8 @@ namespace DebtDiary.Core
 
         public Gender? Gender { get; set; }
 
+        public AvatarColor AvatarColor { get; set; } = AvatarColor.Green;
+
         public string Initials
         {
             get
