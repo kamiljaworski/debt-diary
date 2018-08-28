@@ -25,7 +25,7 @@
 
             <StackPanel Grid.Column="0" Margin="20">
                 <TextBox Text="{Binding FirstName}" Tag="{x:Static localization:Strings.FirstName}"/>
-                <TextBox Text="{Binding FirstName}" Tag="{x:Static localization:Strings.LastName}"/>
+                <TextBox Text="{Binding LastName}" Tag="{x:Static localization:Strings.LastName}"/>
 
                 <StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="25 20 0 0">
@@ -41,7 +41,7 @@
                            Style="{StaticResource FormMessageTextBlock}" Margin="25 3 5 0" />
                 </StackPanel>
 
-                <Button Content="Add" Margin="0 20 0 40" HorizontalAlignment="Center"/>
+                <Button Content="Add" Margin="0 20 0 40" HorizontalAlignment="Center" Command="{Binding AddDebtorCommand}"/>
 
             </StackPanel>
         </Grid>
