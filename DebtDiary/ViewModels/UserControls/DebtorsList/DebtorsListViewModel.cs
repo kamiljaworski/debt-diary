@@ -34,15 +34,24 @@ namespace DebtDiary
         {
             User loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
 
-            foreach (Debtor debtor in loggedUser.Debtors)
-            {
-                // Find debtor in VM list with id like in the users one
-                var foundDebtor = Debtors.Where(d => d.Id == debtor.Id);
+            // TODO: remove OLD code if new is ok
+            //foreach (Debtor debtor in loggedUser.Debtors)
+            //{
+            //    // Find debtor in VM list with id like in the users one
+            //    var foundDebtor = Debtors.Where(d => d.Id == debtor.Id);
 
-                // If there is no debtor with this id add them to the list
-                if (foundDebtor == null || foundDebtor.Count() == 0)
+            //    // If there is no debtor with this id add them to the list
+            //    if (foundDebtor == null || foundDebtor.Count() == 0)
+            //        Debtors.Add(new DebtorsListItemViewModel(debtor));
+            //}
+
+            // Find debtors whitch are in ClientDataStore but aren't in VM
+            var newDebtors = loggedUser.Debtors.Where(d => Debtors.Count(x => x.Id == d.Id) == 0);
+
+            // Add these debtors to VM
+            if (newDebtors != null && newDebtors.Count() > 0)
+                foreach (Debtor debtor in newDebtors)
                     Debtors.Add(new DebtorsListItemViewModel(debtor));
-            }
         }
     }
 }
