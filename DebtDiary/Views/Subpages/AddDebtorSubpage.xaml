@@ -4,11 +4,47 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DebtDiary"
+      xmlns:localization="clr-namespace:DebtDiary.Localization"
       mc:Ignorable="d" 
-      d:DesignHeight="680" d:DesignWidth="1280"
+      d:DesignHeight="680" d:DesignWidth="1000"
       Title="AddDebtorSubpage">
 
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBlock Text="Add new debtor"/>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="4" Text="Add new debtor" FontSize="40" FontFamily="{StaticResource LatoLight}" VerticalAlignment="Center" Padding="10 0 0 0"/>
+
+        <Grid Grid.Row="1" Background="White" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Margin="20">
+                <TextBox Text="{Binding FirstName}" Tag="{x:Static localization:Strings.FirstName}"/>
+                <TextBox Text="{Binding FirstName}" Tag="{x:Static localization:Strings.LastName}"/>
+
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="25 20 0 0">
+                        <RadioButton Content="{x:Static localization:Strings.Male}" 
+                             IsChecked="{Binding Gender, Converter={local:GenderToBolleanConverter}, ConverterParameter='Male'}"
+                             local:FormMessageProperty.Value="{Binding GenderMessage}"/>
+                        <RadioButton Content="{x:Static localization:Strings.Female}" Margin="10 0 0 0"
+                             IsChecked="{Binding Gender, Converter={local:GenderToBolleanConverter}, ConverterParameter='Female'}"
+                             local:FormMessageProperty.Value="{Binding GenderMessage}"/>
+                    </StackPanel>
+
+                    <TextBlock Text="{Binding GenderMessage, Converter={local:FormMessageToStringConverter}}"  local:FormMessageProperty.Value="{Binding GenderMessage}" 
+                           Style="{StaticResource FormMessageTextBlock}" Margin="25 3 5 0" />
+                </StackPanel>
+
+                <Button Content="Add" Margin="0 20 0 40" HorizontalAlignment="Center"/>
+
+            </StackPanel>
+        </Grid>
     </Grid>
+
 </Page>
