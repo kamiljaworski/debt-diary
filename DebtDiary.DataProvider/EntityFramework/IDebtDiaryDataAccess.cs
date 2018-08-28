@@ -42,5 +42,10 @@ namespace DebtDiary.DataProvider
         /// </summary>
         /// <param name="user">Logged user</param>
         List<Debtor> GetDebtorsList(User user);
+
+        /// <summary>
+        /// Save database changes done in the application runtime
+        /// </summary>
+        void SaveChanges();
     }
 }

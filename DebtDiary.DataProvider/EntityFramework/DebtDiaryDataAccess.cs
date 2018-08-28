@@ -85,6 +85,8 @@ namespace DebtDiary.DataProvider
             dbContext.Dispose();
         }
 
+        public void SaveChanges() => dbContext.SaveChanges();
+
         public List<Debtor> GetDebtorsList(User user)
         {
             return dbContext.Debtors.Where(d => d.User.Id == user.Id).ToList();

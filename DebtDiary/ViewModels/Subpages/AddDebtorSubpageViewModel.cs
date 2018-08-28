@@ -1,4 +1,5 @@
 ﻿using DebtDiary.Core;
+using DebtDiary.DataProvider;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -27,6 +28,13 @@ namespace DebtDiary
                 LastName = LastName,
                 Gender = Gender
             };
+
+            
+
+            User loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
+            loggedUser.Debtors.Add(debtor);
+
+            IocContainer.Get<IDebtDiaryDataAccess>().SaveChanges();
 
             DebtorsListItemViewModel debtorVM = new DebtorsListItemViewModel(debtor);
 
