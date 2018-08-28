@@ -20,8 +20,7 @@ namespace DebtDiary
 
         private async Task AddDebtorAsync()
         {
-
-
+            // Make new debtor object
             Debtor debtor = new Debtor
             {
                 FirstName = FirstName,
@@ -29,15 +28,18 @@ namespace DebtDiary
                 Gender = Gender
             };
 
-            
-
+            // Add new debtor to ClientDataStore
             User loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
             loggedUser.Debtors.Add(debtor);
 
+            // Save changes in the database
             IocContainer.Get<IDebtDiaryDataAccess>().SaveChanges();
 
+            // Update list in the ViewModel
             DebtorsListViewModel debtorsList = IocContainer.Get<DebtorsListViewModel>();
             debtorsList.UpdateChanges();
+
+            // TODO: Refactor this code and add data validation
         }
     }
 }
