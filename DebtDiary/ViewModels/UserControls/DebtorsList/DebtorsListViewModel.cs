@@ -1,11 +1,12 @@
 ﻿using DebtDiary.Core;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace DebtDiary
 {
     public class DebtorsListViewModel : BaseViewModel
     {
-        public List<DebtorsListItemViewModel> Debtors { get; set; } = new List<DebtorsListItemViewModel>();
+        public ObservableCollection<DebtorsListItemViewModel> Debtors { get; set; } = new ObservableCollection<DebtorsListItemViewModel>();
 
         public DebtorsListViewModel(bool designTime = false)
         {

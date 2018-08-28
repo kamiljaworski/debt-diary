@@ -1,5 +1,5 @@
 ﻿using DebtDiary.Core;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace DebtDiary
 {
@@ -9,7 +9,7 @@ namespace DebtDiary
 
         public DebtorsListDesignModel() : base(true)
         {
-            Debtors = new List<DebtorsListItemViewModel>
+            Debtors = new ObservableCollection<DebtorsListItemViewModel>
             {
                 new DebtorsListItemViewModel
                 {
