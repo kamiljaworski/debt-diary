@@ -8,6 +8,8 @@ namespace DebtDiary
     /// </summary>
     public class DebtorsListItemViewModel : BaseViewModel
     {
+        public int Id { get; set; }
+
         public string FullName { get; set; }
 
         public string Initials { get; set; }
@@ -42,6 +44,7 @@ namespace DebtDiary
         /// <param name="debtor"><see cref="Debtor"/> you want to make <see cref="DebtorsListItemViewModel"/> from</param>
         public DebtorsListItemViewModel(Debtor debtor)
         {
+            Id = debtor.Id;
             FullName = debtor.FullName;
             Initials = debtor.Initials;
             Debt = debtor.Debt;

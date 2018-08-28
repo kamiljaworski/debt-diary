@@ -20,7 +20,7 @@ namespace DebtDiary
 
         private async Task AddDebtorAsync()
         {
-            DebtorsListViewModel debtorsList = IocContainer.Get<DebtorsListViewModel>();
+
 
             Debtor debtor = new Debtor
             {
@@ -36,11 +36,8 @@ namespace DebtDiary
 
             IocContainer.Get<IDebtDiaryDataAccess>().SaveChanges();
 
-            DebtorsListItemViewModel debtorVM = new DebtorsListItemViewModel(debtor);
-
-            debtorsList.Debtors.Add(debtorVM);
-
-            return;
+            DebtorsListViewModel debtorsList = IocContainer.Get<DebtorsListViewModel>();
+            debtorsList.UpdateChanges();
         }
     }
 }

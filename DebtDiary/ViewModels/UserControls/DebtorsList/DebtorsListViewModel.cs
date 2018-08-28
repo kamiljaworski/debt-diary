@@ -1,6 +1,7 @@
 ﻿using DebtDiary.Core;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace DebtDiary
 {
@@ -23,6 +24,24 @@ namespace DebtDiary
                 }
                 // If IoC isn't working (when it is in design mode) do nothing
                 catch { }
+            }
+        }
+
+        /// <summary>
+        /// Updates debtors list in this View Model
+        /// </summary>
+        public void UpdateChanges()
+        {
+            User loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
+
+            foreach (Debtor debtor in loggedUser.Debtors)
+            {
+                // Find debtor in VM list with id like in the users one
+                var foundDebtor = Debtors.Where(d => d.Id == debtor.Id);
+
+                // If there is no debtor with this id add them to the list
+                if (foundDebtor == null || foundDebtor.Count() == 0)
+                    Debtors.Add(new DebtorsListItemViewModel(debtor));
             }
         }
     }
