@@ -39,7 +39,17 @@ namespace DebtDiary
             DebtorsListViewModel debtorsList = IocContainer.Get<DebtorsListViewModel>();
             debtorsList.UpdateChanges();
 
+            // Clear fields in the view
+            ResetData();
+
             // TODO: Refactor this code and add data validation
+        }
+
+        private void ResetData()
+        {
+            FirstName = string.Empty;
+            LastName = string.Empty;
+            Gender = Gender.None;
         }
     }
 }
