@@ -45,7 +45,7 @@ namespace DebtDiary
             //        Debtors.Add(new DebtorsListItemViewModel(debtor));
             //}
 
-            // Find debtors whitch are in ClientDataStore but aren't in VM
+            // Find debtors which are in ClientDataStore but aren't in VM
             var newDebtors = loggedUser.Debtors.Where(d => Debtors.Count(x => x.Id == d.Id) == 0);
 
             // Add these debtors to VM

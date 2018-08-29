@@ -10,6 +10,7 @@
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="Padding" Value="40 10 40 10"/>
         <Setter Property="local:IsBusyProperty.Value" Value="False"/>
+        <Setter Property="FontFamily" Value="{StaticResource LatoSemiBold}"/>
 
         <Setter Property="Template">
             <Setter.Value>
@@ -19,7 +20,7 @@
                             CornerRadius="10" Padding="{TemplateBinding Padding}">
                         <Grid>
                             <TextBlock Text="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}" 
-                                       FontFamily="{StaticResource LatoSemiBold}" FontSize="{TemplateBinding FontSize}"
+                                       FontFamily="{TemplateBinding FontFamily}" FontSize="{TemplateBinding FontSize}"
                                        Visibility="{TemplateBinding local:IsBusyProperty.Value, Converter={local:BooleanToVisibilityConverter}, ConverterParameter='ButtonText'}"/>
 
                             <TextBlock Style="{StaticResource SpinningTextBlock}" 

@@ -22,5 +22,7 @@
     <system:String x:Key="CloseIcon">&#xE8BB;</system:String>
     <system:String x:Key="SuccessIcon">&#xE73E;</system:String>
     <system:String x:Key="FailureIcon">&#xEDAE;</system:String>
+    <system:String x:Key="LeftArrowIcon">&#xE7EA;</system:String>
+    <system:String x:Key="RightArrowIcon">&#xEA62;</system:String>
 
 </ResourceDictionary>
