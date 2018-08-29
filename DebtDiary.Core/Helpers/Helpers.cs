@@ -13,17 +13,26 @@ namespace DebtDiary.Core
         /// <returns>Person initials</returns>
         public static string GetInitials(string firstName, string lastName)
         {
-            // Check if first and last name has at least 1 character
-            if (firstName == null || firstName.Count() == 0)
-                return string.Empty;
+            // Initials variables
+            char firstNameInitial;
+            char lastNameInitial;
 
+            // Check if first name has at leas 1 character and if not set blank char
+            if (firstName == null || firstName.Count() == 0)
+                firstNameInitial = ' ';
+            else
+                firstNameInitial = firstName[0];
+
+            // Check if last name has at leas 1 character and if not set blank char
             if (lastName == null || lastName.Count() == 0)
-                return string.Empty;
+                lastNameInitial = ' ';
+            else
+                lastNameInitial = lastName[0];
 
             // Build Initials
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append(firstName[0], 1);
-            stringBuilder.Append(lastName[0], 1);
+            stringBuilder.Append(firstNameInitial, 1);
+            stringBuilder.Append(lastNameInitial, 1);
             return stringBuilder.ToString().ToUpper();
         }
     }
