@@ -12,110 +12,44 @@ namespace DebtDiary
     /// </summary>
     class RegisterPageViewModel : BaseViewModel
     {
+        #region Private members
+
+        private SecureString _password = null;
+        private SecureString _repeatedPassword = null;
+        private IDebtDiaryDataAccess _dataAccess = null;
+        #endregion
+
         #region Public Properties
 
-        /// <summary>
-        /// First name of a new user
-        /// </summary>
+
         public string FirstName { get; set; }
-
-        /// <summary>
-        /// Last name of a new user
-        /// </summary>
         public string LastName { get; set; }
-
-        /// <summary>
-        /// Username of a new user
-        /// </summary>
         public string Username { get; set; }
-
-        /// <summary>
-        /// E-mail of a new user
-        /// </summary>
         public string Email { get; set; }
-
-        /// <summary>
-        /// Gender of a new user
-        /// </summary>
         public Gender Gender { get; set; } = Gender.None;
-
-        /// <summary>
-        /// Property used for turning on spinning text in button
-        /// </summary>
         public bool IsRegisterRunning { get; set; }
 
         #endregion
 
         #region Form Messages
 
-        /// <summary>
-        /// FormMessage of a FirstName field in the view
-        /// </summary>
         public FormMessage FirstNameMessage { get; set; } = FormMessage.None;
-
-        /// <summary>
-        /// FormMessage of a LastName field in the view
-        /// </summary>
         public FormMessage LastNameMessage { get; set; } = FormMessage.None;
-
-        /// <summary>
-        /// FormMessage of a Username field in the view
-        /// </summary>
         public FormMessage UsernameMessage { get; set; } = FormMessage.None;
-
-        /// <summary>
-        /// FormMessage of a Email field in the view
-        /// </summary>
         public FormMessage EmailMessage { get; set; } = FormMessage.None;
-
-        /// <summary>
-        /// FormMessage of a Password field in the view
-        /// </summary>
         public FormMessage PasswordMessage { get; set; } = FormMessage.None;
-
-        /// <summary>
-        /// FormMessage of a repeated Password field in the view
-        /// </summary>
         public FormMessage RepeatedPasswordMessage { get; set; } = FormMessage.None;
-
-        /// <summary>
-        /// FormMessage of a Gender RadioButton in the view
-        /// </summary>
         public FormMessage GenderMessage { get; set; } = FormMessage.None;
         #endregion
 
         #region Public Commands
 
-        /// <summary>
-        /// Command that change current page to Login Page
-        /// </summary>
         public ICommand LoginCommand { get; set; }
-
-        /// <summary>
-        /// Command that signs the user up
-        /// </summary>
         public ICommand SignUpCommand { get; set; }
         #endregion
 
-        #region Private members
+        #region Constructor
 
-        /// <summary>
-        /// Reference to password from the view 
-        /// </summary>
-        private SecureString _password = null;
-
-        /// <summary>
-        /// Reference to repeated password from the view 
-        /// </summary>
-        private SecureString _repeatedPassword = null;
-
-        /// <summary>
-        /// Reference to application data access class
-        /// </summary>
-        private IDebtDiaryDataAccess _dataAccess = null;
-        #endregion
-
-        #region Default Constructor
         public RegisterPageViewModel()
         {
             // Create commands
@@ -128,9 +62,8 @@ namespace DebtDiary
         #region Private Methods
 
         /// <summary>
-        /// Method that signs the user in
+        /// Sign the user in
         /// </summary>
-        /// <param name="parameter">Parameter of a RelayParameterizedCommand</param>
         private async Task SignUpAsync(object parameter)
         {
             await RunCommandAsync(() => IsRegisterRunning, async () =>
@@ -177,9 +110,8 @@ namespace DebtDiary
         #region Helpers private methods
 
         /// <summary>
-        /// Helper method that validate if new user's data is correct 
+        /// Validate new user's data
         /// </summary>
-        /// <returns>True if user can be added to the database or false if not</returns>
         private async Task<bool> ValidateDataAsync()
         {
             await Task.Run(() =>
@@ -255,7 +187,6 @@ namespace DebtDiary
                 if (EmailMessage == FormMessage.None && _dataAccess.IsEmailAvailable(Email) == false)
                     EmailMessage = FormMessage.TakenEmail;
 
-
             });
 
             // Check if any problem was found and return right value
@@ -263,7 +194,7 @@ namespace DebtDiary
         }
 
         /// <summary>
-        /// Helper method that resets all the <see cref="FormMessage"/> properties to <see cref="FormMessage.None"/>
+        /// Reset all the <see cref="FormMessage"/> properties to <see cref="FormMessage.None"/>
         /// </summary>
         private void ResetFormMessages()
         {
@@ -277,9 +208,8 @@ namespace DebtDiary
         }
 
         /// <summary>
-        /// Helper method that checks if all the <see cref="FormMessage"/> properties are set to <see cref="FormMessage.None"/>
+        /// Check if all the <see cref="FormMessage"/> properties are set to <see cref="FormMessage.None"/>
         /// </summary>
-        /// <returns><see cref="Boolean"/> false if there are some errors and true if not</returns>
         private bool IsEnteredDataCorrect()
         {
             // If any of the messages changed it's value return false
@@ -294,9 +224,8 @@ namespace DebtDiary
         }
 
         /// <summary>
-        /// Helper method that clears all the fields in the view
+        /// Clear all fields in the view
         /// </summary>
-        /// <param name="twoPasswords">View that implements <see cref="IHaveTwoPasswords"/> interface you want to clear</param>
         private void ClearAllFields(IHaveTwoPasswords twoPasswords)
         {
             Username = string.Empty;
