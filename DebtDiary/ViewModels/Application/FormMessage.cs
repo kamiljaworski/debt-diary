@@ -23,6 +23,7 @@
         IncorrectLastName,
         IncorrectUsername,
         UnselectedGender,
-        IncorrectPassword
+        IncorrectPassword,
+        DebtorExist
     }
 }

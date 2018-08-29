@@ -115,6 +115,15 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This debtor has been already added.
+        /// </summary>
+        public static string DebtorExist {
+            get {
+                return ResourceManager.GetString("DebtorExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Debtors.
         /// </summary>
         public static string Debtors {

@@ -135,6 +135,9 @@
   <data name="CreateAccount" xml:space="preserve">
     <value>Create account</value>
   </data>
+  <data name="DebtorExist" xml:space="preserve">
+    <value>This debtor has been already added</value>
+  </data>
   <data name="Debtors" xml:space="preserve">
     <value>Debtors</value>
   </data>

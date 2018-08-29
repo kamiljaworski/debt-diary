@@ -68,6 +68,9 @@ namespace DebtDiary
                     case FormMessage.IncorrectPassword:
                         return strings.GetString("IncorrectPassword");
 
+                    case FormMessage.DebtorExist:
+                        return strings.GetString("DebtorExist");
+                        
                     case FormMessage.EmptyMessage:
                         return string.Empty;
                 }
