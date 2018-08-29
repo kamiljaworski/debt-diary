@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="DataStore\ClientDataStore.cs" />
     <Compile Include="DataStore\IClientDataStore.cs" />
+    <Compile Include="Helpers\AvatarColorChanger.cs" />
     <Compile Include="Helpers\DataValidator.cs" />
     <Compile Include="Helpers\ExpressionHelpers.cs" />
     <Compile Include="Helpers\Helpers.cs" />
