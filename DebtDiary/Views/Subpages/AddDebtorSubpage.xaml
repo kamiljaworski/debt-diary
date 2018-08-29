@@ -25,7 +25,7 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="1" Margin="20" >
-                <Label Style="{StaticResource AvatarLabel}" Width="200" Background="{Binding AvatarColor, Converter={local:AvatarColorToBrushConverter}, FallbackValue=Green}"/>
+                <Label Style="{StaticResource AvatarLabel}" Width="200" Background="{Binding AvatarColor, Converter={local:AvatarColorToBrushConverter}, FallbackValue=Green}" Content="{Binding Initials, UpdateSourceTrigger=PropertyChanged, FallbackValue=AA}"/>
                 
                 <Grid Margin="0 10 0 0">
                     <Grid.ColumnDefinitions>
@@ -39,8 +39,8 @@
                     <Button Grid.Column="2" Content="{StaticResource RightArrowIcon}" FontFamily="{StaticResource Segoe-MDL2}" Padding="10" Command="{Binding NextColorCommand}"/>
                 </Grid>
 
-                <TextBox Text="{Binding FirstName}" Tag="{x:Static localization:Strings.FirstName}"/>
-                <TextBox Text="{Binding LastName}" Tag="{x:Static localization:Strings.LastName}"/>
+                <TextBox Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Tag="{x:Static localization:Strings.FirstName}"/>
+                <TextBox Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Tag="{x:Static localization:Strings.LastName}"/>
 
                 <Grid>
                     <Grid.ColumnDefinitions>

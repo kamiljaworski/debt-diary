@@ -7,14 +7,21 @@ namespace DebtDiary
 {
     public class AddDebtorSubpageViewModel : BaseViewModel
     {
+        #region Public Properties
+
+        public AvatarColor AvatarColor { get; set; } = AvatarColor.Green;
+        public string Initials => Helpers.GetInitials(FirstName, LastName);
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public Gender Gender { get; set; } = Gender.None;
-        public AvatarColor AvatarColor { get; set; } = AvatarColor.Green;
+        #endregion
+
+        #region Public Commands
 
         public ICommand AddDebtorCommand { get; set; }
         public ICommand PreviousColorCommand { get; set; }
         public ICommand NextColorCommand { get; set; }
+        #endregion
 
         public AddDebtorSubpageViewModel()
         {
