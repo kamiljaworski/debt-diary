@@ -23,12 +23,17 @@ namespace DebtDiary
         public ICommand NextColorCommand { get; set; }
         #endregion
 
+        #region Constructor
+
         public AddDebtorSubpageViewModel()
         {
             AddDebtorCommand = new RelayCommand(async () => await AddDebtorAsync());
             PreviousColorCommand = new RelayCommand(() => AvatarColor = AvatarColorChanger.Previous(AvatarColor));
             NextColorCommand = new RelayCommand(() => AvatarColor = AvatarColorChanger.Next(AvatarColor));
         }
+        #endregion
+
+        #region Private Methods
 
         private async Task AddDebtorAsync()
         {
@@ -59,9 +64,11 @@ namespace DebtDiary
 
         private void ResetData()
         {
+            AvatarColor = AvatarColor.Green;
             FirstName = string.Empty;
             LastName = string.Empty;
             Gender = Gender.None;
         }
+        #endregion
     }
 }
