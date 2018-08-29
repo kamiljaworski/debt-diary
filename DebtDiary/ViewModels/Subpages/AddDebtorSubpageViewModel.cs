@@ -10,12 +10,17 @@ namespace DebtDiary
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public Gender Gender { get; set; } = Gender.None;
+        public AvatarColor AvatarColor { get; set; } = AvatarColor.Green;
 
         public ICommand AddDebtorCommand { get; set; }
+        public ICommand PreviousColorCommand { get; set; }
+        public ICommand NextColorCommand { get; set; }
 
         public AddDebtorSubpageViewModel()
         {
             AddDebtorCommand = new RelayCommand(async () => await AddDebtorAsync());
+            PreviousColorCommand = new RelayCommand(() => AvatarColor = AvatarColorChanger.Previous(AvatarColor));
+            NextColorCommand = new RelayCommand(() => AvatarColor = AvatarColorChanger.Next(AvatarColor));
         }
 
         private async Task AddDebtorAsync()
