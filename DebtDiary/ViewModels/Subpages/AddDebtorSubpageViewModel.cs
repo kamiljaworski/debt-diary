@@ -49,6 +49,9 @@ namespace DebtDiary
 
         #region Private Methods
 
+        /// <summary>
+        /// Add new debtor to the database and UI
+        /// </summary>
         private async Task AddDebtorAsync()
         {
             await RunCommandAsync(() => IsAddDebtorRunning, async () =>
@@ -70,23 +73,20 @@ namespace DebtDiary
                 _loggedUser.Debtors.Add(debtor);
 
                 // Save changes in the database
-                IocContainer.Get<IDebtDiaryDataAccess>().SaveChanges();
+                await Task.Run(() => IocContainer.Get<IDebtDiaryDataAccess>().SaveChanges());
 
                 // Update list in the ViewModel
                 DebtorsListViewModel debtorsList = IocContainer.Get<DebtorsListViewModel>();
                 debtorsList.UpdateChanges();
 
                 // Clear fields in the view
-                ResetData();
-
-                // TODO: Refactor this code and add data validation
+                ClearAllFields();
             });
         }
 
         /// <summary>
         /// Validate new debtors data
         /// </summary>
-        /// <returns>True if debtor can be added to the database or false if not</returns>
         private async Task<bool> ValidateDataAsync()
         {
             await Task.Run(() =>
@@ -118,7 +118,7 @@ namespace DebtDiary
                 if (FirstNameMessage == FormMessage.None && LastNameMessage == FormMessage.None)
                     if (_loggedUser.Debtors.Where(d => d.FirstName == FirstName && d.LastName == LastName).Count() > 0)
                     {
-                        FirstNameMessage = FormMessage.DebtorExist;
+                        FirstNameMessage = FormMessage.EmptyMessage;
                         LastNameMessage = FormMessage.DebtorExist;
                     }
 
@@ -141,7 +141,6 @@ namespace DebtDiary
         /// <summary>
         /// Check if all the <see cref="FormMessage"/> properties are set to <see cref="FormMessage.None"/>
         /// </summary>
-        /// <returns>False if there are some errors and true if not</returns>
         private bool IsEnteredDataCorrect()
         {
             // If any of the messages changed it's value return false
@@ -156,7 +155,7 @@ namespace DebtDiary
         /// <summary>
         /// Clear fields in the view
         /// </summary>
-        private void ResetData()
+        private void ClearAllFields()
         {
             AvatarColor = AvatarColor.Green;
             FirstName = string.Empty;

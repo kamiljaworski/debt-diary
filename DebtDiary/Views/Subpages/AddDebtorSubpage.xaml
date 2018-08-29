@@ -39,8 +39,11 @@
                     <Button Grid.Column="2" Content="{StaticResource RightArrowIcon}" FontFamily="{StaticResource Segoe-MDL2}" Padding="10" Command="{Binding NextColorCommand}"/>
                 </Grid>
 
-                <TextBox Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Tag="{x:Static localization:Strings.FirstName}"/>
-                <TextBox Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Tag="{x:Static localization:Strings.LastName}"/>
+                <TextBox Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Tag="{x:Static localization:Strings.FirstName}" 
+                         local:FormMessageProperty.Value="{Binding FirstNameMessage}"/>
+                
+                <TextBox Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Tag="{x:Static localization:Strings.LastName}"
+                         local:FormMessageProperty.Value="{Binding LastNameMessage}"/>
 
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -48,8 +51,9 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Text="{x:Static localization:Strings.Gender}" Style="{StaticResource BaseFormText}" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-
+                    <TextBlock Grid.Column="0" Text="{x:Static localization:Strings.Gender}" Style="{StaticResource FormMessageTitleTextBlock}" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Center"
+                       local:FormMessageProperty.Value="{Binding GenderMessage}"/>
+                    
                     <StackPanel Grid.Column="1">
                         <StackPanel Orientation="Horizontal" Margin="25 20 0 0">
                             <RadioButton Content="{x:Static localization:Strings.Male}" 
