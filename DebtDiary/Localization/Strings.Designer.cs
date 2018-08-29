@@ -79,6 +79,24 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add.
+        /// </summary>
+        public static string Add {
+            get {
+                return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new debtor.
+        /// </summary>
+        public static string AddNewDebtor {
+            get {
+                return ResourceManager.GetString("AddNewDebtor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Debt diary.
         /// </summary>
         public static string ApplicationName {
@@ -223,6 +241,15 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Green.
+        /// </summary>
+        public static string Green {
+            get {
+                return ResourceManager.GetString("Green", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Incorrect e-mail address.
         /// </summary>
         public static string IncorrectEmail {
@@ -277,6 +304,15 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Light sea green.
+        /// </summary>
+        public static string LightSeaGreen {
+            get {
+                return ResourceManager.GetString("LightSeaGreen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         public static string Login {
@@ -327,6 +363,15 @@ namespace DebtDiary.Localization {
         public static string Ok {
             get {
                 return ResourceManager.GetString("Ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Orange.
+        /// </summary>
+        public static string Orange {
+            get {
+                return ResourceManager.GetString("Orange", resourceCulture);
             }
         }
         

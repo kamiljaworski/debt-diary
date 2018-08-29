@@ -123,6 +123,12 @@
   <data name="AccountCreatedTitle" xml:space="preserve">
     <value>Twoje konto zostało utworzone</value>
   </data>
+  <data name="Add" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
+  <data name="AddNewDebtor" xml:space="preserve">
+    <value>Dodaj nowego dłużnika</value>
+  </data>
   <data name="ApplicationName" xml:space="preserve">
     <value>Dziennik długów</value>
   </data>
@@ -171,6 +177,9 @@
   <data name="General" xml:space="preserve">
     <value>Ogólne</value>
   </data>
+  <data name="Green" xml:space="preserve">
+    <value>Zielony</value>
+  </data>
   <data name="IncorrectEmail" xml:space="preserve">
     <value>Niepoprawny adres e-mail</value>
   </data>
@@ -189,6 +198,9 @@
   <data name="LastName" xml:space="preserve">
     <value>Nazwisko</value>
   </data>
+  <data name="LightSeaGreen" xml:space="preserve">
+    <value>Jasna zieleń morska</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>Zaloguj się</value>
   </data>
@@ -206,6 +218,9 @@
   </data>
   <data name="Ok" xml:space="preserve">
     <value>OK</value>
+  </data>
+  <data name="Orange" xml:space="preserve">
+    <value>Pomarańczowy</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Hasło</value>
