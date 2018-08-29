@@ -79,6 +79,12 @@ namespace DebtDiary
                 DebtorsListViewModel debtorsList = IocContainer.Get<DebtorsListViewModel>();
                 debtorsList.UpdateChanges();
 
+                // Turn off spinning text
+                IsAddDebtorRunning = false;
+
+                // Show successful dialog window 
+                IocContainer.Get<IDialogFacade>().OpenDialog(DialogMessage.NewDebtorAdded);
+
                 // Clear fields in the view
                 ClearAllFields();
             });

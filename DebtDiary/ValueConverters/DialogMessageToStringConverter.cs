@@ -34,6 +34,9 @@ namespace DebtDiary
 
                         case DialogMessage.AccountCreated:
                             return strings.GetString("AccountCreatedSubtitle");
+
+                        case DialogMessage.NewDebtorAdded:
+                            return strings.GetString("NewDebtorAddedSubtitle");
                     }
 
                     // If value wasn't found return empty string
@@ -48,6 +51,9 @@ namespace DebtDiary
 
                         case DialogMessage.AccountCreated:
                             return strings.GetString("AccountCreatedTitle");
+
+                        case DialogMessage.NewDebtorAdded:
+                            return strings.GetString("NewDebtorAddedTitle");
                     }
 
                     // If value wasn't found return empty string

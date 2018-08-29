@@ -367,6 +367,24 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You can now add another one.
+        /// </summary>
+        public static string NewDebtorAddedSubtitle {
+            get {
+                return ResourceManager.GetString("NewDebtorAddedSubtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New debtor has been added.
+        /// </summary>
+        public static string NewDebtorAddedTitle {
+            get {
+                return ResourceManager.GetString("NewDebtorAddedTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to OK.
         /// </summary>
         public static string Ok {

@@ -69,7 +69,8 @@
                     </StackPanel>
                 </Grid>
 
-                <Button Content="{x:Static localization:Strings.Add}" Margin="0 20 0 40" HorizontalAlignment="Center" Command="{Binding AddDebtorCommand}"/>
+                <Button Content="{x:Static localization:Strings.Add}" Margin="0 20 0 40" HorizontalAlignment="Center" Command="{Binding AddDebtorCommand}"
+                        local:IsBusyProperty.Value="{Binding IsAddDebtorRunning}"/>
 
             </StackPanel>
         </Grid>

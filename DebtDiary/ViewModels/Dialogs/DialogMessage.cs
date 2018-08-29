@@ -6,6 +6,7 @@
     public enum DialogMessage
     {
         None,
-        AccountCreated
+        AccountCreated,
+        NewDebtorAdded
     }
 }

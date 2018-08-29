@@ -219,6 +219,12 @@
   <data name="MyAccount" xml:space="preserve">
     <value>Moje konto</value>
   </data>
+  <data name="NewDebtorAddedSubtitle" xml:space="preserve">
+    <value>Możesz teraz dodać kolejnego</value>
+  </data>
+  <data name="NewDebtorAddedTitle" xml:space="preserve">
+    <value>Nowy dłużnik został dodany</value>
+  </data>
   <data name="Ok" xml:space="preserve">
     <value>OK</value>
   </data>
