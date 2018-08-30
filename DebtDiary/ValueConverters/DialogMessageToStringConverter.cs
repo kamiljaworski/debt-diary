@@ -23,43 +23,15 @@ namespace DebtDiary
                     return String.Empty;
 
                 DialogMessage message = (DialogMessage)value;
+                
+                if (message == DialogMessage.None)
+                    return String.Empty;
 
                 // If parameter was set to 'Subtitle' then find subtitle string and if not find title texts
                 if (parameter != null && (parameter as string) == "Subtitle")
-                {
-                    switch (message)
-                    {
-                        case DialogMessage.None:
-                            return String.Empty;
-
-                        case DialogMessage.AccountCreated:
-                            return strings.GetString("AccountCreatedSubtitle");
-
-                        case DialogMessage.NewDebtorAdded:
-                            return strings.GetString("NewDebtorAddedSubtitle");
-                    }
-
-                    // If value wasn't found return empty string
-                    return String.Empty;
-                }
+                    return strings.GetString(message.ToString()+"Subtitle");
                 else
-                {
-                    switch (message)
-                    {
-                        case DialogMessage.None:
-                            return String.Empty;
-
-                        case DialogMessage.AccountCreated:
-                            return strings.GetString("AccountCreatedTitle");
-
-                        case DialogMessage.NewDebtorAdded:
-                            return strings.GetString("NewDebtorAddedTitle");
-                    }
-
-                    // If value wasn't found return empty string
-                    return String.Empty;
-
-                }
+                    return strings.GetString(message.ToString() + "Title");
             }
             catch (Exception)
             {
