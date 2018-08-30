@@ -1,5 +1,6 @@
 ﻿using DebtDiary.Core;
 using System.Globalization;
+using System.Windows.Input;
 
 namespace DebtDiary
 {
@@ -9,14 +10,12 @@ namespace DebtDiary
     public class DebtorsListItemViewModel : BaseViewModel
     {
         public int Id { get; set; }
-
         public string FullName { get; set; }
-
         public string Initials { get; set; }
-
         public decimal Debt { get; set; }
-
         public AvatarColor AvatarColor { get; set; }
+
+        public ICommand OpenDebtorSubpage { get; set; }
 
         /// <summary>
         /// Debt showed as local currency pattern
@@ -35,14 +34,14 @@ namespace DebtDiary
 
         public DebtorsListItemViewModel()
         {
-
+            OpenDebtorSubpage = new RelayCommand(() => IocContainer.Get<IDialogFacade>().OpenDialog(DialogMessage.None));
         }
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="debtor"><see cref="Debtor"/> you want to make <see cref="DebtorsListItemViewModel"/> from</param>
-        public DebtorsListItemViewModel(Debtor debtor)
+        public DebtorsListItemViewModel(Debtor debtor) : this()
         {
             Id = debtor.Id;
             FullName = debtor.FullName;
