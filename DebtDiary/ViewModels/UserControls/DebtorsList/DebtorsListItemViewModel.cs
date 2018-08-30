@@ -34,7 +34,7 @@ namespace DebtDiary
 
         public DebtorsListItemViewModel()
         {
-            OpenDebtorSubpage = new RelayCommand(() => IocContainer.Get<IDialogFacade>().OpenDialog(DialogMessage.None));
+            OpenDebtorSubpage = new RelayCommand(() => IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.SummarySubpage));
         }
 
         /// <summary>
