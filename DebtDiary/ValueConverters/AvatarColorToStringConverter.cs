@@ -16,7 +16,7 @@ namespace DebtDiary
             try
             {
                 // Create a resource manager to retrieve resources.
-                ResourceManager strings = new ResourceManager("DebtDiary.Localization.Strings", Assembly.GetExecutingAssembly());
+                ResourceManager colors = new ResourceManager("DebtDiary.Localization.Colors", Assembly.GetExecutingAssembly());
 
                 // Check if value is a AvatarColor enum
                 if (!(value is AvatarColor))
@@ -24,21 +24,7 @@ namespace DebtDiary
 
                 // Return appropriate color
                 AvatarColor color = (AvatarColor)value;
-                switch (color)
-                {
-                    case AvatarColor.Green:
-                        return strings.GetString("Green");
-
-                    case AvatarColor.Orange:
-                        return strings.GetString("Orange");
-
-                    case AvatarColor.LightSeaGreen:
-                        return strings.GetString("LightSeaGreen");
-
-                    default:
-                        return String.Empty;
-                }
-
+                return colors.GetString(color.ToString());
             }
             catch (Exception)
             {

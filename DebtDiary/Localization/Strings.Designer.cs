@@ -250,15 +250,6 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Green.
-        /// </summary>
-        public static string Green {
-            get {
-                return ResourceManager.GetString("Green", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Incorrect e-mail address.
         /// </summary>
         public static string IncorrectEmail {
@@ -309,15 +300,6 @@ namespace DebtDiary.Localization {
         public static string LastName {
             get {
                 return ResourceManager.GetString("LastName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Light sea green.
-        /// </summary>
-        public static string LightSeaGreen {
-            get {
-                return ResourceManager.GetString("LightSeaGreen", resourceCulture);
             }
         }
         
@@ -390,15 +372,6 @@ namespace DebtDiary.Localization {
         public static string Ok {
             get {
                 return ResourceManager.GetString("Ok", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Orange.
-        /// </summary>
-        public static string Orange {
-            get {
-                return ResourceManager.GetString("Orange", resourceCulture);
             }
         }
         

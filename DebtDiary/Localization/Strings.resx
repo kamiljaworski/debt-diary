@@ -180,9 +180,6 @@
   <data name="General" xml:space="preserve">
     <value>General</value>
   </data>
-  <data name="Green" xml:space="preserve">
-    <value>Green</value>
-  </data>
   <data name="IncorrectEmail" xml:space="preserve">
     <value>Incorrect e-mail address</value>
   </data>
@@ -200,9 +197,6 @@
   </data>
   <data name="LastName" xml:space="preserve">
     <value>Last name</value>
-  </data>
-  <data name="LightSeaGreen" xml:space="preserve">
-    <value>Light sea green</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
@@ -227,9 +221,6 @@
   </data>
   <data name="Ok" xml:space="preserve">
     <value>OK</value>
-  </data>
-  <data name="Orange" xml:space="preserve">
-    <value>Orange</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
