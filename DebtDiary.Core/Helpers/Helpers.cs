@@ -17,17 +17,17 @@ namespace DebtDiary.Core
             char firstNameInitial;
             char lastNameInitial;
 
-            // Check if first name has at leas 1 character and if not set blank char
+            // Check if first name has at least 1 character and if not set blank char
             if (firstName == null || firstName.Count() == 0)
                 firstNameInitial = ' ';
             else
-                firstNameInitial = firstName[0];
+                firstNameInitial = firstName.FirstOrDefault(c => c != ' ');
 
             // Check if last name has at leas 1 character and if not set blank char
             if (lastName == null || lastName.Count() == 0)
                 lastNameInitial = ' ';
             else
-                lastNameInitial = lastName[0];
+                lastNameInitial = lastName.FirstOrDefault(c => c != ' ');
 
             // Build Initials
             StringBuilder stringBuilder = new StringBuilder();
