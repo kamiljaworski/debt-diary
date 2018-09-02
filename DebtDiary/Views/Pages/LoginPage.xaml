@@ -74,7 +74,7 @@
                 <Button Content="{x:Static localization:Strings.Login}" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=Page}"
                         local:IsBusyProperty.Value="{Binding IsLoginRunning}" Margin="0 20 0 40" HorizontalAlignment="Center"/>
 
-                <!-- Enter key binding enabling login command -->
+                <!-- Enter key binding firing login command -->
                 <StackPanel.InputBindings>
                     <KeyBinding Key="Enter" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=Page}"/>
                 </StackPanel.InputBindings>
