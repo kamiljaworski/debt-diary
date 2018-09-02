@@ -47,9 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataAccess\DebtDiaryDataAccess.cs" />
+    <Compile Include="DataAccess\DataAccess.cs" />
     <Compile Include="DataAccess\DebtDiaryDbContext.cs" />
-    <Compile Include="DataAccess\IDebtDiaryDataAccess.cs" />
+    <Compile Include="DataAccess\IDataAccess.cs" />
     <Compile Include="Migrations\201808011842562_FirstMigration.cs" />
     <Compile Include="Migrations\201808011842562_FirstMigration.Designer.cs">
       <DependentUpon>201808011842562_FirstMigration.cs</DependentUpon>
