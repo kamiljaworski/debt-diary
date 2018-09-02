@@ -90,6 +90,10 @@
     <Compile Include="Migrations\201808281816447_AddTransactions.Designer.cs">
       <DependentUpon>201808281816447_AddTransactions.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809021145189_RenameTransactionToOperationAndAddDescription.cs" />
+    <Compile Include="Migrations\201809021145189_RenameTransactionToOperationAndAddDescription.Designer.cs">
+      <DependentUpon>201809021145189_RenameTransactionToOperationAndAddDescription.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -133,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808281816447_AddTransactions.resx">
       <DependentUpon>201808281816447_AddTransactions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809021145189_RenameTransactionToOperationAndAddDescription.resx">
+      <DependentUpon>201809021145189_RenameTransactionToOperationAndAddDescription.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

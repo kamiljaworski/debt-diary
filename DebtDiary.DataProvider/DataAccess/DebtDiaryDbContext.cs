@@ -27,6 +27,6 @@ namespace DebtDiary.DataProvider
         /// <summary>
         /// Transactions
         /// </summary>
-        public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<Operation> Operations { get; set; }
 }
 }

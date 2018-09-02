@@ -10,10 +10,10 @@ namespace DebtDiary.Core
     {
         public int Id { get; set; }
 
-        public decimal Debt => Transactions.Aggregate(0m, (a, b) => a + b.Value);
+        public decimal Debt => Operations.Aggregate(0m, (a, b) => a + b.Value);
 
         public User User { get; set; }
 
-        public virtual List<Transaction> Transactions { get; set; } = new List<Transaction>();
+        public virtual List<Operation> Operations { get; set; } = new List<Operation>();
     }
 }
