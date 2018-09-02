@@ -28,7 +28,6 @@ namespace DebtDiary
         public string Email { get; set; }
         public Gender Gender { get; set; } = Gender.None;
         public bool IsRegisterRunning { get; set; }
-
         #endregion
 
         #region Form Messages
@@ -56,7 +55,6 @@ namespace DebtDiary
             LoginCommand = new RelayCommand(() => ChangeApplicationPage(ApplicationPage.LoginPage));
             SignUpCommand = new RelayParameterizedCommand(async (parameter) => await SignUpAsync(parameter));
         }
-
         #endregion
 
         #region Private Methods
@@ -93,6 +91,9 @@ namespace DebtDiary
 
                 // Sign up a new user
                 await Task.Run(() => _dataAccess.CreateAccount(user));
+
+                // Turn off spinning text in the view
+                IsRegisterRunning = false;
 
                 // Show successful dialog window 
                 IocContainer.Get<IDialogFacade>().OpenDialog(DialogMessage.AccountCreated);
