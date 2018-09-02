@@ -9,7 +9,7 @@ namespace DebtDiary.DataProvider
     /// <summary>
     /// Application data access class which use Entity Framework database
     /// </summary>
-    public class DebtDiaryDataAccess : IDebtDiaryDataAccess, IDisposable
+    public class DataAccess : IDataAccess, IDisposable
     {
         /// <summary>
         /// Entity Framework database context

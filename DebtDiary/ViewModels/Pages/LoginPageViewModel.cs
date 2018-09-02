@@ -21,7 +21,7 @@ namespace DebtDiary
         /// <summary>
         /// Reference to application data access class
         /// </summary>
-        private IDebtDiaryDataAccess _dataAccess = IocContainer.Get<IDebtDiaryDataAccess>();
+        private IDataAccess _dataAccess = IocContainer.Get<IDataAccess>();
 
         /// <summary>
         /// Logged user from login method

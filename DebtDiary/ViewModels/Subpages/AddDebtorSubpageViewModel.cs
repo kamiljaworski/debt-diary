@@ -73,7 +73,7 @@ namespace DebtDiary
                 _loggedUser.Debtors.Add(debtor);
 
                 // Save changes in the database
-                await Task.Run(() => IocContainer.Get<IDebtDiaryDataAccess>().SaveChanges());
+                await Task.Run(() => IocContainer.Get<IDataAccess>().SaveChanges());
 
                 // Update list in the ViewModel
                 DebtorsListViewModel debtorsList = IocContainer.Get<DebtorsListViewModel>();

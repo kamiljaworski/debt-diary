@@ -7,7 +7,7 @@ namespace DebtDiary.DataProvider
     /// <summary>
     /// Interface for application data access
     /// </summary>
-    public interface IDebtDiaryDataAccess
+    public interface IDataAccess
     {
         /// <summary>
         /// Method that create new user in the database

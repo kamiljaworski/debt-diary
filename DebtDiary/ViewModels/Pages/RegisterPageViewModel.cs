@@ -16,7 +16,7 @@ namespace DebtDiary
 
         private SecureString _password = null;
         private SecureString _repeatedPassword = null;
-        private IDebtDiaryDataAccess _dataAccess = null;
+        private IDataAccess _dataAccess = null;
         #endregion
 
         #region Public Properties
@@ -73,7 +73,7 @@ namespace DebtDiary
                 _repeatedPassword = (parameter as IHaveTwoPasswords)?.SecondPassword;
 
                 // Get the DataAccess reference
-                _dataAccess = IocContainer.Get<IDebtDiaryDataAccess>();
+                _dataAccess = IocContainer.Get<IDataAccess>();
 
                 // Validate data and if there is any problem return from method
                 if (await ValidateDataAsync() == false)
