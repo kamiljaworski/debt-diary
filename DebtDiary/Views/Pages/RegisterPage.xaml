@@ -128,7 +128,7 @@
                     Command="{Binding SignUpCommand}" CommandParameter="{Binding ElementName=Page}" local:IsBusyProperty.Value="{Binding IsRegisterRunning}"/>
 
 
-            <!-- Enter key binding firing sign up command -->
+            <!-- Enter key binding -->
             <Grid.InputBindings>
                 <KeyBinding Key="Enter" Command="{Binding SignUpCommand}" CommandParameter="{Binding ElementName=Page}"/>
             </Grid.InputBindings>
