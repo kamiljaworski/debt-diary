@@ -92,7 +92,7 @@ namespace DebtDiary
                 };
 
                 // Sign up a new user
-                await _dataAccess.CreateAccountAsync(user);
+                await Task.Run(() => _dataAccess.CreateAccount(user));
 
                 // Show successful dialog window 
                 IocContainer.Get<IDialogFacade>().OpenDialog(DialogMessage.AccountCreated);
@@ -180,11 +180,11 @@ namespace DebtDiary
                 }
 
                 // Check if username is avaliable in db
-                if (UsernameMessage == FormMessage.None && _dataAccess.IsUsernameAvailable(Username) == false)
+                if (UsernameMessage == FormMessage.None && _dataAccess.IsUsernameTaken(Username) == false)
                     UsernameMessage = FormMessage.TakenUsername;
 
                 // Check if e-mail is avaliable in db
-                if (EmailMessage == FormMessage.None && _dataAccess.IsEmailAvailable(Email) == false)
+                if (EmailMessage == FormMessage.None && _dataAccess.IsEmailTaken(Email) == false)
                     EmailMessage = FormMessage.TakenEmail;
 
             });

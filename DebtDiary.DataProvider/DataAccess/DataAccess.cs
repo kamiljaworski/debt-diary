@@ -1,95 +1,68 @@
 ﻿using DebtDiary.Core;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace DebtDiary.DataProvider
 {
-    /// <summary>
-    /// Application data access class which use Entity Framework database
-    /// </summary>
     public class DataAccess : IDataAccess, IDisposable
     {
-        /// <summary>
-        /// Entity Framework database context
-        /// </summary>
         private DebtDiaryDbContext dbContext = new DebtDiaryDbContext();
 
         /// <summary>
-        /// Method that create new user in the database
+        /// Create new user
         /// </summary>
-        /// <param name="user">New user to sign up</param>
-        public async Task CreateAccountAsync(User user)
+        public void CreateAccount(User user)
         {
-            await Task.Run(() =>
-            {
-                dbContext.Users.Add(user);
-                dbContext.SaveChanges();
-            });
+            dbContext.Users.Add(user);
+            SaveChanges();
         }
 
         /// <summary>
-        /// Method that check if account with this username can be added to the database
+        /// Check if username is already taken
         /// </summary>
-        /// <param name="username">New user's username</param>
-        /// <returns><see cref="bool"/> false if this username exist in the database and true if not</returns>
-        public bool IsUsernameAvailable(string username)
+        public bool IsUsernameTaken(string username)
         {
-            // Check if there is a user with this username in database
-            var result = dbContext.Users.Where(x => x.Username == username);
+            // Look for user with this username
+            User user = dbContext.Users.FirstOrDefault(x => x.Username == username);
 
-            // If user with this username doesnt exist return true
-            if (result == null || result.Count() == 0)
+            // If there is no user like that return true
+            if (user == null)
                 return true;
 
-            // If yes return false
+            // If there is one return false
             return false;
         }
 
         /// <summary>
-        /// Method that check if account with this e-mail can be added to the database
+        /// Check if email is already taken
         /// </summary>
-        /// <param name="email">New user's e-mail</param>
-        /// <returns><see cref="bool"/> false if this e-mail exist in the database and true if not</returns>
-        public bool IsEmailAvailable(string email)
+        public bool IsEmailTaken(string email)
         {
-            // Check if there is a user with this email in database
-            var result = dbContext.Users.Where(x => x.Email == email);
+            // Look for user with this email
+            User user = dbContext.Users.FirstOrDefault(x => x.Email == email);
 
-            // If user with this email doesnt exist return true
-            if (result == null || result.Count() == 0)
+            // If there is no user like that return true
+            if (user == null)
                 return true;
 
-            // If yes return false
+            // If there is one return false
             return false;
         }
 
-        public User GetUser(string username, string hashedPassword)
-        {
-            var query = dbContext.Users.Where(u => u.Username == username && u.Password == hashedPassword).ToList();
-
-            // If user wasn't found return null
-            if (query == null || query.Count() == 0)
-                return null;
-
-            // If user exist return them
-            return query.First();
-        }
+        /// <summary>
+        /// Get the user from database
+        /// </summary>
+        public User GetUser(string username, string hashedPassword) => dbContext.Users.FirstOrDefault(u => u.Username == username && u.Password == hashedPassword);
 
         /// <summary>
-        /// IDisposable interface implementation method
+        /// Save database changes done in the application runtime
         /// </summary>
-        public void Dispose()
-        {
-            dbContext.Dispose();
-        }
-
         public void SaveChanges() => dbContext.SaveChanges();
 
-        public List<Debtor> GetDebtorsList(User user)
-        {
-            return dbContext.Debtors.Where(d => d.User.Id == user.Id).ToList();
-        }
+        /// <summary>
+        /// Dispose DataAccess object
+        /// </summary>
+        public void Dispose() => dbContext.Dispose();
     }
 }
