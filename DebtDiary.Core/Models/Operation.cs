@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace DebtDiary.Core
 {
@@ -9,6 +10,8 @@ namespace DebtDiary.Core
         public decimal Value { get; set; }
 
         public Debtor Debtor { get; set; }
+
+        public DateTime Date { get; set; }
 
         [StringLength(140)]
         public string Description { get; set; }
