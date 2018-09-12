@@ -1,5 +1,6 @@
 ﻿using DebtDiary.Core;
 using DebtDiary.DataProvider;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -66,7 +67,8 @@ namespace DebtDiary
                     FirstName = FirstName,
                     LastName = LastName,
                     Gender = Gender,
-                    AvatarColor = AvatarColor
+                    AvatarColor = AvatarColor,
+                    AdditionDate = DateTime.Now
                 };
 
                 // Add new debtor to ClientDataStore
