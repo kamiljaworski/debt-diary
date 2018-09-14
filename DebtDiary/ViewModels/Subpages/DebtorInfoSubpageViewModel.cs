@@ -2,6 +2,7 @@
 using DebtDiary.DataProvider;
 using System;
 using System.Linq;
+using System.Windows.Input;
 
 namespace DebtDiary
 {
@@ -23,7 +24,30 @@ namespace DebtDiary
             }
         }
 
+        public string LoanValue { get; set; }
+        public string LoanDescription { get; set; }
+        public ICommand AddLoanCommand { get; set; }
+    
 
+        public DebtorInfoSubpageViewModel()
+        {
+            AddLoanCommand = new RelayCommand(() =>
+            {
+                if (string.IsNullOrEmpty(LoanValue))
+                    return;
+
+                decimal.TryParse(LoanValue, out decimal loanValue);
+
+                _selectedDebtor.Operations.Add(new Operation { Value = loanValue, Description=LoanDescription, Date = DateTime.Now });
+                IocContainer.Get<IDataAccess>().SaveChanges();
+                LoanDescription = string.Empty;
+                LoanValue = string.Empty;
+                UpdateData();
+
+            });
+        }
+
+        #region Private Methods
 
         private void UpdateData()
         {
@@ -39,5 +63,6 @@ namespace DebtDiary
             else
                 LastOperation = null;
         }
+        #endregion
     }
 }
