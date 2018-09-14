@@ -3,6 +3,7 @@
     public enum ApplicationSubpage
     {
         SummarySubpage,
-        AddDebtorSubpage
+        AddDebtorSubpage,
+        DebtorInfoSubpage
     }
 }
