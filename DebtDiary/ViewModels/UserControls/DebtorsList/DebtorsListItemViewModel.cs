@@ -9,6 +9,8 @@ namespace DebtDiary
     /// </summary>
     public class DebtorsListItemViewModel : BaseViewModel
     {
+        private Debtor _debtor = null;
+
         public int Id { get; set; }
         public string FullName { get; set; }
         public string Initials { get; set; }
@@ -34,7 +36,12 @@ namespace DebtDiary
 
         public DebtorsListItemViewModel()
         {
-            OpenDebtorSubpage = new RelayCommand(() => IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.SummarySubpage));
+            OpenDebtorSubpage = new RelayCommand(() =>
+            {
+                IApplicationViewModel applicationViewModel = IocContainer.Get<IApplicationViewModel>();
+                applicationViewModel.SelectedDebtor = _debtor;
+                applicationViewModel.ChangeCurrentSubpage(ApplicationSubpage.SummarySubpage);
+            });
         }
 
         /// <summary>
@@ -43,6 +50,7 @@ namespace DebtDiary
         /// <param name="debtor"><see cref="Debtor"/> you want to make <see cref="DebtorsListItemViewModel"/> from</param>
         public DebtorsListItemViewModel(Debtor debtor) : this()
         {
+            _debtor = debtor;
             Id = debtor.Id;
             FullName = debtor.FullName;
             Initials = debtor.Initials;
