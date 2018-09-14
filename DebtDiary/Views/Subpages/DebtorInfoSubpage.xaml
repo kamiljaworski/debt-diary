@@ -38,7 +38,7 @@
 
             <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="5">
                 <TextBlock Text="Jest ci winny" Foreground="White" FontSize="18"/>
-                <TextBlock Text="290.00 zł" Foreground="White" FontSize="30"/>
+                <TextBlock Text="{Binding Debt, FallbackValue='100.00'}" Foreground="White" FontSize="30"/>
             </StackPanel>
 
         </Grid>
@@ -72,7 +72,7 @@
 
             <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="5">
                 <TextBlock Text="Liczba operacji" Foreground="White" FontSize="18"/>
-                <TextBlock Text="4" Foreground="White" FontSize="36"/>
+                <TextBlock Text="{Binding OperationsNumber, FallbackValue=4}" Foreground="White" FontSize="36"/>
             </StackPanel>
 
         </Grid>
@@ -90,7 +90,7 @@
 
             <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="5">
                 <TextBlock Text="Ostatnia operacja" Foreground="White" FontSize="18"/>
-                <TextBlock Text="-200.00 zł" Foreground="White" FontSize="32"/>
+                <TextBlock Text="{Binding LastOperation, FallbackValue='-200.00'}" Foreground="White" FontSize="32"/>
             </StackPanel>
 
         </Grid>
