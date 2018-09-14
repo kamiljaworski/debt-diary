@@ -90,7 +90,7 @@
 
             <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="5">
                 <TextBlock Text="Ostatnia operacja" Foreground="White" FontSize="18"/>
-                <TextBlock Text="{Binding LastOperation, FallbackValue='-200.00'}" Foreground="White" FontSize="32"/>
+                <TextBlock Text="{Binding LastOperation, TargetNullValue='brak', FallbackValue='-200.00'}" Foreground="White" FontSize="32"/>
             </StackPanel>
 
         </Grid>

@@ -1,4 +1,7 @@
 ﻿using DebtDiary.Core;
+using DebtDiary.DataProvider;
+using System;
+using System.Linq;
 
 namespace DebtDiary
 {
@@ -9,7 +12,7 @@ namespace DebtDiary
         public string FullName { get; private set; }
         public decimal Debt { get; private set; } = 0m;
         public int OperationsNumber { get; private set; } = 0;
-        public decimal LastOperation { get; private set; } = 0m;
+        public decimal? LastOperation { get; private set; } = null;
         public Debtor SelectedDebtor
         {
             get => _selectedDebtor;
@@ -28,6 +31,13 @@ namespace DebtDiary
                 return;
 
             FullName = _selectedDebtor.FullName;
+            Debt = _selectedDebtor.Debt;
+            OperationsNumber = _selectedDebtor.Operations.Count;
+
+            if (OperationsNumber > 0)
+                LastOperation = _selectedDebtor.Operations.OrderByDescending(x => x.Date).First().Value;
+            else
+                LastOperation = null;
         }
     }
 }
