@@ -40,7 +40,7 @@ namespace DebtDiary
             {
                 IApplicationViewModel applicationViewModel = IocContainer.Get<IApplicationViewModel>();
                 applicationViewModel.SelectedDebtor = _debtor;
-                applicationViewModel.ChangeCurrentSubpage(ApplicationSubpage.SummarySubpage);
+                applicationViewModel.ChangeCurrentSubpage(ApplicationSubpage.DebtorInfoSubpage);
             });
         }
 
