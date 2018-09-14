@@ -8,13 +8,13 @@ namespace DebtDiary
     /// <summary>
     /// Interaction logic for SummarySubpage.xaml
     /// </summary>
-    public partial class DebtorSubpage : Page
+    public partial class DebtorInfoSubpage : Page
     {
         public SeriesCollection SeriesCollection { get; set; }
         public string[] Labels { get; set; }
         public Func<double, string> YFormatter { get; set; }
 
-        public DebtorSubpage()
+        public DebtorInfoSubpage()
         {
             InitializeComponent();
 

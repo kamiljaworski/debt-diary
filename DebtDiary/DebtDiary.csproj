@@ -200,8 +200,8 @@
     <Compile Include="Views\Subpages\AddDebtorSubpage.xaml.cs">
       <DependentUpon>AddDebtorSubpage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Subpages\DebtorSubpage.xaml.cs">
-      <DependentUpon>DebtorSubpage.xaml</DependentUpon>
+    <Compile Include="Views\Subpages\DebtorInfoSubpage.xaml.cs">
+      <DependentUpon>DebtorInfoSubpage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Subpages\SummarySubpage.xaml.cs">
       <DependentUpon>SummarySubpage.xaml</DependentUpon>
@@ -262,7 +262,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Subpages\DebtorSubpage.xaml">
+    <Page Include="Views\Subpages\DebtorInfoSubpage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
