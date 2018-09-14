@@ -38,9 +38,8 @@ namespace DebtDiary
         {
             OpenDebtorSubpage = new RelayCommand(() =>
             {
-                IApplicationViewModel applicationViewModel = IocContainer.Get<IApplicationViewModel>();
-                applicationViewModel.SelectedDebtor = _debtor;
-                applicationViewModel.ChangeCurrentSubpage(ApplicationSubpage.DebtorInfoSubpage);
+                IocContainer.Get<IDebtorInfoSubpageViewModel>().SelectedDebtor = _debtor;
+                IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.DebtorInfoSubpage);
             });
         }
 

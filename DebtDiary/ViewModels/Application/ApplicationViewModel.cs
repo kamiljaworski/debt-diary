@@ -10,7 +10,6 @@ namespace DebtDiary
 
         public ApplicationPage CurrentPage { get; private set; } = ApplicationPage.LoginPage;
         public ApplicationSubpage CurrentSubpage { get; private set; } = ApplicationSubpage.SummarySubpage;
-        public Debtor SelectedDebtor { get; set; } = null;
         public TimeSpan FadeInDuration { get; set; } = TimeSpan.FromSeconds(0.8);
         public TimeSpan FadeOutDuration { get; set; } = TimeSpan.FromSeconds(0.6);
         #endregion

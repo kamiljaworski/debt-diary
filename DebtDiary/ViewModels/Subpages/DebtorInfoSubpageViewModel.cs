@@ -1,13 +1,10 @@
-﻿namespace DebtDiary
-{
-    public class DebtorInfoSubpageViewModel : BaseViewModel
-    {
-        public string FullName { get; set; }
+﻿using DebtDiary.Core;
 
-        public DebtorInfoSubpageViewModel()
-        {
-            IApplicationViewModel applicationViewModel = IocContainer.Get<IApplicationViewModel>();
-            FullName = applicationViewModel.SelectedDebtor?.FullName;
-        }
+namespace DebtDiary
+{
+    public class DebtorInfoSubpageViewModel : BaseViewModel, IDebtorInfoSubpageViewModel
+    {
+        public string FullName => SelectedDebtor?.FullName;
+        public Debtor SelectedDebtor { get; set; } = null;
     }
 }

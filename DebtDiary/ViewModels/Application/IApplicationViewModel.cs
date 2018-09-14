@@ -7,7 +7,6 @@ namespace DebtDiary
     {
         ApplicationPage CurrentPage { get; }
         ApplicationSubpage CurrentSubpage { get; }
-        Debtor SelectedDebtor { get; set; }
         TimeSpan FadeInDuration { get; set; }
         TimeSpan FadeOutDuration { get; set; }
 
