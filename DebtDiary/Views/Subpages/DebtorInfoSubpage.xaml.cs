@@ -29,7 +29,7 @@ namespace DebtDiary
 
             YFormatter = value => value.ToString("C");
 
-            DataContext = this;
+            DataContext = new DebtorInfoSubpageViewModel();
         }
     }
 }
