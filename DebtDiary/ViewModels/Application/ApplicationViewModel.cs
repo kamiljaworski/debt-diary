@@ -24,7 +24,7 @@ namespace DebtDiary
             set
             {
                 _selectedDebtor = value;
-
+                IocContainer.Get<IDebtorInfoSubpageViewModel>().Update();
             }
         }
         #endregion

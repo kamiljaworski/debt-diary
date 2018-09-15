@@ -13,5 +13,7 @@ namespace DebtDiary
         string LoanValue { get; set; }  
         string LoanDescription { get; set; }
         ICommand AddLoanCommand { get; set; }
+
+        void Update();
     }
 }

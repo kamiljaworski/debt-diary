@@ -14,15 +14,6 @@ namespace DebtDiary
         public decimal Debt { get; private set; } = 0m;
         public int OperationsNumber { get; private set; } = 0;
         public decimal? LastOperation { get; private set; } = null;
-        public Debtor SelectedDebtor
-        {
-            get => _selectedDebtor;
-            set
-            {
-                _selectedDebtor = value;
-                UpdateData();
-            }
-        }
 
         public string LoanValue { get; set; }
         public string LoanDescription { get; set; }
@@ -42,15 +33,16 @@ namespace DebtDiary
                 IocContainer.Get<IDataAccess>().SaveChanges();
                 LoanDescription = string.Empty;
                 LoanValue = string.Empty;
-                UpdateData();
+                Update();
 
             });
         }
 
-        #region Private Methods
+        #region Public Methods
 
-        private void UpdateData()
+        public void Update()
         {
+            _selectedDebtor = IocContainer.Get<IApplicationViewModel>().SelectedDebtor;
             if (_selectedDebtor == null)
                 return;
 
