@@ -5,8 +5,6 @@ namespace DebtDiary
 {
     public interface IDebtorInfoSubpageViewModel
     {
-        Debtor SelectedDebtor { get; set; }
-
         string FullName  { get; }
         decimal Debt { get; }
         int OperationsNumber { get; }

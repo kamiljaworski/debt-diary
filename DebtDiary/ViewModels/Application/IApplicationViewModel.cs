@@ -10,6 +10,8 @@ namespace DebtDiary
         TimeSpan FadeInDuration { get; set; }
         TimeSpan FadeOutDuration { get; set; }
 
+        Debtor SelectedDebtor { get; set; }
+
         /// <summary>
         /// Changes current page in the application
         /// </summary>

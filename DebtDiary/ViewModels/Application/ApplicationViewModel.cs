@@ -6,12 +6,27 @@ namespace DebtDiary
 {
     public class ApplicationViewModel : BaseViewModel, IApplicationViewModel
     {
+        #region Private Members
+
+        private Debtor _selectedDebtor = null;
+        #endregion
+
         #region Public Properties
 
         public ApplicationPage CurrentPage { get; private set; } = ApplicationPage.LoginPage;
         public ApplicationSubpage CurrentSubpage { get; private set; } = ApplicationSubpage.SummarySubpage;
         public TimeSpan FadeInDuration { get; set; } = TimeSpan.FromSeconds(0.8);
         public TimeSpan FadeOutDuration { get; set; } = TimeSpan.FromSeconds(0.6);
+
+        public Debtor SelectedDebtor
+        {
+            get => _selectedDebtor;
+            set
+            {
+                _selectedDebtor = value;
+
+            }
+        }
         #endregion
 
         #region Public Methods
