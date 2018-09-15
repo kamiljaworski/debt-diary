@@ -1,4 +1,4 @@
-﻿using DebtDiary.Core;
+﻿using LiveCharts;
 using System.Windows.Input;
 
 namespace DebtDiary
@@ -9,6 +9,7 @@ namespace DebtDiary
         decimal Debt { get; }
         int OperationsNumber { get; }
         decimal? LastOperation { get; }
+        SeriesCollection SeriesCollection { get; set; }
 
         string LoanValue { get; set; }  
         string LoanDescription { get; set; }

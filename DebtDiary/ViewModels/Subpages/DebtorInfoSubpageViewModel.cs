@@ -1,5 +1,7 @@
 ﻿using DebtDiary.Core;
 using DebtDiary.DataProvider;
+using LiveCharts;
+using LiveCharts.Wpf;
 using System;
 using System.Linq;
 using System.Windows.Input;
@@ -14,6 +16,8 @@ namespace DebtDiary
         public decimal Debt { get; private set; } = 0m;
         public int OperationsNumber { get; private set; } = 0;
         public decimal? LastOperation { get; private set; } = null;
+
+        public SeriesCollection SeriesCollection { get; set; }
 
         public string LoanValue { get; set; }
         public string LoanDescription { get; set; }
@@ -34,7 +38,6 @@ namespace DebtDiary
                 LoanDescription = string.Empty;
                 LoanValue = string.Empty;
                 Update();
-
             });
         }
 
@@ -54,6 +57,14 @@ namespace DebtDiary
                 LastOperation = _selectedDebtor.Operations.OrderByDescending(x => x.Date).First().Value;
             else
                 LastOperation = null;
+
+            SeriesCollection = new SeriesCollection
+            {
+                new LineSeries
+                {
+                    Values = new ChartValues<decimal>(_selectedDebtor.Operations.Select(x => x.Value))
+                }
+            };
         }
         #endregion
     }
