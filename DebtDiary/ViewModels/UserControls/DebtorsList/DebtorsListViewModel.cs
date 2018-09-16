@@ -17,10 +17,7 @@ namespace DebtDiary
                 try
                 {
                     User loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
-
-                    // Fill debtors list
-                    foreach (Debtor debtor in loggedUser.Debtors)
-                        Debtors.Add(new DebtorsListItemViewModel(debtor));
+                    Debtors = new ObservableCollection<DebtorsListItemViewModel>(loggedUser.Debtors.Select(x => new DebtorsListItemViewModel(x)).OrderByDescending(x => x.Debt));
                 }
                 // If IoC isn't working (when it is in design mode) do nothing
                 catch { }
