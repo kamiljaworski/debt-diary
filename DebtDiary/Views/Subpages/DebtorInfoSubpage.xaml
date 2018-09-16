@@ -97,7 +97,7 @@
 
         <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Background="White" Margin="10">
             <Grid Margin="10">
-                <lvc:CartesianChart Series="{Binding SeriesCollection}">
+                <lvc:CartesianChart Series="{Binding SeriesCollection}" DataTooltip="{x:Null}">
                     <lvc:CartesianChart.AxisY>
                         <lvc:Axis Title="Sales" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
                     </lvc:CartesianChart.AxisY>

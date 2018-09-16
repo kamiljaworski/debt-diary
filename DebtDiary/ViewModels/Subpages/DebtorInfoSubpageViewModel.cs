@@ -62,7 +62,9 @@ namespace DebtDiary
             {
                 new LineSeries
                 {
-                    Values = new ChartValues<decimal>(_selectedDebtor.GetChartPoints)
+                    Values = new ChartValues<decimal>(_selectedDebtor.GetChartPoints),
+                    PointGeometry = DefaultGeometries.None,
+                    ToolTip = null
                 }
             };
         }
