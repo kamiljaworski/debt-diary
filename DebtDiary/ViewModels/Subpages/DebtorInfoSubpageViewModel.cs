@@ -33,7 +33,7 @@ namespace DebtDiary
 
                 decimal.TryParse(LoanValue, out decimal loanValue);
 
-                _selectedDebtor.Operations.Add(new Operation { Value = loanValue, Description=LoanDescription, Date = DateTime.Now });
+                _selectedDebtor.Operations.Add(new Operation { Value = loanValue, Description=LoanDescription, AdditionDate = DateTime.Now });
                 IocContainer.Get<IDataAccess>().SaveChanges();
                 LoanDescription = string.Empty;
                 LoanValue = string.Empty;
@@ -54,7 +54,7 @@ namespace DebtDiary
             OperationsNumber = _selectedDebtor.Operations.Count;
 
             if (OperationsNumber > 0)
-                LastOperation = _selectedDebtor.Operations.OrderByDescending(x => x.Date).First().Value;
+                LastOperation = _selectedDebtor.Operations.OrderByDescending(x => x.AdditionDate).First().Value;
             else
                 LastOperation = null;
 

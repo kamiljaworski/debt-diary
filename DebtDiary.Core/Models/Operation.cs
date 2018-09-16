@@ -11,7 +11,7 @@ namespace DebtDiary.Core
 
         public Debtor Debtor { get; set; }
 
-        public DateTime Date { get; set; }
+        public DateTime AdditionDate { get; set; }
 
         [StringLength(140)]
         public string Description { get; set; }
