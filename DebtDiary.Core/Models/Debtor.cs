@@ -26,15 +26,18 @@ namespace DebtDiary.Core
                 // Make a list of all the points
                 IList<KeyValuePair<DateTime, decimal>> points = new List<KeyValuePair<DateTime, decimal>>();
 
+                // Add default point one day before addition date with value 0.0m
+                points.Add(new KeyValuePair<DateTime, decimal>(User.RegisterDate.Value.Date - TimeSpan.FromDays(1), 0.0m));
+
                 // Make a list of all debts grouped by date
                 IList<IGrouping<DateTime, Operation>> debts = Operations.GroupBy(x => x.AdditionDate.Date).OrderBy(x => x.Key).ToList();
 
                 // Find debts added in debtor addition date
-                IGrouping<DateTime, Operation> firstDay = debts.FirstOrDefault(x => x.Key == AdditionDate.Date);
+                IGrouping<DateTime, Operation> firstDay = debts.FirstOrDefault(x => x.Key == User.RegisterDate.Value.Date);
 
                 // If there isnt't any debt, add first point with 0 value
                 if (firstDay == null)
-                    points.Add(new KeyValuePair<DateTime, decimal>(AdditionDate.Date, 0.0m));
+                    points.Add(new KeyValuePair<DateTime, decimal>(User.RegisterDate.Value.Date, 0.0m));
                 else
                 {
                     // If there are some debts, add first point with summed value of these debts
