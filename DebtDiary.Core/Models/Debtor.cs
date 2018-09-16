@@ -27,7 +27,7 @@ namespace DebtDiary.Core
                 IList<KeyValuePair<DateTime, decimal>> points = new List<KeyValuePair<DateTime, decimal>>();
 
                 // Make a list of all debts grouped by date
-                IList<IGrouping<DateTime, Operation>> debts = Operations.GroupBy(x => x.AdditionDate.Date).ToList();
+                IList<IGrouping<DateTime, Operation>> debts = Operations.GroupBy(x => x.AdditionDate.Date).OrderBy(x => x.Key).ToList();
 
                 // Find debts added in debtor addition date
                 IGrouping<DateTime, Operation> firstDay = debts.FirstOrDefault(x => x.Key == AdditionDate.Date);
