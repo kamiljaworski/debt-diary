@@ -39,5 +39,7 @@ namespace DebtDiary
                 foreach (Debtor debtor in newDebtors)
                     Debtors.Add(new DebtorsListItemViewModel(debtor));
         }
+
+        // TODO: Sort method fired after there are any changes in any debtors debt
     }
 }
