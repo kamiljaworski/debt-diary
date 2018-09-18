@@ -173,6 +173,8 @@
     <Compile Include="ViewModels\UserControls\DebtorsList\DebtorsListViewModel.cs" />
     <Compile Include="ViewModels\UserControls\DebtorsList\Design\DebtorsListDesignModel.cs" />
     <Compile Include="ViewModels\UserControls\DebtorsList\Design\DebtorsListItemDesignModel.cs" />
+    <Compile Include="ViewModels\UserControls\OperationsList\ShortOperationsListItemViewModel.cs" />
+    <Compile Include="ViewModels\UserControls\OperationsList\ShortOperationsListViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\Dialogs\DialogWindow.xaml.cs">
       <DependentUpon>DialogWindow.xaml</DependentUpon>
