@@ -11,7 +11,9 @@ namespace DebtDiary
         /// </summary>
         public string FormattedValue => Value.ToString("C");
         public string Description { get; set; }
-        public string OperationDate { get; set; }
+        public DateTime OperationDate { get; set; }
+        public string FormattedOperationDate => OperationDate.ToShortDateString();
+
 
         public ShortOperationsListItemViewModel()
         {
@@ -22,7 +24,7 @@ namespace DebtDiary
         {
             Value = operation.Value;
             Description = operation.Description;
-            OperationDate = operation.AdditionDate.ToShortDateString();
+            OperationDate = operation.AdditionDate;
         }
     }
 }
