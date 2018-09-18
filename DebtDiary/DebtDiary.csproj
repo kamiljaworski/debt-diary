@@ -126,6 +126,9 @@
     <Compile Include="UserControls\DebtorsList\DebtorsListItem.xaml.cs">
       <DependentUpon>DebtorsListItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\OperationsList\ShortOperationsListItem.xaml.cs">
+      <DependentUpon>ShortOperationsListItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ValueConverters\ApplicationPageConverter.cs" />
     <Compile Include="ValueConverters\ApplicationSubpageConverter.cs" />
     <Compile Include="ValueConverters\AvatarColorToBrushConverter.cs" />
@@ -215,6 +218,10 @@
     <Page Include="UserControls\DebtorsList\DebtorsListItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\OperationsList\ShortOperationsListItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Dialogs\DialogWindow.xaml">
       <SubType>Designer</SubType>
