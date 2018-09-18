@@ -1,5 +1,6 @@
 ﻿using DebtDiary.Core;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace DebtDiary
 {
@@ -15,6 +16,7 @@ namespace DebtDiary
         public ShortOperationsListViewModel(Debtor debtor)
         {
             debtor.Operations.ForEach(x => Operations.Add(new ShortOperationsListItemViewModel(x)));
+            Operations = new ObservableCollection<ShortOperationsListItemViewModel>(Operations.OrderByDescending(x => x.OperationDate));
         }
 
     }
