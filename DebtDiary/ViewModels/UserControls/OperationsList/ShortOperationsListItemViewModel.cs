@@ -6,6 +6,10 @@ namespace DebtDiary
     public class ShortOperationsListItemViewModel : BaseViewModel
     {
         public decimal Value { get; set; }
+        /// <summary>
+        /// TODO: new helper class with currency formatting method
+        /// </summary>
+        public string FormattedValue => Value.ToString("C");
         public string Description { get; set; }
         public string OperationDate { get; set; }
 

@@ -21,7 +21,7 @@
 
                                 <TextBlock Grid.Column="0"  Text="{Binding OperationDate, FallbackValue='02.09.2018'}" FontSize="18" Foreground="{StaticResource DarkGreyBrush}"/>
                                 <TextBlock Grid.Column="1"  Text="{Binding Description, FallbackValue='Test description', TargetNullValue='brak'}" FontSize="18" Foreground="Gray"/>
-                                <TextBlock Grid.Column="2"  Text="{Binding Value, FallbackValue='-200.00'}" FontSize="18" 
+                                <TextBlock Grid.Column="2"  Text="{Binding FormattedValue, FallbackValue='-200.00'}" FontSize="18" 
                                            Foreground="{Binding Value, Converter={local:DecimalToBrushConverter}, ConverterParameter='Operation', FallbackValue=Red}"/>
                             </Grid>
                         </Border>
