@@ -22,7 +22,8 @@ namespace DebtDiary
         public string LoanValue { get; set; }
         public string LoanDescription { get; set; }
         public ICommand AddLoanCommand { get; set; }
-    
+
+        public ShortOperationsListViewModel OperationsList { get; private set; } = null;
 
         public DebtorInfoSubpageViewModel()
         {
@@ -33,7 +34,7 @@ namespace DebtDiary
 
                 decimal.TryParse(LoanValue, out decimal loanValue);
 
-                _selectedDebtor.Operations.Add(new Operation { Value = loanValue, Description=LoanDescription, AdditionDate = DateTime.Now });
+                _selectedDebtor.Operations.Add(new Operation { Value = loanValue, Description = LoanDescription, AdditionDate = DateTime.Now });
                 IocContainer.Get<IDataAccess>().SaveChanges();
                 LoanDescription = string.Empty;
                 LoanValue = string.Empty;
@@ -67,6 +68,8 @@ namespace DebtDiary
                     ToolTip = null
                 }
             };
+
+            OperationsList = new ShortOperationsListViewModel(_selectedDebtor);
         }
         #endregion
     }

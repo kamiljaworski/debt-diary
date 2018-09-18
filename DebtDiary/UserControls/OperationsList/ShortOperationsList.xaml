@@ -9,7 +9,7 @@
     <Grid Background="White">
         <!-- TODO: Custom scroll bar style -->
         <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <ItemsControl ItemsSource="{Binding Debtors, FallbackValue=}">
+            <ItemsControl ItemsSource="{Binding Debtors}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <local:ShortOperationsListItem/>

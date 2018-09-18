@@ -15,6 +15,8 @@ namespace DebtDiary
         string LoanDescription { get; set; }
         ICommand AddLoanCommand { get; set; }
 
+        ShortOperationsListViewModel OperationsList { get; }
+
         void Update();
     }
 }
