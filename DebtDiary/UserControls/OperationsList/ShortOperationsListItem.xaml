@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DebtDiary"
              mc:Ignorable="d" 
-             d:DesignHeight="26" d:DesignWidth="350">
+             d:DesignHeight="26" d:DesignWidth="420">
     <UserControl.Resources>
         <Style x:Key="ContentStyle" TargetType="{x:Type ContentControl}">
             <Setter Property="Template">
@@ -14,12 +14,14 @@
                         <Border Grid.Row="0" BorderBrush="LightGray" Background="White" BorderThickness="0 0 0 1">
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="2*"/>
-                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="8*"/>
+                                    <ColumnDefinition Width="17*"/>
+                                    <ColumnDefinition Width="9*"/>
                                 </Grid.ColumnDefinitions>
 
-                                <TextBlock Grid.Column="0"  Text="{Binding Description, FallbackValue='Test description', TargetNullValue='brak'}" FontSize="18" Foreground="Gray"/>
-                                <TextBlock Grid.Column="1"  Text="{Binding Value, FallbackValue='-200.00'}" FontSize="18" 
+                                <TextBlock Grid.Column="0"  Text="{Binding OperationDate, FallbackValue='02.09.2018'}" FontSize="18" Foreground="{StaticResource DarkGreyBrush}"/>
+                                <TextBlock Grid.Column="1"  Text="{Binding Description, FallbackValue='Test description', TargetNullValue='brak'}" FontSize="18" Foreground="Gray"/>
+                                <TextBlock Grid.Column="2"  Text="{Binding Value, FallbackValue='-200.00'}" FontSize="18" 
                                            Foreground="{Binding Value, Converter={local:DecimalToBrushConverter}, ConverterParameter='Operation', FallbackValue=Red}"/>
                             </Grid>
                         </Border>
