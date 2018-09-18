@@ -122,53 +122,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-
-                <Border Grid.Row="0" BorderBrush="LightGray" BorderThickness="0 0 0 1">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <TextBlock Grid.Column="0"  Text="Na samochód" FontSize="18" Foreground="Gray"/>
-                        <TextBlock Grid.Column="1"  Text="-20 000.00 zł" FontSize="18" Foreground="Red"/>
-                    </Grid>
-                </Border>
-
-                <Border Grid.Row="1" BorderBrush="LightGray" BorderThickness="0 0 0 1">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Na coś tam" FontSize="18" Foreground="Gray"/>
-                        <TextBlock Grid.Row="1" Grid.Column="12" Text="-20.00 zł" FontSize="18" Foreground="Red"/>
-                    </Grid>
-                </Border>
-
-                <Border Grid.Row="2" BorderBrush="LightGray" BorderThickness="0 0 0 1">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Za samochód" FontSize="18" Foreground="Gray"/>
-                        <TextBlock Grid.Row="2" Grid.Column="1" Text="20 000.00 zł" FontSize="18" Foreground="Green"/>
-                    </Grid>
-                </Border>
-
-                <Border Grid.Row="3" BorderBrush="LightGray" BorderThickness="0 0 0 1">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <TextBlock Grid.Row="3" Grid.Column="0" Text="Za coś tam" FontSize="18" Foreground="Gray"/>
-                        <TextBlock Grid.Row="3" Grid.Column="1" Text="20.00 zł" FontSize="18" Foreground="Green"/>
-                    </Grid>
-                </Border>
+                <local:ShortOperationsList DataContext="{Binding OperationsList}"/>
             </Grid>
         </StackPanel>
 
