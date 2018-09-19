@@ -117,7 +117,7 @@
             </Grid.RowDefinitions>
 
             <TextBlock Grid.Row="0" Text="Operacje" FontSize="28" FontFamily="{StaticResource LatoLight}" Padding="10 0 0 0"/>
-            <local:ShortOperationsList Grid.Row="1" Margin="10" DataContext="{Binding OperationsList}"/>
+            <local:ShortOperationsList Grid.Row="1" Margin="10" DataContext="{Binding OperationsList}" d:DataContext="{x:Static local:ShortOperationsListDesignModel.Instance}"/>
         </Grid>
 
         <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Background="White" Margin="10">

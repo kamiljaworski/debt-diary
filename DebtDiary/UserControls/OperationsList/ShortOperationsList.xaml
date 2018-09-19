@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:DebtDiary"
              mc:Ignorable="d"
              d:DesignHeight="260" d:DesignWidth="350">
-    <Grid Background="White">
+    <Grid Background="White" d:DataContext="{x:Static local:ShortOperationsListDesignModel.Instance}">
         <!-- TODO: Custom scroll bar style -->
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <ItemsControl ItemsSource="{Binding Operations}">
