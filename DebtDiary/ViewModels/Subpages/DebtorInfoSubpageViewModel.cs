@@ -15,7 +15,7 @@ namespace DebtDiary
         public string FullName { get; private set; }
         public decimal Debt { get; private set; } = 0m;
         public int OperationsNumber { get; private set; } = 0;
-        public decimal? LastOperation { get; private set; } = null;
+        public string LastOperation { get; private set; } = null;
 
         public SeriesCollection SeriesCollection { get; set; }
 
@@ -61,7 +61,7 @@ namespace DebtDiary
             OperationsNumber = _selectedDebtor.Operations.Count;
 
             if (OperationsNumber > 0)
-                LastOperation = _selectedDebtor.Operations.OrderByDescending(x => x.AdditionDate).First().Value;
+                LastOperation = Helpers.GetFormattedCurrency(_selectedDebtor.Operations.OrderByDescending(x => x.AdditionDate).First().Value);
             else
                 LastOperation = null;
 

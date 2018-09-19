@@ -9,7 +9,7 @@ namespace DebtDiary
         string FullName  { get; }
         decimal Debt { get; }
         int OperationsNumber { get; }
-        decimal? LastOperation { get; }
+        string LastOperation { get; }
         SeriesCollection SeriesCollection { get; set; }
 
         string LoanValue { get; set; }  
