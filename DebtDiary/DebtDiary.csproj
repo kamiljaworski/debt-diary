@@ -145,6 +145,7 @@
     <Compile Include="ValueConverters\FormMessageToBrushConverter.cs" />
     <Compile Include="ValueConverters\FormMessageToStringConverter.cs" />
     <Compile Include="ValueConverters\FormMessageToVisibilityConverter.cs" />
+    <Compile Include="ValueConverters\GenderStringsConverter.cs" />
     <Compile Include="ValueConverters\GenderToBolleanConverter.cs" />
     <Compile Include="ValueConverters\HorizontalAlignmentToTextAlignmentConverter.cs" />
     <Compile Include="ValueConverters\OpacityToBolleanConverter.cs" />

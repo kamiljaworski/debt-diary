@@ -189,9 +189,6 @@
   <data name="General" xml:space="preserve">
     <value>Ogólne</value>
   </data>
-  <data name="He" xml:space="preserve">
-    <value>On</value>
-  </data>
   <data name="IncorrectEmail" xml:space="preserve">
     <value>Niepoprawny adres e-mail</value>
   </data>
@@ -261,6 +258,12 @@
   <data name="PasswordTooShort" xml:space="preserve">
     <value>Hasło musi posiadać minimum 8 znaków</value>
   </data>
+  <data name="PersonFemale" xml:space="preserve">
+    <value>Ona</value>
+  </data>
+  <data name="PersonMale" xml:space="preserve">
+    <value>On</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Rejestracja</value>
   </data>
@@ -272,9 +275,6 @@
   </data>
   <data name="RepeatPassword" xml:space="preserve">
     <value>Powtórz hasło</value>
-  </data>
-  <data name="She" xml:space="preserve">
-    <value>Ona</value>
   </data>
   <data name="SignIn" xml:space="preserve">
     <value>Logowanie</value>

@@ -1,4 +1,5 @@
-﻿using LiveCharts;
+﻿using DebtDiary.Core;
+using LiveCharts;
 using System;
 using System.Windows.Input;
 
@@ -11,6 +12,8 @@ namespace DebtDiary
         int OperationsNumber { get; }
         string LastOperation { get; }
         SeriesCollection SeriesCollection { get; set; }
+        Gender DebtorsGender { get; }
+        Gender UsersGender { get; }
 
         string LoanValue { get; set; }  
         string LoanDescription { get; set; }

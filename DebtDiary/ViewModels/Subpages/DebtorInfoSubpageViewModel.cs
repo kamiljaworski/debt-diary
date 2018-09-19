@@ -16,8 +16,9 @@ namespace DebtDiary
         public string Debt { get; private set; }
         public int OperationsNumber { get; private set; } = 0;
         public string LastOperation { get; private set; } = null;
-
         public SeriesCollection SeriesCollection { get; set; }
+        public Gender DebtorsGender { get; private set; }
+        public Gender UsersGender { get; private set; }
 
         public string LoanValue { get; set; }
         public string LoanDescription { get; set; }
@@ -26,6 +27,8 @@ namespace DebtDiary
         public ShortOperationsListViewModel OperationsList { get; private set; } = null;
 
         public Func<decimal, string> CurrencyFormatter { get; set; }
+
+
 
         public DebtorInfoSubpageViewModel()
         {
@@ -59,6 +62,8 @@ namespace DebtDiary
             FullName = _selectedDebtor.FullName;
             Debt = Helpers.GetFormattedCurrency(_selectedDebtor.Debt);
             OperationsNumber = _selectedDebtor.Operations.Count;
+            DebtorsGender = (Gender)_selectedDebtor.Gender;
+            UsersGender = (Gender)IocContainer.Get<IClientDataStore>().LoggedUser.Gender;
 
             if (OperationsNumber > 0)
                 LastOperation = Helpers.GetFormattedCurrency(_selectedDebtor.Operations.OrderByDescending(x => x.AdditionDate).First().Value);

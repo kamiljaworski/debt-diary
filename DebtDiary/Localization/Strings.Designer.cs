@@ -277,15 +277,6 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to He.
-        /// </summary>
-        public static string He {
-            get {
-                return ResourceManager.GetString("He", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Incorrect e-mail address.
         /// </summary>
         public static string IncorrectEmail {
@@ -493,6 +484,24 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to She.
+        /// </summary>
+        public static string PersonFemale {
+            get {
+                return ResourceManager.GetString("PersonFemale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to He.
+        /// </summary>
+        public static string PersonMale {
+            get {
+                return ResourceManager.GetString("PersonMale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register.
         /// </summary>
         public static string Register {
@@ -525,15 +534,6 @@ namespace DebtDiary.Localization {
         public static string RepeatPassword {
             get {
                 return ResourceManager.GetString("RepeatPassword", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to She.
-        /// </summary>
-        public static string She {
-            get {
-                return ResourceManager.GetString("She", resourceCulture);
             }
         }
         
