@@ -7,7 +7,7 @@ namespace DebtDiary
     public interface IDebtorInfoSubpageViewModel
     {
         string FullName  { get; }
-        decimal Debt { get; }
+        string Debt { get; }
         int OperationsNumber { get; }
         string LastOperation { get; }
         SeriesCollection SeriesCollection { get; set; }

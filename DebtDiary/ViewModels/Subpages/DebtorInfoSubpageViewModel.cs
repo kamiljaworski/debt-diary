@@ -13,7 +13,7 @@ namespace DebtDiary
         private Debtor _selectedDebtor = null;
 
         public string FullName { get; private set; }
-        public decimal Debt { get; private set; } = 0m;
+        public string Debt { get; private set; }
         public int OperationsNumber { get; private set; } = 0;
         public string LastOperation { get; private set; } = null;
 
@@ -57,7 +57,7 @@ namespace DebtDiary
                 return;
 
             FullName = _selectedDebtor.FullName;
-            Debt = _selectedDebtor.Debt;
+            Debt = Helpers.GetFormattedCurrency(_selectedDebtor.Debt);
             OperationsNumber = _selectedDebtor.Operations.Count;
 
             if (OperationsNumber > 0)
