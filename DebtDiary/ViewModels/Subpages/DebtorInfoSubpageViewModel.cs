@@ -3,6 +3,7 @@ using DebtDiary.DataProvider;
 using LiveCharts;
 using LiveCharts.Wpf;
 using System;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Input;
 
@@ -32,9 +33,10 @@ namespace DebtDiary
                 if (string.IsNullOrEmpty(LoanValue))
                     return;
 
-                decimal.TryParse(LoanValue, out decimal loanValue);
+                if (DataConverter.ToDecimal(LoanValue, out decimal value) == false)
+                    return;
 
-                _selectedDebtor.Operations.Add(new Operation { Value = loanValue, Description = LoanDescription, AdditionDate = DateTime.Now });
+                _selectedDebtor.Operations.Add(new Operation { Value = value, Description = LoanDescription, AdditionDate = DateTime.Now });
                 IocContainer.Get<IDataAccess>().SaveChanges();
                 LoanDescription = string.Empty;
                 LoanValue = string.Empty;
