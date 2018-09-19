@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DebtDiary"
-      xmlns:core="clr-namespace:DebtDiary.Core"
+      xmlns:localization="clr-namespace:DebtDiary.Localization"
       xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       mc:Ignorable="d" 
       d:DesignHeight="680" d:DesignWidth="1000"
@@ -38,7 +38,7 @@
             </Grid>
 
             <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="5">
-                <TextBlock Text="Jest ci winny" Foreground="White" FontSize="18"/>
+                <TextBlock Text="{x:Static localization:Strings.OwesYouMale}" Foreground="White" FontSize="18"/>
                 <TextBlock Text="{Binding Debt, FallbackValue='100.00'}" Foreground="White" FontSize="30"/>
             </StackPanel>
 
@@ -72,7 +72,7 @@
             </Grid>
 
             <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="5">
-                <TextBlock Text="Liczba operacji" Foreground="White" FontSize="18"/>
+                <TextBlock Text="{x:Static localization:Strings.OperationsNumber}" Foreground="White" FontSize="18"/>
                 <TextBlock Text="{Binding OperationsNumber, FallbackValue=4}" Foreground="White" FontSize="36"/>
             </StackPanel>
 
@@ -90,8 +90,8 @@
             </Grid>
 
             <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="5">
-                <TextBlock Text="Ostatnia operacja" Foreground="White" FontSize="18"/>
-                <TextBlock Text="{Binding LastOperation, TargetNullValue='brak', FallbackValue='-200.00'}" Foreground="White" FontSize="32"/>
+                <TextBlock Text="{x:Static localization:Strings.LastOperation}" Foreground="White" FontSize="18"/>
+                <TextBlock Text="{Binding LastOperation, TargetNullValue={x:Static localization:Strings.None}, FallbackValue='-200.00'}" Foreground="White" FontSize="32"/>
             </StackPanel>
 
         </Grid>
@@ -103,7 +103,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0" Text="Przebieg długów" FontSize="28" FontFamily="{StaticResource LatoLight}" Padding="10 0 0 0"/>
+            <TextBlock Grid.Row="0" Text="{x:Static localization:Strings.DebtsCourse}" FontSize="28" FontFamily="{StaticResource LatoLight}" Padding="10 0 0 0"/>
             <Grid Grid.Row="1" Margin="10">
                 <lvc:CartesianChart Series="{Binding SeriesCollection}" DataTooltip="{x:Null}">
                     <lvc:CartesianChart.AxisY>
@@ -122,12 +122,12 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0" Text="Operacje" FontSize="28" FontFamily="{StaticResource LatoLight}" Padding="10 0 0 0"/>
+            <TextBlock Grid.Row="0" Text="{x:Static localization:Strings.Operations}" FontSize="28" FontFamily="{StaticResource LatoLight}" Padding="10 0 0 0"/>
             <local:ShortOperationsList Grid.Row="1" Margin="10" DataContext="{Binding OperationsList}" d:DataContext="{x:Static local:ShortOperationsListDesignModel.Instance}"/>
         </Grid>
 
         <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Background="White" Margin="10">
-            <TextBlock Text="Pożyczka" FontSize="28" FontFamily="{StaticResource LatoLight}" Padding="10 0 0 0"/>
+            <TextBlock Text="{x:Static localization:Strings.Loan}" FontSize="28" FontFamily="{StaticResource LatoLight}" Padding="10 0 0 0"/>
 
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -139,10 +139,10 @@
                 <StackPanel Grid.Column="1">
 
                     <!-- Last Name-->
-                    <TextBox Text="{Binding LoanValue}" Tag="Kwota"
+                    <TextBox Text="{Binding LoanValue}" Tag="{x:Static localization:Strings.Amount}"
                          local:FormMessageProperty.Value="{Binding LastNameMessage}"/>
 
-                    <TextBox Text="{Binding LoanDescription}" Tag="Opis"
+                    <TextBox Text="{Binding LoanDescription}" Tag="{x:Static localization:Strings.Description}"
                          local:FormMessageProperty.Value="{Binding LastNameMessage}"/>
 
                     <!-- Gender -->
@@ -152,30 +152,30 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Grid.Column="0" Text="Kto pożyczył?" Style="{StaticResource FormMessageTitleTextBlock}" 
+                        <TextBlock Grid.Column="0" Text="{x:Static localization:Strings.WhoBorrowed}" Style="{StaticResource FormMessageTitleTextBlock}" 
                                Margin="0" HorizontalAlignment="Left" VerticalAlignment="Center"
                        local:FormMessageProperty.Value="{Binding GenderMessage}"/>
 
                         <StackPanel Grid.Column="1" VerticalAlignment="Center">
                             <StackPanel Orientation="Horizontal">
-                                <RadioButton Content="On" 
+                                <RadioButton Content="{x:Static localization:Strings.He}" 
                              IsChecked="{Binding Gender, Converter={local:GenderToBolleanConverter}, ConverterParameter='Male'}"
                              local:FormMessageProperty.Value="{Binding GenderMessage}"/>
-                                <RadioButton Content="Ty" Margin="10 0 0 0"
+                                <RadioButton Content="{x:Static localization:Strings.You}" Margin="10 0 0 0"
                              IsChecked="{Binding Gender, Converter={local:GenderToBolleanConverter}, ConverterParameter='Female'}"
                              local:FormMessageProperty.Value="{Binding GenderMessage}"/>
                             </StackPanel>
                         </StackPanel>
                     </Grid>
 
-                    <Button Content="Dodaj" HorizontalAlignment="Center" Margin="0 10 0 0"
+                    <Button Content="{x:Static localization:Strings.Add}" HorizontalAlignment="Center" Margin="0 10 0 0"
                             Command="{Binding AddLoanCommand}"/>
                 </StackPanel>
             </Grid>
         </StackPanel>
 
         <StackPanel Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Background="White" Margin="10">
-            <TextBlock Text="Spłata" FontSize="28" FontFamily="{StaticResource LatoLight}" Padding="10 0 0 0"/>
+            <TextBlock Text="{x:Static localization:Strings.Repayment}" FontSize="28" FontFamily="{StaticResource LatoLight}" Padding="10 0 0 0"/>
 
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -187,10 +187,10 @@
                 <StackPanel Grid.Column="1">
 
                     <!-- Last Name-->
-                    <TextBox Text="{Binding LoanValue}" Tag="Kwota"
+                    <TextBox Text="{Binding LoanValue}" Tag="{x:Static localization:Strings.Amount}"
                          local:FormMessageProperty.Value="{Binding LastNameMessage}"/>
 
-                    <TextBox Text="{Binding LoanDescription}" Tag="Opis"
+                    <TextBox Text="{Binding LoanDescription}" Tag="{x:Static localization:Strings.Description}"
                          local:FormMessageProperty.Value="{Binding LastNameMessage}"/>
 
                     <!-- Gender -->
@@ -200,23 +200,23 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Grid.Column="0" Text="Kto spłacił?" Style="{StaticResource FormMessageTitleTextBlock}" 
+                        <TextBlock Grid.Column="0" Text="{x:Static localization:Strings.WhoRepayed}" Style="{StaticResource FormMessageTitleTextBlock}" 
                                Margin="0" HorizontalAlignment="Left" VerticalAlignment="Center"
                        local:FormMessageProperty.Value="{Binding GenderMessage}"/>
 
                         <StackPanel Grid.Column="1" VerticalAlignment="Center">
                             <StackPanel Orientation="Horizontal">
-                                <RadioButton Content="On" 
+                                <RadioButton Content="{x:Static localization:Strings.He}" 
                              IsChecked="{Binding Gender, Converter={local:GenderToBolleanConverter}, ConverterParameter='Male'}"
                              local:FormMessageProperty.Value="{Binding GenderMessage}"/>
-                                <RadioButton Content="Ty" Margin="10 0 0 0"
+                                <RadioButton Content="{x:Static localization:Strings.You}" Margin="10 0 0 0"
                              IsChecked="{Binding Gender, Converter={local:GenderToBolleanConverter}, ConverterParameter='Female'}"
                              local:FormMessageProperty.Value="{Binding GenderMessage}"/>
                             </StackPanel>
                         </StackPanel>
                     </Grid>
 
-                    <Button Content="Dodaj" HorizontalAlignment="Center" Margin="0 10 0 0"
+                    <Button Content="{x:Static localization:Strings.Add}" HorizontalAlignment="Center" Margin="0 10 0 0"
                             Command="{Binding AddLoanCommand}"/>
                 </StackPanel>
             </Grid>

@@ -129,6 +129,9 @@
   <data name="AddNewDebtor" xml:space="preserve">
     <value>Add new debtor</value>
   </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
   <data name="ApplicationName" xml:space="preserve">
     <value>Debt diary</value>
   </data>
@@ -140,6 +143,12 @@
   </data>
   <data name="Debtors" xml:space="preserve">
     <value>Debtors</value>
+  </data>
+  <data name="DebtsCourse" xml:space="preserve">
+    <value>Debts course</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
   </data>
   <data name="DifferentPasswords" xml:space="preserve">
     <value>Entered passwords are not the same</value>
@@ -180,6 +189,9 @@
   <data name="General" xml:space="preserve">
     <value>General</value>
   </data>
+  <data name="He" xml:space="preserve">
+    <value>He</value>
+  </data>
   <data name="IncorrectEmail" xml:space="preserve">
     <value>Incorrect e-mail address</value>
   </data>
@@ -197,6 +209,12 @@
   </data>
   <data name="LastName" xml:space="preserve">
     <value>Last name</value>
+  </data>
+  <data name="LastOperation" xml:space="preserve">
+    <value>Last operation</value>
+  </data>
+  <data name="Loan" xml:space="preserve">
+    <value>Loan</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
@@ -219,8 +237,23 @@
   <data name="NewDebtorAddedTitle" xml:space="preserve">
     <value>New debtor has been added</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>none</value>
+  </data>
   <data name="Ok" xml:space="preserve">
     <value>OK</value>
+  </data>
+  <data name="Operations" xml:space="preserve">
+    <value>Operations</value>
+  </data>
+  <data name="OperationsNumber" xml:space="preserve">
+    <value>Number of operations</value>
+  </data>
+  <data name="OwesYouFemale" xml:space="preserve">
+    <value>Owes you</value>
+  </data>
+  <data name="OwesYouMale" xml:space="preserve">
+    <value>Owes you</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
@@ -234,8 +267,14 @@
   <data name="RegisterPageSubtitle" xml:space="preserve">
     <value>Already have an account?</value>
   </data>
+  <data name="Repayment" xml:space="preserve">
+    <value>Repayment</value>
+  </data>
   <data name="RepeatPassword" xml:space="preserve">
     <value>Repeat password</value>
+  </data>
+  <data name="She" xml:space="preserve">
+    <value>She</value>
   </data>
   <data name="SignIn" xml:space="preserve">
     <value>Sign in</value>
@@ -260,5 +299,14 @@
   </data>
   <data name="Username" xml:space="preserve">
     <value>Username</value>
+  </data>
+  <data name="WhoBorrowed" xml:space="preserve">
+    <value>Who borrowed?</value>
+  </data>
+  <data name="WhoRepayed" xml:space="preserve">
+    <value>Who repayed?</value>
+  </data>
+  <data name="You" xml:space="preserve">
+    <value>You</value>
   </data>
 </root>

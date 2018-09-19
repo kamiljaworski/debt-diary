@@ -97,6 +97,15 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Amount.
+        /// </summary>
+        public static string Amount {
+            get {
+                return ResourceManager.GetString("Amount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Debt diary.
         /// </summary>
         public static string ApplicationName {
@@ -129,6 +138,24 @@ namespace DebtDiary.Localization {
         public static string Debtors {
             get {
                 return ResourceManager.GetString("Debtors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debts course.
+        /// </summary>
+        public static string DebtsCourse {
+            get {
+                return ResourceManager.GetString("DebtsCourse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string Description {
+            get {
+                return ResourceManager.GetString("Description", resourceCulture);
             }
         }
         
@@ -250,6 +277,15 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to He.
+        /// </summary>
+        public static string He {
+            get {
+                return ResourceManager.GetString("He", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Incorrect e-mail address.
         /// </summary>
         public static string IncorrectEmail {
@@ -300,6 +336,24 @@ namespace DebtDiary.Localization {
         public static string LastName {
             get {
                 return ResourceManager.GetString("LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last operation.
+        /// </summary>
+        public static string LastOperation {
+            get {
+                return ResourceManager.GetString("LastOperation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loan.
+        /// </summary>
+        public static string Loan {
+            get {
+                return ResourceManager.GetString("Loan", resourceCulture);
             }
         }
         
@@ -367,11 +421,56 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to none.
+        /// </summary>
+        public static string None {
+            get {
+                return ResourceManager.GetString("None", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to OK.
         /// </summary>
         public static string Ok {
             get {
                 return ResourceManager.GetString("Ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operations.
+        /// </summary>
+        public static string Operations {
+            get {
+                return ResourceManager.GetString("Operations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of operations.
+        /// </summary>
+        public static string OperationsNumber {
+            get {
+                return ResourceManager.GetString("OperationsNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Owes you.
+        /// </summary>
+        public static string OwesYouFemale {
+            get {
+                return ResourceManager.GetString("OwesYouFemale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Owes you.
+        /// </summary>
+        public static string OwesYouMale {
+            get {
+                return ResourceManager.GetString("OwesYouMale", resourceCulture);
             }
         }
         
@@ -412,11 +511,29 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Repayment.
+        /// </summary>
+        public static string Repayment {
+            get {
+                return ResourceManager.GetString("Repayment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Repeat password.
         /// </summary>
         public static string RepeatPassword {
             get {
                 return ResourceManager.GetString("RepeatPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to She.
+        /// </summary>
+        public static string She {
+            get {
+                return ResourceManager.GetString("She", resourceCulture);
             }
         }
         
@@ -489,6 +606,33 @@ namespace DebtDiary.Localization {
         public static string Username {
             get {
                 return ResourceManager.GetString("Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Who borrowed?.
+        /// </summary>
+        public static string WhoBorrowed {
+            get {
+                return ResourceManager.GetString("WhoBorrowed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Who repayed?.
+        /// </summary>
+        public static string WhoRepayed {
+            get {
+                return ResourceManager.GetString("WhoRepayed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You.
+        /// </summary>
+        public static string You {
+            get {
+                return ResourceManager.GetString("You", resourceCulture);
             }
         }
     }
