@@ -14,9 +14,9 @@
                         <Border Grid.Row="0" BorderBrush="LightGray" Background="White" BorderThickness="0 0 0 1">
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="8*"/>
-                                    <ColumnDefinition Width="17*"/>
-                                    <ColumnDefinition Width="9*"/>
+                                    <ColumnDefinition Width="105"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
 
                                 <TextBlock Grid.Column="0"  Text="{Binding FormattedOperationDate, FallbackValue='02.09.2018'}" FontSize="18" Foreground="{StaticResource DarkGreyBrush}"/>
