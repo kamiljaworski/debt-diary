@@ -17,6 +17,6 @@ namespace DebtDiary
 
         ShortOperationsListViewModel OperationsList { get; }
 
-        void Update();
+        void UpdateChanges();
     }
 }

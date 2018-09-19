@@ -16,8 +16,7 @@ namespace DebtDiary
                 // Try to get logged user info while application is working
                 try
                 {
-                    User loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
-                    Debtors = new ObservableCollection<DebtorsListItemViewModel>(loggedUser.Debtors.Select(x => new DebtorsListItemViewModel(x)).OrderByDescending(x => x.Debt));
+                    UpdateChanges();
                 }
                 // If IoC isn't working (when it is in design mode) do nothing
                 catch { }
@@ -31,15 +30,11 @@ namespace DebtDiary
         {
             User loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
 
-            // Find debtors which are in ClientDataStore but aren't in VM
-            var newDebtors = loggedUser.Debtors.Where(d => Debtors.Count(x => x.Id == d.Id) == 0);
+            // Get actual list of debtors and sort them
+            IOrderedEnumerable<DebtorsListItemViewModel> debtorsList = loggedUser.Debtors.Select(x => new DebtorsListItemViewModel(x)).OrderByDescending(x => x.Debt);
 
-            // Add these debtors to VM
-            if (newDebtors != null && newDebtors.Count() > 0)
-                foreach (Debtor debtor in newDebtors)
-                    Debtors.Add(new DebtorsListItemViewModel(debtor));
+            // Make ObservableCollection from this list
+            Debtors = new ObservableCollection<DebtorsListItemViewModel>(debtorsList);
         }
-
-        // TODO: Sort method fired after there are any changes in any debtors debt
     }
 }

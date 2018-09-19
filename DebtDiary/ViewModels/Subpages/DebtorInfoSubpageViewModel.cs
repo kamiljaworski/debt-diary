@@ -38,13 +38,13 @@ namespace DebtDiary
                 IocContainer.Get<IDataAccess>().SaveChanges();
                 LoanDescription = string.Empty;
                 LoanValue = string.Empty;
-                Update();
+                UpdateChanges();
             });
         }
 
         #region Public Methods
 
-        public void Update()
+        public void UpdateChanges()
         {
             _selectedDebtor = IocContainer.Get<IApplicationViewModel>().SelectedDebtor;
             if (_selectedDebtor == null)
@@ -70,6 +70,8 @@ namespace DebtDiary
             };
 
             OperationsList = new ShortOperationsListViewModel(_selectedDebtor);
+
+            IocContainer.Get<DebtorsListViewModel>().UpdateChanges();
         }
         #endregion
     }
