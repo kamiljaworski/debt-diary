@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Globalization;
+using System.Linq;
 using System.Text;
 
 namespace DebtDiary.Core
@@ -8,9 +9,6 @@ namespace DebtDiary.Core
         /// <summary>
         /// Get initials from first and last name
         /// </summary>
-        /// <param name="firstName">First name of a person</param>
-        /// <param name="lastName">Last name of a person</param>
-        /// <returns>Person initials</returns>
         public static string GetInitials(string firstName, string lastName)
         {
             // Initials variables
@@ -34,6 +32,18 @@ namespace DebtDiary.Core
             stringBuilder.Append(firstNameInitial, 1);
             stringBuilder.Append(lastNameInitial, 1);
             return stringBuilder.ToString().ToUpper();
+        }
+
+        /// <summary>
+        /// Get formatted currency <see cref="string"/> from <see cref="decimal"/> number
+        /// </summary>
+        public static string GetFormattedCurrency(decimal number)
+        {
+            var numberFormat = (NumberFormatInfo)CultureInfo.CurrentCulture.NumberFormat.Clone();
+            numberFormat.CurrencyNegativePattern = 8;
+            numberFormat.CurrencyPositivePattern = 3;
+
+            return number.ToString("C", numberFormat);
         }
     }
 }

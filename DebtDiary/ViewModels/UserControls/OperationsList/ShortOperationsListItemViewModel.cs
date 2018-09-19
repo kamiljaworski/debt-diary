@@ -9,7 +9,7 @@ namespace DebtDiary
         /// <summary>
         /// TODO: new helper class with currency formatting method
         /// </summary>
-        public string FormattedValue => Value.ToString("C");
+        public string FormattedValue => Helpers.GetFormattedCurrency(Value);
         public string Description { get; set; }
         public DateTime OperationDate { get; set; }
         public string FormattedOperationDate => OperationDate.ToShortDateString();

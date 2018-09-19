@@ -3,7 +3,6 @@ using DebtDiary.DataProvider;
 using LiveCharts;
 using LiveCharts.Wpf;
 using System;
-using System.Globalization;
 using System.Linq;
 using System.Windows.Input;
 
@@ -26,8 +25,12 @@ namespace DebtDiary
 
         public ShortOperationsListViewModel OperationsList { get; private set; } = null;
 
+        public Func<decimal, string> CurrencyFormatter { get; set; }
+
         public DebtorInfoSubpageViewModel()
         {
+            CurrencyFormatter = value => Helpers.GetFormattedCurrency(value);
+
             AddLoanCommand = new RelayCommand(() =>
             {
                 if (string.IsNullOrEmpty(LoanValue))
@@ -48,6 +51,7 @@ namespace DebtDiary
 
         public void UpdateChanges()
         {
+            // TODO: Update changes in another threat
             _selectedDebtor = IocContainer.Get<IApplicationViewModel>().SelectedDebtor;
             if (_selectedDebtor == null)
                 return;

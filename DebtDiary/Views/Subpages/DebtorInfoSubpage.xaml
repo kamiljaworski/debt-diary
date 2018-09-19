@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DebtDiary"
+      xmlns:core="clr-namespace:DebtDiary.Core"
       xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       mc:Ignorable="d" 
       d:DesignHeight="680" d:DesignWidth="1000"
@@ -106,7 +107,7 @@
             <Grid Grid.Row="1" Margin="10">
                 <lvc:CartesianChart Series="{Binding SeriesCollection}" DataTooltip="{x:Null}">
                     <lvc:CartesianChart.AxisY>
-                        <lvc:Axis/>
+                        <lvc:Axis LabelFormatter="{Binding CurrencyFormatter}"/>
                     </lvc:CartesianChart.AxisY>
                     <lvc:CartesianChart.AxisX>
                         <lvc:Axis ShowLabels="False"/>

@@ -1,4 +1,5 @@
 ﻿using LiveCharts;
+using System;
 using System.Windows.Input;
 
 namespace DebtDiary
@@ -16,6 +17,8 @@ namespace DebtDiary
         ICommand AddLoanCommand { get; set; }
 
         ShortOperationsListViewModel OperationsList { get; }
+
+        Func<decimal, string> CurrencyFormatter { get; set; }
 
         void UpdateChanges();
     }
