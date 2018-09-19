@@ -3,16 +3,11 @@ using System.Text.RegularExpressions;
 
 namespace DebtDiary.Core
 {
-    /// <summary>
-    /// Static class used for data validation
-    /// </summary>
     public static class DataValidator
     {
         /// <summary>
-        /// Method that validates email correctness - it must look like this: 'xxx@xxx.xxx'
+        /// Validate if email address is correct
         /// </summary>
-        /// <param name="email">E-mail address you want to validate</param>
-        /// <returns><see cref="Boolean"> true if e-mail is correct or false if not</returns>
         public static bool IsEmailCorrect(string email)
         {
             // Check if email is null or empty
@@ -35,10 +30,8 @@ namespace DebtDiary.Core
         }
 
         /// <summary>
-        /// Method that validates first and last name correctness
+        /// Validate if name is correct
         /// </summary>
-        /// <param name="name">First or last name you want to check</param>
-        /// <returns><see cref="Boolean"> true if name is correct or false if not</returns>
         public static bool IsNameCorrect(string name)
         {
             // Check if name is null or empty
@@ -59,10 +52,8 @@ namespace DebtDiary.Core
 
 
         /// <summary>
-        /// Method that validates username correctness
+        /// Validate if username is correct
         /// </summary>
-        /// <param name="username">Username you want to check</param>
-        /// <returns><see cref="Boolean"> true if username is correct or false if not</returns>
         public static bool IsUsernameNameCorrect(string username)
         {
             // Check if name is null or empty
@@ -77,6 +68,26 @@ namespace DebtDiary.Core
             catch (RegexMatchTimeoutException)
             {
                 // If there was any exception thrown return false
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Validate if decimal number is correct
+        /// </summary>
+        public static bool IsDecimalNumberCorrect(string number)
+        {
+            // Check if number is null or empty
+            if (String.IsNullOrEmpty(number))
+                return false;
+
+            // Return true if number is valid
+            try
+            {
+                return Regex.IsMatch(number, @"\d+(\.\d{1,2})?", RegexOptions.None, TimeSpan.FromMilliseconds(250));
+            }
+            catch (RegexMatchTimeoutException)
+            {
                 return false;
             }
         }
