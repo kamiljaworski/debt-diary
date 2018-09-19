@@ -109,22 +109,16 @@
         </Grid>
         <!--<Grid Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"  Background="White" Margin="10"/>-->
 
-        <StackPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"  Background="White" Margin="10">
+        <!-- Operations -->
+        <Grid Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"  Background="White" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-            <TextBlock Text="Ostatnie operacje" FontSize="28" FontFamily="{StaticResource LatoLight}" Padding="10 0 0 0"/>
-
-            <Grid Margin="10">
-
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-
-                <local:ShortOperationsList DataContext="{Binding OperationsList}"/>
-            </Grid>
-        </StackPanel>
+            <TextBlock Grid.Row="0" Text="Operacje" FontSize="28" FontFamily="{StaticResource LatoLight}" Padding="10 0 0 0"/>
+            <local:ShortOperationsList Grid.Row="1" Margin="10" DataContext="{Binding OperationsList}"/>
+        </Grid>
 
         <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Background="White" Margin="10">
             <TextBlock Text="Pożyczka" FontSize="28" FontFamily="{StaticResource LatoLight}" Padding="10 0 0 0"/>
