@@ -16,7 +16,7 @@ namespace DebtDiary
 
         #region Public Properties
 
-        public AvatarColor AvatarColor { get; set; } = AvatarColor.Green;
+        public Color AvatarColor { get; set; } = Color.Green;
         public string Initials => Helpers.GetInitials(FirstName, LastName);
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -43,8 +43,8 @@ namespace DebtDiary
         public AddDebtorSubpageViewModel()
         {
             AddDebtorCommand = new RelayCommand(async () => await AddDebtorAsync());
-            PreviousColorCommand = new RelayCommand(() => AvatarColor = AvatarColorChanger.Previous(AvatarColor));
-            NextColorCommand = new RelayCommand(() => AvatarColor = AvatarColorChanger.Next(AvatarColor));
+            PreviousColorCommand = new RelayCommand(() => AvatarColor = ColorSelector.Previous(AvatarColor));
+            NextColorCommand = new RelayCommand(() => AvatarColor = ColorSelector.Next(AvatarColor));
         }
         #endregion
 
@@ -165,7 +165,7 @@ namespace DebtDiary
         /// </summary>
         private void ClearAllFields()
         {
-            AvatarColor = AvatarColor.Green;
+            AvatarColor = Color.Green;
             FirstName = string.Empty;
             LastName = string.Empty;
             Gender = Gender.None;

@@ -57,7 +57,7 @@
     <Compile Include="Helpers\ExpressionHelpers.cs" />
     <Compile Include="Helpers\Helpers.cs" />
     <Compile Include="Helpers\SecureStringExtensions.cs" />
-    <Compile Include="Models\AvatarColor.cs" />
+    <Compile Include="Models\Color.cs" />
     <Compile Include="Models\Debtor.cs" />
     <Compile Include="Models\Gender.cs" />
     <Compile Include="Models\Operation.cs" />

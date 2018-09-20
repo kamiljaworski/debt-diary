@@ -15,7 +15,7 @@ namespace DebtDiary.Core
 
         public Gender? Gender { get; set; }
 
-        public AvatarColor AvatarColor { get; set; } = AvatarColor.Green;
+        public Color AvatarColor { get; set; } = Color.Green;
 
         public string Initials => Helpers.GetInitials(FirstName, LastName);
 

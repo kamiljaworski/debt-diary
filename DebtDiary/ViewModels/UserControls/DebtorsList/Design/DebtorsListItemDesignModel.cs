@@ -14,7 +14,7 @@ namespace DebtDiary
             FullName = "Kamil Jaworski";
             Initials = "KJ";
             Debt = -190.00m;
-            AvatarColor = AvatarColor.Green;
+            AvatarColor = Color.Green;
         }
     }
 }

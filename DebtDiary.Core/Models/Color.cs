@@ -1,6 +1,6 @@
 ﻿namespace DebtDiary.Core
 {
-    public enum AvatarColor
+    public enum Color
     {
         Green = 0,
         Orange = 1,

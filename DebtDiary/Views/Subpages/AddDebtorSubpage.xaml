@@ -30,7 +30,7 @@
             <!--#region Form-->
             <StackPanel Grid.Column="1" Margin="20" >
                 <!-- Avatar -->
-                <Label Style="{StaticResource AvatarLabel}" Background="{Binding AvatarColor, Converter={local:AvatarColorToBrushConverter}, FallbackValue=Green}" 
+                <Label Style="{StaticResource AvatarLabel}" Background="{Binding AvatarColor, Converter={local:ColorToBrushConverter}, FallbackValue=Green}" 
                        Width="200" Content="{Binding Initials, UpdateSourceTrigger=PropertyChanged, FallbackValue=AA}" />
                 
                 <!--#region Color changer-->
@@ -46,7 +46,7 @@
                             Padding="10" Command="{Binding PreviousColorCommand}"/>
 
                     <!-- Current color text -->
-                    <TextBlock Grid.Column="1" Text="{Binding AvatarColor, Converter={local:AvatarColorToStringConverter}, FallbackValue=Green}" 
+                    <TextBlock Grid.Column="1" Text="{Binding AvatarColor, Converter={local:ColorToStringConverter}, FallbackValue=Green}" 
                                FontFamily="{StaticResource LatoLight}" FontSize="20" Foreground="{StaticResource DarkGreyBrush}" HorizontalAlignment="Center" 
                                VerticalAlignment="Center"/>
                     

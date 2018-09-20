@@ -2,16 +2,14 @@
 
 namespace DebtDiary.Core
 {
-    public static class AvatarColorChanger
+    public static class ColorSelector
     {
-        private static AvatarColor[] _colors = (AvatarColor[])Enum.GetValues(typeof(AvatarColor));
+        private static Color[] _colors = (Color[])Enum.GetValues(typeof(Color));
 
         /// <summary>
-        /// Get next avatar color
+        /// Get next color
         /// </summary>
-        /// <param name="currentColor">Current <see cref="AvatarColor"/></param>
-        /// <returns>Next <see cref="AvatarColor"/></returns>
-        public static AvatarColor Next(AvatarColor currentColor)
+        public static Color Next(Color currentColor)
         {
             int index = Array.IndexOf(_colors, currentColor);
 
@@ -22,11 +20,9 @@ namespace DebtDiary.Core
         }
 
         /// <summary>
-        /// Get previous avatar color
+        /// Get previous color
         /// </summary>
-        /// <param name="currentColor">Current <see cref="AvatarColor"/></param>
-        /// <returns>Previous <see cref="AvatarColor"/></returns>
-        public static AvatarColor Previous(AvatarColor currentColor)
+        public static Color Previous(Color currentColor)
         {
             int index = Array.IndexOf(_colors, currentColor);
 

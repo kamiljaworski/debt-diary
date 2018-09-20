@@ -7,9 +7,9 @@ using System.Resources;
 namespace DebtDiary
 {
     /// <summary>
-    /// Converts <see cref="AvatarColor"/> to <see cref="String"/> from localized Strings.resx resources
+    /// Converts <see cref="Color"/> to <see cref="String"/> from localized Strings.resx resources
     /// </summary>
-    public class AvatarColorToStringConverter : BaseValueConverter<AvatarColorToStringConverter>
+    public class ColorToStringConverter : BaseValueConverter<ColorToStringConverter>
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
@@ -19,11 +19,11 @@ namespace DebtDiary
                 ResourceManager colors = new ResourceManager("DebtDiary.Localization.Colors", Assembly.GetExecutingAssembly());
 
                 // Check if value is a AvatarColor enum
-                if (!(value is AvatarColor))
+                if (!(value is Color))
                     return String.Empty;
 
                 // Return appropriate color
-                AvatarColor color = (AvatarColor)value;
+                Color color = (Color)value;
                 return colors.GetString(color.ToString());
             }
             catch (Exception)

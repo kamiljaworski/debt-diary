@@ -6,23 +6,23 @@ using System.Windows.Media;
 namespace DebtDiary
 {
     /// <summary>
-    /// Converts <see cref="AvatarColor"/> to <see cref="Brush"/>
+    /// Converts <see cref="Core.Color"/> to <see cref="Brush"/>
     /// </summary>
-    public class AvatarColorToBrushConverter : BaseValueConverter<AvatarColorToBrushConverter>
+    public class ColorToBrushConverter : BaseValueConverter<ColorToBrushConverter>
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             // If value is a AvatarColor return appropriate color
-            if (value is AvatarColor)
-                switch ((AvatarColor)value)
+            if (value is Core.Color)
+                switch ((Core.Color)value)
                 {
-                    case AvatarColor.Green:
+                    case Core.Color.Green:
                         return Brushes.Green;
 
-                    case AvatarColor.Orange:
+                    case Core.Color.Orange:
                         return Brushes.Orange;
 
-                    case AvatarColor.LightSeaGreen:
+                    case Core.Color.LightSeaGreen:
                         return Brushes.LightSeaGreen;
                 }
 

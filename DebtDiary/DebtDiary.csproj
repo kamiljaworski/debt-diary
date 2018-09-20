@@ -134,9 +134,9 @@
     </Compile>
     <Compile Include="ValueConverters\ApplicationPageConverter.cs" />
     <Compile Include="ValueConverters\ApplicationSubpageConverter.cs" />
-    <Compile Include="ValueConverters\AvatarColorToBrushConverter.cs" />
-    <Compile Include="ValueConverters\AvatarColorToStringConverter.cs" />
     <Compile Include="ValueConverters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="ValueConverters\ColorToBrushConverter.cs" />
+    <Compile Include="ValueConverters\ColorToStringConverter.cs" />
     <Compile Include="ValueConverters\DecimalToBrushConverter.cs" />
     <Compile Include="ValueConverters\DialogMessageToBrushConverter.cs" />
     <Compile Include="ValueConverters\DialogMessageToIconConverter.cs" />
