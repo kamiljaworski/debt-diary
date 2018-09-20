@@ -17,8 +17,12 @@ namespace DebtDiary
                 // Create a resource manager to retrieve resources.
                 ResourceManager strings = new ResourceManager("DebtDiary.Localization.Strings", Assembly.GetExecutingAssembly());
 
-                // Return appropriate message
                 FormMessage message = (FormMessage)value;
+
+                if (message == FormMessage.None)
+                    return string.Empty;
+
+                // Return appropriate message
                 return strings.GetString(message.ToString());
             }
             catch (Exception)
