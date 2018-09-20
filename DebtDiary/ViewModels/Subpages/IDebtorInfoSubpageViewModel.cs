@@ -8,9 +8,11 @@ namespace DebtDiary
     public interface IDebtorInfoSubpageViewModel
     {
         string FullName  { get; }
-        string Debt { get; }
-        int OperationsNumber { get; }
-        string LastOperation { get; }
+
+        IStatisticsPanel Debt { get; }
+        IStatisticsPanel NumerOfOperations { get; }
+        IStatisticsPanel LastOperation { get; }
+
         SeriesCollection SeriesCollection { get; set; }
         Gender DebtorsGender { get; }
         Gender UsersGender { get; }

@@ -24,5 +24,9 @@
     <system:String x:Key="FailureIcon">&#xEDAE;</system:String>
     <system:String x:Key="LeftArrowIcon">&#xE7EA;</system:String>
     <system:String x:Key="RightArrowIcon">&#xEA62;</system:String>
+    <system:String x:Key="TrackersIcon">&#xEADF;</system:String>
+    <system:String x:Key="GroupIcon">&#xE902;</system:String>
+    <system:String x:Key="DictionaryIcon">&#xE82D;</system:String>
+    <system:String x:Key="DictionaryAddIcon">&#xE82E;</system:String>
 
 </ResourceDictionary>

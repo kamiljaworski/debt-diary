@@ -2,7 +2,7 @@
 
 namespace DebtDiary
 {
-    public class StatisticPanelViewModel : IStatisticsPanel
+    public class StatisticsPanelViewModel : IStatisticsPanel
     {
         public string Icon { get; set; }
         public string Description { get; set; }
