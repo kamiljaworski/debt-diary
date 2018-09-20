@@ -132,6 +132,9 @@
     <Compile Include="UserControls\OperationsList\ShortOperationsListItem.xaml.cs">
       <DependentUpon>ShortOperationsListItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Other\StatisticsPanel.xaml.cs">
+      <DependentUpon>StatisticsPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ValueConverters\ApplicationPageConverter.cs" />
     <Compile Include="ValueConverters\ApplicationSubpageConverter.cs" />
     <Compile Include="ValueConverters\BooleanToVisibilityConverter.cs" />
@@ -177,6 +180,8 @@
     <Compile Include="ViewModels\UserControls\OperationsList\Design\ShortOperationsListDesignModel.cs" />
     <Compile Include="ViewModels\UserControls\OperationsList\ShortOperationsListItemViewModel.cs" />
     <Compile Include="ViewModels\UserControls\OperationsList\ShortOperationsListViewModel.cs" />
+    <Compile Include="ViewModels\UserControls\Other\IStatisticPanel.cs" />
+    <Compile Include="ViewModels\UserControls\Other\StatisticPanelViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\Dialogs\DialogWindow.xaml.cs">
       <DependentUpon>DialogWindow.xaml</DependentUpon>
@@ -231,6 +236,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\OperationsList\ShortOperationsListItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Other\StatisticsPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

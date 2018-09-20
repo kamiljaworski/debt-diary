@@ -504,7 +504,7 @@
     </Style>
     <!--#endregion-->
 
-    <!--#region LoginPage PasswordBox and TextBox Styles -->
+    <!--#region LoginPage PasswordBox and TextBox Styles-->
     <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}" x:Key="LoginPageTextBox">
         <Setter Property="Margin" Value="20 0 20 0"/>
         <Setter Property="TextAlignment" Value="Center"/>
@@ -515,7 +515,6 @@
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
     </Style>
     <!--#endregion-->
-
 
     <!--#region Dialog Window Icon TextBlock-->
     <Style TargetType="{x:Type Label}" x:Key="DialogIconLabel">
@@ -544,8 +543,7 @@
     </Style>
     <!--#endregion-->
 
-
-    <!--#region Dialog Window Icon TextBlock-->
+    <!--#region Avatar Label-->
     <Style TargetType="{x:Type Label}" x:Key="AvatarLabel">
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Background" Value="Green"/>
