@@ -182,6 +182,7 @@
     <Compile Include="ViewModels\UserControls\OperationsList\ShortOperationsListViewModel.cs" />
     <Compile Include="ViewModels\UserControls\Other\IStatisticsPanel.cs" />
     <Compile Include="ViewModels\UserControls\Other\StatisticPanelViewModel.cs" />
+    <Compile Include="ViewModels\UserControls\Other\StatisticsPanelType.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\Dialogs\DialogWindow.xaml.cs">
       <DependentUpon>DialogWindow.xaml</DependentUpon>
