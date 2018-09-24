@@ -14,11 +14,13 @@
                     <ControlTemplate TargetType="{x:Type ContentControl}">
                         <Border Background="{Binding Background, Converter={local:ColorToBrushConverter}, FallbackValue='#8bc34a'}">
                             <Grid>
+
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="2*"/>
                                 </Grid.ColumnDefinitions>
-
+                                
+                                <!--#region Icon-->
                                 <Grid Grid.Column="0">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="*"/>
@@ -30,34 +32,43 @@
                                         <ColumnDefinition Width="8*"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
-                                    
+
                                     <Grid.Background>
                                         <SolidColorBrush Color="Black" Opacity="0.12"/>
                                     </Grid.Background>
-
+                                    
                                     <Viewbox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center">
-                                        <TextBlock Text="{Binding Message, Converter={local:StatisticPanelMessageToIconConverter}, FallbackValue='&#xEADF;'}" Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        <TextBlock Text="{Binding Message, Converter={local:StatisticPanelMessageToIconConverter}, FallbackValue='&#xEADF;'}" 
+                                                   Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="55" 
+                                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                     </Viewbox>
                                 </Grid>
+                                <!--#endregion-->
 
+                                <!--#region Content-->
                                 <Grid Grid.Column="1" Margin="5">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="2*"/>
                                     </Grid.RowDefinitions>
 
+                                    <!-- Message -->
                                     <Border  Grid.Row="0">
                                         <Viewbox HorizontalAlignment="Left">
-                                            <TextBlock Text="{Binding Message, Converter={local:StatisticPanelMessageToStringConverter}, FallbackValue='Owes you'}" Foreground="White"/>
+                                            <TextBlock Text="{Binding Message, Converter={local:StatisticPanelMessageToStringConverter}, FallbackValue='Owes you'}" 
+                                                       Foreground="White"/>
                                         </Viewbox>
                                     </Border>
 
+                                    <!-- Value -->
                                     <Border Grid.Row="1">
                                         <Viewbox HorizontalAlignment="Left">
-                                            <TextBlock Text="{Binding Value, TargetNullValue={x:Static localization:Strings.None}, FallbackValue='1000000000.00zł'}" Foreground="White"/>
+                                            <TextBlock Text="{Binding Value, TargetNullValue={x:Static localization:Strings.None}, FallbackValue='1000000000.00zł'}" 
+                                                       Foreground="White"/>
                                         </Viewbox>
                                     </Border>
                                 </Grid>
+                                <!--#endregion-->
                             </Grid>
                         </Border>
 
