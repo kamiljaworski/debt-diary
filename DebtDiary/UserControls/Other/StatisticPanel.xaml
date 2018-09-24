@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DebtDiary"
+             xmlns:localization="clr-namespace:DebtDiary.Localization" 
              mc:Ignorable="d" 
              d:DesignHeight="80" d:DesignWidth="260">
     <UserControl.Resources>
@@ -53,7 +54,7 @@
 
                                     <Border Grid.Row="1">
                                         <Viewbox HorizontalAlignment="Left">
-                                            <TextBlock Text="{Binding Value, FallbackValue='1000000000.00zł'}" Foreground="White"/>
+                                            <TextBlock Text="{Binding Value, TargetNullValue={x:Static localization:Strings.None}, FallbackValue='1000000000.00zł'}" Foreground="White"/>
                                         </Viewbox>
                                     </Border>
                                 </Grid>

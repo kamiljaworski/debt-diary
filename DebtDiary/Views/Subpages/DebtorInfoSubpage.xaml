@@ -47,40 +47,10 @@
 
         </Grid>
 
-        <Grid Grid.Row="1" Grid.Column="2" Background="#00bcd4" Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2*"/>
-            </Grid.ColumnDefinitions>
+        <local:StatisticPanel Grid.Row="1" Grid.Column="2" Margin="10" DataContext="{Binding NumberOfOperations}"/>
 
-            <Grid Grid.Column="0" Background="#00a5ba">
-                <TextBlock Text="&#xE82D;" Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            </Grid>
+        <local:StatisticPanel Grid.Row="1" Grid.Column="3" Margin="10" DataContext="{Binding LastOperation}"/>
 
-            <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="5">
-                <TextBlock Text="{x:Static localization:Strings.NumberOfOperations}" Foreground="White" FontSize="18"/>
-                <TextBlock Text="{Binding OperationsNumber, FallbackValue=4}" Foreground="White" FontSize="36"/>
-            </StackPanel>
-
-        </Grid>
-
-
-        <Grid Grid.Row="1" Grid.Column="3" Background="#e91e63" Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2*"/>
-            </Grid.ColumnDefinitions>
-
-            <Grid Grid.Column="0" Background="#cd1a57">
-                <TextBlock Text="&#xE82E;" Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            </Grid>
-
-            <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="5">
-                <TextBlock Text="{x:Static localization:Strings.LastOperation}" Foreground="White" FontSize="18"/>
-                <TextBlock Text="{Binding LastOperation, TargetNullValue={x:Static localization:Strings.None}, FallbackValue='-200.00'}" Foreground="White" FontSize="32"/>
-            </StackPanel>
-
-        </Grid>
 
         <!-- Debts course -->
         <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Background="White" Margin="10">

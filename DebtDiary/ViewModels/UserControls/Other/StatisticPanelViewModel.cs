@@ -2,13 +2,13 @@
 
 namespace DebtDiary
 {
-    public class StatisticsPanelViewModel : IStatisticsPanel
+    public class StatisticPanelViewModel : IStatisticsPanel
     {
         public string Value { get; set; }
         public Color Background { get; set; }
         public StatisticPanelMessage Message { get; set; }
 
-        public StatisticsPanelViewModel(StatisticPanelMessage message, Color background, string value)
+        public StatisticPanelViewModel(StatisticPanelMessage message, Color background, string value)
         {
             Message = message;
             Background = background;

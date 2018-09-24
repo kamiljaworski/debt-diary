@@ -10,7 +10,7 @@ namespace DebtDiary
         string FullName  { get; }
 
         IStatisticsPanel Debt { get; }
-        IStatisticsPanel NumerOfOperations { get; }
+        IStatisticsPanel NumberOfOperations { get; }
         IStatisticsPanel LastOperation { get; }
 
         SeriesCollection SeriesCollection { get; set; }

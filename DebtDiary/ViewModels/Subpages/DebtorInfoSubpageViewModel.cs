@@ -16,7 +16,7 @@ namespace DebtDiary
         public string FullName { get; private set; }
 
         public IStatisticsPanel Debt { get; private set; }
-        public IStatisticsPanel NumerOfOperations { get; private set; }
+        public IStatisticsPanel NumberOfOperations { get; private set; }
         public IStatisticsPanel LastOperation { get; private set; }
 
         public SeriesCollection SeriesCollection { get; set; }
@@ -98,8 +98,16 @@ namespace DebtDiary
         private void UpdateStatisticsPanels()
         {
             // Debt Panel
-            StatisticPanelMessage message = DebtorsGender == Gender.Male ? StatisticPanelMessage.DebtMale : StatisticPanelMessage.DebtFemale;
-            Debt = new StatisticsPanelViewModel(message, Color.Green, Helpers.GetFormattedCurrency(_selectedDebtor.Debt));
+            StatisticPanelMessage debtMessage = DebtorsGender == Gender.Male ? StatisticPanelMessage.DebtMale : StatisticPanelMessage.DebtFemale;
+            Debt = new StatisticPanelViewModel(debtMessage, Color.Green, Helpers.GetFormattedCurrency(_selectedDebtor.Debt));
+
+            // Numbers of Operations
+            int numberOfOperations = _selectedDebtor.Operations.Count;
+            NumberOfOperations = new StatisticPanelViewModel(StatisticPanelMessage.NumberOfOperations, Color.LightSeaGreen, numberOfOperations.ToString());
+
+            // Last Operation
+            string lastOperation = numberOfOperations == 0 ? null : Helpers.GetFormattedCurrency(_selectedDebtor.Operations.OrderByDescending(x => x.AdditionDate).First().Value);
+            LastOperation = new StatisticPanelViewModel(StatisticPanelMessage.LastOperation, Color.Orange, lastOperation);
         }
         #endregion
     }
