@@ -28,5 +28,6 @@
     <system:String x:Key="GroupIcon">&#xE902;</system:String>
     <system:String x:Key="DictionaryIcon">&#xE82D;</system:String>
     <system:String x:Key="DictionaryAddIcon">&#xE82E;</system:String>
+    <system:String x:Key="AddFriendIcon">&#xE8FA;</system:String>
 
 </ResourceDictionary>

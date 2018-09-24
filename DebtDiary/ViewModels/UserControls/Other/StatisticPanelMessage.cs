@@ -5,6 +5,7 @@
         DebtMale,
         DebtFemale,
         NumberOfOperations,
-        LastOperation
+        LastOperation,
+        AdditionDate
     }
 }

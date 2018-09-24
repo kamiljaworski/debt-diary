@@ -12,9 +12,8 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ContentControl}">
-                        <Border Background="{Binding Background, Converter={local:ColorToBrushConverter}, FallbackValue='#8bc34a'}">
+                        <Border Background="{Binding Background, Converter={local:ColorToBrushConverter}, FallbackValue=Green}">
                             <Grid>
-
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="2*"/>
@@ -63,7 +62,7 @@
                                     <!-- Value -->
                                     <Border Grid.Row="1">
                                         <Viewbox HorizontalAlignment="Left">
-                                            <TextBlock Text="{Binding Value, TargetNullValue={x:Static localization:Strings.None}, FallbackValue='1000000000.00zł'}" 
+                                            <TextBlock Text="{Binding Value, TargetNullValue={x:Static localization:Strings.None}, FallbackValue='100.00 zł'}" 
                                                        Foreground="White"/>
                                         </Viewbox>
                                     </Border>

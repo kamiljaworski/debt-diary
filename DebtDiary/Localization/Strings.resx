@@ -126,6 +126,9 @@
   <data name="Add" xml:space="preserve">
     <value>Add</value>
   </data>
+  <data name="AdditionDate" xml:space="preserve">
+    <value>Addition date</value>
+  </data>
   <data name="AddNewDebtor" xml:space="preserve">
     <value>Add new debtor</value>
   </data>

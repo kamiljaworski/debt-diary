@@ -28,6 +28,9 @@ namespace DebtDiary
                     case StatisticPanelMessage.LastOperation:
                         return Application.Current.FindResource("DictionaryAddIcon") as string;
 
+                    case StatisticPanelMessage.AdditionDate:
+                        return Application.Current.FindResource("AddFriendIcon") as string;
+
                     default:
                         return string.Empty;
                 }
