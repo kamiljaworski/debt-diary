@@ -66,14 +66,14 @@ namespace DebtDiary
             DebtorsGender = (Gender)_selectedDebtor.Gender;
             UsersGender = (Gender)IocContainer.Get<IClientDataStore>().LoggedUser.Gender;
 
-            GenderStringsConverter genderStrings = new GenderStringsConverter();
-            Debt = new StatisticsPanelViewModel
-            {
-                Description = (string)genderStrings.Convert(DebtorsGender, null, "OwesYou", null),
-                Value = Helpers.GetFormattedCurrency(_selectedDebtor.Debt),
-                Background = Color.Green,
-                Icon = Application.Current.FindResource("TrackersIcon") as string
-            };
+            StatisticsPanelMessage message;
+            if (DebtorsGender == Gender.Male)
+                message = StatisticsPanelMessage.OwesYouMale;
+            else
+                message = StatisticsPanelMessage.OwesYouFemale;
+
+            Debt = new StatisticsPanelViewModel(message, Color.Green, Helpers.GetFormattedCurrency(_selectedDebtor.Debt));
+
 
             //Debt = Helpers.GetFormattedCurrency(_selectedDebtor.Debt);
             //OperationsNumber = _selectedDebtor.Operations.Count;

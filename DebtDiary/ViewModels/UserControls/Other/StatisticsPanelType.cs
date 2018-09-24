@@ -2,7 +2,8 @@
 {
     public enum StatisticsPanelMessage
     {
-        OwesYou,
+        OwesYouMale,
+        OwesYouFemale,
         NumberOfOperations,
         LastOperation
     }

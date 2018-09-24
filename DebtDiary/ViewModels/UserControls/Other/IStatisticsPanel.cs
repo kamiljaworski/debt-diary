@@ -4,7 +4,6 @@
     {
         string Value { get; set; }
         Core.Color Background { get; set; }
-        StatisticsPanelMessage Type { get; set; }
-        Core.Gender Gender { get; set; }
+        StatisticsPanelMessage Message { get; set; }
     }
 }

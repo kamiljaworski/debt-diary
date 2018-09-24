@@ -18,23 +18,12 @@ namespace DebtDiary
                 return string.Empty;
 
             StatisticsPanelMessage type = (StatisticsPanelMessage)value;
-            Gender gender = Gender.None;
-
-            if (parameter is Gender)
-                return gender = (Gender)parameter;
 
             try
             {
                 // Create a resource manager to retrieve resources.
                 ResourceManager strings = new ResourceManager("DebtDiary.Localization.Strings", Assembly.GetExecutingAssembly());
-
-                // Return appropriate message
-                if (gender == Gender.None)
-                    return strings.GetString(type.ToString());
-                else if (gender == Gender.Female)
-                    return strings.GetString(type.ToString() + "Female");
-                else
-                    return strings.GetString(type.ToString() + "Male");
+                return strings.GetString(type.ToString());
             }
             catch (Exception)
             {

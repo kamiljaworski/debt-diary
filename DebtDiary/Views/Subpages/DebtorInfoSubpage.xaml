@@ -58,7 +58,7 @@
             </Grid>
 
             <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="5">
-                <TextBlock Text="{x:Static localization:Strings.OperationsNumber}" Foreground="White" FontSize="18"/>
+                <TextBlock Text="{x:Static localization:Strings.NumberOfOperations}" Foreground="White" FontSize="18"/>
                 <TextBlock Text="{Binding OperationsNumber, FallbackValue=4}" Foreground="White" FontSize="36"/>
             </StackPanel>
 

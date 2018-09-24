@@ -237,14 +237,14 @@
   <data name="None" xml:space="preserve">
     <value>brak</value>
   </data>
+  <data name="NumberOfOperations" xml:space="preserve">
+    <value>Liczba operacji</value>
+  </data>
   <data name="Ok" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="Operations" xml:space="preserve">
     <value>Operacje</value>
-  </data>
-  <data name="OperationsNumber" xml:space="preserve">
-    <value>Liczba operacji</value>
   </data>
   <data name="OwesYouFemale" xml:space="preserve">
     <value>Jest ci winna</value>

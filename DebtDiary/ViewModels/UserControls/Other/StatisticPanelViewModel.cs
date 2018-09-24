@@ -6,15 +6,13 @@ namespace DebtDiary
     {
         public string Value { get; set; }
         public Color Background { get; set; }
-        public StatisticsPanelMessage Type { get; set; }
-        public Gender Gender { get; set; }
+        public StatisticsPanelMessage Message { get; set; }
 
-        public StatisticsPanelViewModel(StatisticsPanelMessage type, Color background, string value, Gender gender = Gender.None)
+        public StatisticsPanelViewModel(StatisticsPanelMessage message, Color background, string value)
         {
-            Type = type;
+            Message = message;
             Background = background;
             Value = value;
-            Gender = Gender;
         }
     }
 }
