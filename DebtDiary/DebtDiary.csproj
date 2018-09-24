@@ -152,6 +152,7 @@
     <Compile Include="ValueConverters\GenderToBolleanConverter.cs" />
     <Compile Include="ValueConverters\HorizontalAlignmentToTextAlignmentConverter.cs" />
     <Compile Include="ValueConverters\OpacityToBolleanConverter.cs" />
+    <Compile Include="ValueConverters\StatisticsPanelMessageToStringConverter.cs" />
     <Compile Include="ValueConverters\TextToBooleanConverter.cs" />
     <Compile Include="ValueConverters\TimeSpanToDurationConverter.cs" />
     <Compile Include="ValueConverters\VisibilityToBooleanConverter.cs" />

@@ -1,8 +1,8 @@
 ﻿namespace DebtDiary
 {
-    public enum StatisticsPanelType
+    public enum StatisticsPanelMessage
     {
-        Debt,
+        OwesYou,
         NumberOfOperations,
         LastOperation
     }

@@ -237,14 +237,14 @@
   <data name="None" xml:space="preserve">
     <value>none</value>
   </data>
+  <data name="NumberOfOperations" xml:space="preserve">
+    <value>Number of operations</value>
+  </data>
   <data name="Ok" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="Operations" xml:space="preserve">
     <value>Operations</value>
-  </data>
-  <data name="OperationsNumber" xml:space="preserve">
-    <value>Number of operations</value>
   </data>
   <data name="OwesYouFemale" xml:space="preserve">
     <value>Owes you</value>
