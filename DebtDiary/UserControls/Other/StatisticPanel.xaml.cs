@@ -3,11 +3,11 @@
 namespace DebtDiary
 {
     /// <summary>
-    /// Interaction logic for StatisticsPanel.xaml
+    /// Interaction logic for StatisticPanel.xaml
     /// </summary>
-    public partial class StatisticsPanel : UserControl
+    public partial class StatisticPanel : UserControl
     {
-        public StatisticsPanel()
+        public StatisticPanel()
         {
             InitializeComponent();
         }

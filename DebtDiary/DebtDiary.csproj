@@ -132,8 +132,8 @@
     <Compile Include="UserControls\OperationsList\ShortOperationsListItem.xaml.cs">
       <DependentUpon>ShortOperationsListItem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Other\StatisticsPanel.xaml.cs">
-      <DependentUpon>StatisticsPanel.xaml</DependentUpon>
+    <Compile Include="UserControls\Other\StatisticPanel.xaml.cs">
+      <DependentUpon>StatisticPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="ValueConverters\ApplicationPageConverter.cs" />
     <Compile Include="ValueConverters\ApplicationSubpageConverter.cs" />
@@ -152,7 +152,8 @@
     <Compile Include="ValueConverters\GenderToBolleanConverter.cs" />
     <Compile Include="ValueConverters\HorizontalAlignmentToTextAlignmentConverter.cs" />
     <Compile Include="ValueConverters\OpacityToBolleanConverter.cs" />
-    <Compile Include="ValueConverters\StatisticsPanelMessageToStringConverter.cs" />
+    <Compile Include="ValueConverters\StatisticPanelMessageToIconConverter.cs" />
+    <Compile Include="ValueConverters\StatisticPanelMessageToStringConverter.cs" />
     <Compile Include="ValueConverters\TextToBooleanConverter.cs" />
     <Compile Include="ValueConverters\TimeSpanToDurationConverter.cs" />
     <Compile Include="ValueConverters\VisibilityToBooleanConverter.cs" />
@@ -182,8 +183,8 @@
     <Compile Include="ViewModels\UserControls\OperationsList\ShortOperationsListItemViewModel.cs" />
     <Compile Include="ViewModels\UserControls\OperationsList\ShortOperationsListViewModel.cs" />
     <Compile Include="ViewModels\UserControls\Other\IStatisticsPanel.cs" />
+    <Compile Include="ViewModels\UserControls\Other\StatisticPanelMessage.cs" />
     <Compile Include="ViewModels\UserControls\Other\StatisticPanelViewModel.cs" />
-    <Compile Include="ViewModels\UserControls\Other\StatisticsPanelType.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\Dialogs\DialogWindow.xaml.cs">
       <DependentUpon>DialogWindow.xaml</DependentUpon>
@@ -241,7 +242,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControls\Other\StatisticsPanel.xaml">
+    <Page Include="UserControls\Other\StatisticPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

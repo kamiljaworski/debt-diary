@@ -7,17 +7,17 @@ using System.Resources;
 namespace DebtDiary
 {
     /// <summary>
-    /// Converts <see cref="StatisticsPanelMessage"/> to <see cref="String"/>
+    /// Converts <see cref="StatisticPanelMessage"/> to <see cref="String"/>
     /// </summary>
-    public class StatisticsPanelMessageToStringConverter : BaseValueConverter<StatisticsPanelMessageToStringConverter>
+    public class StatisticPanelMessageToStringConverter : BaseValueConverter<StatisticPanelMessageToStringConverter>
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             // Get type and gender
-            if (!(value is StatisticsPanelMessage))
+            if (!(value is StatisticPanelMessage))
                 return string.Empty;
 
-            StatisticsPanelMessage type = (StatisticsPanelMessage)value;
+            StatisticPanelMessage type = (StatisticPanelMessage)value;
 
             try
             {

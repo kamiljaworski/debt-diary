@@ -124,6 +124,24 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Owes you.
+        /// </summary>
+        public static string DebtFemale {
+            get {
+                return ResourceManager.GetString("DebtFemale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Owes you.
+        /// </summary>
+        public static string DebtMale {
+            get {
+                return ResourceManager.GetString("DebtMale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This debtor has been already added.
         /// </summary>
         public static string DebtorExist {
@@ -444,24 +462,6 @@ namespace DebtDiary.Localization {
         public static string Operations {
             get {
                 return ResourceManager.GetString("Operations", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Owes you.
-        /// </summary>
-        public static string OwesYouFemale {
-            get {
-                return ResourceManager.GetString("OwesYouFemale", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Owes you.
-        /// </summary>
-        public static string OwesYouMale {
-            get {
-                return ResourceManager.GetString("OwesYouMale", resourceCulture);
             }
         }
         

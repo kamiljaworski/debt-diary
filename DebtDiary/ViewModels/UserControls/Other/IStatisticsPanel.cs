@@ -4,6 +4,6 @@
     {
         string Value { get; set; }
         Core.Color Background { get; set; }
-        StatisticsPanelMessage Message { get; set; }
+        StatisticPanelMessage Message { get; set; }
     }
 }

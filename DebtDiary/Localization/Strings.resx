@@ -138,6 +138,12 @@
   <data name="CreateAccount" xml:space="preserve">
     <value>Create account</value>
   </data>
+  <data name="DebtFemale" xml:space="preserve">
+    <value>Owes you</value>
+  </data>
+  <data name="DebtMale" xml:space="preserve">
+    <value>Owes you</value>
+  </data>
   <data name="DebtorExist" xml:space="preserve">
     <value>This debtor has been already added</value>
   </data>
@@ -245,12 +251,6 @@
   </data>
   <data name="Operations" xml:space="preserve">
     <value>Operations</value>
-  </data>
-  <data name="OwesYouFemale" xml:space="preserve">
-    <value>Owes you</value>
-  </data>
-  <data name="OwesYouMale" xml:space="preserve">
-    <value>Owes you</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>

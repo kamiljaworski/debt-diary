@@ -66,13 +66,7 @@ namespace DebtDiary
             DebtorsGender = (Gender)_selectedDebtor.Gender;
             UsersGender = (Gender)IocContainer.Get<IClientDataStore>().LoggedUser.Gender;
 
-            StatisticsPanelMessage message;
-            if (DebtorsGender == Gender.Male)
-                message = StatisticsPanelMessage.OwesYouMale;
-            else
-                message = StatisticsPanelMessage.OwesYouFemale;
-
-            Debt = new StatisticsPanelViewModel(message, Color.Green, Helpers.GetFormattedCurrency(_selectedDebtor.Debt));
+            UpdateStatisticsPanels();
 
 
             //Debt = Helpers.GetFormattedCurrency(_selectedDebtor.Debt);
@@ -96,6 +90,16 @@ namespace DebtDiary
             OperationsList = new ShortOperationsListViewModel(_selectedDebtor);
 
             IocContainer.Get<DebtorsListViewModel>().UpdateChanges();
+        }
+        #endregion
+
+        #region Private Methods
+
+        private void UpdateStatisticsPanels()
+        {
+            // Debt Panel
+            StatisticPanelMessage message = DebtorsGender == Gender.Male ? StatisticPanelMessage.DebtMale : StatisticPanelMessage.DebtFemale;
+            Debt = new StatisticsPanelViewModel(message, Color.Green, Helpers.GetFormattedCurrency(_selectedDebtor.Debt));
         }
         #endregion
     }

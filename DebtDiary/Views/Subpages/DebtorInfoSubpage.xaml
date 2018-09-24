@@ -27,7 +27,7 @@
 
         <TextBlock Grid.Row="0" Grid.ColumnSpan="4" Text="{Binding FullName, FallbackValue='Jan Kowalski'}" FontSize="40" FontFamily="{StaticResource LatoLight}" VerticalAlignment="Center" Padding="10 0 0 0"/>
         
-        <local:StatisticsPanel Grid.Row="1" Grid.Column="0" Margin="10" DataContext="{Binding Debt}"/>
+        <local:StatisticPanel Grid.Row="1" Grid.Column="0" Margin="10" DataContext="{Binding Debt}"/>
 
 
         <Grid Grid.Row="1" Grid.Column="1" Background="#ff9800" Margin="10">

@@ -6,9 +6,9 @@ namespace DebtDiary
     {
         public string Value { get; set; }
         public Color Background { get; set; }
-        public StatisticsPanelMessage Message { get; set; }
+        public StatisticPanelMessage Message { get; set; }
 
-        public StatisticsPanelViewModel(StatisticsPanelMessage message, Color background, string value)
+        public StatisticsPanelViewModel(StatisticPanelMessage message, Color background, string value)
         {
             Message = message;
             Background = background;
