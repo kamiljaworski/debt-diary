@@ -17,27 +17,45 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="2*"/>
                                 </Grid.ColumnDefinitions>
-                                
+
                                 <Grid Grid.Column="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="8*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="8*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    
                                     <Grid.Background>
                                         <SolidColorBrush Color="Black" Opacity="0.12"/>
                                     </Grid.Background>
-                                    <TextBlock Text="{Binding Icon, FallbackValue='&#xEADF;'}" Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                                    <Viewbox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center">
+                                        <TextBlock Text="{Binding Icon, FallbackValue='&#xEADF;'}" Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Viewbox>
                                 </Grid>
 
-                                <Grid Grid.Column="1" VerticalAlignment="Center" Margin="5">
+                                <Grid Grid.Column="1" Margin="5">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="2*"/>
                                     </Grid.RowDefinitions>
 
-                                    <Viewbox Grid.Row="0" HorizontalAlignment="Left">
-                                        <TextBlock Text="{Binding Description, FallbackValue='Owes you'}" Foreground="White"/>
-                                    </Viewbox>
-                                    
-                                    <Viewbox Grid.Row="1" HorizontalAlignment="Left">
-                                        <TextBlock Grid.Row="1" Text="{Binding Value, FallbackValue='100.00zł'}" Foreground="White"/>
-                                    </Viewbox>
+                                    <Border  Grid.Row="0">
+                                        <Viewbox HorizontalAlignment="Left">
+                                            <TextBlock Text="{Binding Description, FallbackValue='Owes you'}" Foreground="White"/>
+                                        </Viewbox>
+                                    </Border>
+
+                                    <Border Grid.Row="1">
+                                        <Viewbox HorizontalAlignment="Left">
+                                            <TextBlock Text="{Binding Value, FallbackValue='1000000000.00zł'}" Foreground="White"/>
+                                        </Viewbox>
+                                    </Border>
                                 </Grid>
                             </Grid>
                         </Border>
