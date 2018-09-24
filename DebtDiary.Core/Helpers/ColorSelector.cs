@@ -6,9 +6,6 @@ namespace DebtDiary.Core
     {
         private static Color[] _colors = (Color[])Enum.GetValues(typeof(Color));
 
-        /// <summary>
-        /// Get next color
-        /// </summary>
         public static Color Next(Color currentColor)
         {
             int index = Array.IndexOf(_colors, currentColor);
@@ -19,9 +16,6 @@ namespace DebtDiary.Core
             return _colors[index + 1];
         }
 
-        /// <summary>
-        /// Get previous color
-        /// </summary>
         public static Color Previous(Color currentColor)
         {
             int index = Array.IndexOf(_colors, currentColor);

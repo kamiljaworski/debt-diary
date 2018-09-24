@@ -103,15 +103,15 @@ namespace DebtDiary
             Debt = new StatisticPanelViewModel(debtMessage, Color.Green, Helpers.GetFormattedCurrency(_selectedDebtor.Debt));
 
             // Addition Date
-            AdditionDate = new StatisticPanelViewModel(StatisticPanelMessage.AdditionDate, Color.Orange, _selectedDebtor.AdditionDate.ToShortDateString());
+            AdditionDate = new StatisticPanelViewModel(StatisticPanelMessage.AdditionDate, RandomColorGenerator.GetRandomColorExcept(Color.Green), _selectedDebtor.AdditionDate.ToShortDateString());
 
             // Numbers of Operations
             int numberOfOperations = _selectedDebtor.Operations.Count;
-            NumberOfOperations = new StatisticPanelViewModel(StatisticPanelMessage.NumberOfOperations, Color.LightSeaGreen, numberOfOperations.ToString());
+            NumberOfOperations = new StatisticPanelViewModel(StatisticPanelMessage.NumberOfOperations, RandomColorGenerator.GetRandomColor(), numberOfOperations.ToString());
 
             // Last Operation
             string lastOperation = numberOfOperations == 0 ? null : Helpers.GetFormattedCurrency(_selectedDebtor.Operations.OrderByDescending(x => x.AdditionDate).First().Value);
-            LastOperation = new StatisticPanelViewModel(StatisticPanelMessage.LastOperation, Color.Orange, lastOperation);
+            LastOperation = new StatisticPanelViewModel(StatisticPanelMessage.LastOperation, RandomColorGenerator.GetRandomColor(), lastOperation);
         }
         #endregion
     }
