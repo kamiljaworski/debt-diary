@@ -137,6 +137,7 @@
     </Compile>
     <Compile Include="ValueConverters\ApplicationPageConverter.cs" />
     <Compile Include="ValueConverters\ApplicationSubpageConverter.cs" />
+    <Compile Include="ValueConverters\BaseMultiValueConverter.cs" />
     <Compile Include="ValueConverters\BooleanToVisibilityConverter.cs" />
     <Compile Include="ValueConverters\ColorToBrushConverter.cs" />
     <Compile Include="ValueConverters\ColorToStringConverter.cs" />
@@ -152,6 +153,7 @@
     <Compile Include="ValueConverters\GenderToBolleanConverter.cs" />
     <Compile Include="ValueConverters\HorizontalAlignmentToTextAlignmentConverter.cs" />
     <Compile Include="ValueConverters\OpacityToBolleanConverter.cs" />
+    <Compile Include="ValueConverters\StatisticPanelMessageToBrushConverter.cs" />
     <Compile Include="ValueConverters\StatisticPanelMessageToIconConverter.cs" />
     <Compile Include="ValueConverters\StatisticPanelMessageToStringConverter.cs" />
     <Compile Include="ValueConverters\TextToBooleanConverter.cs" />

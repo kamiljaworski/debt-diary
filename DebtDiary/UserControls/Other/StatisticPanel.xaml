@@ -12,7 +12,18 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ContentControl}">
-                        <Border Background="{Binding Background, Converter={local:ColorToBrushConverter}, FallbackValue=Green}">
+                        <Border>
+                            <Border.Background>
+
+                                <SolidColorBrush>
+                                    <SolidColorBrush.Color>
+                                        <MultiBinding Converter="{local:StatisticPanelMessageToBrushConverter}" FallbackValue="YellowGreen">
+                                            <Binding Path="Message"/>
+                                            <Binding Path="Value"/>
+                                        </MultiBinding>
+                                    </SolidColorBrush.Color>
+                                </SolidColorBrush>
+                            </Border.Background>
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
