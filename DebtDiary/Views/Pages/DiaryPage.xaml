@@ -89,7 +89,7 @@
 
         <!--#region SubPage-->
         <Border Grid.Column="1" Background="#e5e5e5" DataContext="{Binding ApplicationViewModel, Source={StaticResource ViewModelLocator}}">
-            <Frame Content="{Binding CurrentSubpage, Converter={local:ApplicationSubpageConverter}}" NavigationUIVisibility="Hidden"/>
+            <Frame Content="{Binding CurrentSubpage, Converter={local:ApplicationSubpageConverter}}" NavigationUIVisibility="Hidden" local:DisableNavigation.Disable="True"/>
         </Border>
         <!--#endregion-->
 

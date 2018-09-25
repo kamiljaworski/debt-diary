@@ -200,7 +200,7 @@
         </Grid.Background>
 
         <!-- Current Page -->
-        <Frame Content="{Binding CurrentPage, Converter={local:ApplicationPageConverter}}" NavigationUIVisibility="Hidden"/>
+        <Frame Content="{Binding CurrentPage, Converter={local:ApplicationPageConverter}}" NavigationUIVisibility="Hidden" local:DisableNavigation.Disable="True"/>
     </Grid>
     <!--#endregion-->
 
