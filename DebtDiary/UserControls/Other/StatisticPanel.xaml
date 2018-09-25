@@ -67,7 +67,7 @@
                                         <Viewbox HorizontalAlignment="Left">
                                             <TextBlock Foreground="White">
                                                 <TextBlock.Text>
-                                                    <MultiBinding Converter="{local:StatisticPanelMessageToStringConverter}">
+                                                    <MultiBinding Converter="{local:StatisticPanelMessageToStringConverter}" FallbackValue="Owes you">
                                                         <Binding Path="Message"/>
                                                         <Binding Path="Value"/>
                                                         <Binding Path="UsersGender"/>
@@ -80,8 +80,15 @@
                                     <!-- Value -->
                                     <Border Grid.Row="1">
                                         <Viewbox HorizontalAlignment="Left">
-                                            <TextBlock Text="{Binding Value, TargetNullValue={x:Static localization:Strings.None}, FallbackValue='100.00 zł'}" 
-                                                       Foreground="White"/>
+                                            <TextBlock Foreground="White">
+                                                <TextBlock.Text>
+                                                    <MultiBinding Converter="{local:StatisticPanelMessageValueConverter}" FallbackValue="1000.00 zł"
+                                                                  TargetNullValue="{x:Static localization:Strings.None}">
+                                                        <Binding Path="Message"/>
+                                                        <Binding Path="Value"/>
+                                                    </MultiBinding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
                                         </Viewbox>
                                     </Border>
                                 </Grid>

@@ -156,6 +156,7 @@
     <Compile Include="ValueConverters\StatisticPanelMessageToBrushConverter.cs" />
     <Compile Include="ValueConverters\StatisticPanelMessageToIconConverter.cs" />
     <Compile Include="ValueConverters\StatisticPanelMessageToStringConverter.cs" />
+    <Compile Include="ValueConverters\StatisticPanelMessageValueConverter.cs" />
     <Compile Include="ValueConverters\TextToBooleanConverter.cs" />
     <Compile Include="ValueConverters\TimeSpanToDurationConverter.cs" />
     <Compile Include="ValueConverters\VisibilityToBooleanConverter.cs" />
