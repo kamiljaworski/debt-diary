@@ -65,8 +65,15 @@
                                     <!-- Message -->
                                     <Border  Grid.Row="0">
                                         <Viewbox HorizontalAlignment="Left">
-                                            <TextBlock Text="{Binding Message, Converter={local:StatisticPanelMessageToStringConverter}, FallbackValue='Owes you'}" 
-                                                       Foreground="White"/>
+                                            <TextBlock Foreground="White">
+                                                <TextBlock.Text>
+                                                    <MultiBinding Converter="{local:StatisticPanelMessageToStringConverter}">
+                                                        <Binding Path="Message"/>
+                                                        <Binding Path="Value"/>
+                                                        <Binding Path="UsersGender"/>
+                                                    </MultiBinding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
                                         </Viewbox>
                                     </Border>
 

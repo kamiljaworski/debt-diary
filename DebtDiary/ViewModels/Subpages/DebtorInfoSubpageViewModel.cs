@@ -100,7 +100,7 @@ namespace DebtDiary
         {
             // Debt Panel
             StatisticPanelMessage debtMessage = DebtorsGender == Gender.Male ? StatisticPanelMessage.DebtMale : StatisticPanelMessage.DebtFemale;
-            Debt = new StatisticPanelViewModel(debtMessage, Helpers.GetFormattedCurrency(_selectedDebtor.Debt));
+            Debt = new StatisticPanelViewModel(debtMessage, Helpers.GetFormattedCurrency(_selectedDebtor.Debt), UsersGender);
 
             // Addition Date
             AdditionDate = new StatisticPanelViewModel(StatisticPanelMessage.AdditionDate, _selectedDebtor.AdditionDate.ToShortDateString());
