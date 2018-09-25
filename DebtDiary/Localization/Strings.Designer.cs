@@ -412,6 +412,42 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You owe her.
+        /// </summary>
+        public static string MinusDebtFemaleToFemale {
+            get {
+                return ResourceManager.GetString("MinusDebtFemaleToFemale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You owe him.
+        /// </summary>
+        public static string MinusDebtFemaleToMale {
+            get {
+                return ResourceManager.GetString("MinusDebtFemaleToMale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You owe her.
+        /// </summary>
+        public static string MinusDebtMaleToFemale {
+            get {
+                return ResourceManager.GetString("MinusDebtMaleToFemale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You owe him.
+        /// </summary>
+        public static string MinusDebtMaleToMale {
+            get {
+                return ResourceManager.GetString("MinusDebtMaleToMale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to My account.
         /// </summary>
         public static string MyAccount {

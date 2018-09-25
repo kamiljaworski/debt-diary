@@ -312,4 +312,16 @@
   <data name="You" xml:space="preserve">
     <value>You</value>
   </data>
+  <data name="MinusDebtFemaleToFemale" xml:space="preserve">
+    <value>You owe her</value>
+  </data>
+  <data name="MinusDebtMaleToFemale" xml:space="preserve">
+    <value>You owe her</value>
+  </data>
+  <data name="MinusDebtFemaleToMale" xml:space="preserve">
+    <value>You owe him</value>
+  </data>
+  <data name="MinusDebtMaleToMale" xml:space="preserve">
+    <value>You owe him</value>
+  </data>
 </root>
