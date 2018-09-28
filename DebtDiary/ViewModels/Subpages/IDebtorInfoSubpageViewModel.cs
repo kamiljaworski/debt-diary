@@ -28,6 +28,7 @@ namespace DebtDiary
         ICommand AddLoanCommand { get; set; }
         FormMessage LoanValueMessage { get; set; }
         FormMessage LoanDescriptionMessage { get; set; }
+        bool IsAddLoanFormRunning { get; set; }
 
         // Add repayment form
         string RepaymentValue { get; set; }
@@ -36,6 +37,7 @@ namespace DebtDiary
         ICommand AddRepaymentCommand { get; set; }
         FormMessage RepaymentValueMessage { get; set; }
         FormMessage RepaymentDescriptionMessage { get; set; }
+        bool IsAddRepaymentFormRunning { get; set; }
 
         // Public methods
         void UpdateChanges();

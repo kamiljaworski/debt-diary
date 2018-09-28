@@ -24,6 +24,11 @@
         IncorrectUsername,
         UnselectedGender,
         IncorrectPassword,
-        DebtorExist
+        DebtorExist,
+        EmptyValue,
+        EmptyDescription,
+        IncorrectValue,
+        IncorrectDescription,
+        NegativeNumber
     }
 }
