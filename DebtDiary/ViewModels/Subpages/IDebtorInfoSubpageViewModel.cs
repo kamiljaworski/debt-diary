@@ -26,12 +26,16 @@ namespace DebtDiary
         string LoanDescription { get; set; }
         OperationType LoanOperationType { get; set; }
         ICommand AddLoanCommand { get; set; }
+        FormMessage LoanValueMessage { get; set; }
+        FormMessage LoanDescriptionMessage { get; set; }
 
         // Add repayment form
         string RepaymentValue { get; set; }
         string RepaymentDescription { get; set; }
         OperationType RepaymentOperationType { get; set; }
         ICommand AddRepaymentCommand { get; set; }
+        FormMessage RepaymentValueMessage { get; set; }
+        FormMessage RepaymentDescriptionMessage { get; set; }
 
         // Public methods
         void UpdateChanges();

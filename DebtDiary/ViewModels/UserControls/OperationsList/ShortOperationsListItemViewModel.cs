@@ -6,9 +6,6 @@ namespace DebtDiary
     public class ShortOperationsListItemViewModel : BaseViewModel
     {
         public decimal Value { get; set; }
-        /// <summary>
-        /// TODO: new helper class with currency formatting method
-        /// </summary>
         public string FormattedValue => Helpers.GetFormattedCurrency(Value);
         public string Description { get; set; }
         public DateTime OperationDate { get; set; }
@@ -17,7 +14,6 @@ namespace DebtDiary
 
         public ShortOperationsListItemViewModel()
         {
-
         }
 
         public ShortOperationsListItemViewModel(Operation operation)

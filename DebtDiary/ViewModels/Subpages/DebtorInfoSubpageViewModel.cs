@@ -38,6 +38,8 @@ namespace DebtDiary
         public string LoanDescription { get; set; }
         public OperationType LoanOperationType { get; set; } = OperationType.DebtorsLoan;
         public ICommand AddLoanCommand { get; set; }
+        public FormMessage LoanValueMessage { get; set; } = FormMessage.None;
+        public FormMessage LoanDescriptionMessage { get; set; } = FormMessage.None;
         #endregion
 
         #region Add repayment form
@@ -45,8 +47,12 @@ namespace DebtDiary
         public string RepaymentDescription { get; set; }
         public OperationType RepaymentOperationType { get; set; } = OperationType.DebtorsRepayment;
         public ICommand AddRepaymentCommand { get; set; }
+        public FormMessage RepaymentValueMessage { get; set; } = FormMessage.None;
+        public FormMessage RepaymentDescriptionMessage { get; set; } = FormMessage.None;
         #endregion
         #endregion
+
+        #region Constructor
 
         public DebtorInfoSubpageViewModel()
         {
@@ -67,6 +73,7 @@ namespace DebtDiary
                 UpdateChanges();
             });
         }
+        #endregion
 
         #region Public Methods
 
