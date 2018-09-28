@@ -28,18 +28,18 @@ namespace DebtDiary
                 case StatisticPanelMessage.DebtMale:
                 case StatisticPanelMessage.DebtFemale:
                     if (panelValue != null && panelValue.Length > 0 && panelValue[0] == '-')
-                        return Brushes.OrangeRed.Color;
+                        return Color.FromRgb(226, 19, 29);
                     else
-                        return Brushes.YellowGreen.Color;
+                        return Color.FromRgb(139, 195, 74);
 
                 case StatisticPanelMessage.NumberOfOperations:
-                    return Brushes.MediumTurquoise.Color;
+                    return Color.FromRgb(0, 188, 212);
 
                 case StatisticPanelMessage.LastOperation:
-                    return Brushes.DeepPink.Color;
+                    return Color.FromRgb(233, 30, 99);
 
                 case StatisticPanelMessage.AdditionDate:
-                    return Brushes.Orange.Color;
+                    return Color.FromRgb(255, 152, 0);
             }
 
             // If there wasn't returned any color return green one
