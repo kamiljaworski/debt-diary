@@ -162,7 +162,7 @@
                     </Grid>
 
                     <Button Content="{x:Static localization:Strings.Add}" HorizontalAlignment="Center" Margin="0 10 0 0"
-                            Command="{Binding AddRepaymentCommand}"/>
+                            Command="{Binding AddRepaymentCommand}" local:IsBusyProperty.Value="{Binding IsRepaymentAddFormRunning}"/>
                 </StackPanel>
             </Grid>
         </StackPanel>

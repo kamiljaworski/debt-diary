@@ -64,6 +64,7 @@ namespace DebtDiary
         {
             CurrencyFormatter = value => Helpers.GetFormattedCurrency(value);
             AddLoanCommand = new RelayCommand(async () => await AddLoanAsync());
+            AddRepaymentCommand = new RelayCommand(async () => await AddRepaymentAsync());
         }
         #endregion
 
@@ -128,6 +129,35 @@ namespace DebtDiary
             });
 
         }
+
+        /// <summary>
+        /// Add new repayment to the users operations list
+        /// </summary>
+        /// <returns></returns>
+        private async Task AddRepaymentAsync()
+        {
+            await RunCommandAsync(() => IsAddRepaymentFormRunning, async () =>
+            {
+                // Validate entered data
+                if (await ValidateAddRepaymentDataAsync() == false)
+                    return;
+
+                // Check if there is sign change needed
+                decimal value = RepaymentOperationType == OperationType.UsersRepayment ? _repaymentValue : -_repaymentValue;
+                _selectedDebtor.Operations.Add(new Operation { Value = value, Description = RepaymentDescription, AdditionDate = DateTime.Now, OperationType = RepaymentOperationType });
+
+                // Save changes in the database
+                await Task.Run(() => IocContainer.Get<IDataAccess>().SaveChanges());
+
+                // Clear fields and update changes
+                ClearAddRepaymentFields();
+                UpdateChanges();
+            });
+
+        }
+        #endregion
+
+        #region Private helper methods
 
         /// <summary>
         /// Update all the statistic panels
@@ -218,6 +248,65 @@ namespace DebtDiary
             LoanValue = string.Empty;
             LoanDescription = string.Empty;
             LoanOperationType = OperationType.DebtorsLoan;
+        }
+        #endregion
+
+        #region Add repayment form helper methods
+
+        /// <summary>
+        /// Validate entered data
+        /// </summary>
+        private async Task<bool> ValidateAddRepaymentDataAsync()
+        {
+            await Task.Run(() =>
+            {
+                ResetFormMessages();
+
+                // Check if repayment value is empty
+                if (string.IsNullOrEmpty(RepaymentValue))
+                    RepaymentValueMessage = FormMessage.EmptyValue;
+
+                // Check if repayment description is empty
+                if (string.IsNullOrEmpty(RepaymentDescription))
+                    RepaymentDescriptionMessage = FormMessage.EmptyDescription;
+
+                // Check if repayment value is correct and try to convert it to decimal
+                if (RepaymentValueMessage == FormMessage.None && DataConverter.ToDecimal(RepaymentValue, out _repaymentValue) == false)
+                    RepaymentValueMessage = FormMessage.IncorrectValue;
+
+                // Check if repayment description is correct
+                if (RepaymentDescriptionMessage != FormMessage.None && DataValidator.IsNameCorrect(RepaymentDescription) == false)
+                    RepaymentDescriptionMessage = FormMessage.IncorrectDescription;
+
+                // Check if repayment value is greater than zero
+                if (RepaymentValueMessage == FormMessage.None && _repaymentValue < 0)
+                    RepaymentValueMessage = FormMessage.NegativeNumber;
+            });
+
+            return IsAddRepaymentEnteredDataCorrect();
+        }
+
+        /// <summary>
+        /// Check if add repayment form entered data is correct
+        /// </summary>
+        private bool IsAddRepaymentEnteredDataCorrect()
+        {
+            // If any of the messages changed its value return false
+            if (RepaymentDescriptionMessage != FormMessage.None || RepaymentValueMessage != FormMessage.None)
+                return false;
+
+            // If not return true
+            return true;
+        }
+
+        /// <summary>
+        /// Clear add repayment form properties
+        /// </summary>
+        private void ClearAddRepaymentFields()
+        {
+            RepaymentValue = string.Empty;
+            RepaymentDescription = string.Empty;
+            RepaymentOperationType = OperationType.DebtorsRepayment;
         }
         #endregion
     }
