@@ -5,7 +5,7 @@
         /// <summary>
         /// Changes first letter of a string to lower
         /// </summary>
-        private static string ToLowerFirstLetter(this string s)
+        public static string ToLowerFirstLetter(this string s)
         {
             if (string.IsNullOrEmpty(s))
                 return s;
@@ -16,6 +16,5 @@
 
             return changedString;
         }
-
     }
 }

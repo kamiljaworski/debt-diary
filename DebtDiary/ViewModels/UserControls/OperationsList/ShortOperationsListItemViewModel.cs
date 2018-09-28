@@ -23,7 +23,7 @@ namespace DebtDiary
         public ShortOperationsListItemViewModel(Operation operation)
         {
             Value = operation.Value;
-            Description = operation.Description;
+            Description = operation.Description.ToLowerFirstLetter();
             OperationDate = operation.AdditionDate;
         }
     }
