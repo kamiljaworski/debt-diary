@@ -102,6 +102,14 @@
     <Compile Include="Migrations\201809160910109_RenameDateToAdditionDate.Designer.cs">
       <DependentUpon>201809160910109_RenameDateToAdditionDate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809281646574_AddOperationType.cs" />
+    <Compile Include="Migrations\201809281646574_AddOperationType.Designer.cs">
+      <DependentUpon>201809281646574_AddOperationType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809281648033_AddOperationTypeDefaultValue.cs" />
+    <Compile Include="Migrations\201809281648033_AddOperationTypeDefaultValue.Designer.cs">
+      <DependentUpon>201809281648033_AddOperationTypeDefaultValue.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -154,6 +162,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809160910109_RenameDateToAdditionDate.resx">
       <DependentUpon>201809160910109_RenameDateToAdditionDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809281646574_AddOperationType.resx">
+      <DependentUpon>201809281646574_AddOperationType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809281648033_AddOperationTypeDefaultValue.resx">
+      <DependentUpon>201809281648033_AddOperationTypeDefaultValue.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
