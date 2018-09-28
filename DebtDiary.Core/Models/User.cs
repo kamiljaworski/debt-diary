@@ -25,7 +25,6 @@ namespace DebtDiary.Core
         public string Password { get; set; }
 
         public DateTime? RegisterDate { get; set; }
-
         public virtual List<Debtor> Debtors { get; set; } = new List<Debtor>();
     }
 }
