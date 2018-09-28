@@ -154,6 +154,7 @@
     <Compile Include="ValueConverters\GenderToBolleanConverter.cs" />
     <Compile Include="ValueConverters\HorizontalAlignmentToTextAlignmentConverter.cs" />
     <Compile Include="ValueConverters\OpacityToBolleanConverter.cs" />
+    <Compile Include="ValueConverters\OperationTypeToBooleanConverter.cs" />
     <Compile Include="ValueConverters\StatisticPanelMessageToBrushConverter.cs" />
     <Compile Include="ValueConverters\StatisticPanelMessageToIconConverter.cs" />
     <Compile Include="ValueConverters\StatisticPanelMessageToStringConverter.cs" />
