@@ -216,7 +216,7 @@ namespace DebtDiary
                     LoanValueMessage = FormMessage.IncorrectValue;
 
                 // Check if loan description is correct
-                if (LoanDescriptionMessage != FormMessage.None && DataValidator.IsNameCorrect(LoanDescription) == false)
+                if (LoanDescriptionMessage == FormMessage.None && DataValidator.IsNameCorrect(LoanDescription) == false)
                     LoanDescriptionMessage = FormMessage.IncorrectDescription;
 
                 // Check if loan value is greater than zero
@@ -275,7 +275,7 @@ namespace DebtDiary
                     RepaymentValueMessage = FormMessage.IncorrectValue;
 
                 // Check if repayment description is correct
-                if (RepaymentDescriptionMessage != FormMessage.None && DataValidator.IsNameCorrect(RepaymentDescription) == false)
+                if (RepaymentDescriptionMessage == FormMessage.None && DataValidator.IsNameCorrect(RepaymentDescription) == false)
                     RepaymentDescriptionMessage = FormMessage.IncorrectDescription;
 
                 // Check if repayment value is greater than zero
