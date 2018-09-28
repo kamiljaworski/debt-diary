@@ -86,7 +86,8 @@ namespace DebtDiary
                     Email = Email,
                     Password = _password.GetEncryptedPassword(),
                     Gender = Gender,
-                    RegisterDate = DateTime.Now
+                    RegisterDate = DateTime.Now,
+                    AvatarColor = RandomColorGenerator.GetRandomColor()
                 };
 
                 // Sign up a new user
