@@ -205,6 +205,15 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter description.
+        /// </summary>
+        public static string EmptyDescription {
+            get {
+                return ResourceManager.GetString("EmptyDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter e-mail address.
         /// </summary>
         public static string EmptyEmail {
@@ -259,6 +268,15 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter amount.
+        /// </summary>
+        public static string EmptyValue {
+            get {
+                return ResourceManager.GetString("EmptyValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Female.
         /// </summary>
         public static string Female {
@@ -304,6 +322,15 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Incorrect description.
+        /// </summary>
+        public static string IncorrectDescription {
+            get {
+                return ResourceManager.GetString("IncorrectDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Incorrect e-mail address.
         /// </summary>
         public static string IncorrectEmail {
@@ -345,6 +372,15 @@ namespace DebtDiary.Localization {
         public static string IncorrectUsername {
             get {
                 return ResourceManager.GetString("IncorrectUsername", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Incorrect amount.
+        /// </summary>
+        public static string IncorrectValue {
+            get {
+                return ResourceManager.GetString("IncorrectValue", resourceCulture);
             }
         }
         
@@ -453,6 +489,15 @@ namespace DebtDiary.Localization {
         public static string MyAccount {
             get {
                 return ResourceManager.GetString("MyAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter positive amount.
+        /// </summary>
+        public static string NegativeNumber {
+            get {
+                return ResourceManager.GetString("NegativeNumber", resourceCulture);
             }
         }
         

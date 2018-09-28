@@ -324,4 +324,19 @@
   <data name="MinusDebtMaleToMale" xml:space="preserve">
     <value>Jesteś mu winny</value>
   </data>
+  <data name="EmptyDescription" xml:space="preserve">
+    <value>Wprowadź opis</value>
+  </data>
+  <data name="EmptyValue" xml:space="preserve">
+    <value>Wprowadź kwotę</value>
+  </data>
+  <data name="IncorrectDescription" xml:space="preserve">
+    <value>Niepoprawny opis</value>
+  </data>
+  <data name="IncorrectValue" xml:space="preserve">
+    <value>Niepoprawna kwota</value>
+  </data>
+  <data name="NegativeNumber" xml:space="preserve">
+    <value>Wprowadź dodatnią kwotę</value>
+  </data>
 </root>
