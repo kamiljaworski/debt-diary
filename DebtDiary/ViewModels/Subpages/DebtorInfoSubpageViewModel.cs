@@ -11,28 +11,42 @@ namespace DebtDiary
 {
     public class DebtorInfoSubpageViewModel : BaseViewModel, IDebtorInfoSubpageViewModel
     {
+        #region Private members
         private Debtor _selectedDebtor = null;
+        #endregion
 
+        #region Public properties
+
+        #region Properties showed in the view
         public string FullName { get; private set; }
-
         public IStatisticsPanel Debt { get; private set; }
         public IStatisticsPanel AdditionDate { get; private set; }
         public IStatisticsPanel NumberOfOperations { get; private set; }
         public IStatisticsPanel LastOperation { get; private set; }
-
-        public SeriesCollection SeriesCollection { get; set; }
         public Gender DebtorsGender { get; private set; }
         public Gender UsersGender { get; private set; }
+        #endregion
 
+        #region Chart and operations list
+        public SeriesCollection SeriesCollection { get; set; }
+        public ShortOperationsListViewModel OperationsList { get; private set; } = null;
+        public Func<decimal, string> CurrencyFormatter { get; set; }
+        #endregion
+
+        #region Add loan form
         public string LoanValue { get; set; }
         public string LoanDescription { get; set; }
+        public OperationType LoanOperationType { get; set; } = OperationType.DebtorsLoan;
         public ICommand AddLoanCommand { get; set; }
+        #endregion
 
-        public ShortOperationsListViewModel OperationsList { get; private set; } = null;
-
-        public Func<decimal, string> CurrencyFormatter { get; set; }
-
-
+        #region Add repayment form
+        public string RepaymentValue { get; set; }
+        public string RepaymentDescription { get; set; }
+        public OperationType RepaymentOperationType { get; set; } = OperationType.DebtorsRepayment;
+        public ICommand AddRepaymentCommand { get; set; }
+        #endregion
+        #endregion
 
         public DebtorInfoSubpageViewModel()
         {

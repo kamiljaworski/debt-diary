@@ -25,7 +25,8 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.ColumnSpan="4" Text="{Binding FullName, FallbackValue='Jan Kowalski'}" FontSize="40" FontFamily="{StaticResource LatoLight}" VerticalAlignment="Center" Padding="10 0 0 0"/>
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="4" Text="{Binding FullName, FallbackValue='Jan Kowalski'}" FontSize="40" FontFamily="{StaticResource LatoLight}" 
+                   VerticalAlignment="Center" Padding="10 0 0 0"/>
         
         <!-- Debt -->
         <local:StatisticPanel Grid.Row="1" Grid.Column="0" Margin="10" DataContext="{Binding Debt}"/>
@@ -103,10 +104,10 @@
                         <StackPanel Grid.Column="1" VerticalAlignment="Center">
                             <StackPanel Orientation="Horizontal">
                                 <RadioButton Content="{Binding DebtorsGender, Converter={local:GenderStringsConverter}, ConverterParameter='Person', FallbackValue='He'}" 
-                             IsChecked="{Binding Gender, Converter={local:GenderToBolleanConverter}, ConverterParameter='Male'}"
+                             IsChecked="{Binding LoanOperationType, Converter={local:OperationTypeToBooleanConverter}, ConverterParameter='DebtorsLoan'}"
                              local:FormMessageProperty.Value="{Binding GenderMessage}"/>
                                 <RadioButton Content="{x:Static localization:Strings.You}" Margin="10 0 0 0"
-                             IsChecked="{Binding Gender, Converter={local:GenderToBolleanConverter}, ConverterParameter='Female'}"
+                             IsChecked="{Binding LoanOperationType, Converter={local:OperationTypeToBooleanConverter}, ConverterParameter='UsersLoan'}"
                              local:FormMessageProperty.Value="{Binding GenderMessage}"/>
                             </StackPanel>
                         </StackPanel>
@@ -131,10 +132,10 @@
                 <StackPanel Grid.Column="1">
 
                     <!-- Last Name-->
-                    <TextBox Text="{Binding LoanValue}" Tag="{x:Static localization:Strings.Amount}"
+                    <TextBox Text="{Binding RepaymentValue}" Tag="{x:Static localization:Strings.Amount}"
                          local:FormMessageProperty.Value="{Binding LastNameMessage}"/>
 
-                    <TextBox Text="{Binding LoanDescription}" Tag="{x:Static localization:Strings.Description}"
+                    <TextBox Text="{Binding RepaymentDescription}" Tag="{x:Static localization:Strings.Description}"
                          local:FormMessageProperty.Value="{Binding LastNameMessage}"/>
 
                     <!-- Gender -->
@@ -151,17 +152,17 @@
                         <StackPanel Grid.Column="1" VerticalAlignment="Center">
                             <StackPanel Orientation="Horizontal">
                                 <RadioButton Content="{Binding DebtorsGender, Converter={local:GenderStringsConverter}, ConverterParameter='Person', FallbackValue='He'}" 
-                             IsChecked="{Binding Gender, Converter={local:GenderToBolleanConverter}, ConverterParameter='Male'}"
+                             IsChecked="{Binding RepaymentOperationType, Converter={local:OperationTypeToBooleanConverter}, ConverterParameter='DebtorsRepayment'}"
                              local:FormMessageProperty.Value="{Binding GenderMessage}"/>
                                 <RadioButton Content="{x:Static localization:Strings.You}" Margin="10 0 0 0"
-                             IsChecked="{Binding Gender, Converter={local:GenderToBolleanConverter}, ConverterParameter='Female'}"
+                             IsChecked="{Binding RepaymentOperationType, Converter={local:OperationTypeToBooleanConverter}, ConverterParameter='UsersRepayment'}"
                              local:FormMessageProperty.Value="{Binding GenderMessage}"/>
                             </StackPanel>
                         </StackPanel>
                     </Grid>
 
                     <Button Content="{x:Static localization:Strings.Add}" HorizontalAlignment="Center" Margin="0 10 0 0"
-                            Command="{Binding AddLoanCommand}"/>
+                            Command="{Binding AddRepaymentCommand}"/>
                 </StackPanel>
             </Grid>
         </StackPanel>
