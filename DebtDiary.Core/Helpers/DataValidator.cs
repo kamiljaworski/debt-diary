@@ -41,7 +41,7 @@ namespace DebtDiary.Core
             // Return true if name is valid
             try
             {
-                return Regex.IsMatch(name, @"^[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]{2,}$", RegexOptions.None, TimeSpan.FromMilliseconds(250));
+                return Regex.IsMatch(name, @"^[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ ]{2,}$", RegexOptions.None, TimeSpan.FromMilliseconds(250));
             }
             catch (RegexMatchTimeoutException)
             {
