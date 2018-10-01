@@ -316,10 +316,10 @@
     <value>Jesteś jej winna</value>
   </data>
   <data name="MinusDebtFemaleToMale" xml:space="preserve">
-    <value>Jesteś mu winna</value>
+    <value>Jesteś jej winny</value>
   </data>
   <data name="MinusDebtMaleToFemale" xml:space="preserve">
-    <value>Jesteś jej winny</value>
+    <value>Jesteś mu winna</value>
   </data>
   <data name="MinusDebtMaleToMale" xml:space="preserve">
     <value>Jesteś mu winny</value>

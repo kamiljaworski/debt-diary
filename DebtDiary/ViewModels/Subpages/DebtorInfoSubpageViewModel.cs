@@ -75,6 +75,7 @@ namespace DebtDiary
         /// </summary>
         public void UpdateChanges()
         {
+            // TODO: Update in another threat
             _selectedDebtor = IocContainer.Get<IApplicationViewModel>().SelectedDebtor;
             if (_selectedDebtor == null)
                 return;
