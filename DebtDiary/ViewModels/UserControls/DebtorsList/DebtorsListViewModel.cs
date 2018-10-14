@@ -38,5 +38,14 @@ namespace DebtDiary
         }
 
         public void Reset() => Debtors = new ObservableCollection<DebtorsListItemViewModel>();
+
+        public void Sort(SortType sortType)
+        {
+            // Sort Debtors list with appropriate order
+            IOrderedEnumerable<DebtorsListItemViewModel> list = sortType == SortType.Ascending ? Debtors.OrderBy(x => x.Debt) : Debtors.OrderByDescending(x => x.Debt);
+
+            // Make ObservableCollection from this list
+            Debtors = new ObservableCollection<DebtorsListItemViewModel>(list);
+        }
     }
 }

@@ -64,6 +64,7 @@ namespace DebtDiary
             SortCommand = new RelayCommand(() =>
             {
                 SortType = SortType == SortType.Ascending ? SortType.Descending : SortType.Ascending;
+                IocContainer.Get<DebtorsListViewModel>().Sort(SortType);
             });
         }
 
