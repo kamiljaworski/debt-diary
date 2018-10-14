@@ -16,7 +16,7 @@ namespace DebtDiary
                 // Try to get logged user info while application is working
                 try
                 {
-                    UpdateChanges();
+                    Update();
                 }
                 // If IoC isn't working (when it is in design mode) do nothing
                 catch { }
@@ -26,7 +26,7 @@ namespace DebtDiary
         /// <summary>
         /// Updates debtors list in this View Model
         /// </summary>
-        public void UpdateChanges()
+        public void Update()
         {
             User loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
 
@@ -36,5 +36,7 @@ namespace DebtDiary
             // Make ObservableCollection from this list
             Debtors = new ObservableCollection<DebtorsListItemViewModel>(debtorsList);
         }
+
+        public void Reset() => Debtors = new ObservableCollection<DebtorsListItemViewModel>();
     }
 }

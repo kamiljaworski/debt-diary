@@ -100,6 +100,12 @@ namespace DebtDiary
                 // Save user in the application data
                 IocContainer.Get<IClientDataStore>().LoginUser(_loggedUser);
 
+                // Update debtors list
+                await Task.Run(() => IocContainer.Get<DebtorsListViewModel>().Update());
+
+                // TODO: Reset diary page active buttons
+                // TODO: await for summary page data
+
                 // And go to diary page
                 ChangeApplicationPage(ApplicationPage.DiaryPage);
             });

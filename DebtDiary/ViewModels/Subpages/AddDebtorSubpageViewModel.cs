@@ -79,7 +79,7 @@ namespace DebtDiary
 
                 // Update list in the ViewModel
                 DebtorsListViewModel debtorsList = IocContainer.Get<DebtorsListViewModel>();
-                debtorsList.UpdateChanges();
+                debtorsList.Update();
 
                 // Turn off spinning text
                 IsAddDebtorRunning = false;

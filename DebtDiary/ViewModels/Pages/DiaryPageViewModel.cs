@@ -49,6 +49,8 @@ namespace DebtDiary
             {
                 ResetActiveButtons();
                 IsLogoutActive = true;
+                IocContainer.Get<IClientDataStore>().LogoutUser();
+                IocContainer.Get<IApplicationViewModel>().ChangeCurrentPage(ApplicationPage.LoginPage);
             });
 
             AddDebtorCommand = new RelayCommand(() =>

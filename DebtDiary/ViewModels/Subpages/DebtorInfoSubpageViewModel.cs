@@ -98,7 +98,7 @@ namespace DebtDiary
 
             OperationsList = new ShortOperationsListViewModel(_selectedDebtor);
 
-            IocContainer.Get<DebtorsListViewModel>().UpdateChanges();
+            IocContainer.Get<DebtorsListViewModel>().Update();
 
         }
         #endregion
