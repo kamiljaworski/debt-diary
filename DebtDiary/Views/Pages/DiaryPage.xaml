@@ -60,22 +60,31 @@
                             <!-- Summary button -->
                             <Button Style="{StaticResource SideMenuButton}" Content="{x:Static localization:Strings.Summary}" 
                                     local:IconProperty.Value="{StaticResource HomeIcon}" local:IsActiveProperty.Value="{Binding IsSummaryActive}" Command="{Binding SummaryCommand}"/>
-                            
+
                             <!-- My Account button -->
                             <Button Style="{StaticResource SideMenuButton}" Content="{x:Static localization:Strings.MyAccount}" 
                                     local:IconProperty.Value="{StaticResource ContactIcon}" local:IsActiveProperty.Value="{Binding IsMyAccountActive}" Command="{Binding MyAccountCommand}"/>
-                            
+
                             <!-- Logout button -->
                             <Button Style="{StaticResource SideMenuButton}" Content="{x:Static localization:Strings.Logout}"
                                     local:IconProperty.Value="{StaticResource PowerIcon}" local:IsActiveProperty.Value="{Binding IsLogoutActive}" Command="{Binding LogoutCommand}"/>
-                            
-                            <!-- Add debtor button -->
-                            <Button Style="{StaticResource SideMenuButton}" Content="Add debtor" Command="{Binding AddDebtorCommand}" local:IconProperty.Value="{StaticResource AddIcon}"/>
-                            
+
                             <Border BorderBrush="{StaticResource VeryDarkGreyBrush}" BorderThickness="0 0 0 2" Margin="0 10 0 5"/>
-                            
-                            <!-- Debtors headline -->
-                            <TextBlock Text="{x:Static localization:Strings.Debtors}" Foreground="Gray" FontFamily="{StaticResource LatoSemiBold}" FontSize="16" Margin="10 0 0 5"/>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Debtors headline -->
+                                <TextBlock Grid.Column="0" Text="{x:Static localization:Strings.Debtors}" Foreground="Gray" FontFamily="{StaticResource LatoSemiBold}" FontSize="16" Margin="10 0 0 5"/>
+
+                                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 20 0">
+                                    <Button Style="{StaticResource DarkIconButton}" Content="{StaticResource AscendingIcon}"  Margin="0 0 15 0"/>
+                                    <Button Style="{StaticResource DarkIconButton}" Content="{StaticResource AddIcon}" Command="{Binding AddDebtorCommand}" FontSize="20"/>
+                                </StackPanel>
+                            </Grid>
                         </StackPanel>
 
                         <!-- Debtors list -->

@@ -33,6 +33,8 @@
     <system:String x:Key="ContactIcon">&#xEA8C;</system:String>
     <system:String x:Key="PowerIcon">&#xE7E8;</system:String>
     <system:String x:Key="HomeIcon">&#xEA8A;</system:String>
-    <system:String x:Key="AddIcon"> &#xE710;</system:String>
+    <system:String x:Key="AddIcon">&#xE710;</system:String>
+    <system:String x:Key="AscendingIcon">&#xEB11;</system:String>
+    <system:String x:Key="DescendingIcon">&#xEB0F;</system:String>
 
 </ResourceDictionary>
