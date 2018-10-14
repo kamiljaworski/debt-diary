@@ -81,7 +81,7 @@
                                 <TextBlock Grid.Column="0" Text="{x:Static localization:Strings.Debtors}" Foreground="Gray" FontFamily="{StaticResource LatoSemiBold}" FontSize="16" Margin="10 0 0 5"/>
 
                                 <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 20 0">
-                                    <Button Style="{StaticResource DarkIconButton}" Content="{StaticResource AscendingIcon}"  Margin="0 0 15 0"/>
+                                    <Button Style="{StaticResource DarkIconButton}" Content="{Binding SortType, Converter={local:SortTypeToIconConverter}}" Margin="0 0 15 0" Command="{Binding SortCommand}"/>
                                     <Button Style="{StaticResource DarkIconButton}" Content="{StaticResource AddIcon}" Command="{Binding AddDebtorCommand}" FontSize="20"/>
                                 </StackPanel>
                             </Grid>

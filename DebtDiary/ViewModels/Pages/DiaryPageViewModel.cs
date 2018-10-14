@@ -13,10 +13,12 @@ namespace DebtDiary
         public ICommand MyAccountCommand { get; set; }
         public ICommand LogoutCommand { get; set; }
         public ICommand AddDebtorCommand { get; set; }
+        public ICommand SortCommand { get; set; }
 
         public bool IsSummaryActive { get; set; }
         public bool IsMyAccountActive { get; set; }
         public bool IsLogoutActive { get; set; }
+        public SortType SortType { get; set; } = SortType.Descending;
 
 
         public DiaryPageViewModel(bool designTime = false)
@@ -57,6 +59,11 @@ namespace DebtDiary
             {
                 ResetActiveButtons();
                 IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.AddDebtorSubpage);
+            });
+
+            SortCommand = new RelayCommand(() =>
+            {
+                SortType = SortType == SortType.Ascending ? SortType.Descending : SortType.Ascending;
             });
         }
 
