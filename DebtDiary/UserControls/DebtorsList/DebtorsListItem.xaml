@@ -29,7 +29,7 @@
 
                                 <Label Grid.Column="0" Width="40" Style="{StaticResource AvatarLabel}" Content="{Binding Initials}" Background="{Binding AvatarColor, Converter={local:ColorToBrushConverter}}"/>
 
-                                <StackPanel Grid.Column="1" Margin="10">
+                                <StackPanel Grid.Column="1" Margin="10 10 0 10">
                                     <TextBlock Text="{Binding FullName}" Foreground="White" FontFamily="{StaticResource LatoRegular}" FontSize="18"/>
                                     <TextBlock Text="{Binding FormattedDebt}" Foreground="{Binding Debt, Converter={local:DecimalToBrushConverter}}" FontFamily="{StaticResource LatoLight}" FontSize="16"/>
                                 </StackPanel>
