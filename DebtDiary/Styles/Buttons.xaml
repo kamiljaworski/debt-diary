@@ -406,14 +406,14 @@
     <Style TargetType="{x:Type Button}" x:Key="SideMenuButton">
         <Setter Property="Background" Value="{StaticResource DarkGreyBrush}"/>
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="FontSize" Value="20"/>
         <Setter Property="local:IconProperty.Value" Value="&#xEA8A;"/>
         <Setter Property="local:IsActiveProperty.Value" Value="False"/>
 
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border x:Name="Border" Background="{TemplateBinding Background}" Margin="0 2 0 0" Height="30">
+                    <Border x:Name="Border" Background="{TemplateBinding Background}" Height="30">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="3"/>
@@ -423,7 +423,7 @@
                             </Grid.ColumnDefinitions>
 
                             <Border Grid.Column="0" Background="{StaticResource ButtonGreenBrush}" x:Name="LeftBar" Opacity="0"/>
-                            <TextBlock Grid.Column="2" Text="{TemplateBinding local:IconProperty.Value}" Foreground="{TemplateBinding Foreground}" FontFamily="{StaticResource Segoe-MDL2}" FontSize="{TemplateBinding FontSize}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                            <TextBlock Grid.Column="2" Text="{TemplateBinding local:IconProperty.Value}" Foreground="{TemplateBinding Foreground}" FontFamily="{StaticResource Segoe-MDL2}" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                             <TextBlock Grid.Column="3" Text="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}" FontFamily="{StaticResource LatoLight}" FontSize="{TemplateBinding FontSize}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                         </Grid>
                     </Border>

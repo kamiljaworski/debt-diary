@@ -52,16 +52,16 @@
 
 
                         <StackPanel Grid.Row="0">
-                            <TextBlock Text="{x:Static localization:Strings.General}" Foreground="Gray" FontFamily="{StaticResource LatoSemiBold}" FontSize="16" Margin="10 0 0 0"/>
+                            <TextBlock Text="{x:Static localization:Strings.General}" Foreground="Gray" FontFamily="{StaticResource LatoSemiBold}" FontSize="16" Margin="10 0 0 5"/>
 
-                            <Button Style="{StaticResource SideMenuButton}" Content="Summary"/>
-                            <Button Style="{StaticResource SideMenuButton}" Content="My account" local:IconProperty.Value="&#xEA8C;"/>
-                            <Button Style="{StaticResource SideMenuButton}" Content="Logout" local:IconProperty.Value="&#xE7E8;"/>
-                            <Button Style="{StaticResource SideMenuButton}" Content="Add Debtor" Command="{Binding AddDebtorCommand}"/>
+                            <Button Style="{StaticResource SideMenuButton}" Content="{x:Static localization:Strings.Summary}" local:IsActiveProperty.Value="{Binding IsSummaryActive}" Command="{Binding SummaryCommand}"/>
+                            <Button Style="{StaticResource SideMenuButton}" Content="{x:Static localization:Strings.MyAccount}" local:IconProperty.Value="&#xEA8C;" local:IsActiveProperty.Value="{Binding IsMyAccountActive}" Command="{Binding MyAccountCommand}"/>
+                            <Button Style="{StaticResource SideMenuButton}" Content="{x:Static localization:Strings.Logout}" local:IconProperty.Value="&#xE7E8;" local:IsActiveProperty.Value="{Binding IsLogoutActive}" Command="{Binding LogoutCommand}"/>
+                            <Button Style="{StaticResource SideMenuButton}" Content="Add debtor" Command="{Binding AddDebtorCommand}"/>
 
                             <Border BorderBrush="{StaticResource VeryDarkGreyBrush}" BorderThickness="0 0 0 2" Margin="0 15 0 5"/>
 
-                            <TextBlock Text="{x:Static localization:Strings.Debtors}" Foreground="Gray" FontFamily="{StaticResource LatoSemiBold}" FontSize="16" Margin="10 0 0 0"/>
+                            <TextBlock Text="{x:Static localization:Strings.Debtors}" Foreground="Gray" FontFamily="{StaticResource LatoSemiBold}" FontSize="16" Margin="10 0 0 5"/>
 
                         </StackPanel>
 

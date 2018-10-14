@@ -6,12 +6,18 @@ namespace DebtDiary
     public class DiaryPageViewModel : BaseViewModel
     {
         public string FullName { get; set; }
-
         public string Username { get; set; }
-
         public string Initials { get; set; }
 
+        public ICommand SummaryCommand { get; set; }
+        public ICommand MyAccountCommand { get; set; }
+        public ICommand LogoutCommand { get; set; }
         public ICommand AddDebtorCommand { get; set; }
+
+        public bool IsSummaryActive { get; set; }
+        public bool IsMyAccountActive { get; set; }
+        public bool IsLogoutActive { get; set; }
+
 
         public DiaryPageViewModel(bool designTime = false)
         {
@@ -24,7 +30,39 @@ namespace DebtDiary
                 Initials = loggedUser.Initials;
             }
 
-            AddDebtorCommand = new RelayCommand(() => IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.AddDebtorSubpage));
+
+
+            SummaryCommand = new RelayCommand(() =>
+            {
+                ResetActiveButtons();
+                IsSummaryActive = true;
+                IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.SummarySubpage);
+            });
+
+            MyAccountCommand = new RelayCommand(() =>
+            {
+                ResetActiveButtons();
+                IsMyAccountActive = true;
+            });
+
+            LogoutCommand = new RelayCommand(() =>
+            {
+                ResetActiveButtons();
+                IsLogoutActive = true;
+            });
+
+            AddDebtorCommand = new RelayCommand(() =>
+            {
+                ResetActiveButtons();
+                IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.AddDebtorSubpage);
+            });
+        }
+
+        public void ResetActiveButtons()
+        {
+            IsSummaryActive = false;
+            IsMyAccountActive = false;
+            IsLogoutActive = false;
         }
 
     }
