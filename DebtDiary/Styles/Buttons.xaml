@@ -407,7 +407,7 @@
         <Setter Property="Background" Value="{StaticResource DarkGreyBrush}"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="FontSize" Value="20"/>
-        <Setter Property="local:IconProperty.Value" Value="&#xEA8A;"/>
+        <Setter Property="local:IconProperty.Value" Value="{StaticResource HomeIcon}"/>
         <Setter Property="local:IsActiveProperty.Value" Value="False"/>
 
         <Setter Property="Template">

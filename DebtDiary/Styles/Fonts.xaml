@@ -29,5 +29,9 @@
     <system:String x:Key="DictionaryIcon">&#xE82D;</system:String>
     <system:String x:Key="DictionaryAddIcon">&#xE82E;</system:String>
     <system:String x:Key="AddFriendIcon">&#xE8FA;</system:String>
+    <system:String x:Key="ContactIcon">&#xEA8C;</system:String>
+    <system:String x:Key="PowerIcon">&#xE7E8;</system:String>
+    <system:String x:Key="HomeIcon">&#xEA8A;</system:String>
+    <system:String x:Key="AddIcon"> &#xE710;</system:String>
 
 </ResourceDictionary>
