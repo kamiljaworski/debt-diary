@@ -18,6 +18,9 @@
     <Color x:Key="DarkGreyHover">#595959</Color>
     <SolidColorBrush x:Key="DarkGreyHoverBrush" Color="{StaticResource DarkGreyHover}" />
 
+    <Color x:Key="VeryDarkGrey">#444444</Color>
+    <SolidColorBrush x:Key="VeryDarkGreyBrush" Color="{StaticResource VeryDarkGrey}" />
+
     <Color x:Key="RedHover">#d00000</Color>
     <SolidColorBrush x:Key="RedHoverBrush" Color="{StaticResource RedHover}" />
 

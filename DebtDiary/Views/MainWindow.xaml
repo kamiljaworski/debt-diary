@@ -38,13 +38,13 @@
                                     <!-- Title bar divided into 2 parts -->
                                     <Grid.ColumnDefinitions>
                                         <!-- User control part -->
-                                        <ColumnDefinition Width="280"/>
+                                        <ColumnDefinition Width="250"/>
                                         <!-- Content part -->
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
 
 
-                                    <Grid Grid.Column="0">
+                                    <Grid Grid.Column="0" Visibility="Hidden">
                                         <Grid.ColumnDefinitions>
                                             <!-- Icon column -->
                                             <ColumnDefinition Width="Auto"/>
