@@ -11,6 +11,7 @@
       Title="DebtorInfoSubpage">
 
     <Grid Grid.Column="1" Background="#e5e5e5">
+        <!--#region Row & Column definitions-->
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="2*"/>
@@ -24,10 +25,14 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <!--#endregion-->
 
+        <!--#region Debtors full name-->
         <TextBlock Grid.Row="0" Grid.ColumnSpan="4" Text="{Binding FullName, FallbackValue='Jan Kowalski'}" FontSize="40" FontFamily="{StaticResource LatoLight}" 
                    VerticalAlignment="Center" Padding="10 0 0 0"/>
-        
+        <!--#endregion-->
+
+        <!--#region Statistic panels-->
         <!-- Debt -->
         <local:StatisticPanel Grid.Row="1" Grid.Column="0" Margin="10 10 5 5" DataContext="{Binding Debt}"/>
 
@@ -39,8 +44,9 @@
 
         <!-- Last Operation -->
         <local:StatisticPanel Grid.Row="1" Grid.Column="3" Margin="5 10 10 5" DataContext="{Binding LastOperation}"/>
+        <!--#endregion-->
 
-        <!-- Debts course -->
+        <!--#region Debts course-->
         <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Background="White" Margin="10 5 5 5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -59,8 +65,9 @@
                 </lvc:CartesianChart>
             </Grid>
         </Grid>
-        
-        <!-- Operations -->
+        <!--#endregion-->
+
+        <!--#region Operations-->
         <Grid Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"  Background="White" Margin="5 5 10 5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -70,7 +77,9 @@
             <TextBlock Grid.Row="0" Text="{x:Static localization:Strings.Operations}" FontSize="28" FontFamily="{StaticResource LatoLight}" Padding="10 0 0 0"/>
             <local:ShortOperationsList Grid.Row="1" Margin="10" DataContext="{Binding OperationsList}" d:DataContext="{x:Static local:ShortOperationsListDesignModel.Instance}"/>
         </Grid>
+        <!--#endregion-->
 
+        <!--#region Loan-->
         <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Background="White" Margin="10 5 5 10">
             <TextBlock Text="{x:Static localization:Strings.Loan}" FontSize="28" FontFamily="{StaticResource LatoLight}" Padding="10 0 0 0"/>
 
@@ -118,7 +127,9 @@
                 </StackPanel>
             </Grid>
         </StackPanel>
+        <!--#endregion-->
 
+        <!--#region Repayment-->
         <StackPanel Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Background="White" Margin="5 5 10 10">
             <TextBlock Text="{x:Static localization:Strings.Repayment}" FontSize="28" FontFamily="{StaticResource LatoLight}" Padding="10 0 0 0"/>
 
@@ -166,6 +177,7 @@
                 </StackPanel>
             </Grid>
         </StackPanel>
+        <!--#endregion-->
 
     </Grid>
 </Page>
