@@ -38,7 +38,7 @@
                         <Viewbox HorizontalAlignment="Center" StretchDirection="DownOnly">
                             <TextBlock Text="{Binding Username}" Foreground="White" FontFamily="{StaticResource LatoThin}" FontSize="22" TextAlignment="Center"/>
                         </Viewbox>
-                        
+
                         <Border BorderBrush="{StaticResource VeryDarkGreyBrush}" BorderThickness="0 0 0 2" Margin="0 10 0 5"/>
                     </StackPanel>
 
@@ -59,7 +59,7 @@
                             <Button Style="{StaticResource SideMenuButton}" Content="{x:Static localization:Strings.Logout}" local:IconProperty.Value="{StaticResource PowerIcon}" local:IsActiveProperty.Value="{Binding IsLogoutActive}" Command="{Binding LogoutCommand}"/>
                             <Button Style="{StaticResource SideMenuButton}" Content="Add debtor" Command="{Binding AddDebtorCommand}" local:IconProperty.Value="{StaticResource AddIcon}"/>
 
-                            <Border BorderBrush="{StaticResource VeryDarkGreyBrush}" BorderThickness="0 0 0 2" Margin="0 15 0 5"/>
+                            <Border BorderBrush="{StaticResource VeryDarkGreyBrush}" BorderThickness="0 0 0 2" Margin="0 10 0 5"/>
 
                             <TextBlock Text="{x:Static localization:Strings.Debtors}" Foreground="Gray" FontFamily="{StaticResource LatoSemiBold}" FontSize="16" Margin="10 0 0 5"/>
 
@@ -77,9 +77,13 @@
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" Text="v0.5.0" HorizontalAlignment="Left" Foreground="White" FontFamily="{StaticResource LatoLight}"/>
+                                <TextBlock Grid.Column="0" Text="v0.5.0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontFamily="{StaticResource LatoLight}"/>
 
-                                <TextBlock Grid.Column="1" Text="&#x24D2; 2018 Kamil Jaworski" HorizontalAlignment="Right" Foreground="White" FontFamily="{StaticResource LatoLight}"/>
+
+                                <TextBlock  Grid.Column="1" Text="Jaworski" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18" Foreground="White" FontFamily="{StaticResource GeosansLight}"/>
+
+
+
 
                             </Grid>
 

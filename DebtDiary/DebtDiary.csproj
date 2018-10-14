@@ -363,6 +363,7 @@
     <Resource Include="Fonts\Lato-Thin.ttf" />
     <Resource Include="Fonts\Lato-ThinItalic.ttf" />
     <Resource Include="Fonts\segmdl2.ttf" />
+    <Resource Include="Fonts\GeosansLight.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

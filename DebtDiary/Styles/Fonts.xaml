@@ -10,7 +10,8 @@
     <FontFamily x:Key="LatoSemiBold">pack://appliction;,,,/Fonts/#Lato Semibold</FontFamily>
     <FontFamily x:Key="LatoBold">pack://appliction;,,,/Fonts/#Lato Bold</FontFamily>
     <FontFamily x:Key="Segoe-MDL2">pack://appliction;,,,/Fonts/#Segoe MDL2 Assets</FontFamily>
-    
+    <FontFamily x:Key="GeosansLight">pack://appliction;,,,/Fonts/#GeosansLight</FontFamily>
+
     <!-- Custom Font Sizes -->
     <system:Double x:Key="WindowControlIconFontSize">10</system:Double>
     <system:Double x:Key="SmallFontSize">14</system:Double>
