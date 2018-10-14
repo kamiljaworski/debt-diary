@@ -29,12 +29,15 @@
 
                     <!-- Account info -->
                     <StackPanel Grid.Row="0">
+                        <!-- Avatar -->
                         <Label Width="100" Style="{StaticResource AvatarLabel}" Content="{Binding Initials}"/>
 
+                        <!-- Full name -->
                         <Viewbox HorizontalAlignment="Center" Margin="10 10 10 0" StretchDirection="DownOnly">
                             <TextBlock Text="{Binding FullName}" Foreground="White" FontFamily="{StaticResource LatoRegular}" FontSize="26"/>
                         </Viewbox>
 
+                        <!-- Username -->
                         <Viewbox HorizontalAlignment="Center" StretchDirection="DownOnly">
                             <TextBlock Text="{Binding Username}" Foreground="White" FontFamily="{StaticResource LatoThin}" FontSize="22" TextAlignment="Center"/>
                         </Viewbox>
@@ -50,25 +53,35 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
 
-
                         <StackPanel Grid.Row="0">
-                            <TextBlock Text="{x:Static localization:Strings.General}" Foreground="Gray" FontFamily="{StaticResource LatoSemiBold}" FontSize="16" Margin="10 0 0 5"/>
+                            <!-- General headline -->
+                            <TextBlock Text="{x:Static localization:Strings.General}" Style="{StaticResource MenuHeadlineText}"/>
 
-                            <Button Style="{StaticResource SideMenuButton}" Content="{x:Static localization:Strings.Summary}" local:IconProperty.Value="{StaticResource HomeIcon}" local:IsActiveProperty.Value="{Binding IsSummaryActive}" Command="{Binding SummaryCommand}"/>
-                            <Button Style="{StaticResource SideMenuButton}" Content="{x:Static localization:Strings.MyAccount}" local:IconProperty.Value="{StaticResource ContactIcon}" local:IsActiveProperty.Value="{Binding IsMyAccountActive}" Command="{Binding MyAccountCommand}"/>
-                            <Button Style="{StaticResource SideMenuButton}" Content="{x:Static localization:Strings.Logout}" local:IconProperty.Value="{StaticResource PowerIcon}" local:IsActiveProperty.Value="{Binding IsLogoutActive}" Command="{Binding LogoutCommand}"/>
+                            <!-- Summary button -->
+                            <Button Style="{StaticResource SideMenuButton}" Content="{x:Static localization:Strings.Summary}" 
+                                    local:IconProperty.Value="{StaticResource HomeIcon}" local:IsActiveProperty.Value="{Binding IsSummaryActive}" Command="{Binding SummaryCommand}"/>
+                            
+                            <!-- My Account button -->
+                            <Button Style="{StaticResource SideMenuButton}" Content="{x:Static localization:Strings.MyAccount}" 
+                                    local:IconProperty.Value="{StaticResource ContactIcon}" local:IsActiveProperty.Value="{Binding IsMyAccountActive}" Command="{Binding MyAccountCommand}"/>
+                            
+                            <!-- Logout button -->
+                            <Button Style="{StaticResource SideMenuButton}" Content="{x:Static localization:Strings.Logout}"
+                                    local:IconProperty.Value="{StaticResource PowerIcon}" local:IsActiveProperty.Value="{Binding IsLogoutActive}" Command="{Binding LogoutCommand}"/>
+                            
+                            <!-- Add debtor button -->
                             <Button Style="{StaticResource SideMenuButton}" Content="Add debtor" Command="{Binding AddDebtorCommand}" local:IconProperty.Value="{StaticResource AddIcon}"/>
-
+                            
                             <Border BorderBrush="{StaticResource VeryDarkGreyBrush}" BorderThickness="0 0 0 2" Margin="0 10 0 5"/>
-
+                            
+                            <!-- Debtors headline -->
                             <TextBlock Text="{x:Static localization:Strings.Debtors}" Foreground="Gray" FontFamily="{StaticResource LatoSemiBold}" FontSize="16" Margin="10 0 0 5"/>
-
                         </StackPanel>
 
-
+                        <!-- Debtors list -->
                         <local:DebtorsList Grid.Row="1" d:DataContext="{x:Static local:DebtorsListDesignModel.Instance}"/>
 
-                        <!-- Copyright text-->
+                        <!-- Footer -->
                         <StackPanel Grid.Row="2">
                             <Border BorderBrush="{StaticResource VeryDarkGreyBrush}" BorderThickness="0 0 0 2" Margin="0 0 0 2"/>
 
@@ -77,16 +90,13 @@
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" Text="v0.5.0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontFamily="{StaticResource LatoLight}"/>
 
-
-                                <TextBlock  Grid.Column="1" Text="Jaworski" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18" Foreground="White" FontFamily="{StaticResource GeosansLight}"/>
-
-
-
+                                <TextBlock Grid.Column="0" Text="v0.5.0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" 
+                                           FontFamily="{StaticResource LatoLight}"/>
+                                <TextBlock  Grid.Column="1" Text="Jaworski" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18" 
+                                            Foreground="White" FontFamily="{StaticResource GeosansLight}"/>
 
                             </Grid>
-
                         </StackPanel>
                     </Grid>
                 </Grid>
