@@ -151,7 +151,7 @@
     <value>Ten dłużnik został już dodany</value>
   </data>
   <data name="Debtors" xml:space="preserve">
-    <value>Dłużnicy</value>
+    <value>DŁUŻNICY</value>
   </data>
   <data name="DebtsCourse" xml:space="preserve">
     <value>Przebieg długów</value>
@@ -196,7 +196,7 @@
     <value>Płeć</value>
   </data>
   <data name="General" xml:space="preserve">
-    <value>Ogólne</value>
+    <value>OGÓLNE</value>
   </data>
   <data name="IncorrectEmail" xml:space="preserve">
     <value>Niepoprawny adres e-mail</value>

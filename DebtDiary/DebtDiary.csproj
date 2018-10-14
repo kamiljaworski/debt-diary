@@ -109,6 +109,7 @@
     <Compile Include="AttachedProperties\DisableNavigationProperty.cs" />
     <Compile Include="AttachedProperties\FormMessageProperty.cs" />
     <Compile Include="AttachedProperties\IconProperty.cs" />
+    <Compile Include="AttachedProperties\IsActiveProperty.cs" />
     <Compile Include="AttachedProperties\IsBusyProperty.cs" />
     <Compile Include="AttachedProperties\PasswordBoxAttachedProperties.cs" />
     <Compile Include="IoC\IocContainer.cs" />

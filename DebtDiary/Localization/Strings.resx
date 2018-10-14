@@ -151,7 +151,7 @@
     <value>This debtor has been already added</value>
   </data>
   <data name="Debtors" xml:space="preserve">
-    <value>Debtors</value>
+    <value>DEBTORS</value>
   </data>
   <data name="DebtsCourse" xml:space="preserve">
     <value>Debts course</value>
@@ -196,7 +196,7 @@
     <value>Gender</value>
   </data>
   <data name="General" xml:space="preserve">
-    <value>General</value>
+    <value>GENERAL</value>
   </data>
   <data name="IncorrectEmail" xml:space="preserve">
     <value>Incorrect e-mail address</value>

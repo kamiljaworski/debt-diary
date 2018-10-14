@@ -47,6 +47,7 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
 
 
@@ -57,7 +58,7 @@
                             <Button Style="{StaticResource SideMenuButton}" Content="My account" local:IconProperty.Value="&#xEA8C;"/>
                             <Button Style="{StaticResource SideMenuButton}" Content="Logout" local:IconProperty.Value="&#xE7E8;"/>
                             <Button Style="{StaticResource SideMenuButton}" Content="Add Debtor" Command="{Binding AddDebtorCommand}"/>
-                            
+
                             <Border BorderBrush="{StaticResource VeryDarkGreyBrush}" BorderThickness="0 0 0 2" Margin="0 15 0 5"/>
 
                             <TextBlock Text="{x:Static localization:Strings.Debtors}" Foreground="Gray" FontFamily="{StaticResource LatoSemiBold}" FontSize="16" Margin="10 0 0 0"/>
@@ -67,9 +68,23 @@
 
                         <local:DebtorsList Grid.Row="1" d:DataContext="{x:Static local:DebtorsListDesignModel.Instance}"/>
 
+                        <!-- Copyright text-->
+                        <StackPanel Grid.Row="2">
+                            <Border BorderBrush="{StaticResource VeryDarkGreyBrush}" BorderThickness="0 0 0 2" Margin="0 5 0 5"/>
+
+                            <Grid Margin="5 0 5 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="v0.5.0" HorizontalAlignment="Left" Foreground="White"/>
+
+                                <TextBlock Grid.Column="1" Text="&#x24D2; 2018 Kamil Jaworski" HorizontalAlignment="Right" Foreground="White"/>
+
+                            </Grid>
+
+                        </StackPanel>
                     </Grid>
-
-
                 </Grid>
             </Border>
         </Grid>

@@ -160,7 +160,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Debtors.
+        ///   Looks up a localized string similar to DEBTORS.
         /// </summary>
         public static string Debtors {
             get {
@@ -313,7 +313,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to General.
+        ///   Looks up a localized string similar to GENERAL.
         /// </summary>
         public static string General {
             get {
