@@ -34,7 +34,7 @@ namespace DebtDiary
         #region Chart and operations list
         public SeriesCollection SeriesCollection { get; set; }
         public ShortOperationsListViewModel OperationsList { get; private set; } = null;
-        public Func<decimal, string> CurrencyFormatter { get; set; }
+        public Func<double, string> CurrencyFormatter { get; set; }
         #endregion
 
         #region Add loan form

@@ -19,7 +19,7 @@ namespace DebtDiary
         // Chart and operations list
         SeriesCollection SeriesCollection { get; set; }
         ShortOperationsListViewModel OperationsList { get; }
-        Func<decimal, string> CurrencyFormatter { get; set; }
+        Func<double, string> CurrencyFormatter { get; set; }
 
         // Add loan form
         string LoanValue { get; set; }

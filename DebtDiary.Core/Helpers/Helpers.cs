@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 
@@ -45,5 +46,10 @@ namespace DebtDiary.Core
 
             return number.ToString("C", numberFormat);
         }
+
+        /// <summary>
+        /// Get formatted currency <see cref="string"/> from <see cref="double"/> number
+        /// </summary>
+        public static string GetFormattedCurrency(double number) => GetFormattedCurrency(Convert.ToDecimal(number));
     }
 }

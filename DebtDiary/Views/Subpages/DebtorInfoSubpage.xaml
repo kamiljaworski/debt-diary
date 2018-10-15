@@ -107,23 +107,20 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Grid.Column="0" Text="{x:Static localization:Strings.WhoBorrowed}" Style="{StaticResource FormMessageTitleTextBlock}" 
-                               Margin="0" HorizontalAlignment="Left" VerticalAlignment="Center"
-                       local:FormMessageProperty.Value="{Binding GenderMessage}"/>
+                               Margin="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
                         <StackPanel Grid.Column="1" VerticalAlignment="Center">
                             <StackPanel Orientation="Horizontal">
                                 <RadioButton Content="{Binding DebtorsGender, Converter={local:GenderStringsConverter}, ConverterParameter='Person', FallbackValue='He'}" 
-                             IsChecked="{Binding LoanOperationType, Converter={local:OperationTypeToBooleanConverter}, ConverterParameter='DebtorsLoan'}"
-                             local:FormMessageProperty.Value="{Binding GenderMessage}"/>
+                             IsChecked="{Binding LoanOperationType, Converter={local:OperationTypeToBooleanConverter}, ConverterParameter='DebtorsLoan'}"/>
                                 <RadioButton Content="{x:Static localization:Strings.You}" Margin="10 0 0 0"
-                             IsChecked="{Binding LoanOperationType, Converter={local:OperationTypeToBooleanConverter}, ConverterParameter='UsersLoan'}"
-                             local:FormMessageProperty.Value="{Binding GenderMessage}"/>
+                             IsChecked="{Binding LoanOperationType, Converter={local:OperationTypeToBooleanConverter}, ConverterParameter='UsersLoan'}"/>
                             </StackPanel>
                         </StackPanel>
                     </Grid>
 
                     <Button Content="{x:Static localization:Strings.Add}" HorizontalAlignment="Center" Margin="0 10 0 0"
-                            Command="{Binding AddLoanCommand}" local:IsBusyProperty.Value="{Binding IsLoanAddFormRunning}"/>
+                            Command="{Binding AddLoanCommand}"/>
                 </StackPanel>
             </Grid>
         </StackPanel>
@@ -157,23 +154,20 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Grid.Column="0" Text="{x:Static localization:Strings.WhoRepayed}" Style="{StaticResource FormMessageTitleTextBlock}" 
-                               Margin="0" HorizontalAlignment="Left" VerticalAlignment="Center"
-                       local:FormMessageProperty.Value="{Binding GenderMessage}"/>
+                               Margin="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
                         <StackPanel Grid.Column="1" VerticalAlignment="Center">
                             <StackPanel Orientation="Horizontal">
                                 <RadioButton Content="{Binding DebtorsGender, Converter={local:GenderStringsConverter}, ConverterParameter='Person', FallbackValue='He'}" 
-                             IsChecked="{Binding RepaymentOperationType, Converter={local:OperationTypeToBooleanConverter}, ConverterParameter='DebtorsRepayment'}"
-                             local:FormMessageProperty.Value="{Binding GenderMessage}"/>
+                             IsChecked="{Binding RepaymentOperationType, Converter={local:OperationTypeToBooleanConverter}, ConverterParameter='DebtorsRepayment'}"/>
                                 <RadioButton Content="{x:Static localization:Strings.You}" Margin="10 0 0 0"
-                             IsChecked="{Binding RepaymentOperationType, Converter={local:OperationTypeToBooleanConverter}, ConverterParameter='UsersRepayment'}"
-                             local:FormMessageProperty.Value="{Binding GenderMessage}"/>
+                             IsChecked="{Binding RepaymentOperationType, Converter={local:OperationTypeToBooleanConverter}, ConverterParameter='UsersRepayment'}"/>
                             </StackPanel>
                         </StackPanel>
                     </Grid>
 
                     <Button Content="{x:Static localization:Strings.Add}" HorizontalAlignment="Center" Margin="0 10 0 0"
-                            Command="{Binding AddRepaymentCommand}" local:IsBusyProperty.Value="{Binding IsRepaymentAddFormRunning}"/>
+                            Command="{Binding AddRepaymentCommand}"/>
                 </StackPanel>
             </Grid>
         </StackPanel>
