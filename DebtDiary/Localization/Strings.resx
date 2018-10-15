@@ -154,7 +154,7 @@
     <value>DEBTORS</value>
   </data>
   <data name="DebtsCourse" xml:space="preserve">
-    <value>Debts course</value>
+    <value>Debt course</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>Description</value>

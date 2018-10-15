@@ -169,7 +169,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Debts course.
+        ///   Looks up a localized string similar to Debt course.
         /// </summary>
         public static string DebtsCourse {
             get {
