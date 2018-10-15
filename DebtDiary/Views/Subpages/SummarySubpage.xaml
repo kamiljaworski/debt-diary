@@ -97,12 +97,12 @@
 
         <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4"  Background="White" Margin="10">
             <Grid Margin="10">
-                <lvc:CartesianChart Series="{Binding SeriesCollection}">
+                <lvc:CartesianChart Series="{Binding SeriesCollection}" DataTooltip="{x:Null}">
                     <lvc:CartesianChart.AxisY>
-                        <lvc:Axis Title="Sales" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
+                        <lvc:Axis LabelFormatter="{Binding CurrencyFormatter}"/>
                     </lvc:CartesianChart.AxisY>
                     <lvc:CartesianChart.AxisX>
-                        <lvc:Axis Title="Month"></lvc:Axis>
+                        <lvc:Axis ShowLabels="False"/>
                     </lvc:CartesianChart.AxisX>
                 </lvc:CartesianChart>
             </Grid>
