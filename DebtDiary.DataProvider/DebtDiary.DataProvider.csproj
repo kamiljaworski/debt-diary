@@ -110,6 +110,10 @@
     <Compile Include="Migrations\201809281648033_AddOperationTypeDefaultValue.Designer.cs">
       <DependentUpon>201809281648033_AddOperationTypeDefaultValue.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810151940037_AddUsersOperationsReference.cs" />
+    <Compile Include="Migrations\201810151940037_AddUsersOperationsReference.Designer.cs">
+      <DependentUpon>201810151940037_AddUsersOperationsReference.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -168,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809281648033_AddOperationTypeDefaultValue.resx">
       <DependentUpon>201809281648033_AddOperationTypeDefaultValue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810151940037_AddUsersOperationsReference.resx">
+      <DependentUpon>201810151940037_AddUsersOperationsReference.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
