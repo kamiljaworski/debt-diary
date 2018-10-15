@@ -60,6 +60,7 @@
     <Compile Include="Helpers\SecureStringExtensions.cs" />
     <Compile Include="Helpers\SortType.cs" />
     <Compile Include="Helpers\StringExtensions.cs" />
+    <Compile Include="Helpers\ChartHelpers.cs" />
     <Compile Include="Models\Color.cs" />
     <Compile Include="Models\Debtor.cs" />
     <Compile Include="Models\Gender.cs" />
