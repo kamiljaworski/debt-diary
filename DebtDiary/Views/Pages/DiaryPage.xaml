@@ -59,15 +59,15 @@
 
                             <!-- Summary button -->
                             <Button Style="{StaticResource SideMenuButton}" Content="{x:Static localization:Strings.Summary}" 
-                                    local:IconProperty.Value="{StaticResource HomeIcon}" local:IsActiveProperty.Value="{Binding IsSummaryActive}" Command="{Binding SummaryCommand}"/>
+                                    local:IconProperty.Value="{StaticResource HomeIcon}" local:IsSelectedProperty.Value="{Binding IsSummaryActive}" Command="{Binding SummaryCommand}"/>
 
                             <!-- My Account button -->
                             <Button Style="{StaticResource SideMenuButton}" Content="{x:Static localization:Strings.MyAccount}" 
-                                    local:IconProperty.Value="{StaticResource ContactIcon}" local:IsActiveProperty.Value="{Binding IsMyAccountActive}" Command="{Binding MyAccountCommand}"/>
+                                    local:IconProperty.Value="{StaticResource ContactIcon}" local:IsSelectedProperty.Value="{Binding IsMyAccountActive}" Command="{Binding MyAccountCommand}"/>
 
                             <!-- Logout button -->
                             <Button Style="{StaticResource SideMenuButton}" Content="{x:Static localization:Strings.Logout}"
-                                    local:IconProperty.Value="{StaticResource PowerIcon}" local:IsActiveProperty.Value="{Binding IsLogoutActive}" Command="{Binding LogoutCommand}"/>
+                                    local:IconProperty.Value="{StaticResource PowerIcon}" local:IsSelectedProperty.Value="{Binding IsLogoutActive}" Command="{Binding LogoutCommand}"/>
 
                             <Border BorderBrush="{StaticResource VeryDarkGreyBrush}" BorderThickness="0 0 0 2" Margin="0 10 0 5"/>
 

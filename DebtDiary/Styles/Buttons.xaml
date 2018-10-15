@@ -408,7 +408,7 @@
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="local:IconProperty.Value" Value="{StaticResource HomeIcon}"/>
-        <Setter Property="local:IsActiveProperty.Value" Value="False"/>
+        <Setter Property="local:IsSelectedProperty.Value" Value="False"/>
 
         <Setter Property="Template">
             <Setter.Value>
@@ -447,7 +447,7 @@
                             </BeginStoryboard>
                         </EventTrigger>
 
-                        <Trigger Property="local:IsActiveProperty.Value" Value="True">
+                        <Trigger Property="local:IsSelectedProperty.Value" Value="True">
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
                                     <Storyboard>
