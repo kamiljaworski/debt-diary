@@ -6,6 +6,7 @@ namespace DebtDiary
     public interface IDebtorsListViewModel
     {
         IList<DebtorsListItemViewModel> Debtors { get; set; }
+        int NumberOfDebtors { get; }
 
         /// <summary>
         /// Update debtors list in this View Model
