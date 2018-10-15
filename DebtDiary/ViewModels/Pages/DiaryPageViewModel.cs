@@ -3,8 +3,10 @@ using System.Windows.Input;
 
 namespace DebtDiary
 {
-    public class DiaryPageViewModel : BaseViewModel
+    public class DiaryPageViewModel : BaseViewModel, IDiaryPageViewModel
     {
+        #region Public properties
+
         public string FullName { get; set; }
         public string Username { get; set; }
         public string Initials { get; set; }
@@ -19,8 +21,13 @@ namespace DebtDiary
         public bool IsMyAccountActive { get; set; }
         public bool IsLogoutActive { get; set; }
         public SortType SortType { get; set; } = SortType.Descending;
+        #endregion
 
+        #region Constructor
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public DiaryPageViewModel(bool designTime = false)
         {
             if (designTime == false)
@@ -32,12 +39,10 @@ namespace DebtDiary
                 Initials = loggedUser.Initials;
             }
 
-
-
             SummaryCommand = new RelayCommand(() =>
             {
                 ResetSelectedDebtor();
-                ResetActiveButtons();
+                ResetSelectedButtons();
                 IsSummaryActive = true;
                 IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.SummarySubpage);
             });
@@ -45,14 +50,14 @@ namespace DebtDiary
             MyAccountCommand = new RelayCommand(() =>
             {
                 ResetSelectedDebtor();
-                ResetActiveButtons();
+                ResetSelectedButtons();
                 IsMyAccountActive = true;
             });
 
             LogoutCommand = new RelayCommand(() =>
             {
                 ResetSelectedDebtor();
-                ResetActiveButtons();
+                ResetSelectedButtons();
                 IsLogoutActive = true;
                 IocContainer.Get<IClientDataStore>().LogoutUser();
                 IocContainer.Get<IApplicationViewModel>().ChangeCurrentPage(ApplicationPage.LoginPage);
@@ -61,7 +66,7 @@ namespace DebtDiary
             AddDebtorCommand = new RelayCommand(() =>
             {
                 ResetSelectedDebtor();
-                ResetActiveButtons();
+                ResetSelectedButtons();
                 IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.AddDebtorSubpage);
             });
 
@@ -71,19 +76,31 @@ namespace DebtDiary
                 IocContainer.Get<DebtorsListViewModel>().Sort(SortType);
             });
         }
+        #endregion
 
-        public void ResetActiveButtons()
+        #region Public methods
+
+        /// <summary>
+        /// Reset all the selected buttons properties to false
+        /// </summary>
+        public void ResetSelectedButtons()
         {
             IsSummaryActive = false;
             IsMyAccountActive = false;
             IsLogoutActive = false;
         }
+        #endregion
 
+        #region Private methods
+
+        /// <summary>
+        /// Reset selected debtor in the application and in side menu view
+        /// </summary>
         private void ResetSelectedDebtor()
         {
             IocContainer.Get<IApplicationViewModel>().SelectedDebtor = null;
             IocContainer.Get<DebtorsListViewModel>().ResetSelectedDebtor();
         }
-
+        #endregion
     }
 }

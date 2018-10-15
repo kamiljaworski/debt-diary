@@ -180,6 +180,7 @@
     <Compile Include="ViewModels\Dialogs\IDialogFacade.cs" />
     <Compile Include="ViewModels\Pages\Design\DiaryPageDesignModel.cs" />
     <Compile Include="ViewModels\Pages\DiaryPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\IDiaryPageViewModel.cs" />
     <Compile Include="ViewModels\Subpages\AddDebtorSubpageViewModel.cs" />
     <Compile Include="ViewModels\Subpages\DebtorInfoSubpageViewModel.cs" />
     <Compile Include="ViewModels\Subpages\IDebtorInfoSubpageViewModel.cs" />

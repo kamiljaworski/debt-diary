@@ -27,6 +27,7 @@ namespace DebtDiary
             Kernel.Bind<IClientDataStore>().To<ClientDataStore>().InSingletonScope();
             Kernel.Bind<DebtorsListViewModel>().ToSelf().InSingletonScope();
             Kernel.Bind<IDebtorInfoSubpageViewModel>().To<DebtorInfoSubpageViewModel>().InSingletonScope();
+            Kernel.Bind<IDiaryPageViewModel>().To<DiaryPageViewModel>().InSingletonScope();
         }
 
         /// <summary>

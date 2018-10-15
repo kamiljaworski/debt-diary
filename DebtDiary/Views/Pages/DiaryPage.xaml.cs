@@ -13,7 +13,7 @@ namespace DebtDiary
     {
         public DiaryPage()
         {
-            DataContext = new DiaryPageViewModel();
+            DataContext = IocContainer.Get<IDiaryPageViewModel>();
             InitializeComponent();
         }
     }
