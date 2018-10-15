@@ -49,7 +49,7 @@ namespace DebtDiary
             }
         }
 
-        public void Reset() => Debtors = new ObservableCollection<DebtorsListItemViewModel>();
+        public void ResetSelectedDebtor() => Debtors.ToList()?.ForEach(x => x.IsSelected = false);
 
         public void Sort(SortType sortType)
         {

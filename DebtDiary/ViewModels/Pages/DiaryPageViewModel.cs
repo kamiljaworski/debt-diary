@@ -36,6 +36,7 @@ namespace DebtDiary
 
             SummaryCommand = new RelayCommand(() =>
             {
+                ResetSelectedDebtor();
                 ResetActiveButtons();
                 IsSummaryActive = true;
                 IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.SummarySubpage);
@@ -43,12 +44,14 @@ namespace DebtDiary
 
             MyAccountCommand = new RelayCommand(() =>
             {
+                ResetSelectedDebtor();
                 ResetActiveButtons();
                 IsMyAccountActive = true;
             });
 
             LogoutCommand = new RelayCommand(() =>
             {
+                ResetSelectedDebtor();
                 ResetActiveButtons();
                 IsLogoutActive = true;
                 IocContainer.Get<IClientDataStore>().LogoutUser();
@@ -57,6 +60,7 @@ namespace DebtDiary
 
             AddDebtorCommand = new RelayCommand(() =>
             {
+                ResetSelectedDebtor();
                 ResetActiveButtons();
                 IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.AddDebtorSubpage);
             });
@@ -73,6 +77,12 @@ namespace DebtDiary
             IsSummaryActive = false;
             IsMyAccountActive = false;
             IsLogoutActive = false;
+        }
+
+        private void ResetSelectedDebtor()
+        {
+            IocContainer.Get<IApplicationViewModel>().SelectedDebtor = null;
+            IocContainer.Get<DebtorsListViewModel>().ResetSelectedDebtor();
         }
 
     }

@@ -29,6 +29,7 @@ namespace DebtDiary
                 IApplicationViewModel applicationViewModel = IocContainer.Get<IApplicationViewModel>();
                 applicationViewModel.SelectedDebtor = _debtor;
                 applicationViewModel.ChangeCurrentSubpage(ApplicationSubpage.DebtorInfoSubpage);
+                // TODO: Reset IsSelected properties in menu buttons
             });
         }
 
