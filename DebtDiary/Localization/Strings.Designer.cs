@@ -520,11 +520,29 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There is no debtors added.
+        /// </summary>
+        public static string NoDebtorsAdded {
+            get {
+                return ResourceManager.GetString("NoDebtorsAdded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to none.
         /// </summary>
         public static string None {
             get {
                 return ResourceManager.GetString("None", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is no operations added.
+        /// </summary>
+        public static string NoOperationsAdded {
+            get {
+                return ResourceManager.GetString("NoOperationsAdded", resourceCulture);
             }
         }
         

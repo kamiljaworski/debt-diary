@@ -339,4 +339,10 @@
   <data name="NegativeNumber" xml:space="preserve">
     <value>Enter positive amount</value>
   </data>
+  <data name="NoDebtorsAdded" xml:space="preserve">
+    <value>There is no debtors added</value>
+  </data>
+  <data name="NoOperationsAdded" xml:space="preserve">
+    <value>There is no operations added</value>
+  </data>
 </root>
