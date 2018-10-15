@@ -7,10 +7,10 @@ namespace DebtDiary
     public class ShortOperationsListViewModel
     {
         public ObservableCollection<ShortOperationsListItemViewModel> Operations { get; set; } = new ObservableCollection<ShortOperationsListItemViewModel>();
+        public bool IsAnyOperationAdded => Operations.Count > 0 ? true : false;
 
         public ShortOperationsListViewModel()
         {
-
         }
 
         public ShortOperationsListViewModel(Debtor debtor)
