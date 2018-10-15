@@ -8,7 +8,7 @@ namespace DebtDiary
     public class DebtorsListViewModel : BaseViewModel, IDebtorsListViewModel
     {
         public IList<DebtorsListItemViewModel> Debtors { get; set; } = new ObservableCollection<DebtorsListItemViewModel>();
-        public int NumberOfDebtors => Debtors.Count;
+        public bool IsAnyDebtorAdded => Debtors.Count > 0 ? true : false;
 
         /// <summary>
         /// Default constructor

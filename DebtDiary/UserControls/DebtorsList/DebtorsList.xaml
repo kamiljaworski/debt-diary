@@ -8,6 +8,9 @@
              d:DesignHeight="240" d:DesignWidth="260">
     <Grid d:DataContext="{x:Static local:DebtorsListDesignModel.Instance}" Background="{StaticResource DarkGreyBrush}">
         <!-- TODO: Custom scroll bar style -->
+        <TextBlock Text="Nie dodano żadnego dłużnika" Foreground="LightGray" TextAlignment="Center" Margin="0 5 0 0"
+                   Visibility="{Binding IsAnyDebtorAdded, Converter={local:BooleanToVisibilityConverter}, FallbackValue=Hidden}"/>
+
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <ItemsControl ItemsSource="{Binding Debtors}">
                 <ItemsControl.ItemTemplate>
