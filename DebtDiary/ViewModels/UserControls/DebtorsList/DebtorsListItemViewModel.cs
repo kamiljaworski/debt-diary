@@ -26,10 +26,15 @@ namespace DebtDiary
         {
             OpenDebtorSubpage = new RelayCommand(() =>
             {
+                // Set current selected debtor in the application
                 IApplicationViewModel applicationViewModel = IocContainer.Get<IApplicationViewModel>();
                 applicationViewModel.SelectedDebtor = _debtor;
+
+                // Reset selected buttons in the diary page side menu
+                IocContainer.Get<IDiaryPageViewModel>().ResetSelectedButtons();
+
+                // Change subpage
                 applicationViewModel.ChangeCurrentSubpage(ApplicationSubpage.DebtorInfoSubpage);
-                // TODO: Reset IsSelected properties in menu buttons
             });
         }
 

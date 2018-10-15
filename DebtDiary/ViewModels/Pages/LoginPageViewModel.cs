@@ -103,7 +103,9 @@ namespace DebtDiary
                 // Update debtors list
                 await Task.Run(() => IocContainer.Get<DebtorsListViewModel>().Update());
 
-                // TODO: Reset diary page active buttons
+                // Reset selected buttons in the diary page side menu
+                IocContainer.Get<IDiaryPageViewModel>().ResetSelectedButtons();
+
                 // TODO: await for summary page data
 
                 // And go to diary page
