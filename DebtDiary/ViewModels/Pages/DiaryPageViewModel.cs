@@ -17,9 +17,9 @@ namespace DebtDiary
         public ICommand AddDebtorCommand { get; set; }
         public ICommand SortCommand { get; set; }
 
-        public bool IsSummaryActive { get; set; }
-        public bool IsMyAccountActive { get; set; }
-        public bool IsLogoutActive { get; set; }
+        public bool IsSummarySelected { get; set; }
+        public bool IsMyAccountSelected { get; set; }
+        public bool IsLogoutSelected { get; set; }
         public SortType SortType { get; set; } = SortType.Descending;
         #endregion
 
@@ -43,7 +43,7 @@ namespace DebtDiary
             {
                 ResetSelectedDebtor();
                 ResetSelectedButtons();
-                IsSummaryActive = true;
+                IsSummarySelected = true;
                 IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.SummarySubpage);
             });
 
@@ -51,14 +51,14 @@ namespace DebtDiary
             {
                 ResetSelectedDebtor();
                 ResetSelectedButtons();
-                IsMyAccountActive = true;
+                IsMyAccountSelected = true;
             });
 
             LogoutCommand = new RelayCommand(() =>
             {
                 ResetSelectedDebtor();
                 ResetSelectedButtons();
-                IsLogoutActive = true;
+                IsLogoutSelected = true;
                 IocContainer.Get<IClientDataStore>().LogoutUser();
                 IocContainer.Get<IApplicationViewModel>().ChangeCurrentPage(ApplicationPage.LoginPage);
             });
@@ -85,9 +85,9 @@ namespace DebtDiary
         /// </summary>
         public void ResetSelectedButtons()
         {
-            IsSummaryActive = false;
-            IsMyAccountActive = false;
-            IsLogoutActive = false;
+            IsSummarySelected = false;
+            IsMyAccountSelected = false;
+            IsLogoutSelected = false;
         }
         #endregion
 

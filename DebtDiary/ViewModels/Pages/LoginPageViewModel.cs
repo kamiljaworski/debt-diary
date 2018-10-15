@@ -106,6 +106,12 @@ namespace DebtDiary
                 // Reset selected buttons in the diary page side menu
                 IocContainer.Get<IDiaryPageViewModel>().ResetSelectedButtons();
 
+                // Set summary page selected button
+                IocContainer.Get<IDiaryPageViewModel>().IsSummarySelected = true;
+
+                // Change application subpage to SummarySubpage
+                IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.SummarySubpage);
+
                 // TODO: await for summary page data
 
                 // And go to diary page

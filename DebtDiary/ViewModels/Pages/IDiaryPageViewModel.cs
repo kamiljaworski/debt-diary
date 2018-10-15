@@ -15,9 +15,9 @@ namespace DebtDiary
         ICommand AddDebtorCommand { get; set; }
         ICommand SortCommand { get; set; }
 
-        bool IsSummaryActive { get; set; }
-        bool IsMyAccountActive { get; set; }
-        bool IsLogoutActive { get; set; }
+        bool IsSummarySelected { get; set; }
+        bool IsMyAccountSelected { get; set; }
+        bool IsLogoutSelected { get; set; }
         SortType SortType { get; set; }
 
         /// <summary>
