@@ -9,7 +9,7 @@ namespace DebtDiary
     {
         public DebtorsList()
         {
-            DataContext = IocContainer.Get<DebtorsListViewModel>();
+            DataContext = IocContainer.Get<IDebtorsListViewModel>();
             InitializeComponent();
         }
     }

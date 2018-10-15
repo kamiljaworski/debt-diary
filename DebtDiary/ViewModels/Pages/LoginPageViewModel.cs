@@ -101,7 +101,7 @@ namespace DebtDiary
                 IocContainer.Get<IClientDataStore>().LoginUser(_loggedUser);
 
                 // Update debtors list
-                await Task.Run(() => IocContainer.Get<DebtorsListViewModel>().Update());
+                await Task.Run(() => IocContainer.Get<IDebtorsListViewModel>().Update());
 
                 // Reset selected buttons in the diary page side menu
                 IocContainer.Get<IDiaryPageViewModel>().ResetSelectedButtons();

@@ -78,7 +78,7 @@ namespace DebtDiary
                 await Task.Run(() => IocContainer.Get<IDataAccess>().SaveChanges());
 
                 // Update list in the ViewModel
-                DebtorsListViewModel debtorsList = IocContainer.Get<DebtorsListViewModel>();
+                IDebtorsListViewModel debtorsList = IocContainer.Get<IDebtorsListViewModel>();
                 debtorsList.Update();
 
                 // Turn off spinning text

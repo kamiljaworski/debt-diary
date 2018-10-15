@@ -5,10 +5,13 @@ using System.Linq;
 
 namespace DebtDiary
 {
-    public class DebtorsListViewModel : BaseViewModel
+    public class DebtorsListViewModel : BaseViewModel, IDebtorsListViewModel
     {
-        public ObservableCollection<DebtorsListItemViewModel> Debtors { get; set; } = new ObservableCollection<DebtorsListItemViewModel>();
+        public IList<DebtorsListItemViewModel> Debtors { get; set; } = new ObservableCollection<DebtorsListItemViewModel>();
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public DebtorsListViewModel(bool designTime = false)
         {
             if (designTime == false)
@@ -23,8 +26,10 @@ namespace DebtDiary
             }
         }
 
+        #region Public properties
+
         /// <summary>
-        /// Updates debtors list in this View Model
+        /// Update debtors list in this View Model
         /// </summary>
         public void Update()
         {
@@ -49,8 +54,14 @@ namespace DebtDiary
             }
         }
 
+        /// <summary>
+        /// Reset all the debtors IsSelected properties to false
+        /// </summary>
         public void ResetSelectedDebtor() => Debtors.ToList()?.ForEach(x => x.IsSelected = false);
 
+        /// <summary>
+        /// Sort Debtors collection order by SortType
+        /// </summary>
         public void Sort(SortType sortType)
         {
             // Sort Debtors list with appropriate order
@@ -59,5 +70,6 @@ namespace DebtDiary
             // Make ObservableCollection from this list
             Debtors = new ObservableCollection<DebtorsListItemViewModel>(list);
         }
+        #endregion
     }
 }

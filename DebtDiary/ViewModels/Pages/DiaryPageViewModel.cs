@@ -73,7 +73,7 @@ namespace DebtDiary
             SortCommand = new RelayCommand(() =>
             {
                 SortType = SortType == SortType.Ascending ? SortType.Descending : SortType.Ascending;
-                IocContainer.Get<DebtorsListViewModel>().Sort(SortType);
+                IocContainer.Get<IDebtorsListViewModel>().Sort(SortType);
             });
         }
         #endregion
@@ -99,7 +99,7 @@ namespace DebtDiary
         private void ResetSelectedDebtor()
         {
             IocContainer.Get<IApplicationViewModel>().SelectedDebtor = null;
-            IocContainer.Get<DebtorsListViewModel>().ResetSelectedDebtor();
+            IocContainer.Get<IDebtorsListViewModel>().ResetSelectedDebtor();
         }
         #endregion
     }
