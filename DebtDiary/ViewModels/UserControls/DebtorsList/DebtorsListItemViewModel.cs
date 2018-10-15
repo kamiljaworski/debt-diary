@@ -16,6 +16,7 @@ namespace DebtDiary
         public string Initials { get; set; }
         public decimal Debt { get; set; }
         public Color AvatarColor { get; set; }
+        public bool IsSelected { get; set; }
 
         public ICommand OpenDebtorSubpage { get; set; }
 

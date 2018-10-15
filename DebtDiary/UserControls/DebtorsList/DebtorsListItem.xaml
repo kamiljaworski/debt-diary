@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DebtDiary"
              mc:Ignorable="d" 
-             Height="60"
+             Height="50"
              d:DesignHeight="60" d:DesignWidth="260">
     <UserControl.Resources>
         <Style x:Key="ContentStyle" TargetType="{x:Type ContentControl}">
@@ -21,15 +21,18 @@
                                 <MouseBinding MouseAction="LeftClick" Command="{Binding OpenDebtorSubpage}" />
                             </Border.InputBindings>
                             
-                            <Grid Margin="10 0 10 0">
+                            <Grid>
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3"/>
+                                    <ColumnDefinition Width="7"/>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="10"/>
                                 </Grid.ColumnDefinitions>
 
-                                <Label Grid.Column="0" Width="40" Style="{StaticResource AvatarLabel}" Content="{Binding Initials}" Background="{Binding AvatarColor, Converter={local:ColorToBrushConverter}}"/>
-
-                                <StackPanel Grid.Column="1" Margin="10 10 0 10">
+                                <Border Grid.Column="0" Background="{StaticResource ButtonGreenBrush}" x:Name="LeftBar" Opacity="0"/>
+                                <Label Grid.Column="2" Width="40" Style="{StaticResource AvatarLabel}" Content="{Binding Initials}" Background="{Binding AvatarColor, Converter={local:ColorToBrushConverter}}"/>
+                                <StackPanel Grid.Column="3" Margin="10 5 0 5">
                                     <TextBlock Text="{Binding FullName}" Foreground="White" FontFamily="{StaticResource LatoRegular}" FontSize="18"/>
                                     <TextBlock Text="{Binding FormattedDebt}" Foreground="{Binding Debt, Converter={local:DecimalToBrushConverter}}" FontFamily="{StaticResource LatoLight}" FontSize="16"/>
                                 </StackPanel>
@@ -38,7 +41,6 @@
                         </Border>
 
                         <ControlTemplate.Triggers>
-
                             <EventTrigger RoutedEvent="MouseEnter">
                                 <BeginStoryboard>
                                     <Storyboard>
@@ -53,6 +55,15 @@
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
+                            <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                                <DataTrigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation To="1" Duration="0:0:0.2" Storyboard.TargetName="LeftBar" Storyboard.TargetProperty="Opacity" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </DataTrigger.EnterActions>
+                            </DataTrigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>

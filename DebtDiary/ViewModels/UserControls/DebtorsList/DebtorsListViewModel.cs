@@ -35,6 +35,18 @@ namespace DebtDiary
 
             // Make ObservableCollection from this list
             Debtors = new ObservableCollection<DebtorsListItemViewModel>(debtorsList);
+
+            // Get selected debtor information
+            Debtor selectedDebtor = IocContainer.Get<IApplicationViewModel>().SelectedDebtor;
+
+            // If any debtor is selected, set its property to true
+            if(selectedDebtor != null)
+            {
+                DebtorsListItemViewModel debtorListItem = Debtors.FirstOrDefault(x => x.Id == selectedDebtor.Id);
+
+                if (debtorListItem != null)
+                    debtorListItem.IsSelected = true;
+            }
         }
 
         public void Reset() => Debtors = new ObservableCollection<DebtorsListItemViewModel>();
