@@ -114,6 +114,10 @@
     <Compile Include="Migrations\201810151940037_AddUsersOperationsReference.Designer.cs">
       <DependentUpon>201810151940037_AddUsersOperationsReference.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810161853506_RemoveOperationsReference.cs" />
+    <Compile Include="Migrations\201810161853506_RemoveOperationsReference.Designer.cs">
+      <DependentUpon>201810161853506_RemoveOperationsReference.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -175,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810151940037_AddUsersOperationsReference.resx">
       <DependentUpon>201810151940037_AddUsersOperationsReference.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810161853506_RemoveOperationsReference.resx">
+      <DependentUpon>201810161853506_RemoveOperationsReference.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

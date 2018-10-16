@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 using System.Text;
 
 namespace DebtDiary.Core
@@ -26,7 +27,15 @@ namespace DebtDiary.Core
 
         public DateTime? RegisterDate { get; set; }
         public virtual List<Debtor> Debtors { get; set; } = new List<Debtor>();
-        public virtual List<Operation> Operations { get; set; } = new List<Operation>();
+        public List<Operation> Operations
+        {
+            get
+            {
+                List<Operation> operations = new List<Operation>();
+                Debtors.ForEach(x => operations.AddRange(x.Operations));
+                return operations;
+            }
+        }
 
         /// <summary>
         /// Get chart points of aggregated operations grouped by every day started with users register date
