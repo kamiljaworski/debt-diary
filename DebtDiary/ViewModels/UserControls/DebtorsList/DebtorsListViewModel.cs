@@ -7,6 +7,8 @@ namespace DebtDiary
 {
     public class DebtorsListViewModel : BaseViewModel, IDebtorsListViewModel
     {
+        private SortType _sortType = SortType.Descending;
+
         public IList<DebtorsListItemViewModel> Debtors { get; set; } = new ObservableCollection<DebtorsListItemViewModel>();
         public bool IsAnyDebtorAdded => Debtors.Count > 0 ? true : false;
 
@@ -37,7 +39,13 @@ namespace DebtDiary
             User loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
 
             // Get actual list of debtors and sort them
-            IOrderedEnumerable<DebtorsListItemViewModel> debtorsList = loggedUser.Debtors.Select(x => new DebtorsListItemViewModel(x)).OrderByDescending(x => x.Debt);
+            IEnumerable<DebtorsListItemViewModel> debtorsList = loggedUser.Debtors.Select(x => new DebtorsListItemViewModel(x));
+
+            // Sort this list according to the sort type
+            if(_sortType == SortType.Descending)
+                debtorsList = debtorsList.OrderByDescending(x => x.Debt);
+            else
+                debtorsList = debtorsList.OrderBy(x => x.Debt);
 
             // Make ObservableCollection from this list
             Debtors = new ObservableCollection<DebtorsListItemViewModel>(debtorsList);
@@ -65,8 +73,10 @@ namespace DebtDiary
         /// </summary>
         public void Sort(SortType sortType)
         {
+            _sortType = sortType;
+
             // Sort Debtors list with appropriate order
-            IOrderedEnumerable<DebtorsListItemViewModel> list = sortType == SortType.Ascending ? Debtors.OrderBy(x => x.Debt) : Debtors.OrderByDescending(x => x.Debt);
+            IOrderedEnumerable<DebtorsListItemViewModel> list = _sortType == SortType.Ascending ? Debtors.OrderBy(x => x.Debt) : Debtors.OrderByDescending(x => x.Debt);
 
             // Make ObservableCollection from this list
             Debtors = new ObservableCollection<DebtorsListItemViewModel>(list);
