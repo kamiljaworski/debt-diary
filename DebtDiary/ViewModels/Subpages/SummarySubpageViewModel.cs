@@ -43,7 +43,7 @@ namespace DebtDiary
 
             // TODO: (Long)OperatonsListViewModel
             if(_loggedUser.Debtors.Count > 0)
-                OperationsList = new ShortOperationsListViewModel(_loggedUser.Debtors.FirstOrDefault());
+                OperationsList = new ShortOperationsListViewModel(_loggedUser.Operations);
 
         }
         #endregion

@@ -96,7 +96,7 @@ namespace DebtDiary
                     }
                 };
 
-            OperationsList = new ShortOperationsListViewModel(_selectedDebtor);
+            OperationsList = new ShortOperationsListViewModel(_selectedDebtor.Operations);
 
             IocContainer.Get<IDebtorsListViewModel>().Update();
 
