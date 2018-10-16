@@ -33,7 +33,7 @@ namespace DebtDiary.Core
             {
                 List<Operation> operations = new List<Operation>();
                 Debtors.ForEach(x => operations.AddRange(x.Operations));
-                return operations;
+                return operations.OrderByDescending(x => x.AdditionDate).ToList();
             }
         }
 
