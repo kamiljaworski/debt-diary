@@ -53,71 +53,8 @@
 
             <TextBlock Text="Ostatnie operacje" FontSize="28" FontFamily="{StaticResource LatoLight}" Padding="10 0 0 0"/>
 
-            <Grid Margin="10">
+            <local:ShortOperationsList Margin="10" DataContext="{Binding OperationsList}" d:DataContext="{x:Static local:ShortOperationsListDesignModel.Instance}"/>
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-
-
-                <Border Grid.Row="0" BorderBrush="LightGray" BorderThickness="0 0 0 1">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <TextBlock Grid.Column="0"  Text="Adam Nowak" FontSize="18"/>
-                        <TextBlock Grid.Column="1"  Text="Na fajki" FontSize="18" Foreground="Gray"/>
-                        <TextBlock Grid.Column="2"  Text="-20.00 zł" FontSize="18" Foreground="Red"/>
-                    </Grid>
-                </Border>
-
-                <Border Grid.Row="1" BorderBrush="LightGray" BorderThickness="0 0 0 1">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Jan Kowalski" FontSize="18"/>
-                        <TextBlock Grid.Row="1" Grid.Column="1" Text="Na kondomy" FontSize="18" Foreground="Gray"/>
-                        <TextBlock Grid.Row="1" Grid.Column="2" Text="-20.00 zł" FontSize="18" Foreground="Red"/>
-                    </Grid>
-                </Border>
-
-                <Border Grid.Row="2" BorderBrush="LightGray" BorderThickness="0 0 0 1">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Adam Nowak" FontSize="18"/>
-                        <TextBlock Grid.Row="2" Grid.Column="1" Text="Za fajki" FontSize="18" Foreground="Gray"/>
-                        <TextBlock Grid.Row="2" Grid.Column="2" Text="20.00 zł" FontSize="18" Foreground="Green"/>
-                    </Grid>
-                </Border>
-
-                <Border Grid.Row="3" BorderBrush="LightGray" BorderThickness="0 0 0 1">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <TextBlock Grid.Row="3" Grid.Column="0" Text="Jan Kowalski" FontSize="18"/>
-                        <TextBlock Grid.Row="3" Grid.Column="1" Text="Za kondomy" FontSize="18" Foreground="Gray"/>
-                        <TextBlock Grid.Row="3" Grid.Column="2" Text="20.00 zł" FontSize="18" Foreground="Green"/>
-                    </Grid>
-                </Border>
-            </Grid>
         </StackPanel>
 
     </Grid>
