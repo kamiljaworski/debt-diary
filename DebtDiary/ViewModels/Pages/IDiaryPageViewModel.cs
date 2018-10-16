@@ -24,5 +24,10 @@ namespace DebtDiary
         /// Reset all the selected buttons properties to false
         /// </summary>
         void ResetSelectedButtons();
+
+        /// <summary>
+        /// Reset users fullname, username and initials
+        /// </summary>
+        void ResetUsersData();
     }
 }

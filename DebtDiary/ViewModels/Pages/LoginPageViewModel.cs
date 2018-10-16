@@ -103,11 +103,17 @@ namespace DebtDiary
                 // Update debtors list
                 await Task.Run(() => IocContainer.Get<IDebtorsListViewModel>().Update());
 
+                // Get diary page reference from the IoC
+                IDiaryPageViewModel diaryPage = IocContainer.Get<IDiaryPageViewModel>();
+
+                // Reset users fullname, username and initials
+                diaryPage.ResetUsersData();
+
                 // Reset selected buttons in the diary page side menu
-                IocContainer.Get<IDiaryPageViewModel>().ResetSelectedButtons();
+                diaryPage.ResetSelectedButtons();
 
                 // Set summary page selected button
-                IocContainer.Get<IDiaryPageViewModel>().IsSummarySelected = true;
+                diaryPage.IsSummarySelected = true;
 
                 // Change application subpage to SummarySubpage
                 IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.SummarySubpage);

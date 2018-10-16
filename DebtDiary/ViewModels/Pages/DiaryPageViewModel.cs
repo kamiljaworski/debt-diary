@@ -31,13 +31,7 @@ namespace DebtDiary
         public DiaryPageViewModel(bool designTime = false)
         {
             if (designTime == false)
-            {
-                User loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
-
-                FullName = loggedUser.FullName;
-                Username = loggedUser.Username;
-                Initials = loggedUser.Initials;
-            }
+                ResetUsersData();
 
             SummaryCommand = new RelayCommand(() =>
             {
@@ -88,6 +82,18 @@ namespace DebtDiary
             IsSummarySelected = false;
             IsMyAccountSelected = false;
             IsLogoutSelected = false;
+        }
+
+        /// <summary>
+        /// Reset users fullname, username and initials
+        /// </summary>
+        public void ResetUsersData()
+        {
+            User loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
+
+            FullName = loggedUser.FullName;
+            Username = loggedUser.Username;
+            Initials = loggedUser.Initials;
         }
         #endregion
 
