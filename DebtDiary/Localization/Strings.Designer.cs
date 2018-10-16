@@ -547,6 +547,15 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Number of debtors.
+        /// </summary>
+        public static string NumberOfDebtors {
+            get {
+                return ResourceManager.GetString("NumberOfDebtors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Number of operations.
         /// </summary>
         public static string NumberOfOperations {
@@ -678,6 +687,15 @@ namespace DebtDiary.Localization {
         public static string Summary {
             get {
                 return ResourceManager.GetString("Summary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sum of debts.
+        /// </summary>
+        public static string SumOfDebts {
+            get {
+                return ResourceManager.GetString("SumOfDebts", resourceCulture);
             }
         }
         

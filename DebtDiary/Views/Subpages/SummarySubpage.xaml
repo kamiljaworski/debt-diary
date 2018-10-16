@@ -26,74 +26,14 @@
 
         <TextBlock Grid.Row="0" Grid.ColumnSpan="4" Text="Podsumowanie" FontSize="40" FontFamily="{StaticResource LatoLight}" VerticalAlignment="Center" Padding="10 0 0 0"/>
 
-        <Grid Grid.Row="1" Grid.Column="0" Background="#8bc34a" Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2*"/>
-            </Grid.ColumnDefinitions>
+        <local:StatisticPanel Grid.Row="1" Grid.Column="0" Margin="10 10 5 5" DataContext="{Binding SumOfDebts}"/>
 
-            <Grid Grid.Column="0" Background="#7aab41">
-                <TextBlock Text="&#xEADF;" Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            </Grid>
+        <local:StatisticPanel Grid.Row="1" Grid.Column="1" Margin="5 10 5 5" DataContext="{Binding NumberOfDebtors}"/>
 
-            <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="5">
-                <TextBlock Text="Suma długów" Foreground="White" FontSize="18"/>
-                <TextBlock Text="290.00 zł" Foreground="White" FontSize="30"/>
-            </StackPanel>
+        <local:StatisticPanel Grid.Row="1" Grid.Column="2" Margin="5 10 5 5" DataContext="{Binding NumberOfOperations}"/>
 
-        </Grid>
+        <local:StatisticPanel Grid.Row="1" Grid.Column="5" Margin="5 10 10 5" DataContext="{Binding LastOperation}"/>
 
-        <Grid Grid.Row="1" Grid.Column="1" Background="#ff9800" Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2*"/>
-            </Grid.ColumnDefinitions>
-
-            <Grid Grid.Column="0" Background="#e08600">
-                <TextBlock Text="&#xE902;" Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            </Grid>
-
-            <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="5">
-                <TextBlock Text="Liczba dłużników" Foreground="White" FontSize="18"/>
-                <TextBlock Text="2" Foreground="White" FontSize="36"/>
-            </StackPanel>
-
-        </Grid>
-
-        <Grid Grid.Row="1" Grid.Column="2" Background="#00bcd4" Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2*"/>
-            </Grid.ColumnDefinitions>
-
-            <Grid Grid.Column="0" Background="#00a5ba">
-                <TextBlock Text="&#xE82D;" Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            </Grid>
-
-            <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="5">
-                <TextBlock Text="Liczba operacji" Foreground="White" FontSize="18"/>
-                <TextBlock Text="4" Foreground="White" FontSize="36"/>
-            </StackPanel>
-
-        </Grid>
-
-
-        <Grid Grid.Row="1" Grid.Column="3" Background="#e91e63" Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2*"/>
-            </Grid.ColumnDefinitions>
-
-            <Grid Grid.Column="0" Background="#cd1a57">
-                <TextBlock Text="&#xE82E;" Foreground="White" FontFamily="{StaticResource Segoe-MDL2}" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            </Grid>
-
-            <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="5">
-                <TextBlock Text="Ostatnia operacja" Foreground="White" FontSize="18"/>
-                <TextBlock Text="-200.00 zł" Foreground="White" FontSize="32"/>
-            </StackPanel>
-
-        </Grid>
 
         <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4"  Background="White" Margin="10">
             <Grid Margin="10">

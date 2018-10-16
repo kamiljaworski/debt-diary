@@ -345,4 +345,10 @@
   <data name="NoOperationsAdded" xml:space="preserve">
     <value>There is no operations added</value>
   </data>
+  <data name="NumberOfDebtors" xml:space="preserve">
+    <value>Number of debtors</value>
+  </data>
+  <data name="SumOfDebts" xml:space="preserve">
+    <value>Sum of debts</value>
+  </data>
 </root>

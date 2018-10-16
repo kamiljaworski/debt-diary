@@ -345,4 +345,10 @@
   <data name="NoOperationsAdded" xml:space="preserve">
     <value>Nie dodano żadnej operacji</value>
   </data>
+  <data name="NumberOfDebtors" xml:space="preserve">
+    <value>Liczba dłużników</value>
+  </data>
+  <data name="SumOfDebts" xml:space="preserve">
+    <value>Suma długów</value>
+  </data>
 </root>

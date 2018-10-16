@@ -20,6 +20,7 @@ namespace DebtDiary
                 {
                     case StatisticPanelMessage.DebtFemale:
                     case StatisticPanelMessage.DebtMale:
+                    case StatisticPanelMessage.SumOfDebts:
                         return Application.Current.FindResource("TrackersIcon") as string;
 
                     case StatisticPanelMessage.NumberOfOperations:
@@ -30,6 +31,9 @@ namespace DebtDiary
 
                     case StatisticPanelMessage.AdditionDate:
                         return Application.Current.FindResource("AddFriendIcon") as string;
+
+                    case StatisticPanelMessage.NumberOfDebtors:
+                        return Application.Current.FindResource("GroupIcon") as string;
 
                     default:
                         return string.Empty;

@@ -27,6 +27,7 @@ namespace DebtDiary
             {
                 case StatisticPanelMessage.DebtMale:
                 case StatisticPanelMessage.DebtFemale:
+                case StatisticPanelMessage.SumOfDebts:
                     if (panelValue != null && panelValue.Length > 0 && panelValue[0] == '-')
                         return Color.FromRgb(226, 19, 29);
                     else
@@ -39,6 +40,7 @@ namespace DebtDiary
                     return Color.FromRgb(233, 30, 99);
 
                 case StatisticPanelMessage.AdditionDate:
+                case StatisticPanelMessage.NumberOfDebtors:
                     return Color.FromRgb(255, 152, 0);
             }
 
