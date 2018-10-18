@@ -132,6 +132,9 @@
     <Compile Include="UserControls\OperationsList\ShortOperationsList.xaml.cs">
       <DependentUpon>ShortOperationsList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\OperationsList\OperationsListItem.xaml.cs">
+      <DependentUpon>OperationsListItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\OperationsList\ShortOperationsListItem.xaml.cs">
       <DependentUpon>ShortOperationsListItem.xaml</DependentUpon>
     </Compile>
@@ -246,6 +249,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\OperationsList\ShortOperationsList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\OperationsList\OperationsListItem.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
