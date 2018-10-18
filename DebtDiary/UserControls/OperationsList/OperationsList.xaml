@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="DebtDiary.OperationsList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DebtDiary"
+             xmlns:localization="clr-namespace:DebtDiary.Localization"
+             mc:Ignorable="d"
+             d:DesignHeight="260" d:DesignWidth="1000">
+    <Grid Background="White" d:DataContext="{x:Static local:ShortOperationsListDesignModel.Instance}">
+        <!-- TODO: Custom scroll bar style -->
+        <TextBlock Text="{x:Static localization:Strings.NoOperationsAdded}" Foreground="Gray" TextAlignment="Left" Margin="0 5 0 0"
+                   Visibility="{Binding IsAnyOperationAdded, Converter={local:BooleanToVisibilityConverter}, FallbackValue=Visible}"/>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding Operations}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <local:OperationsListItem/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

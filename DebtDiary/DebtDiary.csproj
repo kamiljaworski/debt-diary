@@ -129,6 +129,9 @@
     <Compile Include="UserControls\DebtorsList\DebtorsListItem.xaml.cs">
       <DependentUpon>DebtorsListItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\OperationsList\OperationsList.xaml.cs">
+      <DependentUpon>OperationsList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\OperationsList\ShortOperationsList.xaml.cs">
       <DependentUpon>ShortOperationsList.xaml</DependentUpon>
     </Compile>
@@ -248,6 +251,10 @@
     <Page Include="UserControls\DebtorsList\DebtorsListItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\OperationsList\OperationsList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\OperationsList\ShortOperationsList.xaml">
       <Generator>MSBuild:Compile</Generator>

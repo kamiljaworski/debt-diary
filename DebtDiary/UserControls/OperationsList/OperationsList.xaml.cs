@@ -3,11 +3,11 @@
 namespace DebtDiary
 {
     /// <summary>
-    /// Interaction logic for OperationsListItem.xaml
+    /// Interaction logic for OperationsList.xaml
     /// </summary>
-    public partial class OperationsListItem : UserControl
+    public partial class OperationsList : UserControl
     {
-        public OperationsListItem()
+        public OperationsList()
         {
             InitializeComponent();
         }
