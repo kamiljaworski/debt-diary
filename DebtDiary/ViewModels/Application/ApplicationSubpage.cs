@@ -4,6 +4,9 @@
     {
         SummarySubpage,
         AddDebtorSubpage,
-        DebtorInfoSubpage
+        DebtorInfoSubpage,
+        MyAccountSubpage,
+        EditDebtorSubpage,
+        DeleteDebtorSubpage
     }
 }
