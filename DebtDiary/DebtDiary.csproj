@@ -198,6 +198,7 @@
     <Compile Include="ViewModels\UserControls\DebtorsList\IDebtorsListViewModel.cs" />
     <Compile Include="ViewModels\UserControls\OperationsList\Design\ShortOperationsListDesignModel.cs" />
     <Compile Include="ViewModels\UserControls\OperationsList\OperationsListItemViewModel.cs" />
+    <Compile Include="ViewModels\UserControls\OperationsList\OperationsListViewModel.cs" />
     <Compile Include="ViewModels\UserControls\OperationsList\ShortOperationsListItemViewModel.cs" />
     <Compile Include="ViewModels\UserControls\OperationsList\ShortOperationsListViewModel.cs" />
     <Compile Include="ViewModels\UserControls\Other\IStatisticsPanel.cs" />
