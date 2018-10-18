@@ -16,7 +16,7 @@
             <ItemsControl ItemsSource="{Binding Operations}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <local:ShortOperationsListItem/>
+                        <local:ShortOperationsListItem Margin="10 0 10 0"/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
