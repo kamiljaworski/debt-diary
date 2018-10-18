@@ -17,7 +17,7 @@ namespace DebtDiary
         public IStatisticsPanel LastOperation { get; private set; }
 
         public SeriesCollection SeriesCollection { get; set; }
-        public ShortOperationsListViewModel OperationsList { get; private set; } = null;
+        public OperationsListViewModel OperationsList { get; private set; } = null;
         public Func<double, string> CurrencyFormatter { get; set; }
 
         #endregion
@@ -41,9 +41,7 @@ namespace DebtDiary
                     }
             };
 
-            // TODO: (Long)OperatonsListViewModel
-            if(_loggedUser.Debtors.Count > 0)
-                OperationsList = new ShortOperationsListViewModel(_loggedUser.Operations);
+                OperationsList = new OperationsListViewModel(_loggedUser.Operations.OrderByDescending(x => x.AdditionDate).Take(30));
 
         }
         #endregion

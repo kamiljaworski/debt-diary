@@ -154,7 +154,7 @@
     <value>DŁUŻNICY</value>
   </data>
   <data name="DebtsCourse" xml:space="preserve">
-    <value>Przebieg długu</value>
+    <value>Przebieg długów</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>Opis</value>
@@ -350,5 +350,11 @@
   </data>
   <data name="SumOfDebts" xml:space="preserve">
     <value>Suma długów</value>
+  </data>
+  <data name="DebtCourse" xml:space="preserve">
+    <value>Przebieg długu</value>
+  </data>
+  <data name="LastOperations" xml:space="preserve">
+    <value>Ostatnie operacje</value>
   </data>
 </root>

@@ -154,7 +154,7 @@
     <value>DEBTORS</value>
   </data>
   <data name="DebtsCourse" xml:space="preserve">
-    <value>Debt course</value>
+    <value>Debts course</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>Description</value>
@@ -350,5 +350,11 @@
   </data>
   <data name="SumOfDebts" xml:space="preserve">
     <value>Sum of debts</value>
+  </data>
+  <data name="DebtCourse" xml:space="preserve">
+    <value>Debt course</value>
+  </data>
+  <data name="LastOperations" xml:space="preserve">
+    <value>Last operations</value>
   </data>
 </root>

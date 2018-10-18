@@ -14,7 +14,7 @@ namespace DebtDiary
         {
         }
 
-        public OperationsListViewModel(IList<Operation> operations)
+        public OperationsListViewModel(IEnumerable<Operation> operations)
         {
             foreach (Operation operation in operations)
                 Operations.Add(new OperationsListItemViewModel(operation));

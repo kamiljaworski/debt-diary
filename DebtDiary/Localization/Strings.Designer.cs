@@ -133,6 +133,15 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Debt course.
+        /// </summary>
+        public static string DebtCourse {
+            get {
+                return ResourceManager.GetString("DebtCourse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Owes you.
         /// </summary>
         public static string DebtFemale {
@@ -169,7 +178,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Debt course.
+        ///   Looks up a localized string similar to Debts course.
         /// </summary>
         public static string DebtsCourse {
             get {
@@ -399,6 +408,15 @@ namespace DebtDiary.Localization {
         public static string LastOperation {
             get {
                 return ResourceManager.GetString("LastOperation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last operations.
+        /// </summary>
+        public static string LastOperations {
+            get {
+                return ResourceManager.GetString("LastOperations", resourceCulture);
             }
         }
         

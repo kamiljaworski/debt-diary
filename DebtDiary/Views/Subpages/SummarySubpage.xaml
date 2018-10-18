@@ -4,12 +4,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DebtDiary"
+      xmlns:localization="clr-namespace:DebtDiary.Localization"
       xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       mc:Ignorable="d" 
       d:DesignHeight="680" d:DesignWidth="1000"
       Title="SummarySubpage">
 
     <Grid Grid.Column="1" Background="#e5e5e5">
+        <!--#region Rows and columns definition-->
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="2*"/>
@@ -23,39 +25,56 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <!--#endregion-->
 
+        <!--#region Summary text-->
         <TextBlock Grid.Row="0" Grid.ColumnSpan="4" Text="Podsumowanie" FontSize="40" FontFamily="{StaticResource LatoLight}" VerticalAlignment="Center" Padding="10 0 0 0"/>
+        <!--#endregion-->
 
+        <!--#region Statistic panels -->
+        <!-- Sum of debts -->
         <local:StatisticPanel Grid.Row="1" Grid.Column="0" Margin="10 10 5 5" DataContext="{Binding SumOfDebts}"/>
 
+        <!-- Number of debtors -->
         <local:StatisticPanel Grid.Row="1" Grid.Column="1" Margin="5 10 5 5" DataContext="{Binding NumberOfDebtors}"/>
 
+        <!-- Number of operations -->
         <local:StatisticPanel Grid.Row="1" Grid.Column="2" Margin="5 10 5 5" DataContext="{Binding NumberOfOperations}"/>
 
+        <!-- Last operation -->
         <local:StatisticPanel Grid.Row="1" Grid.Column="5" Margin="5 10 10 5" DataContext="{Binding LastOperation}"/>
+        <!--#endregion-->
 
+        <!--#region Debts course chart-->
+        <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4"  Background="White" Margin="10 5 10 5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4"  Background="White" Margin="10">
-            <Grid Margin="10">
-                <lvc:CartesianChart Series="{Binding SeriesCollection}" DataTooltip="{x:Null}">
-                    <lvc:CartesianChart.AxisY>
-                        <lvc:Axis LabelFormatter="{Binding CurrencyFormatter}"/>
-                    </lvc:CartesianChart.AxisY>
-                    <lvc:CartesianChart.AxisX>
-                        <lvc:Axis ShowLabels="False"/>
-                    </lvc:CartesianChart.AxisX>
-                </lvc:CartesianChart>
-            </Grid>
+            <TextBlock Grid.Row="0" Text="{x:Static localization:Strings.DebtsCourse}" FontSize="28" FontFamily="{StaticResource LatoLight}" Padding="10 0 0 0"/>
+            <lvc:CartesianChart Grid.Row="1" Series="{Binding SeriesCollection}" DataTooltip="{x:Null}" Margin="10">
+                <lvc:CartesianChart.AxisY>
+                    <lvc:Axis LabelFormatter="{Binding CurrencyFormatter}"/>
+                </lvc:CartesianChart.AxisY>
+                <lvc:CartesianChart.AxisX>
+                    <lvc:Axis ShowLabels="False"/>
+                </lvc:CartesianChart.AxisX>
+            </lvc:CartesianChart>
         </Grid>
-        <!--<Grid Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"  Background="White" Margin="10"/>-->
+        <!--#endregion-->
 
-        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4"  Background="White" Margin="10">
+        <!--#region Last operations list-->
+        <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4"  Background="White" Margin="10 5 10 10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-            <TextBlock Text="Ostatnie operacje" FontSize="28" FontFamily="{StaticResource LatoLight}" Padding="10 0 0 0"/>
-
-            <local:ShortOperationsList Margin="10" DataContext="{Binding OperationsList}" d:DataContext="{x:Static local:ShortOperationsListDesignModel.Instance}"/>
-
-        </StackPanel>
+            <TextBlock Grid.Row="0" Text="{x:Static localization:Strings.LastOperations}" FontSize="28" FontFamily="{StaticResource LatoLight}" Padding="10 0 0 0"/>
+            <local:OperationsList Grid.Row="1" Margin="10" DataContext="{Binding OperationsList}" d:DataContext="{x:Static local:ShortOperationsListDesignModel.Instance}"/>
+        </Grid>
+        <!--#endregion-->
 
     </Grid>
 </Page>
