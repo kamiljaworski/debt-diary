@@ -21,6 +21,8 @@ namespace DebtDiary
         public bool IsMyAccountSelected { get; set; }
         public bool IsLogoutSelected { get; set; }
         public SortType SortType { get; set; } = SortType.Descending;
+
+        public IDebtorsListViewModel DebtorsList => IocContainer.Get<IDebtorsListViewModel>();
         #endregion
 
         #region Constructor

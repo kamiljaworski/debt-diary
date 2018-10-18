@@ -88,7 +88,7 @@
                         </StackPanel>
 
                         <!-- Debtors list -->
-                        <local:DebtorsList Grid.Row="1" d:DataContext="{x:Static local:DebtorsListDesignModel.Instance}"/>
+                        <local:DebtorsList Grid.Row="1" d:DataContext="{x:Static local:DebtorsListDesignModel.Instance}" DataContext="{Binding DebtorsList}"/>
 
                         <!-- Footer -->
                         <StackPanel Grid.Row="2">

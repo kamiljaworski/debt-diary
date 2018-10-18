@@ -20,6 +20,8 @@ namespace DebtDiary
         bool IsLogoutSelected { get; set; }
         SortType SortType { get; set; }
 
+        IDebtorsListViewModel DebtorsList { get; }
+
         /// <summary>
         /// Reset all the selected buttons properties to false
         /// </summary>

@@ -24,6 +24,9 @@ namespace DebtDiary
 
         #region Constructor
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public SummarySubpageViewModel()
         {
             CurrencyFormatter = value => Helpers.GetFormattedCurrency(value);
@@ -41,8 +44,8 @@ namespace DebtDiary
                     }
             };
 
-                OperationsList = new OperationsListViewModel(_loggedUser.Operations.OrderByDescending(x => x.AdditionDate).Take(30));
-
+            // 30 last operations ordered by AdditionDate
+            OperationsList = new OperationsListViewModel(_loggedUser.Operations.OrderByDescending(x => x.AdditionDate).Take(30));
         }
         #endregion
 
