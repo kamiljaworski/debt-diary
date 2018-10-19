@@ -33,7 +33,7 @@
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="450"/>
+                <ColumnDefinition Width="500"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
@@ -47,7 +47,7 @@
                        Width="200" Content="{Binding Initials, UpdateSourceTrigger=PropertyChanged, FallbackValue=AA}" />
 
                 <!--#region Color changer-->
-                <Grid Margin="40 0 40 0">
+                <Grid Margin="60 0 60 0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
@@ -76,26 +76,26 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="9*"/>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="9*"/>
                     </Grid.ColumnDefinitions>
 
 
-                    <!-- First Name-->
+                    <!-- First name -->
                     <TextBox Grid.Row="0" Grid.Column="0" Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Tag="{x:Static localization:Strings.FirstName}" 
                          local:FormMessageProperty.Value="{Binding FirstNameMessage}"/>
 
-                    <!-- Last Name-->
+                    <!-- Last name -->
                     <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Tag="{x:Static localization:Strings.LastName}"
                          local:FormMessageProperty.Value="{Binding LastNameMessage}"/>
 
-                    <!-- First Name-->
-                    <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Tag="{x:Static localization:Strings.FirstName}" 
+                    <!-- Username -->
+                    <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Tag="{x:Static localization:Strings.Username}" 
                          local:FormMessageProperty.Value="{Binding FirstNameMessage}"/>
 
-                    <!-- First Name-->
-                    <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Tag="{x:Static localization:Strings.FirstName}" 
+                    <!-- Email -->
+                    <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Tag="{x:Static localization:Strings.Email}" 
                          local:FormMessageProperty.Value="{Binding FirstNameMessage}"/>
 
                 </Grid>

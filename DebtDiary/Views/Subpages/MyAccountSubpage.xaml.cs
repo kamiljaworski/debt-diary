@@ -9,7 +9,7 @@ namespace DebtDiary
     {
         public MyAccountSubpage()
         {
-            DataContext = new AddDebtorSubpageViewModel();
+            DataContext = new MyAccountSubpageViewModel();
             InitializeComponent();
         }
     }
