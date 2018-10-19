@@ -18,9 +18,11 @@ namespace DebtDiary
                 case ApplicationSubpage.AddDebtorSubpage:
                     return new AddDebtorSubpage();
 
-
                 case ApplicationSubpage.DebtorInfoSubpage:
                     return new DebtorInfoSubpage();
+
+                case ApplicationSubpage.MyAccountSubpage:
+                    return new MyAccountSubpage();
 
                 default:
                     return null;

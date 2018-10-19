@@ -35,6 +35,7 @@ namespace DebtDiary
             if (designTime == false)
                 ResetUsersData();
 
+            // TODO: private method to DRY
             SummaryCommand = new RelayCommand(() =>
             {
                 ResetSelectedDebtor();
@@ -48,6 +49,7 @@ namespace DebtDiary
                 ResetSelectedDebtor();
                 ResetSelectedButtons();
                 IsMyAccountSelected = true;
+                IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.MyAccountSubpage);
             });
 
             LogoutCommand = new RelayCommand(() =>
