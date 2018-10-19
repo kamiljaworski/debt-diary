@@ -35,21 +35,16 @@ namespace DebtDiary
             if (designTime == false)
                 ResetUsersData();
 
-            // TODO: private method to DRY
             SummaryCommand = new RelayCommand(() =>
             {
-                ResetSelectedDebtor();
-                ResetSelectedButtons();
+                ChangeSubpage(ApplicationSubpage.SummarySubpage);
                 IsSummarySelected = true;
-                IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.SummarySubpage);
             });
 
             MyAccountCommand = new RelayCommand(() =>
             {
-                ResetSelectedDebtor();
-                ResetSelectedButtons();
+                ChangeSubpage(ApplicationSubpage.MyAccountSubpage);
                 IsMyAccountSelected = true;
-                IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.MyAccountSubpage);
             });
 
             LogoutCommand = new RelayCommand(() =>
@@ -61,12 +56,7 @@ namespace DebtDiary
                 IocContainer.Get<IApplicationViewModel>().ChangeCurrentPage(ApplicationPage.LoginPage);
             });
 
-            AddDebtorCommand = new RelayCommand(() =>
-            {
-                ResetSelectedDebtor();
-                ResetSelectedButtons();
-                IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.AddDebtorSubpage);
-            });
+            AddDebtorCommand = new RelayCommand(() => ChangeSubpage(ApplicationSubpage.AddDebtorSubpage));
 
             SortCommand = new RelayCommand(() =>
             {
@@ -110,6 +100,16 @@ namespace DebtDiary
         {
             IocContainer.Get<IApplicationViewModel>().SelectedDebtor = null;
             IocContainer.Get<IDebtorsListViewModel>().ResetSelectedDebtor();
+        }
+
+        /// <summary>
+        /// Change subpage
+        /// </summary>
+        private void ChangeSubpage(ApplicationSubpage subpage)
+        {
+            ResetSelectedDebtor();
+            ResetSelectedButtons();
+            IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(subpage);
         }
         #endregion
     }
