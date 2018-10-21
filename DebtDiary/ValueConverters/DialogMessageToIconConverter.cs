@@ -24,10 +24,7 @@ namespace DebtDiary
                         case DialogMessage.None:
                             return failureIcon;
 
-                        case DialogMessage.AccountCreated:
-                            return successIcon;
-
-                        case DialogMessage.NewDebtorAdded:
+                        default:
                             return successIcon;
                     }
 

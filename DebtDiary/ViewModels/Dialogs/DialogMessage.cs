@@ -7,6 +7,7 @@
     {
         None,
         AccountCreated,
-        NewDebtorAdded
+        NewDebtorAdded,
+        ProfileUpdated
     }
 }

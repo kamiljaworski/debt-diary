@@ -18,10 +18,7 @@ namespace DebtDiary
                     case DialogMessage.None:
                         return Brushes.Red;
 
-                    case DialogMessage.AccountCreated:
-                        return Brushes.Green;
-
-                    case DialogMessage.NewDebtorAdded:
+                    default:
                         return Brushes.Green;
                 }
 

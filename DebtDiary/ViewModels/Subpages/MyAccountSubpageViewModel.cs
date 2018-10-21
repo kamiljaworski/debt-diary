@@ -89,7 +89,7 @@ namespace DebtDiary
 
                 // Show successful dialog window 
                 // TODO: new dialog message - profile updated
-                IocContainer.Get<IDialogFacade>().OpenDialog(DialogMessage.NewDebtorAdded);
+                IocContainer.Get<IDialogFacade>().OpenDialog(DialogMessage.ProfileUpdated);
             });
         }
 
