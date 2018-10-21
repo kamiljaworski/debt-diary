@@ -357,4 +357,31 @@
   <data name="LastOperations" xml:space="preserve">
     <value>Ostatnie operacje</value>
   </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Zmień hasło</value>
+  </data>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>Obecne hasło</value>
+  </data>
+  <data name="EditProfile" xml:space="preserve">
+    <value>Edytuj profil</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Nowe hasło</value>
+  </data>
+  <data name="ProfileUpdatedSubtitle" xml:space="preserve">
+    <value>Możesz edytować go ponownie lub zmienić hasło</value>
+  </data>
+  <data name="ProfileUpdatedTitle" xml:space="preserve">
+    <value>Twój profil został zaktualizowany</value>
+  </data>
+  <data name="RepeatNewPassword" xml:space="preserve">
+    <value>Powtórz nowe hasło</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Zapisz</value>
+  </data>
+  <data name="SaveChanges" xml:space="preserve">
+    <value>Zapisz zmiany</value>
+  </data>
 </root>

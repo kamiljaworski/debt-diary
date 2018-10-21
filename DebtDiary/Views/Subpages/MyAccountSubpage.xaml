@@ -38,7 +38,7 @@
             </Grid.ColumnDefinitions>
 
             <!-- Edit profile text -->
-            <TextBlock Grid.Row="0" Grid.ColumnSpan="3" Text="Edit profile" FontSize="28" FontFamily="{StaticResource LatoLight}" Padding="10 0 0 0"/>
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="3" Text="{x:Static localization:Strings.EditProfile}" FontSize="28" FontFamily="{StaticResource LatoLight}" Padding="10 0 0 0"/>
 
             <!--#region Form-->
             <StackPanel Grid.Row="1" Grid.Column="1" Margin="20" >
@@ -130,7 +130,7 @@
                 </Grid>
 
                 <!-- Add new debtor button -->
-                <Button Content="Save changes" Margin="0 20 0 0" HorizontalAlignment="Center" Command="{Binding EditProfileCommand}"
+                <Button Content="{x:Static localization:Strings.SaveChanges}" Margin="0 20 0 0" HorizontalAlignment="Center" Command="{Binding EditProfileCommand}"
                         local:IsBusyProperty.Value="{Binding IsEditProfileRunning}"/>
                 <!--#endregion-->
 
@@ -150,13 +150,13 @@
             </Grid.RowDefinitions>
 
             <!-- Change password text -->
-            <TextBlock Grid.Row="0" Text="Change password" FontSize="28" FontFamily="{StaticResource LatoLight}" Padding="10 0 0 0"/>
+            <TextBlock Grid.Row="0" Text="{x:Static localization:Strings.ChangePassword}" FontSize="28" FontFamily="{StaticResource LatoLight}" Padding="10 0 0 0"/>
 
             <StackPanel Grid.Row="1" Width="300">
-                <PasswordBox Tag="Current password"/>
-                <PasswordBox Tag="New password"/>
-                <PasswordBox Tag="Repeat new password"/>
-                <Button Content="Save" Margin="0 20 0 0" HorizontalAlignment="Center"/>
+                <PasswordBox Tag="{x:Static localization:Strings.CurrentPassword}"/>
+                <PasswordBox Tag="{x:Static localization:Strings.NewPassword}"/>
+                <PasswordBox Tag="{x:Static localization:Strings.RepeatNewPassword}"/>
+                <Button Content="{x:Static localization:Strings.Save}" Margin="0 20 0 0" HorizontalAlignment="Center"/>
             </StackPanel>
         </Grid>
     </Grid>
