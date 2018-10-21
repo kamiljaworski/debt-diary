@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DebtDiary"
       xmlns:localization="clr-namespace:DebtDiary.Localization"
-      mc:Ignorable="d" 
+      mc:Ignorable="d" x:Name="Subpage"
       d:DesignHeight="680" d:DesignWidth="1000"
       Title="AddDebtorSubpage">
 
@@ -153,10 +153,17 @@
             <TextBlock Grid.Row="0" Text="{x:Static localization:Strings.ChangePassword}" FontSize="28" FontFamily="{StaticResource LatoLight}" Padding="10 0 0 0"/>
 
             <StackPanel Grid.Row="1" Width="300">
-                <PasswordBox Tag="{x:Static localization:Strings.CurrentPassword}"/>
-                <PasswordBox Tag="{x:Static localization:Strings.NewPassword}"/>
-                <PasswordBox Tag="{x:Static localization:Strings.RepeatNewPassword}"/>
-                <Button Content="{x:Static localization:Strings.Save}" Margin="0 20 0 0" HorizontalAlignment="Center"/>
+                <PasswordBox x:Name="CurrentPassword" Tag="{x:Static localization:Strings.CurrentPassword}" 
+                         local:FormMessageProperty.Value="{Binding CurrentPasswordMessage}"/>
+
+                <PasswordBox x:Name="NewPassword" Tag="{x:Static localization:Strings.NewPassword}" 
+                         local:FormMessageProperty.Value="{Binding NewPasswordMessage}"/>
+                
+                <PasswordBox x:Name="RepeatNewPassword" Tag="{x:Static localization:Strings.RepeatNewPassword}" 
+                         local:FormMessageProperty.Value="{Binding RepeatNewPasswordMessage}"/>
+                
+                <Button Content="{x:Static localization:Strings.Save}" Margin="0 20 0 0" HorizontalAlignment="Center" 
+                        Command="{Binding ChangePasswordCommand}" CommandParameter="{Binding ElementName=Subpage}" local:IsBusyProperty.Value="{Binding IsChangePasswordRunning}"/>
             </StackPanel>
         </Grid>
     </Grid>

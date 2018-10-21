@@ -24,6 +24,7 @@ namespace DebtDiary
         public string Email { get; set; }
         public Gender Gender { get; set; } = Gender.None;
         public bool IsEditProfileRunning { get; set; }
+        public bool IsChangePasswordRunning { get; set; }
         #endregion
 
         #region Form Messages
@@ -31,6 +32,11 @@ namespace DebtDiary
         public FormMessage FirstNameMessage { get; set; } = FormMessage.None;
         public FormMessage LastNameMessage { get; set; } = FormMessage.None;
         public FormMessage GenderMessage { get; set; } = FormMessage.None;
+
+        public FormMessage CurrentPasswordMessage { get; set; } = FormMessage.None;
+        public FormMessage NewPasswordMessage { get; set; } = FormMessage.None;
+        public FormMessage RepeatNewPasswordMessage { get; set; } = FormMessage.None;
+
         #endregion
 
         #region Public Commands
