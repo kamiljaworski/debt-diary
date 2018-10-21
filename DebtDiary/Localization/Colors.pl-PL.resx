@@ -117,13 +117,283 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Black" xml:space="preserve">
+    <value>Czarny</value>
+  </data>
+  <data name="Blue" xml:space="preserve">
+    <value>Niebieski</value>
+  </data>
+  <data name="BlueViolet" xml:space="preserve">
+    <value>Fioletowo-niebieski</value>
+  </data>
+  <data name="Brown" xml:space="preserve">
+    <value>Brązowy</value>
+  </data>
+  <data name="BurlyWood" xml:space="preserve">
+    <value>Jasno brązowy</value>
+  </data>
+  <data name="CadetBlue" xml:space="preserve">
+    <value>Zielono-niebieski</value>
+  </data>
+  <data name="Chocolate" xml:space="preserve">
+    <value>Czekoladowy</value>
+  </data>
+  <data name="Coral" xml:space="preserve">
+    <value>Koralowy</value>
+  </data>
+  <data name="CornflowerBlue" xml:space="preserve">
+    <value>Modry</value>
+  </data>
+  <data name="Crimson" xml:space="preserve">
+    <value>Szkarłatny</value>
+  </data>
+  <data name="DarkBlue" xml:space="preserve">
+    <value>Ciemnoniebieski</value>
+  </data>
+  <data name="DarkCyan" xml:space="preserve">
+    <value>Ciemny niebiesko-zielony</value>
+  </data>
+  <data name="DarkGoldenrod" xml:space="preserve">
+    <value>Ciemny czerwono-złoty</value>
+  </data>
+  <data name="DarkGray" xml:space="preserve">
+    <value>Ciemnoszary</value>
+  </data>
+  <data name="DarkGreen" xml:space="preserve">
+    <value>Ciemnozielony</value>
+  </data>
+  <data name="DarkKhaki" xml:space="preserve">
+    <value>Ciemny khaki</value>
+  </data>
+  <data name="DarkMagenta" xml:space="preserve">
+    <value>Ciemnokarmazynowy</value>
+  </data>
+  <data name="DarkOliveGreen" xml:space="preserve">
+    <value>Ciemny oliwkowo-niebieski</value>
+  </data>
+  <data name="DarkOrange" xml:space="preserve">
+    <value>Ciemnopomarańczowy</value>
+  </data>
+  <data name="DarkOrchid" xml:space="preserve">
+    <value>Ciemna orchidea</value>
+  </data>
+  <data name="DarkRed" xml:space="preserve">
+    <value>Ciemnoczerwony</value>
+  </data>
+  <data name="DarkSalmon" xml:space="preserve">
+    <value>Ciemnołososiowy</value>
+  </data>
+  <data name="DarkSeaGreen" xml:space="preserve">
+    <value>Ciemna morska zieleń</value>
+  </data>
+  <data name="DarkSlateBlue" xml:space="preserve">
+    <value>Ciemno szaro-niebieski</value>
+  </data>
+  <data name="DarkSlateGray" xml:space="preserve">
+    <value>Ciemnopopielaty</value>
+  </data>
+  <data name="DarkTurquoise" xml:space="preserve">
+    <value>Ciemny turkus</value>
+  </data>
+  <data name="DarkViolet" xml:space="preserve">
+    <value>Ciemnofioletowy</value>
+  </data>
+  <data name="DeepPink" xml:space="preserve">
+    <value>Głęboki róż</value>
+  </data>
+  <data name="DeepSkyBlue" xml:space="preserve">
+    <value>Głębokie niebieskie niebo</value>
+  </data>
+  <data name="DimGray" xml:space="preserve">
+    <value>Ciemnoszary</value>
+  </data>
+  <data name="DodgerBlue" xml:space="preserve">
+    <value>Błękitny</value>
+  </data>
+  <data name="Firebrick" xml:space="preserve">
+    <value>Ognisto-ceglasty</value>
+  </data>
+  <data name="ForestGreen" xml:space="preserve">
+    <value>Leśna zieleń</value>
+  </data>
+  <data name="Fuchsia" xml:space="preserve">
+    <value>Fuksja</value>
+  </data>
+  <data name="Gainsboro" xml:space="preserve">
+    <value>Jasnoszary</value>
+  </data>
+  <data name="Gold" xml:space="preserve">
+    <value>Złoty</value>
+  </data>
+  <data name="Goldenrod" xml:space="preserve">
+    <value>Złoto-czerwony</value>
+  </data>
+  <data name="Gray" xml:space="preserve">
+    <value>Szary</value>
+  </data>
   <data name="Green" xml:space="preserve">
     <value>Zielony</value>
+  </data>
+  <data name="HotPink" xml:space="preserve">
+    <value>Gorący róż</value>
+  </data>
+  <data name="IndianRed" xml:space="preserve">
+    <value>Indyjska czerwień</value>
+  </data>
+  <data name="Indigo" xml:space="preserve">
+    <value>Indygo</value>
+  </data>
+  <data name="LightCoral" xml:space="preserve">
+    <value>Jasnokoralowy</value>
+  </data>
+  <data name="LightGray" xml:space="preserve">
+    <value>Jasnoszary</value>
+  </data>
+  <data name="LightPink" xml:space="preserve">
+    <value>Jasnoróżowy</value>
+  </data>
+  <data name="LightSalmon" xml:space="preserve">
+    <value>Jasnołososiowy</value>
   </data>
   <data name="LightSeaGreen" xml:space="preserve">
     <value>Jasna zieleń morska</value>
   </data>
+  <data name="LightSkyBlue" xml:space="preserve">
+    <value>Jasne niebieskie niebo</value>
+  </data>
+  <data name="LightSlateGray" xml:space="preserve">
+    <value>Jasnopopielaty</value>
+  </data>
+  <data name="LightSteelBlue" xml:space="preserve">
+    <value>Jasny stalowo-niebieski</value>
+  </data>
+  <data name="LimeGreen" xml:space="preserve">
+    <value>Limonkowy</value>
+  </data>
+  <data name="Magenta" xml:space="preserve">
+    <value>Karmazynowy</value>
+  </data>
+  <data name="Maroon" xml:space="preserve">
+    <value>Kasztanowy</value>
+  </data>
+  <data name="MediumAquamarine" xml:space="preserve">
+    <value>Średnia akwamaryna</value>
+  </data>
+  <data name="MediumBlue" xml:space="preserve">
+    <value>Średni niebieski</value>
+  </data>
+  <data name="MediumOrchid" xml:space="preserve">
+    <value>Średnia orchidea</value>
+  </data>
+  <data name="MediumPurple" xml:space="preserve">
+    <value>Średni purpurowy</value>
+  </data>
+  <data name="MediumSeaGreen" xml:space="preserve">
+    <value>Średnia morska zieleń</value>
+  </data>
+  <data name="MediumSlateBlue" xml:space="preserve">
+    <value>Średni szaro-niebieski</value>
+  </data>
+  <data name="MediumTurquoise" xml:space="preserve">
+    <value>Średni turkus</value>
+  </data>
+  <data name="MediumVioletRed" xml:space="preserve">
+    <value>Średni czerwony fiolet</value>
+  </data>
+  <data name="MidnightBlue" xml:space="preserve">
+    <value>Niebieska północ</value>
+  </data>
+  <data name="Navy" xml:space="preserve">
+    <value>Granatowy</value>
+  </data>
+  <data name="Olive" xml:space="preserve">
+    <value>Oliwkowy</value>
+  </data>
+  <data name="OliveDrab" xml:space="preserve">
+    <value>Oliwkowo-zielony</value>
+  </data>
   <data name="Orange" xml:space="preserve">
     <value>Pomarańczowy</value>
+  </data>
+  <data name="OrangeRed" xml:space="preserve">
+    <value>Ceglasty</value>
+  </data>
+  <data name="Orchid" xml:space="preserve">
+    <value>Orchidea</value>
+  </data>
+  <data name="PaleVioletRed" xml:space="preserve">
+    <value>Bladofioletowa czerwień</value>
+  </data>
+  <data name="Peru" xml:space="preserve">
+    <value>Peru</value>
+  </data>
+  <data name="Pink" xml:space="preserve">
+    <value>Różowy</value>
+  </data>
+  <data name="Plum" xml:space="preserve">
+    <value>Śliwkowy</value>
+  </data>
+  <data name="Purple" xml:space="preserve">
+    <value>Purpurowy</value>
+  </data>
+  <data name="Red" xml:space="preserve">
+    <value>Czerwony</value>
+  </data>
+  <data name="RosyBrown" xml:space="preserve">
+    <value>Różowo-brązowy</value>
+  </data>
+  <data name="RoyalBlue" xml:space="preserve">
+    <value>Królewski niebieski</value>
+  </data>
+  <data name="SaddleBrown" xml:space="preserve">
+    <value>Brązowe siodło</value>
+  </data>
+  <data name="Salmon" xml:space="preserve">
+    <value>Łososiowy</value>
+  </data>
+  <data name="SandyBrown" xml:space="preserve">
+    <value>Piaszczysty brąz</value>
+  </data>
+  <data name="SeaGreen" xml:space="preserve">
+    <value>Morska zieleń</value>
+  </data>
+  <data name="Sienna" xml:space="preserve">
+    <value>Siena</value>
+  </data>
+  <data name="Silver" xml:space="preserve">
+    <value>Srebrny</value>
+  </data>
+  <data name="SkyBlue" xml:space="preserve">
+    <value>Niebieskie niebo</value>
+  </data>
+  <data name="SlateBlue" xml:space="preserve">
+    <value>Szaro-niebieski</value>
+  </data>
+  <data name="SlateGray" xml:space="preserve">
+    <value>Popielaty</value>
+  </data>
+  <data name="SteelBlue" xml:space="preserve">
+    <value>Stalowo-niebieski</value>
+  </data>
+  <data name="Tan" xml:space="preserve">
+    <value>Jasnobrązowy</value>
+  </data>
+  <data name="Teal" xml:space="preserve">
+    <value>Morski</value>
+  </data>
+  <data name="Tomato" xml:space="preserve">
+    <value>Pomidorowy</value>
+  </data>
+  <data name="Turquoise" xml:space="preserve">
+    <value>Turkus</value>
+  </data>
+  <data name="Violet" xml:space="preserve">
+    <value>Fiolet</value>
+  </data>
+  <data name="Wheat" xml:space="preserve">
+    <value>Pszenny</value>
+  </data>
+  <data name="YellowGreen" xml:space="preserve">
+    <value>Żółto-zielony</value>
   </data>
 </root>

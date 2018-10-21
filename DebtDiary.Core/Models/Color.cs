@@ -95,6 +95,5 @@
         Gold = 90,
         Goldenrod = 91,
         YellowGreen = 92
-        // TODO: Add localized color names
     }
 }
