@@ -70,7 +70,7 @@
                 <!--#endregion-->
 
                 <!--#region Data fields-->
-                <Grid>
+                <Grid Margin="0 15 0 0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
@@ -82,22 +82,25 @@
                     </Grid.ColumnDefinitions>
 
 
+                    <!-- Username -->
+                    <StackPanel Grid.Row="0" Grid.Column="0" Margin="0 0 0 10">
+                        <TextBlock Text="{x:Static localization:Strings.Username}" Foreground="{StaticResource DarkGreyBrush}" FontFamily="{StaticResource LatoLight}" TextAlignment="Center" FontSize="14"/>
+                        <TextBlock Text="{Binding Username, FallbackValue=test}" Foreground="Black" FontFamily="{StaticResource LatoRegular}" TextAlignment="Center" FontSize="18"/>
+                    </StackPanel>
+
+                    <!-- Email -->
+                    <StackPanel Grid.Row="0" Grid.Column="2" Margin="0 0 0 10">
+                        <TextBlock Text="{x:Static localization:Strings.Email}" Foreground="{StaticResource DarkGreyBrush}" FontFamily="{StaticResource LatoLight}" TextAlignment="Center" FontSize="14"/>
+                        <TextBlock Text="{Binding Email, FallbackValue=test}" Foreground="Black" FontFamily="{StaticResource LatoRegular}" TextAlignment="Center" FontSize="18"/>
+                    </StackPanel>
+                    
                     <!-- First name -->
-                    <TextBox Grid.Row="0" Grid.Column="0" Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Tag="{x:Static localization:Strings.FirstName}" 
+                    <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Tag="{x:Static localization:Strings.FirstName}" 
                          local:FormMessageProperty.Value="{Binding FirstNameMessage}"/>
 
                     <!-- Last name -->
-                    <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Tag="{x:Static localization:Strings.LastName}"
+                    <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Tag="{x:Static localization:Strings.LastName}"
                          local:FormMessageProperty.Value="{Binding LastNameMessage}"/>
-
-                    <!-- Username -->
-                    <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Tag="{x:Static localization:Strings.Username}" 
-                         local:FormMessageProperty.Value="{Binding FirstNameMessage}"/>
-
-                    <!-- Email -->
-                    <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Tag="{x:Static localization:Strings.Email}" 
-                         local:FormMessageProperty.Value="{Binding FirstNameMessage}"/>
-
                 </Grid>
 
                 <!-- Gender -->
@@ -127,7 +130,7 @@
                 </Grid>
 
                 <!-- Add new debtor button -->
-                <Button Content="Save changes" Margin="0 20 0 40" HorizontalAlignment="Center" Command="{Binding AddDebtorCommand}"
+                <Button Content="Save changes" Margin="0 20 0 0" HorizontalAlignment="Center" Command="{Binding AddDebtorCommand}"
                         local:IsBusyProperty.Value="{Binding IsAddDebtorRunning}"/>
                 <!--#endregion-->
 
@@ -153,7 +156,7 @@
                 <PasswordBox Tag="Current password"/>
                 <PasswordBox Tag="New password"/>
                 <PasswordBox Tag="Repeat new password"/>
-                <Button Content="Save" HorizontalAlignment="Center"/>
+                <Button Content="Save" Margin="0 20 0 0" HorizontalAlignment="Center"/>
             </StackPanel>
         </Grid>
     </Grid>
