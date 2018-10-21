@@ -10,6 +10,7 @@
       Title="AddDebtorSubpage">
 
     <Grid>
+        <!--#region Rows and columns definition-->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -19,12 +20,14 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
+        <!--#endregion-->
 
-        <!-- Page title -->
+        <!--#region Page title-->
         <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="{x:Static localization:Strings.MyAccount}" FontSize="40" FontFamily="{StaticResource LatoLight}" 
                    VerticalAlignment="Center" Padding="10 0 0 0"/>
+        <!--#endregion-->
 
-        <!-- Page content -->
+        <!--#region Edit profile -->
         <Grid Grid.Row="1" Grid.Column="0" Background="White" Margin="10 10 5 10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -37,7 +40,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Edit profile text -->
+            <!-- Edit profile subtitle -->
             <TextBlock Grid.Row="0" Grid.ColumnSpan="3" Text="{x:Static localization:Strings.EditProfile}" FontSize="28" FontFamily="{StaticResource LatoLight}" Padding="10 0 0 0"/>
 
             <!--#region Form-->
@@ -84,16 +87,20 @@
 
                     <!-- Username -->
                     <StackPanel Grid.Row="0" Grid.Column="0" Margin="0 0 0 10">
-                        <TextBlock Text="{x:Static localization:Strings.Username}" Foreground="{StaticResource DarkGreyBrush}" FontFamily="{StaticResource LatoLight}" TextAlignment="Center" FontSize="14"/>
-                        <TextBlock Text="{Binding Username, FallbackValue=test}" Foreground="Black" FontFamily="{StaticResource LatoRegular}" TextAlignment="Center" FontSize="18"/>
+                        <TextBlock Text="{x:Static localization:Strings.Username}" Foreground="{StaticResource DarkGreyBrush}" 
+                                   FontFamily="{StaticResource LatoLight}" TextAlignment="Center" FontSize="14"/>
+                        <TextBlock Text="{Binding Username, FallbackValue=test}" Foreground="Black" 
+                                   FontFamily="{StaticResource LatoRegular}" TextAlignment="Center" FontSize="18"/>
                     </StackPanel>
 
                     <!-- Email -->
                     <StackPanel Grid.Row="0" Grid.Column="2" Margin="0 0 0 10">
-                        <TextBlock Text="{x:Static localization:Strings.Email}" Foreground="{StaticResource DarkGreyBrush}" FontFamily="{StaticResource LatoLight}" TextAlignment="Center" FontSize="14"/>
-                        <TextBlock Text="{Binding Email, FallbackValue=test}" Foreground="Black" FontFamily="{StaticResource LatoRegular}" TextAlignment="Center" FontSize="18"/>
+                        <TextBlock Text="{x:Static localization:Strings.Email}" Foreground="{StaticResource DarkGreyBrush}"
+                                   FontFamily="{StaticResource LatoLight}" TextAlignment="Center" FontSize="14"/>
+                        <TextBlock Text="{Binding Email, FallbackValue=test}" Foreground="Black" 
+                                   FontFamily="{StaticResource LatoRegular}" TextAlignment="Center" FontSize="18"/>
                     </StackPanel>
-                    
+
                     <!-- First name -->
                     <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Tag="{x:Static localization:Strings.FirstName}" 
                          local:FormMessageProperty.Value="{Binding FirstNameMessage}"/>
@@ -142,30 +149,35 @@
                 <KeyBinding Key="Enter" Command="{Binding AddDebtorCommand}"/>
             </Grid.InputBindings>
         </Grid>
+        <!--#endregion-->
 
+        <!--#region Change password-->
         <Grid Grid.Row="1" Grid.Column="1" Background="White" Margin="5 10 10 10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <!-- Change password text -->
+            <!-- Change password subtitle -->
             <TextBlock Grid.Row="0" Text="{x:Static localization:Strings.ChangePassword}" FontSize="28" FontFamily="{StaticResource LatoLight}" Padding="10 0 0 0"/>
 
-            <StackPanel Grid.Row="1" Width="300">
+            <StackPanel Grid.Row="1" Width="300" Margin="0 10 0 0">
+                <!-- Current password -->
                 <PasswordBox x:Name="CurrentPassword" Tag="{x:Static localization:Strings.CurrentPassword}" 
                          local:FormMessageProperty.Value="{Binding CurrentPasswordMessage}"/>
 
+                <!-- New password -->
                 <PasswordBox x:Name="NewPassword" Tag="{x:Static localization:Strings.NewPassword}" 
                          local:FormMessageProperty.Value="{Binding NewPasswordMessage}"/>
-                
+
+                <!-- Repeat new password -->
                 <PasswordBox x:Name="RepeatNewPassword" Tag="{x:Static localization:Strings.RepeatNewPassword}" 
                          local:FormMessageProperty.Value="{Binding RepeatNewPasswordMessage}"/>
-                
+
                 <Button Content="{x:Static localization:Strings.Save}" Margin="0 20 0 0" HorizontalAlignment="Center" 
                         Command="{Binding ChangePasswordCommand}" CommandParameter="{Binding ElementName=Subpage}" local:IsBusyProperty.Value="{Binding IsChangePasswordRunning}"/>
             </StackPanel>
         </Grid>
+        <!--#endregion-->
     </Grid>
-
 </Page>
