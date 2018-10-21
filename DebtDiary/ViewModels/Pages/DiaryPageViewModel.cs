@@ -33,7 +33,7 @@ namespace DebtDiary
         public DiaryPageViewModel(bool designTime = false)
         {
             if (designTime == false)
-                ResetUsersData();
+                UpdateUsersData();
 
             SummaryCommand = new RelayCommand(() =>
             {
@@ -81,7 +81,7 @@ namespace DebtDiary
         /// <summary>
         /// Reset users fullname, username and initials
         /// </summary>
-        public void ResetUsersData()
+        public void UpdateUsersData()
         {
             User loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
 

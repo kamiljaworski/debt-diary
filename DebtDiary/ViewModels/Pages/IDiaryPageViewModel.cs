@@ -30,6 +30,6 @@ namespace DebtDiary
         /// <summary>
         /// Reset users fullname, username and initials
         /// </summary>
-        void ResetUsersData();
+        void UpdateUsersData();
     }
 }

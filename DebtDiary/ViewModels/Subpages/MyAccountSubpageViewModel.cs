@@ -23,7 +23,7 @@ namespace DebtDiary
         public string Username { get; set; }
         public string Email { get; set; }
         public Gender Gender { get; set; } = Gender.None;
-        public bool IsSaveProfileRunning { get; set; }
+        public bool IsEditProfileRunning { get; set; }
         #endregion
 
         #region Form Messages
@@ -35,8 +35,8 @@ namespace DebtDiary
 
         #region Public Commands
 
-        public ICommand SaveProfileCommand { get; set; }
-        public ICommand SavePasswordCommand { get; set; }
+        public ICommand EditProfileCommand { get; set; }
+        public ICommand ChangePasswordCommand { get; set; }
         public ICommand PreviousColorCommand { get; set; }
         public ICommand NextColorCommand { get; set; }
         #endregion
@@ -56,7 +56,7 @@ namespace DebtDiary
                 Gender = (Gender)_loggedUser.Gender;
             }
 
-            SaveProfileCommand = new RelayCommand(async () => await SaveProfileAsync());
+            EditProfileCommand = new RelayCommand(async () => await EditProfileAsync());
             PreviousColorCommand = new RelayCommand(() => AvatarColor = ColorSelector.Previous(AvatarColor));
             NextColorCommand = new RelayCommand(() => AvatarColor = ColorSelector.Next(AvatarColor));
         }
@@ -67,28 +67,29 @@ namespace DebtDiary
         /// <summary>
         /// Add new debtor to the database and UI
         /// </summary>
-        private async Task SaveProfileAsync()
+        private async Task EditProfileAsync()
         {
-            await RunCommandAsync(() => IsSaveProfileRunning, async () =>
+            await RunCommandAsync(() => IsEditProfileRunning, async () =>
             {
-                //// Validate entered data
-                //if (await ValidateDataAsync() == false)
-                //    return;
+                // Validate entered data
+                if (await ValidateDataAsync() == false)
+                    return;
 
+                // Update user with new data
+                UpdateUserData();
 
+                // Save changes in the database
+                await Task.Run(() => IocContainer.Get<IDataAccess>().SaveChanges());
 
-                //// Save changes in the database
-                //await Task.Run(() => IocContainer.Get<IDataAccess>().SaveChanges());
+                // Update users data in the side menu
+                IocContainer.Get<IDiaryPageViewModel>().UpdateUsersData(); ;
 
-                //// Update list in the ViewModel
-                //IDebtorsListViewModel debtorsList = IocContainer.Get<IDebtorsListViewModel>();
-                //debtorsList.Update();
+                // Turn off spinning text
+                IsEditProfileRunning = false;
 
-                //// Turn off spinning text
-                //IsSaveProfileRunning = false;
-
-                //// Show successful dialog window 
-                //IocContainer.Get<IDialogFacade>().OpenDialog(DialogMessage.NewDebtorAdded);
+                // Show successful dialog window 
+                // TODO: new dialog message - profile updated
+                IocContainer.Get<IDialogFacade>().OpenDialog(DialogMessage.NewDebtorAdded);
             });
         }
 
@@ -99,37 +100,28 @@ namespace DebtDiary
         {
             await Task.Run(() =>
             {
-                //// Reset all the form messages properties
-                //ResetFormMessages();
+                // Reset all the form messages properties
+                ResetFormMessages();
 
-                //// Check if first name is empty
-                //if (string.IsNullOrEmpty(FirstName))
-                //    FirstNameMessage = FormMessage.EmptyFirstName;
+                // Check if first name is empty
+                if (string.IsNullOrEmpty(FirstName))
+                    FirstNameMessage = FormMessage.EmptyFirstName;
 
-                //// Check if last name is empty
-                //if (string.IsNullOrEmpty(LastName))
-                //    LastNameMessage = FormMessage.EmptyLastName;
+                // Check if last name is empty
+                if (string.IsNullOrEmpty(LastName))
+                    LastNameMessage = FormMessage.EmptyLastName;
 
-                //// Check if gender was selected
-                //if (Gender == Gender.None)
-                //    GenderMessage = FormMessage.UnselectedGender;
+                // Check if gender was selected
+                if (Gender == Gender.None)
+                    GenderMessage = FormMessage.UnselectedGender;
 
-                //// Check if first name is correct
-                //if (FirstNameMessage == FormMessage.None && DataValidator.IsNameCorrect(FirstName) == false)
-                //    FirstNameMessage = FormMessage.IncorrectFirstName;
+                // Check if first name is correct
+                if (FirstNameMessage == FormMessage.None && DataValidator.IsNameCorrect(FirstName) == false)
+                    FirstNameMessage = FormMessage.IncorrectFirstName;
 
-                //// Check if first name is correct
-                //if (LastNameMessage == FormMessage.None && DataValidator.IsNameCorrect(LastName) == false)
-                //    LastNameMessage = FormMessage.IncorrectLastName;
-
-                //// Check if there is debtor with this first and last name in db
-                //if (FirstNameMessage == FormMessage.None && LastNameMessage == FormMessage.None)
-                //    if (_loggedUser.Debtors.Where(d => d.FirstName == FirstName && d.LastName == LastName).Count() > 0)
-                //    {
-                //        FirstNameMessage = FormMessage.EmptyMessage;
-                //        LastNameMessage = FormMessage.DebtorExist;
-                //    }
-
+                // Check if first name is correct
+                if (LastNameMessage == FormMessage.None && DataValidator.IsNameCorrect(LastName) == false)
+                    LastNameMessage = FormMessage.IncorrectLastName;
             });
 
             // Check if any problem was found and return right value
@@ -158,6 +150,17 @@ namespace DebtDiary
 
             // If not return true
             return true;
+        }
+
+        /// <summary>
+        /// Update logged users data
+        /// </summary>
+        private void UpdateUserData()
+        {
+            _loggedUser.AvatarColor = AvatarColor;
+            _loggedUser.FirstName = FirstName;
+            _loggedUser.LastName = LastName;
+            _loggedUser.Gender = Gender;
         }
 
         #endregion

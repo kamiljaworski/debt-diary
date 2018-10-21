@@ -107,7 +107,7 @@ namespace DebtDiary
                 IDiaryPageViewModel diaryPage = IocContainer.Get<IDiaryPageViewModel>();
 
                 // Reset users fullname, username and initials
-                diaryPage.ResetUsersData();
+                diaryPage.UpdateUsersData();
 
                 // Reset selected buttons in the diary page side menu
                 diaryPage.ResetSelectedButtons();

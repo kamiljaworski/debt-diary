@@ -130,8 +130,8 @@
                 </Grid>
 
                 <!-- Add new debtor button -->
-                <Button Content="Save changes" Margin="0 20 0 0" HorizontalAlignment="Center" Command="{Binding AddDebtorCommand}"
-                        local:IsBusyProperty.Value="{Binding IsAddDebtorRunning}"/>
+                <Button Content="Save changes" Margin="0 20 0 0" HorizontalAlignment="Center" Command="{Binding EditProfileCommand}"
+                        local:IsBusyProperty.Value="{Binding IsEditProfileRunning}"/>
                 <!--#endregion-->
 
             </StackPanel>
