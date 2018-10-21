@@ -9,7 +9,7 @@
              d:DesignHeight="260" d:DesignWidth="1000">
     <Grid Background="White" d:DataContext="{x:Static local:ShortOperationsListDesignModel.Instance}">
         <!-- TODO: Custom scroll bar style -->
-        <TextBlock Text="{x:Static localization:Strings.NoOperationsAdded}" Foreground="Gray" TextAlignment="Left" Margin="0 5 0 0"
+        <TextBlock Text="{x:Static localization:Strings.NoOperationsAdded}" Foreground="Gray" TextAlignment="Left" Margin="10 5 0 0"
                    Visibility="{Binding IsAnyOperationAdded, Converter={local:BooleanToVisibilityConverter}, FallbackValue=Visible}"/>
 
         <ScrollViewer VerticalScrollBarVisibility="Auto">
