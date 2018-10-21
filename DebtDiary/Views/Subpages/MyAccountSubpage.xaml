@@ -143,11 +143,6 @@
 
             </StackPanel>
             <!--#endregion-->
-
-            <!-- Enter key binding -->
-            <Grid.InputBindings>
-                <KeyBinding Key="Enter" Command="{Binding AddDebtorCommand}"/>
-            </Grid.InputBindings>
         </Grid>
         <!--#endregion-->
 
