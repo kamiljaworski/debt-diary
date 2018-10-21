@@ -10,6 +10,7 @@ namespace DebtDiary
         public string FullName { get; set; }
         public string Username { get; set; }
         public string Initials { get; set; }
+        public Color AvatarColor { get; set; }
 
         public ICommand SummaryCommand { get; set; }
         public ICommand MyAccountCommand { get; set; }
@@ -23,6 +24,7 @@ namespace DebtDiary
         public SortType SortType { get; set; } = SortType.Descending;
 
         public IDebtorsListViewModel DebtorsList => IocContainer.Get<IDebtorsListViewModel>();
+
         #endregion
 
         #region Constructor
@@ -88,6 +90,7 @@ namespace DebtDiary
             FullName = loggedUser.FullName;
             Username = loggedUser.Username;
             Initials = loggedUser.Initials;
+            AvatarColor = loggedUser.AvatarColor;
         }
         #endregion
 

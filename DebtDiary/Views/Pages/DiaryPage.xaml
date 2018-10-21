@@ -30,7 +30,7 @@
                     <!-- Account info -->
                     <StackPanel Grid.Row="0">
                         <!-- Avatar -->
-                        <Label Width="100" Style="{StaticResource AvatarLabel}" Content="{Binding Initials}"/>
+                        <Label Width="100" Style="{StaticResource AvatarLabel}" Content="{Binding Initials}" Background="{Binding AvatarColor, Converter={local:ColorToBrushConverter}, FallbackValue=Green}"/>
 
                         <!-- Full name -->
                         <Viewbox HorizontalAlignment="Center" Margin="10 10 10 0" StretchDirection="DownOnly">

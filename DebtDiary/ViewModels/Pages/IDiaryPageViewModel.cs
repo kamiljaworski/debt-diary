@@ -8,6 +8,7 @@ namespace DebtDiary
         string FullName { get; set; }
         string Username { get; set; }
         string Initials { get; set; }
+        Color AvatarColor { get; set; }
 
         ICommand SummaryCommand { get; set; }
         ICommand MyAccountCommand { get; set; }
