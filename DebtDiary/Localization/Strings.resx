@@ -384,4 +384,22 @@
   <data name="SaveChanges" xml:space="preserve">
     <value>Save changes</value>
   </data>
+  <data name="EmptyCurrentPassword" xml:space="preserve">
+    <value>Enter current password</value>
+  </data>
+  <data name="EmptyNewPassword" xml:space="preserve">
+    <value>Enter new password</value>
+  </data>
+  <data name="EmptyRepeatedNewPassword" xml:space="preserve">
+    <value>Repeat new password</value>
+  </data>
+  <data name="IncorrectCurrentPassword" xml:space="preserve">
+    <value>Incorrect current password</value>
+  </data>
+  <data name="PasswordChangedSubtitle" xml:space="preserve">
+    <value>You can change it again or edit your profile</value>
+  </data>
+  <data name="PasswordChangedTitle" xml:space="preserve">
+    <value>Your password has been changed</value>
+  </data>
 </root>

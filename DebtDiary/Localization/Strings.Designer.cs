@@ -241,6 +241,15 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter current password.
+        /// </summary>
+        public static string EmptyCurrentPassword {
+            get {
+                return ResourceManager.GetString("EmptyCurrentPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter description.
         /// </summary>
         public static string EmptyDescription {
@@ -277,11 +286,29 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter new password.
+        /// </summary>
+        public static string EmptyNewPassword {
+            get {
+                return ResourceManager.GetString("EmptyNewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter password.
         /// </summary>
         public static string EmptyPassword {
             get {
                 return ResourceManager.GetString("EmptyPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Repeat new password.
+        /// </summary>
+        public static string EmptyRepeatedNewPassword {
+            get {
+                return ResourceManager.GetString("EmptyRepeatedNewPassword", resourceCulture);
             }
         }
         
@@ -354,6 +381,15 @@ namespace DebtDiary.Localization {
         public static string General {
             get {
                 return ResourceManager.GetString("General", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Incorrect current password.
+        /// </summary>
+        public static string IncorrectCurrentPassword {
+            get {
+                return ResourceManager.GetString("IncorrectCurrentPassword", resourceCulture);
             }
         }
         
@@ -642,6 +678,24 @@ namespace DebtDiary.Localization {
         public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can change it again or edit your profile.
+        /// </summary>
+        public static string PasswordChangedSubtitle {
+            get {
+                return ResourceManager.GetString("PasswordChangedSubtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your password has been changed.
+        /// </summary>
+        public static string PasswordChangedTitle {
+            get {
+                return ResourceManager.GetString("PasswordChangedTitle", resourceCulture);
             }
         }
         

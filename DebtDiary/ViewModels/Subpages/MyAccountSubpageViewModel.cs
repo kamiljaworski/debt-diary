@@ -1,7 +1,5 @@
 ﻿using DebtDiary.Core;
 using DebtDiary.DataProvider;
-using System;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -101,6 +99,9 @@ namespace DebtDiary
             });
         }
 
+        /// <summary>
+        /// Change logged users password
+        /// </summary>
         private async Task ChangePasswordAsync(object parameter)
         {
             await RunCommandAsync(() => IsEditProfileRunning, async () =>
@@ -117,6 +118,9 @@ namespace DebtDiary
 
                 // Save changes in the database
                 await Task.Run(() => IocContainer.Get<IDataAccess>().SaveChanges());
+
+                // Clear password fields in the view
+                _passwords.ClearPassword();
 
                 // Turn off spinning text
                 IsEditProfileRunning = false;
@@ -184,7 +188,7 @@ namespace DebtDiary
                     RepeatNewPasswordMessage = FormMessage.EmptyRepeatedNewPassword;
 
                 // Check if current password is correct
-                if (CurrentPasswordMessage == FormMessage.NegativeNumber && _passwords.Password.GetEncryptedPassword() != _loggedUser.Password)
+                if (CurrentPasswordMessage == FormMessage.None && _passwords.Password.GetEncryptedPassword() != _loggedUser.Password)
                     CurrentPasswordMessage = FormMessage.IncorrectCurrentPassword;
 
                 // Check if new password is longer or equal to 8 characters
@@ -198,7 +202,7 @@ namespace DebtDiary
                 if (NewPasswordMessage == FormMessage.None && RepeatNewPasswordMessage == FormMessage.None &&
                     _passwords.SecondPassword.GetEncryptedPassword() != _passwords.ThirdPassword.GetEncryptedPassword())
                 {
-                    NewPasswordMessage = FormMessage.DifferentNewPasswords;
+                    NewPasswordMessage = FormMessage.DifferentPasswords;
                     RepeatNewPasswordMessage = FormMessage.EmptyMessage;
                 }
             });

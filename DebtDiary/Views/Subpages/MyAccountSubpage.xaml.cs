@@ -8,9 +8,9 @@ namespace DebtDiary
     /// </summary>
     public partial class MyAccountSubpage : Page, IHaveThreePasswords
     {
-        public SecureString ThirdPassword => CurrentPassword.SecurePassword;
+        public SecureString Password => CurrentPassword.SecurePassword;
         public SecureString SecondPassword => NewPassword.SecurePassword;
-        public SecureString Password => RepeatNewPassword.SecurePassword;
+        public SecureString ThirdPassword => RepeatNewPassword.SecurePassword;
 
         public MyAccountSubpage()
         {
