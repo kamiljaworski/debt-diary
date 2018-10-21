@@ -29,6 +29,12 @@
         EmptyDescription,
         IncorrectValue,
         IncorrectDescription,
-        NegativeNumber
+        NegativeNumber,
+        EmptyCurrentPassword,
+        EmptyNewPassword,
+        EmptyRepeatedNewPassword,
+        IncorrectCurrentPassword,
+        DifferentNewPasswords,
+        NewPasswordTooShort
     }
 }

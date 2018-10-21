@@ -8,6 +8,7 @@
         None,
         AccountCreated,
         NewDebtorAdded,
-        ProfileUpdated
+        ProfileUpdated,
+        PasswordChanged
     }
 }
