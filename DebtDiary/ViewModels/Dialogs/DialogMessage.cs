@@ -9,6 +9,8 @@
         AccountCreated,
         NewDebtorAdded,
         ProfileUpdated,
-        PasswordChanged
+        PasswordChanged,
+        DebtorEdited,
+        DebtorDeleted
     }
 }

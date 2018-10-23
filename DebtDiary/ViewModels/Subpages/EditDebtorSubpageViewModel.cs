@@ -87,7 +87,10 @@ namespace DebtDiary
                 IsEditDebtorRunning = false;
 
                 // Show successful dialog window 
-                IocContainer.Get<IDialogFacade>().OpenDialog(DialogMessage.NewDebtorAdded);
+                IocContainer.Get<IDialogFacade>().OpenDialog(DialogMessage.DebtorEdited);
+
+                // Update changes in the DebtorInfoSubpage
+                IocContainer.Get<IDebtorInfoSubpageViewModel>().UpdateChanges();
 
                 // Go back to debtor info subpage
                 IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.DebtorInfoSubpage);

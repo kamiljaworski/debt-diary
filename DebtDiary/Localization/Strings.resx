@@ -402,4 +402,13 @@
   <data name="PasswordChangedTitle" xml:space="preserve">
     <value>Your password has been changed</value>
   </data>
+  <data name="DebtorEditedSubtitle" xml:space="preserve">
+    <value>You can check this changes now</value>
+  </data>
+  <data name="DebtorEditedTitle" xml:space="preserve">
+    <value>Debtor has been edited</value>
+  </data>
+  <data name="EditDebtor" xml:space="preserve">
+    <value>Edit debtor</value>
+  </data>
 </root>

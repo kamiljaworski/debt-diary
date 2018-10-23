@@ -178,6 +178,24 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You can check this changes now.
+        /// </summary>
+        public static string DebtorEditedSubtitle {
+            get {
+                return ResourceManager.GetString("DebtorEditedSubtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debtor has been edited.
+        /// </summary>
+        public static string DebtorEditedTitle {
+            get {
+                return ResourceManager.GetString("DebtorEditedTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This debtor has been already added.
         /// </summary>
         public static string DebtorExist {
@@ -219,6 +237,15 @@ namespace DebtDiary.Localization {
         public static string DifferentPasswords {
             get {
                 return ResourceManager.GetString("DifferentPasswords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit debtor.
+        /// </summary>
+        public static string EditDebtor {
+            get {
+                return ResourceManager.GetString("EditDebtor", resourceCulture);
             }
         }
         
