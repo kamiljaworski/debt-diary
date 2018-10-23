@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DebtDiary"
       xmlns:localization="clr-namespace:DebtDiary.Localization"
-      mc:Ignorable="d" 
+      mc:Ignorable="d" x:Name="Subpage"
       d:DesignHeight="680" d:DesignWidth="1000"
       Title="DeleteDebtorSubpage">
 
@@ -39,8 +39,8 @@
                 <PasswordBox x:Name="Password" Tag="{x:Static localization:Strings.YourPassword}" local:FormMessageProperty.Value="{Binding PasswordMessage}"/>
 
                 <!-- Add new debtor button -->
-                <Button Content="{x:Static localization:Strings.Delete}" Margin="0 20 0 40" HorizontalAlignment="Center" Command="{Binding AddDebtorCommand}"
-                        local:IsBusyProperty.Value="{Binding IsDeleteDebtorRunning}" Background="Red"/>
+                <Button Content="{x:Static localization:Strings.Delete}" Margin="0 20 0 40" HorizontalAlignment="Center" Command="{Binding DeleteDebtorCommand}" CommandParameter="{Binding ElementName=Subpage}"
+                        local:IsBusyProperty.Value="{Binding IsDeleteDebtorRunning}"/>
 
             </StackPanel>
             <!--#endregion-->
