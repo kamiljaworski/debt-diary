@@ -36,7 +36,7 @@
                 <TextBlock Text="{Binding FullName, FallbackValue=Jan Kowalski}" FontFamily="{StaticResource LatoLight}" FontSize="32" HorizontalAlignment="Center" Margin="0 10 0 10"/>
 
                 <!-- Password -->
-                <PasswordBox Tag="{x:Static localization:Strings.YourPassword}" local:FormMessageProperty.Value="{Binding PasswordMessage}"/>
+                <PasswordBox x:Name="Password" Tag="{x:Static localization:Strings.YourPassword}" local:FormMessageProperty.Value="{Binding PasswordMessage}"/>
 
                 <!-- Add new debtor button -->
                 <Button Content="{x:Static localization:Strings.Delete}" Margin="0 20 0 40" HorizontalAlignment="Center" Command="{Binding AddDebtorCommand}"
