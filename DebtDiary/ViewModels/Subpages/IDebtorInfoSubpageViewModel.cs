@@ -39,6 +39,10 @@ namespace DebtDiary
         FormMessage RepaymentDescriptionMessage { get; set; }
         bool IsAddRepaymentFormRunning { get; set; }
 
+        // Edit and Delete debtor commands
+        ICommand EditDebtorCommand { get; set; }
+        ICommand DeleteDebtorCommand { get; set; }
+
         // Public methods
         void UpdateChanges();
     }

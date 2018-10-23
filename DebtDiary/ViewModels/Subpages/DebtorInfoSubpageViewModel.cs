@@ -56,6 +56,11 @@ namespace DebtDiary
         public FormMessage RepaymentDescriptionMessage { get; set; } = FormMessage.None;
         public bool IsAddRepaymentFormRunning { get; set; } = false;
         #endregion
+
+        // Edit and Delete debtor commands
+        public ICommand EditDebtorCommand { get; set; }
+        public ICommand DeleteDebtorCommand { get; set; }
+
         #endregion
 
         #region Constructor
@@ -65,6 +70,8 @@ namespace DebtDiary
             CurrencyFormatter = value => Helpers.GetFormattedCurrency(value);
             AddLoanCommand = new RelayCommand(async () => await AddLoanAsync());
             AddRepaymentCommand = new RelayCommand(async () => await AddRepaymentAsync());
+            EditDebtorCommand = new RelayCommand(() => IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.EditDebtorSubpage));
+            DeleteDebtorCommand = new RelayCommand(() => IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.DeleteDebtorSubpage));
         }
         #endregion
 
