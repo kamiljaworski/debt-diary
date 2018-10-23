@@ -223,6 +223,24 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete debtor.
+        /// </summary>
+        public static string DeleteDebtor {
+            get {
+                return ResourceManager.GetString("DeleteDebtor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Description.
         /// </summary>
         public static string Description {
@@ -939,6 +957,15 @@ namespace DebtDiary.Localization {
         public static string You {
             get {
                 return ResourceManager.GetString("You", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your password.
+        /// </summary>
+        public static string YourPassword {
+            get {
+                return ResourceManager.GetString("YourPassword", resourceCulture);
             }
         }
     }

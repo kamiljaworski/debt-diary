@@ -16,14 +16,14 @@
         </Grid.RowDefinitions>
 
         <!-- Page title -->
-        <TextBlock Grid.Row="0" Grid.ColumnSpan="4" Text="Delete debtor" FontSize="40" FontFamily="{StaticResource LatoLight}" 
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="4" Text="{x:Static localization:Strings.DeleteDebtor}" FontSize="40" FontFamily="{StaticResource LatoLight}" 
                    VerticalAlignment="Center" Padding="10 0 0 0"/>
 
         <!-- Page content -->
         <Grid Grid.Row="1" Background="White" Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="350"/>
+                <ColumnDefinition Width="400"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
@@ -31,77 +31,23 @@
             <StackPanel Grid.Column="1" Margin="20" >
                 <!-- Avatar -->
                 <Label Style="{StaticResource AvatarLabel}" Background="{Binding AvatarColor, Converter={local:ColorToBrushConverter}, FallbackValue=Green}" 
-                       Width="200" Content="{Binding Initials, UpdateSourceTrigger=PropertyChanged, FallbackValue=AA}" />
-                
-                <!--#region Color changer-->
-                <Grid Margin="0 10 0 0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
+                       Width="200" Content="{Binding Initials, UpdateSourceTrigger=PropertyChanged, FallbackValue=JK}" />
 
-                    <!-- Left arrow - previous color -->
-                    <Button Grid.Column="0" Content="{StaticResource LeftArrowIcon}" FontFamily="{StaticResource Segoe-MDL2}" 
-                            Padding="10" Command="{Binding PreviousColorCommand}"/>
+                <TextBlock Text="{Binding FullName, FallbackValue=Jan Kowalski}" FontFamily="{StaticResource LatoLight}" FontSize="32" HorizontalAlignment="Center" Margin="0 10 0 10"/>
 
-                    <!-- Current color text -->
-                    <TextBlock Grid.Column="1" Text="{Binding AvatarColor, Converter={local:ColorToStringConverter}, FallbackValue=Green}" 
-                               FontFamily="{StaticResource LatoLight}" FontSize="20" Foreground="{StaticResource DarkGreyBrush}" HorizontalAlignment="Center" 
-                               VerticalAlignment="Center"/>
-                    
-                    <!-- Right arrow - next color -->
-                    <Button Grid.Column="2" Content="{StaticResource RightArrowIcon}" FontFamily="{StaticResource Segoe-MDL2}" Padding="10" 
-                            Command="{Binding NextColorCommand}"/>
-                </Grid>
-                <!--#endregion-->
-
-                <!--#region Data fields-->
-                <!-- First Name-->
-                <TextBox Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Tag="{x:Static localization:Strings.FirstName}" 
-                         local:FormMessageProperty.Value="{Binding FirstNameMessage}"/>
-                
-                <!-- Last Name-->
-                <TextBox Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Tag="{x:Static localization:Strings.LastName}"
-                         local:FormMessageProperty.Value="{Binding LastNameMessage}"/>
-
-                <!-- Gender -->
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock Grid.Column="0" Text="{x:Static localization:Strings.Gender}" Style="{StaticResource FormMessageTitleTextBlock}" 
-                               Margin="0" HorizontalAlignment="Left" VerticalAlignment="Center"
-                       local:FormMessageProperty.Value="{Binding GenderMessage}"/>
-                    
-                    <StackPanel Grid.Column="1">
-                        <StackPanel Orientation="Horizontal" Margin="25 20 0 0">
-                            <RadioButton Content="{x:Static localization:Strings.Male}" 
-                             IsChecked="{Binding Gender, Converter={local:GenderToBolleanConverter}, ConverterParameter='Male'}"
-                             local:FormMessageProperty.Value="{Binding GenderMessage}"/>
-                            <RadioButton Content="{x:Static localization:Strings.Female}" Margin="10 0 0 0"
-                             IsChecked="{Binding Gender, Converter={local:GenderToBolleanConverter}, ConverterParameter='Female'}"
-                             local:FormMessageProperty.Value="{Binding GenderMessage}"/>
-                        </StackPanel>
-
-                        <TextBlock Text="{Binding GenderMessage, Converter={local:FormMessageToStringConverter}}" 
-                                   local:FormMessageProperty.Value="{Binding GenderMessage}" Style="{StaticResource FormMessageTextBlock}" Margin="25 3 5 0" />
-                    </StackPanel>
-                </Grid>
+                <!-- Password -->
+                <PasswordBox Tag="{x:Static localization:Strings.YourPassword}" local:FormMessageProperty.Value="{Binding PasswordMessage}"/>
 
                 <!-- Add new debtor button -->
-                <Button Content="{x:Static localization:Strings.Add}" Margin="0 20 0 40" HorizontalAlignment="Center" Command="{Binding AddDebtorCommand}"
-                        local:IsBusyProperty.Value="{Binding IsAddDebtorRunning}"/>
-                <!--#endregion-->
-                
+                <Button Content="{x:Static localization:Strings.Delete}" Margin="0 20 0 40" HorizontalAlignment="Center" Command="{Binding AddDebtorCommand}"
+                        local:IsBusyProperty.Value="{Binding IsDeleteDebtorRunning}" Background="Red"/>
+
             </StackPanel>
             <!--#endregion-->
 
             <!-- Enter key binding -->
             <Grid.InputBindings>
-                <KeyBinding Key="Enter" Command="{Binding AddDebtorCommand}"/>
+                <KeyBinding Key="Enter" Command="{Binding IsDeleteDebtorRunning}"/>
             </Grid.InputBindings>
         </Grid>
     </Grid>

@@ -411,4 +411,13 @@
   <data name="EditDebtor" xml:space="preserve">
     <value>Edytuj dłużnika</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Usuń</value>
+  </data>
+  <data name="DeleteDebtor" xml:space="preserve">
+    <value>Usuń dłużnika</value>
+  </data>
+  <data name="YourPassword" xml:space="preserve">
+    <value>Twoje hasło</value>
+  </data>
 </root>

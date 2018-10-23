@@ -411,4 +411,13 @@
   <data name="EditDebtor" xml:space="preserve">
     <value>Edit debtor</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DeleteDebtor" xml:space="preserve">
+    <value>Delete debtor</value>
+  </data>
+  <data name="YourPassword" xml:space="preserve">
+    <value>Your password</value>
+  </data>
 </root>
