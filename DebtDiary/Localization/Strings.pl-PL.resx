@@ -411,6 +411,12 @@
   <data name="EditDebtor" xml:space="preserve">
     <value>Edytuj dłużnika</value>
   </data>
+  <data name="DebtorDeletedSubtitle" xml:space="preserve">
+    <value>Zostaniesz teraz przeniesiony do podsumowania</value>
+  </data>
+  <data name="DebtorDeletedTitle" xml:space="preserve">
+    <value>Ten dłużnik został usunięty</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Usuń</value>
   </data>

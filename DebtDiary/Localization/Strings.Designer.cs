@@ -178,6 +178,24 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You will be moved to the summary subpage now.
+        /// </summary>
+        public static string DebtorDeletedSubtitle {
+            get {
+                return ResourceManager.GetString("DebtorDeletedSubtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This debtor has been deleted.
+        /// </summary>
+        public static string DebtorDeletedTitle {
+            get {
+                return ResourceManager.GetString("DebtorDeletedTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You can check this changes now.
         /// </summary>
         public static string DebtorEditedSubtitle {
