@@ -36,5 +36,8 @@
     <system:String x:Key="AddIcon">&#xE710;</system:String>
     <system:String x:Key="AscendingIcon">&#xEB11;</system:String>
     <system:String x:Key="DescendingIcon">&#xEB0F;</system:String>
+    <system:String x:Key="EditIcon">&#xE70F;</system:String>
+    <system:String x:Key="DeleteIcon">&#xE74D;</system:String>
+
 
 </ResourceDictionary>
