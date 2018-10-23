@@ -79,6 +79,9 @@ namespace DebtDiary
 
                 // Go to summary subpage
                 IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.SummarySubpage);
+
+                // Set summary page as selected
+                IocContainer.Get<IDiaryPageViewModel>().IsSummarySelected = true;
             });
         }
 
