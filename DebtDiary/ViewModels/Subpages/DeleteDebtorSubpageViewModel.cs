@@ -55,6 +55,7 @@ namespace DebtDiary
                 if (!(parameter is IHavePassword))
                     return;
 
+                // Get reference to the password
                 _password = (IHavePassword)parameter;
 
                 // Validate entered data
