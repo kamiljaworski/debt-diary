@@ -190,6 +190,7 @@
     <Compile Include="ViewModels\Pages\IDiaryPageViewModel.cs" />
     <Compile Include="ViewModels\Subpages\AddDebtorSubpageViewModel.cs" />
     <Compile Include="ViewModels\Subpages\DebtorInfoSubpageViewModel.cs" />
+    <Compile Include="ViewModels\Subpages\EditDebtorSubpageViewModel.cs" />
     <Compile Include="ViewModels\Subpages\IDebtorInfoSubpageViewModel.cs" />
     <Compile Include="ViewModels\Subpages\MyAccountSubpageViewModel.cs" />
     <Compile Include="ViewModels\Subpages\SummarySubpageViewModel.cs" />
