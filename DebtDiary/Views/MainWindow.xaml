@@ -42,17 +42,17 @@
                                 
                                 <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
                                     <!-- Minimize button -->
-                                    <Button Grid.Column="1" Style="{StaticResource DarkWindowControlButton}" Content="{StaticResource MinimizeIcon}" 
-                                            Command="{Binding MinimizeCommand}"/>
+                                    <Button Grid.Column="1" Style="{StaticResource WindowControlButton}" Content="{StaticResource MinimizeIcon}" 
+                                            Command="{Binding MinimizeCommand}" local:ApplicationPageProperty.Value="{Binding ApplicationViewModel.CurrentPage, Source={StaticResource ViewModelLocator}}"/>
 
                                     <!-- Maximize / Restore button -->
-                                    <Button Grid.Column="2" Style="{StaticResource DarkWindowControlButton}" 
+                                    <Button Grid.Column="2" Style="{StaticResource WindowControlButton}" 
                                             Content="{TemplateBinding WindowState, Converter={local:WindowStateToIconConverter}}" 
-                                            Command="{Binding MaximizeCommand}"/>
+                                            Command="{Binding MaximizeCommand}" local:ApplicationPageProperty.Value="{Binding ApplicationViewModel.CurrentPage, Source={StaticResource ViewModelLocator}}"/>
 
                                     <!-- Close button -->
-                                    <Button Grid.Column="3" Style="{StaticResource DarkWindowCloseButton}" Content="{StaticResource CloseIcon}" 
-                                            Command="{Binding CloseCommand}"/>
+                                    <Button Grid.Column="3" Style="{StaticResource WindowCloseButton}" Content="{StaticResource CloseIcon}" 
+                                            Command="{Binding CloseCommand}" local:ApplicationPageProperty.Value="{Binding ApplicationViewModel.CurrentPage, Source={StaticResource ViewModelLocator}}"/>
                                 </StackPanel>
                             </Grid>
                             

@@ -57,22 +57,28 @@
     </Style>
     <!--#endregion-->
 
-    <!--#region Dark Window Control Button Style -->
-    <Style TargetType="{x:Type Button}" x:Key="DarkWindowControlButton">
-        <Setter Property="Background" Value="{StaticResource DarkGreyBrush}"/>
+    <!--#region Window control button-->
+    <Style TargetType="{x:Type Button}" x:Key="WindowControlButton">
+        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Padding" Value="18 13 18 0"/>
         <Setter Property="FontFamily" Value="{StaticResource Segoe-MDL2}"/>
         <Setter Property="FontSize" Value="{StaticResource WindowControlIconFontSize}"/>
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
+        <Setter Property="local:ApplicationPageProperty.Value" Value="LoginPage"/>
 
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <!-- Button Style -->
-                    <Border x:Name="Border" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
-                        <TextBlock Foreground="{TemplateBinding Foreground}" FontFamily="{TemplateBinding FontFamily}" 
+                    <Border x:Name="Border" Background="{TemplateBinding Background}">
+                        <Grid>
+                            <Border x:Name="HoverLayer" Background="White" Opacity="0"/>
+                            <Border Padding="{TemplateBinding Padding}">
+                                <TextBlock Foreground="{TemplateBinding Foreground}" FontFamily="{TemplateBinding FontFamily}" 
                                    FontSize="{TemplateBinding FontSize}" Text="{TemplateBinding Content}"/>
+                            </Border>
+                        </Grid>
                     </Border>
 
                     <ControlTemplate.Triggers>
@@ -81,8 +87,7 @@
                             <!-- Background -->
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <ColorAnimation To="{StaticResource DarkGreyHover}" Duration="0:0:0.15" 
-                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="Background.Color" />
+                                    <DoubleAnimation To="0.1" Duration="0:0:0.15" Storyboard.TargetName="HoverLayer" Storyboard.TargetProperty="Opacity"/>
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
@@ -91,11 +96,40 @@
                             <!-- Background -->
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.15" 
-                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="Background.Color" />
+                                    <DoubleAnimation To="0" Duration="0:0:0.15" Storyboard.TargetName="HoverLayer" Storyboard.TargetProperty="Opacity"/>
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
+
+                        <Trigger Property="local:ApplicationPageProperty.Value" Value="DiaryPage">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="Black" Duration="0:0:0.15" Storyboard.TargetProperty="Foreground.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="Black" Duration="0:0:0.15" Storyboard.TargetName="HoverLayer" Storyboard.TargetProperty="Background.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="White" Duration="0:0:0.15" Storyboard.TargetProperty="Foreground.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="White" Duration="0:0:0.15" Storyboard.TargetName="HoverLayer" Storyboard.TargetProperty="Background.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
                     </ControlTemplate.Triggers>
 
                 </ControlTemplate>
@@ -104,16 +138,24 @@
     </Style>
     <!--#endregion-->
 
-    <!--#region Dark Window Close Button Style-->
-    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource DarkWindowControlButton}" x:Key="DarkWindowCloseButton">
-
+    <!--#region Window close button-->
+    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource WindowControlButton}" x:Key="WindowCloseButton">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <!-- Button Style -->
-                    <Border x:Name="Border" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
-                        <TextBlock Foreground="{TemplateBinding Foreground}" FontFamily="{TemplateBinding FontFamily}" 
+                    <Border x:Name="Border" Background="{TemplateBinding Background}">
+                        <Grid>
+                            <Border Padding="{TemplateBinding Padding}">
+                                <TextBlock Foreground="{TemplateBinding Foreground}" FontFamily="{TemplateBinding FontFamily}" 
                                    FontSize="{TemplateBinding FontSize}" Text="{TemplateBinding Content}"/>
+                            </Border>
+                            
+                            <Border x:Name="HoverLayer" Background="{StaticResource RedHoverBrush}" Opacity="0" Padding="{TemplateBinding Padding}">
+                                <TextBlock Foreground="White" FontFamily="{TemplateBinding FontFamily}" 
+                                   FontSize="{TemplateBinding FontSize}" Text="{TemplateBinding Content}"/>
+                            </Border>
+                        </Grid>
                     </Border>
 
                     <ControlTemplate.Triggers>
@@ -122,8 +164,7 @@
                             <!-- Background -->
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <ColorAnimation To="{StaticResource RedHover}" Duration="0:0:0.15" 
-                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="Background.Color" />
+                                    <DoubleAnimation To="1" Duration="0:0:0.15" Storyboard.TargetName="HoverLayer" Storyboard.TargetProperty="Opacity"/>
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
@@ -132,115 +173,28 @@
                             <!-- Background -->
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <ColorAnimation To="{StaticResource DarkGrey}" Duration="0:0:0.15" 
-                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="Background.Color" />
+                                    <DoubleAnimation To="0" Duration="0:0:0.15" Storyboard.TargetName="HoverLayer" Storyboard.TargetProperty="Opacity"/>
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
-                    </ControlTemplate.Triggers>
 
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <!--#endregion-->
+                        <Trigger Property="local:ApplicationPageProperty.Value" Value="DiaryPage">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="Black" Duration="0:0:0.15" Storyboard.TargetProperty="Foreground.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
 
-    <!--#region Light Window Control Button Style -->
-    <Style TargetType="{x:Type Button}" x:Key="LightWindowControlButton">
-        <Setter Property="Background" Value="{StaticResource VeryLightGreyBrush}"/>
-        <Setter Property="Foreground" Value="Black"/>
-        <Setter Property="Padding" Value="18 13 18 0"/>
-        <Setter Property="FontFamily" Value="{StaticResource Segoe-MDL2}"/>
-        <Setter Property="FontSize" Value="{StaticResource WindowControlIconFontSize}"/>
-        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
-
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <!-- Button Style -->
-                    <Border x:Name="Border" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
-                        <TextBlock Foreground="{TemplateBinding Foreground}" FontFamily="{TemplateBinding FontFamily}" 
-                                   FontSize="{TemplateBinding FontSize}" Text="{TemplateBinding Content}"/>
-                    </Border>
-
-                    <ControlTemplate.Triggers>
-                        <!-- Mouse enter animation -->
-                        <EventTrigger RoutedEvent="MouseEnter">
-                            <!-- Background -->
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <ColorAnimation To="{StaticResource LightGrey}" Duration="0:0:0.15" 
-                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="Background.Color" />
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                        <!-- Mouse leave animation -->
-                        <EventTrigger RoutedEvent="MouseLeave">
-                            <!-- Background -->
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <ColorAnimation To="{StaticResource VeryLightGrey}" Duration="0:0:0.15" 
-                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="Background.Color" />
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </ControlTemplate.Triggers>
-
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <!--#endregion-->
-
-    <!--#region Light Window Close Button Style-->
-    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource LightWindowControlButton}" x:Key="LightWindowCloseButton">
-
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <!-- Button Style -->
-                    <Border x:Name="Border" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
-                        <TextBlock Foreground="{TemplateBinding Foreground}" FontFamily="{TemplateBinding FontFamily}" 
-                                   FontSize="{TemplateBinding FontSize}" Text="{TemplateBinding Content}"/>
-                    </Border>
-
-                    <ControlTemplate.Triggers>
-                        <!-- Mouse enter animations -->
-                        <EventTrigger RoutedEvent="MouseEnter">
-                            <!-- Backgrond -->
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <ColorAnimation To="{StaticResource RedHover}" Duration="0:0:0.15" 
-                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="Background.Color" />
-                                </Storyboard>
-                            </BeginStoryboard>
-
-                            <!-- Foreground -->
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <ColorAnimation To="White" Duration="0:0:0.15" 
-                                                    Storyboard.TargetProperty="Foreground.Color" />
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                        <!-- Mouse leave animations -->
-                        <EventTrigger RoutedEvent="MouseLeave">
-                            <!-- Backgrond -->
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <ColorAnimation To="{StaticResource VeryLightGrey}" Duration="0:0:0.15" 
-                                                    Storyboard.TargetName="Border" Storyboard.TargetProperty="Background.Color" />
-                                </Storyboard>
-                            </BeginStoryboard>
-
-                            <!-- Foreground -->
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <ColorAnimation To="Black" Duration="0:0:0.15" 
-                                                    Storyboard.TargetProperty="Foreground.Color" />
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="White" Duration="0:0:0.15" Storyboard.TargetProperty="Foreground.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
                     </ControlTemplate.Triggers>
 
                 </ControlTemplate>
@@ -503,14 +457,14 @@
                                     <ColorAnimation To="Gray" Duration="0:0:0.15" Storyboard.TargetProperty="Foreground.Color" />
                                 </Storyboard>
                             </BeginStoryboard>
-                            </EventTrigger>
+                        </EventTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
     <!--#endregion-->
-    
+
     <!--#region Debtor actions button -->
     <Style TargetType="{x:Type Button}" x:Key="DebtorActionsButton">
         <Setter Property="Foreground" Value="Gray"/>
