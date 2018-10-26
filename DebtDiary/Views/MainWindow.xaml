@@ -35,25 +35,27 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-
-
                                 
                                 <ContentPresenter Grid.RowSpan="2" Grid.ColumnSpan="2" Content="{TemplateBinding Content}"/>
                                 
                                 <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
                                     <!-- Minimize button -->
-                                    <Button Grid.Column="1" Style="{StaticResource WindowControlButton}" Content="{StaticResource MinimizeIcon}" 
-                                            Command="{Binding MinimizeCommand}" local:ApplicationPageProperty.Value="{Binding ApplicationViewModel.CurrentPage, Source={StaticResource ViewModelLocator}}"/>
+                                    <Button Grid.Column="1" Style="{StaticResource WindowControlButton}" Content="{StaticResource MinimizeIcon}" Command="{Binding MinimizeCommand}" 
+                                            local:ApplicationPageProperty.Value="{Binding ApplicationViewModel.CurrentPage, Source={StaticResource ViewModelLocator}}"/>
 
                                     <!-- Maximize / Restore button -->
-                                    <Button Grid.Column="2" Style="{StaticResource WindowControlButton}" 
+                                    <Button Grid.Column="2" Style="{StaticResource WindowControlButton}" Command="{Binding MaximizeCommand}" 
                                             Content="{TemplateBinding WindowState, Converter={local:WindowStateToIconConverter}}" 
-                                            Command="{Binding MaximizeCommand}" local:ApplicationPageProperty.Value="{Binding ApplicationViewModel.CurrentPage, Source={StaticResource ViewModelLocator}}"/>
+                                            local:ApplicationPageProperty.Value="{Binding ApplicationViewModel.CurrentPage, Source={StaticResource ViewModelLocator}}"/>
 
                                     <!-- Close button -->
-                                    <Button Grid.Column="3" Style="{StaticResource WindowCloseButton}" Content="{StaticResource CloseIcon}" 
-                                            Command="{Binding CloseCommand}" local:ApplicationPageProperty.Value="{Binding ApplicationViewModel.CurrentPage, Source={StaticResource ViewModelLocator}}"/>
+                                    <Button Grid.Column="3" Style="{StaticResource WindowCloseButton}" Content="{StaticResource CloseIcon}" Command="{Binding CloseCommand}" 
+                                            local:ApplicationPageProperty.Value="{Binding ApplicationViewModel.CurrentPage, Source={StaticResource ViewModelLocator}}"/>
                                 </StackPanel>
+
+                                <Grid.Effect>
+                                    <BlurEffect Radius="10"/>
+                                </Grid.Effect>
                             </Grid>
                             
 
