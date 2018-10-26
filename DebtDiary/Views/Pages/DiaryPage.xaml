@@ -21,7 +21,7 @@
         <!--#region Menu-->
         <Grid Grid.Column="0" Background="{StaticResource DarkGreyBrush}">
             <Border Background="{StaticResource DarkGreyBrush}">
-                <Grid>
+                <Grid Margin="0 25 0 0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
@@ -30,7 +30,7 @@
                     <!-- Account info -->
                     <StackPanel Grid.Row="0">
                         <!-- Avatar -->
-                        <Label Width="100" Style="{StaticResource AvatarLabel}" Content="{Binding Initials}" Background="{Binding AvatarColor, Converter={local:ColorToBrushConverter}, FallbackValue=Green}"/>
+                        <Label Width="130" Style="{StaticResource AvatarLabel}" Content="{Binding Initials}" Background="{Binding AvatarColor, Converter={local:ColorToBrushConverter}, FallbackValue=Green}"/>
 
                         <!-- Full name -->
                         <Viewbox HorizontalAlignment="Center" Margin="10 10 10 0" StretchDirection="DownOnly">

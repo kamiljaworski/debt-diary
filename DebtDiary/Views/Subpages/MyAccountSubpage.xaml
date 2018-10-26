@@ -9,7 +9,7 @@
       d:DesignHeight="680" d:DesignWidth="1000"
       Title="AddDebtorSubpage">
 
-    <Grid>
+    <Grid Margin="0 25 0 0">
         <!--#region Rows and columns definition-->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

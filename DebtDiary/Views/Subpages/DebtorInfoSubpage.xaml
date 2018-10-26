@@ -10,7 +10,7 @@
       d:DesignHeight="680" d:DesignWidth="1000"
       Title="DebtorInfoSubpage">
 
-    <Grid Grid.Column="1" Background="#e5e5e5">
+    <Grid Grid.Column="1" Background="#e5e5e5" Margin="0 25 0 0">
         <!--#region Row & Column definitions-->
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>

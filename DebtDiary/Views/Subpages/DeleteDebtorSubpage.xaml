@@ -9,7 +9,7 @@
       d:DesignHeight="680" d:DesignWidth="1000"
       Title="DeleteDebtorSubpage">
 
-    <Grid>
+    <Grid Margin="0 25 0 0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
