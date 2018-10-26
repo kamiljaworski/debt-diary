@@ -19,7 +19,7 @@ namespace DebtDiary
             Boolean boolValue = (Boolean)value;
 
             if (boolValue == true)
-                return 5.0;
+                return 8.0;
 
             return 0.0;
         }
