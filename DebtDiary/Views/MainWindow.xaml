@@ -54,7 +54,7 @@
                                 </StackPanel>
 
                                 <Grid.Effect>
-                                    <BlurEffect Radius="10"/>
+                                    <BlurEffect Radius="{Binding DialogFacade.IsDialogOpened, Source={StaticResource ViewModelLocator}, Converter={local:BooleanToDoubleConverter}}"/>
                                 </Grid.Effect>
                             </Grid>
                             

@@ -148,6 +148,7 @@
     <Compile Include="ValueConverters\ApplicationPageConverter.cs" />
     <Compile Include="ValueConverters\ApplicationSubpageConverter.cs" />
     <Compile Include="ValueConverters\BaseMultiValueConverter.cs" />
+    <Compile Include="ValueConverters\BooleanToDoubleConverter.cs" />
     <Compile Include="ValueConverters\BooleanToVisibilityConverter.cs" />
     <Compile Include="ValueConverters\ColorToBrushConverter.cs" />
     <Compile Include="ValueConverters\ColorToStringConverter.cs" />
