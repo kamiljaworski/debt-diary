@@ -35,8 +35,8 @@
 
 
                                 <!-- Close window button -->
-                                <Button Grid.Column="1" Style="{StaticResource LightWindowCloseButton}" Content="{StaticResource CloseIcon}" 
-                                            Command="{Binding CloseCommand}" VerticalAlignment="Top" Padding="18 13 18 13"/>
+                                <Button Grid.Column="1" Style="{StaticResource WindowCloseButton}" local:ApplicationPageProperty.Value="DiaryPage" 
+                                        Content="{StaticResource CloseIcon}" Command="{Binding CloseCommand}" VerticalAlignment="Top" Padding="18 13 18 13"/>
 
                             </Grid>
                         </Border>
