@@ -37,6 +37,7 @@ namespace DebtDiary
         public ICommand EditDebtorCommand { get; set; }
         public ICommand PreviousColorCommand { get; set; }
         public ICommand NextColorCommand { get; set; }
+        public ICommand GoBackCommand { get; set; }
         #endregion
 
         #region Constructor
@@ -54,6 +55,12 @@ namespace DebtDiary
             EditDebtorCommand = new RelayCommand(async () => await EditDebtorAsync());
             PreviousColorCommand = new RelayCommand(() => AvatarColor = ColorSelector.Previous(AvatarColor));
             NextColorCommand = new RelayCommand(() => AvatarColor = ColorSelector.Next(AvatarColor));
+            GoBackCommand = new RelayCommand(() =>
+            {
+                IocContainer.Get<IDebtorInfoSubpageViewModel>().UpdateChanges();
+                IApplicationViewModel applicationViewModel = IocContainer.Get<IApplicationViewModel>();
+                applicationViewModel.ChangeCurrentSubpage(ApplicationSubpage.DebtorInfoSubpage);
+            });
         }
         #endregion
 

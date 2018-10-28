@@ -9,15 +9,20 @@
       d:DesignHeight="680" d:DesignWidth="1000"
       Title="EditDebtorSubpage">
 
-    <Grid Margin="0 25 0 0">
+    <Grid Margin="0 25 0 0" Background="#e5e5e5">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Page title -->
-        <TextBlock Grid.Row="0" Grid.ColumnSpan="4" Text="{x:Static localization:Strings.EditDebtor}" FontSize="40" FontFamily="{StaticResource LatoLight}" 
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="4" Orientation="Horizontal">
+            <!-- Go back -->
+            <Button Style="{StaticResource DebtorActionsButton}" Content="{StaticResource BackIcon}" Margin="10 2 0 0" Command="{Binding GoBackCommand}" FontSize="32"/>
+
+            <!-- Page title -->
+            <TextBlock Text="{x:Static localization:Strings.EditDebtor}" FontSize="40" FontFamily="{StaticResource LatoLight}" 
                    VerticalAlignment="Center" Padding="10 0 0 0"/>
+        </StackPanel>
 
         <!-- Page content -->
         <Grid Grid.Row="1" Background="White" Margin="10">
@@ -93,7 +98,7 @@
 
                 <!-- Add new debtor button -->
                 <Button Content="{x:Static localization:Strings.SaveChanges}" Margin="0 20 0 40" HorizontalAlignment="Center" Command="{Binding EditDebtorCommand}"
-                        local:IsBusyProperty.Value="{Binding IsAddDebtorRunning}"/>
+                        local:IsBusyProperty.Value="{Binding IsEditDebtorRunning}"/>
                 <!--#endregion-->
                 
             </StackPanel>

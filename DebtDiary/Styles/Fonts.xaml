@@ -38,6 +38,5 @@
     <system:String x:Key="DescendingIcon">&#xEB0F;</system:String>
     <system:String x:Key="EditIcon">&#xE70F;</system:String>
     <system:String x:Key="DeleteIcon">&#xE74D;</system:String>
-
-
+    <system:String x:Key="BackIcon">&#xE760;</system:String>
 </ResourceDictionary>

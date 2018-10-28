@@ -26,6 +26,7 @@ namespace DebtDiary
         public FormMessage PasswordMessage { get; set; } = FormMessage.None;
 
         public ICommand DeleteDebtorCommand { get; set; }
+        public ICommand GoBackCommand { get; set; }
         #endregion
 
         #region Constructor
@@ -40,6 +41,13 @@ namespace DebtDiary
             AvatarColor = _selectedDebtor.AvatarColor;
 
             DeleteDebtorCommand = new RelayParameterizedCommand(async (parameter) => await DeleteDebtorAsync(parameter));
+
+            GoBackCommand = new RelayCommand(() =>
+            {
+                IocContainer.Get<IDebtorInfoSubpageViewModel>().UpdateChanges();
+                IApplicationViewModel applicationViewModel = IocContainer.Get<IApplicationViewModel>();
+                applicationViewModel.ChangeCurrentSubpage(ApplicationSubpage.DebtorInfoSubpage);
+            });
         }
         #endregion
 
