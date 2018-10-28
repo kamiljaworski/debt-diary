@@ -260,6 +260,10 @@
     <Compile Include="Views\Subpages\SummarySubpage.xaml.cs">
       <DependentUpon>SummarySubpage.xaml</DependentUpon>
     </Compile>
+    <Page Include="Styles\ScrollBars.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UserControls\DebtorsList\DebtorsList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

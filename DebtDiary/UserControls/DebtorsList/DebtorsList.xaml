@@ -8,7 +8,6 @@
              mc:Ignorable="d" Width="250"
              d:DesignHeight="240" d:DesignWidth="260">
     <Grid d:DataContext="{x:Static local:DebtorsListDesignModel.Instance}" Background="{StaticResource DarkGreyBrush}">
-        <!-- TODO: Custom scroll bar style -->
         <TextBlock Text="{x:Static localization:Strings.NoDebtorsAdded}" Foreground="LightGray" TextAlignment="Center" Margin="0 5 0 0"
                    Visibility="{Binding IsAnyDebtorAdded, Converter={local:BooleanToVisibilityConverter}, FallbackValue=Hidden}"/>
 
