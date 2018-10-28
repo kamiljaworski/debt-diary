@@ -61,6 +61,8 @@ namespace DebtDiary
         public ICommand EditDebtorCommand { get; set; }
         public ICommand DeleteDebtorCommand { get; set; }
 
+        public bool IsLoaded { get; private set; }
+
         #endregion
 
         #region Constructor
@@ -82,6 +84,7 @@ namespace DebtDiary
         /// </summary>
         public void UpdateChanges()
         {
+            IsLoaded = false;
             // TODO: Update in another threat
             _selectedDebtor = IocContainer.Get<IApplicationViewModel>().SelectedDebtor;
             if (_selectedDebtor == null)
@@ -92,6 +95,8 @@ namespace DebtDiary
             UsersGender = (Gender)IocContainer.Get<IClientDataStore>().LoggedUser.Gender;
 
             UpdateStatisticPanels();
+
+
 
             SeriesCollection = new SeriesCollection
                 {
@@ -106,7 +111,7 @@ namespace DebtDiary
             OperationsList = new ShortOperationsListViewModel(_selectedDebtor.Operations);
 
             IocContainer.Get<IDebtorsListViewModel>().Update();
-
+            IsLoaded = true;
         }
         #endregion
 

@@ -1,5 +1,6 @@
 ﻿using DebtDiary.Core;
 using System;
+using System.Threading.Tasks;
 
 namespace DebtDiary
 {
@@ -9,6 +10,8 @@ namespace DebtDiary
         ApplicationSubpage CurrentSubpage { get; }
         TimeSpan FadeInDuration { get; set; }
         TimeSpan FadeOutDuration { get; set; }
+        bool IsPageChanging { get; }
+        bool IsSubpageChanging { get; set; }
 
         Debtor SelectedDebtor { get; set; }
 
@@ -17,9 +20,10 @@ namespace DebtDiary
         /// </summary>
         void ChangeCurrentPage(ApplicationPage page);
 
-        /// <summary>
-        /// Changes current subpage in the application
-        /// </summary>
         void ChangeCurrentSubpage(ApplicationSubpage subpage);
+
+
+
+        void ChangeCurrentSubpageAndDoAction(ApplicationSubpage subpage, Action action);
     }
 }

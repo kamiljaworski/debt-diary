@@ -9,8 +9,41 @@
       mc:Ignorable="d" 
       d:DesignHeight="680" d:DesignWidth="1000"
       Title="DebtorInfoSubpage">
+    <Grid Background="#e5e5e5" Margin="0 25 0 0" x:Name="MainGrid">
+        <Grid.Style>
+            <Style>
+                <Style.Triggers>
 
-    <Grid Grid.Column="1" Background="#e5e5e5" Margin="0 25 0 0">
+
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding ApplicationViewModel.IsSubpageChanging, Source={StaticResource ViewModelLocator}}" Value="False"/>
+                            <Condition Binding="{Binding IsLoaded}" Value="True"/>
+
+                        </MultiDataTrigger.Conditions>
+
+                        <MultiDataTrigger.EnterActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation  Storyboard.TargetProperty="Opacity"  Duration="0:0:0.8" From="0" To="1" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </MultiDataTrigger.EnterActions>
+
+                        <MultiDataTrigger.ExitActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation  Storyboard.TargetProperty="Opacity"  Duration="0:0:0.6" To="0" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </MultiDataTrigger.ExitActions>
+                    </MultiDataTrigger>
+
+
+                </Style.Triggers>
+            </Style>
+        </Grid.Style>
+        
         <!--#region Row & Column definitions-->
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>

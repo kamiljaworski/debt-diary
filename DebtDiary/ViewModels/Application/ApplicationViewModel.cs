@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using DebtDiary.Core;
 
@@ -24,9 +25,12 @@ namespace DebtDiary
             set
             {
                 _selectedDebtor = value;
-                IocContainer.Get<IDebtorInfoSubpageViewModel>().UpdateChanges();
+                
             }
         }
+
+        public bool IsPageChanging { get;  set; } = false;
+        public bool IsSubpageChanging { get;  set; } = false;
         #endregion
 
         #region Public Methods
@@ -39,7 +43,9 @@ namespace DebtDiary
         /// <summary>
         /// Changes current subpage in the application
         /// </summary>
-        public void ChangeCurrentSubpage(ApplicationSubpage subpage) => CurrentSubpage = subpage;
+       public void ChangeCurrentSubpage(ApplicationSubpage subpage) => ChangeCurrentSubpageAsync(subpage);
+
+        public void ChangeCurrentSubpageAndDoAction(ApplicationSubpage subpage, Action action) => ChangeCurrentSubpageAndDoActionAsync(subpage, action);
         #endregion
 
         #region Private Methods
@@ -54,6 +60,33 @@ namespace DebtDiary
 
             // Change the page
             CurrentPage = page;
+        }
+
+        /// <summary>
+        /// Async version of ChangeCurrentPage interface method
+        /// </summary>
+        public async void ChangeCurrentSubpageAsync(ApplicationSubpage subpage)
+        {
+            IsSubpageChanging = true;
+            await Task.Delay(FadeOutDuration);
+            IsSubpageChanging = false;
+
+            // Change the page
+            CurrentSubpage = subpage;
+        }
+
+
+        private async void ChangeCurrentSubpageAndDoActionAsync(ApplicationSubpage subpage, Action action)
+        {
+            IsSubpageChanging = true;
+            // Await for page fade out animation
+            await Task.Delay(FadeOutDuration);
+            IsSubpageChanging = false;
+
+
+            // Change the page
+            CurrentSubpage = subpage;
+            action();
         }
         #endregion
     }

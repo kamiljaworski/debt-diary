@@ -52,6 +52,11 @@ namespace DebtDiary
             }
         }
 
+        protected async Task RunCommandAsync(Func<Task> action)
+        {
+            await action();
+        }
+
         /// <summary>
         /// Changes current application page
         /// </summary>

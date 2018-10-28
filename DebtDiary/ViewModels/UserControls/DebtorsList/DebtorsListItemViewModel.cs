@@ -1,5 +1,8 @@
 ﻿using DebtDiary.Core;
+using System;
 using System.Globalization;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace DebtDiary
@@ -24,18 +27,32 @@ namespace DebtDiary
 
         public DebtorsListItemViewModel()
         {
-            OpenDebtorSubpage = new RelayCommand(() =>
-            {
-                // Set current selected debtor in the application
-                IApplicationViewModel applicationViewModel = IocContainer.Get<IApplicationViewModel>();
-                applicationViewModel.SelectedDebtor = _debtor;
+            OpenDebtorSubpage = new RelayCommand(() => OpenDebtorSubpageAsync());
+        }
 
-                // Reset selected buttons in the diary page side menu
-                IocContainer.Get<IDiaryPageViewModel>().ResetSelectedButtons();
+        private async void OpenDebtorSubpageAsync()
+        {
+            IocContainer.Get<IApplicationViewModel>().IsSubpageChanging = true;
 
-                // Change subpage
-                applicationViewModel.ChangeCurrentSubpage(ApplicationSubpage.DebtorInfoSubpage);
-            });
+
+            // Set current selected debtor in the application
+            IApplicationViewModel applicationViewModel = IocContainer.Get<IApplicationViewModel>();
+            // Reset selected buttons in the diary page side menu
+            IocContainer.Get<IDiaryPageViewModel>().ResetSelectedButtons();
+            // Change subpage
+            //await Task.Run(() => applicationViewModel.ChangeCurrentSubpage(ApplicationSubpage.DebtorInfoSubpage));
+            //applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.DebtorInfoSubpage);
+
+            applicationViewModel.ChangeCurrentSubpage(ApplicationSubpage.DebtorInfoSubpage);
+
+
+
+
+
+
+            IocContainer.Get<IApplicationViewModel>().SelectedDebtor = _debtor;
+            IocContainer.Get<IDebtorInfoSubpageViewModel>().UpdateChanges();
+
         }
 
         /// <summary>

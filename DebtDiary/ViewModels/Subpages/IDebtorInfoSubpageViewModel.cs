@@ -43,6 +43,8 @@ namespace DebtDiary
         ICommand EditDebtorCommand { get; set; }
         ICommand DeleteDebtorCommand { get; set; }
 
+        bool IsLoaded { get; }
+
         // Public methods
         void UpdateChanges();
     }
