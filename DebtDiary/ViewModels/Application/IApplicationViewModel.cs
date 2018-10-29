@@ -8,22 +8,31 @@ namespace DebtDiary
     {
         ApplicationPage CurrentPage { get; }
         ApplicationSubpage CurrentSubpage { get; }
-        TimeSpan FadeInDuration { get; set; }
-        TimeSpan FadeOutDuration { get; set; }
+        TimeSpan FadeInDuration { get; }
+        TimeSpan FadeOutDuration { get; }
+        TimeSpan SubpageFadeInDuration { get; }
+        TimeSpan SubpageFadeOutDuration { get; }
+
         bool IsPageChanging { get; }
-        bool IsSubpageChanging { get; set; }
+        bool IsSubpageChanging { get; }
 
         Debtor SelectedDebtor { get; set; }
 
+
         /// <summary>
-        /// Changes current page in the application
+        /// Change current page in the application
         /// </summary>
         void ChangeCurrentPage(ApplicationPage page);
 
+        /// <summary>
+        /// Change current subpage in the application
+        /// </summary>
         void ChangeCurrentSubpage(ApplicationSubpage subpage);
 
-
-
-        void ChangeCurrentSubpageAndDoAction(ApplicationSubpage subpage, Action action);
+        /// <summary>
+        /// Change asynchronously current subpage in the application
+        /// </summary>
+        /// <returns><see cref="true"/> when the task is done</returns>
+        Task<bool> ChangeCurrentSubpageAsync(ApplicationSubpage subpage);
     }
 }

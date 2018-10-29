@@ -25,7 +25,7 @@
                         <MultiDataTrigger.EnterActions>
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <DoubleAnimation  Storyboard.TargetProperty="Opacity"  Duration="0:0:0.8" From="0" To="1" />
+                                    <DoubleAnimation  Storyboard.TargetProperty="Opacity"  Duration="0:0:0.4" From="0" To="1" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </MultiDataTrigger.EnterActions>
@@ -33,7 +33,7 @@
                         <MultiDataTrigger.ExitActions>
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <DoubleAnimation  Storyboard.TargetProperty="Opacity"  Duration="0:0:0.6" To="0" />
+                                    <DoubleAnimation  Storyboard.TargetProperty="Opacity"  Duration="0:0:0.3" To="0" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </MultiDataTrigger.ExitActions>

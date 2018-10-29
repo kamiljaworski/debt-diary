@@ -16,8 +16,10 @@ namespace DebtDiary
 
         public ApplicationPage CurrentPage { get; private set; } = ApplicationPage.LoginPage;
         public ApplicationSubpage CurrentSubpage { get; private set; } = ApplicationSubpage.SummarySubpage;
-        public TimeSpan FadeInDuration { get; set; } = TimeSpan.FromSeconds(0.8);
-        public TimeSpan FadeOutDuration { get; set; } = TimeSpan.FromSeconds(0.6);
+        public TimeSpan FadeInDuration { get; } = TimeSpan.FromSeconds(0.8);
+        public TimeSpan FadeOutDuration { get; } = TimeSpan.FromSeconds(0.6);
+        public TimeSpan SubpageFadeInDuration { get; } = TimeSpan.FromSeconds(0.4);
+        public TimeSpan SubpageFadeOutDuration { get; } = TimeSpan.FromSeconds(0.3);
 
         public Debtor SelectedDebtor
         {
@@ -25,27 +27,39 @@ namespace DebtDiary
             set
             {
                 _selectedDebtor = value;
-                
+
             }
         }
 
-        public bool IsPageChanging { get;  set; } = false;
-        public bool IsSubpageChanging { get;  set; } = false;
+        public bool IsPageChanging { get; set; } = false;
+        public bool IsSubpageChanging { get; set; } = false;
         #endregion
 
         #region Public Methods
 
         /// <summary>
-        /// Changes current page in the application
+        /// Change current page in the application
         /// </summary>
         public void ChangeCurrentPage(ApplicationPage page) => ChangeCurrentPageAsync(page);
 
         /// <summary>
-        /// Changes current subpage in the application
+        /// Change current subpage in the application
         /// </summary>
-       public void ChangeCurrentSubpage(ApplicationSubpage subpage) => ChangeCurrentSubpageAsync(subpage);
+        public void ChangeCurrentSubpage(ApplicationSubpage subpage) => CurrentSubpage = subpage;
 
-        public void ChangeCurrentSubpageAndDoAction(ApplicationSubpage subpage, Action action) => ChangeCurrentSubpageAndDoActionAsync(subpage, action);
+        /// <summary>
+        /// Change asynchronously current subpage in the application
+        /// </summary>
+        /// <returns><see cref="true"/> when the task is done</returns>
+        public async Task<bool> ChangeCurrentSubpageAsync(ApplicationSubpage subpage)
+        {
+            IsSubpageChanging = true;
+            await Task.Delay(SubpageFadeOutDuration);
+            IsSubpageChanging = false;
+
+            CurrentSubpage = subpage;
+            return true;
+        }
         #endregion
 
         #region Private Methods
@@ -62,32 +76,8 @@ namespace DebtDiary
             CurrentPage = page;
         }
 
-        /// <summary>
-        /// Async version of ChangeCurrentPage interface method
-        /// </summary>
-        public async void ChangeCurrentSubpageAsync(ApplicationSubpage subpage)
-        {
-            IsSubpageChanging = true;
-            await Task.Delay(FadeOutDuration);
-            IsSubpageChanging = false;
-
-            // Change the page
-            CurrentSubpage = subpage;
-        }
 
 
-        private async void ChangeCurrentSubpageAndDoActionAsync(ApplicationSubpage subpage, Action action)
-        {
-            IsSubpageChanging = true;
-            // Await for page fade out animation
-            await Task.Delay(FadeOutDuration);
-            IsSubpageChanging = false;
-
-
-            // Change the page
-            CurrentSubpage = subpage;
-            action();
-        }
         #endregion
     }
 }
