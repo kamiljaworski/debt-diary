@@ -12,7 +12,12 @@ namespace DebtDiary
     /// </summary>
     public class DebtorsListItemViewModel : BaseViewModel
     {
-        private Debtor _debtor = null;
+        #region Private members
+        private IApplicationViewModel _applicationViewModel;
+        private IDebtorInfoSubpageViewModel _debtorInfoSubpageViewModel;
+        private IDiaryPageViewModel _diaryPageViewModel;
+        private Debtor _debtor;
+        #endregion
 
         public int Id { get; set; }
         public string FullName { get; set; }
@@ -24,11 +29,6 @@ namespace DebtDiary
         public ICommand OpenDebtorSubpage { get; set; }
 
         public string FormattedDebt => Helpers.GetFormattedCurrency(Debt);
-
-        public DebtorsListItemViewModel()
-        {
-            OpenDebtorSubpage = new RelayCommand(() => OpenDebtorSubpageAsync());
-        }
 
         private async void OpenDebtorSubpageAsync()
         {
@@ -51,14 +51,27 @@ namespace DebtDiary
         /// Constructor
         /// </summary>
         /// <param name="debtor"><see cref="Debtor"/> you want to make <see cref="DebtorsListItemViewModel"/> from</param>
-        public DebtorsListItemViewModel(Debtor debtor) : this()
+        public DebtorsListItemViewModel(Debtor debtor, IApplicationViewModel applicationViewModel, IDebtorInfoSubpageViewModel debtorInfoSubpageViewModel, IDiaryPageViewModel diaryPageViewModel)
         {
             _debtor = debtor;
-            Id = debtor.Id;
-            FullName = debtor.FullName;
-            Initials = debtor.Initials;
-            Debt = debtor.Debt;
-            AvatarColor = debtor.AvatarColor;
+            _applicationViewModel = applicationViewModel;
+            _debtorInfoSubpageViewModel = debtorInfoSubpageViewModel;
+            _diaryPageViewModel = diaryPageViewModel;
+
+            Id = _debtor.Id;
+            FullName = _debtor.FullName;
+            Initials = _debtor.Initials;
+            Debt = _debtor.Debt;
+            AvatarColor = _debtor.AvatarColor;
+
+            // TODO: optimize arguments number
+            OpenDebtorSubpage = new RelayCommand(() => OpenDebtorSubpageAsync());
+        }
+
+        // constructor for design time vm 
+        public DebtorsListItemViewModel()
+        {
+            // TODO: change this
         }
     }
 }

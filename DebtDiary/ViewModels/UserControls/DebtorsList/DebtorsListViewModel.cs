@@ -38,8 +38,9 @@ namespace DebtDiary
         {
             User loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
 
+
             // Get actual list of debtors and sort them
-            IEnumerable<DebtorsListItemViewModel> debtorsList = loggedUser.Debtors.Select(x => new DebtorsListItemViewModel(x));
+            IEnumerable<DebtorsListItemViewModel> debtorsList = loggedUser.Debtors.Select(x => new DebtorsListItemViewModel(x, IocContainer.Get<IApplicationViewModel>(), IocContainer.Get<IDebtorInfoSubpageViewModel>(), IocContainer.Get<IDiaryPageViewModel>()));
 
             // Sort this list according to the sort type
             if(_sortType == SortType.Descending)
