@@ -33,17 +33,16 @@ namespace DebtDiary
         private async void OpenDebtorSubpageAsync()
         {
 
-            // Set current selected debtor in the application
-            IApplicationViewModel applicationViewModel = IocContainer.Get<IApplicationViewModel>();
+
             // Reset selected buttons in the diary page side menu
-            IocContainer.Get<IDiaryPageViewModel>().ResetSelectedButtons();
-            bool isSubpageChanged = await applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.DebtorInfoSubpage);
+            _diaryPageViewModel.ResetSelectedButtons();
+            bool isSubpageChanged = await _applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.DebtorInfoSubpage);
             
             // Change subpage
             if (isSubpageChanged)
             {
-                IocContainer.Get<IApplicationViewModel>().SelectedDebtor = _debtor;
-                IocContainer.Get<IDebtorInfoSubpageViewModel>().UpdateChanges();
+                _applicationViewModel.SelectedDebtor = _debtor;
+                _debtorInfoSubpageViewModel.UpdateChanges();
             }
         }
 
