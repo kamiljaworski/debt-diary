@@ -16,9 +16,7 @@ namespace DebtDiary
 
         public OperationsListViewModel(IEnumerable<Operation> operations)
         {
-            foreach (Operation operation in operations)
-                Operations.Add(new OperationsListItemViewModel(operation));
-
+            operations.ForEach(x => Operations.Add(new OperationsListItemViewModel(x)));
             Operations = new ObservableCollection<OperationsListItemViewModel>(Operations.OrderByDescending(x => x.OperationDate));
         }
 
