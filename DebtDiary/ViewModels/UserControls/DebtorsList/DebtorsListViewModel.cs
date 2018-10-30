@@ -43,7 +43,7 @@ namespace DebtDiary
             IEnumerable<DebtorsListItemViewModel> debtorsList = loggedUser.Debtors.Select(x => new DebtorsListItemViewModel(x, IocContainer.Get<IApplicationViewModel>(), IocContainer.Get<IDebtorInfoSubpageViewModel>(), IocContainer.Get<IDiaryPageViewModel>()));
 
             // Sort this list according to the sort type
-            if(_sortType == SortType.Descending)
+            if (_sortType == SortType.Descending)
                 debtorsList = debtorsList.OrderByDescending(x => x.Debt);
             else
                 debtorsList = debtorsList.OrderBy(x => x.Debt);
@@ -54,14 +54,13 @@ namespace DebtDiary
             // Get selected debtor information
             Debtor selectedDebtor = IocContainer.Get<IApplicationViewModel>().SelectedDebtor;
 
-            // If any debtor is selected, set its property to true
-            if(selectedDebtor != null)
-            {
-                DebtorsListItemViewModel debtorListItem = Debtors.FirstOrDefault(x => x.Id == selectedDebtor.Id);
+            // TODO: Add NullObject design pattern for all object 
+            // and remove unnecessary null comparisions
+            if (selectedDebtor != null)
+                SelectDebtor(selectedDebtor.Id);
+            else
+                SelectDebtor(-1);
 
-                if (debtorListItem != null)
-                    debtorListItem.IsSelected = true;
-            }
         }
 
         /// <summary>
@@ -82,6 +81,12 @@ namespace DebtDiary
             // Make ObservableCollection from this list
             Debtors = new ObservableCollection<DebtorsListItemViewModel>(list);
         }
+
         #endregion
+
+        // TODO: Rename  this method? and add documentation 
+        private void SelectDebtor(int id) => Debtors.ForEach(x => x.IsSelected = x.Id == id ? true : false);
+
+
     }
 }
