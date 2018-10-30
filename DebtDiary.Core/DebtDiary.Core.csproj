@@ -56,6 +56,7 @@
     <Compile Include="Helpers\DataValidator.cs" />
     <Compile Include="Helpers\ExpressionHelpers.cs" />
     <Compile Include="Helpers\Helpers.cs" />
+    <Compile Include="Helpers\IEnumerableExtensions.cs" />
     <Compile Include="Helpers\RandomColorGenerator.cs" />
     <Compile Include="Helpers\SecureStringExtensions.cs" />
     <Compile Include="Helpers\SortType.cs" />
