@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace DebtDiary
 {
-    public class EditDebtorSubpageViewModel : BaseViewModel
+    public class EditDebtorSubpageViewModel : BaseViewModel, ILoadable
     {
         #region Private Fields
 
@@ -38,12 +38,15 @@ namespace DebtDiary
         public ICommand PreviousColorCommand { get; set; }
         public ICommand NextColorCommand { get; set; }
         public ICommand GoBackCommand { get; set; }
+
+        public bool IsLoaded { get; private set; }
         #endregion
 
         #region Constructor
 
         public EditDebtorSubpageViewModel()
         {
+            IsLoaded = false;
             _selectedDebtor = IocContainer.Get<IApplicationViewModel>().SelectedDebtor;
             _loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
 
@@ -55,12 +58,13 @@ namespace DebtDiary
             EditDebtorCommand = new RelayCommand(async () => await EditDebtorAsync());
             PreviousColorCommand = new RelayCommand(() => AvatarColor = ColorSelector.Previous(AvatarColor));
             NextColorCommand = new RelayCommand(() => AvatarColor = ColorSelector.Next(AvatarColor));
-            GoBackCommand = new RelayCommand(() =>
+            GoBackCommand = new RelayCommand(async () =>
             {
                 IocContainer.Get<IDebtorInfoSubpageViewModel>().UpdateChanges();
                 IApplicationViewModel applicationViewModel = IocContainer.Get<IApplicationViewModel>();
-                applicationViewModel.ChangeCurrentSubpage(ApplicationSubpage.DebtorInfoSubpage);
+                await applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.DebtorInfoSubpage);
             });
+            IsLoaded = true;
         }
         #endregion
 

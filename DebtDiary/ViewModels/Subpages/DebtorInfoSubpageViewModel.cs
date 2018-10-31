@@ -72,8 +72,8 @@ namespace DebtDiary
             CurrencyFormatter = value => Helpers.GetFormattedCurrency(value);
             AddLoanCommand = new RelayCommand(async () => await AddLoanAsync());
             AddRepaymentCommand = new RelayCommand(async () => await AddRepaymentAsync());
-            EditDebtorCommand = new RelayCommand(() => IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.EditDebtorSubpage));
-            DeleteDebtorCommand = new RelayCommand(() => IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.DeleteDebtorSubpage));
+            EditDebtorCommand = new RelayCommand(async () => await IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpageAsync(ApplicationSubpage.EditDebtorSubpage));
+            DeleteDebtorCommand = new RelayCommand(async () => await IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpageAsync(ApplicationSubpage.DeleteDebtorSubpage));
         }
         #endregion
 

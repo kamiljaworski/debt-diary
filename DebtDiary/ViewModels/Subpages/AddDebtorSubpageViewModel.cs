@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace DebtDiary
 {
-    public class AddDebtorSubpageViewModel : BaseViewModel
+    public class AddDebtorSubpageViewModel : BaseViewModel, ILoadable
     {
         #region Private Fields
 
@@ -36,15 +36,19 @@ namespace DebtDiary
         public ICommand AddDebtorCommand { get; set; }
         public ICommand PreviousColorCommand { get; set; }
         public ICommand NextColorCommand { get; set; }
+
+        public bool IsLoaded { get; private set; }
         #endregion
 
         #region Constructor
 
         public AddDebtorSubpageViewModel()
         {
+            IsLoaded = false;
             AddDebtorCommand = new RelayCommand(async () => await AddDebtorAsync());
             PreviousColorCommand = new RelayCommand(() => AvatarColor = ColorSelector.Previous(AvatarColor));
             NextColorCommand = new RelayCommand(() => AvatarColor = ColorSelector.Next(AvatarColor));
+            IsLoaded = true;
         }
         #endregion
 

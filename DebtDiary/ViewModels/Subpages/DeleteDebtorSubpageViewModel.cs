@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace DebtDiary
 {
-    public class DeleteDebtorSubpageViewModel : BaseViewModel
+    public class DeleteDebtorSubpageViewModel : BaseViewModel, ILoadable
     {
         #region Private Fields
 
@@ -27,12 +27,15 @@ namespace DebtDiary
 
         public ICommand DeleteDebtorCommand { get; set; }
         public ICommand GoBackCommand { get; set; }
+
+        public bool IsLoaded { get; private set; }
         #endregion
 
         #region Constructor
 
         public DeleteDebtorSubpageViewModel()
         {
+            IsLoaded = false;
             _loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
             _selectedDebtor = IocContainer.Get<IApplicationViewModel>().SelectedDebtor;
 
@@ -42,12 +45,13 @@ namespace DebtDiary
 
             DeleteDebtorCommand = new RelayParameterizedCommand(async (parameter) => await DeleteDebtorAsync(parameter));
 
-            GoBackCommand = new RelayCommand(() =>
+            GoBackCommand = new RelayCommand(async () =>
             {
                 IocContainer.Get<IDebtorInfoSubpageViewModel>().UpdateChanges();
                 IApplicationViewModel applicationViewModel = IocContainer.Get<IApplicationViewModel>();
-                applicationViewModel.ChangeCurrentSubpage(ApplicationSubpage.DebtorInfoSubpage);
+                await applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.DebtorInfoSubpage);
             });
+            IsLoaded = true;
         }
         #endregion
 
@@ -86,11 +90,11 @@ namespace DebtDiary
                 // Show successful dialog window 
                 IocContainer.Get<IDialogFacade>().OpenDialog(DialogMessage.DebtorDeleted);
 
-                // Go to summary subpage
-                IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.SummarySubpage);
-
                 // Set summary page as selected
                 IocContainer.Get<IDiaryPageViewModel>().IsSummarySelected = true;
+
+                // Go to summary subpage
+                await IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpageAsync(ApplicationSubpage.SummarySubpage);
             });
         }
 
