@@ -49,7 +49,6 @@ namespace DebtDiary
             // 30 last operations ordered by AdditionDate
             OperationsList = new OperationsListViewModel(_loggedUser.Operations.OrderByDescending(x => x.AdditionDate).Take(30));
             IsLoaded = true;
-            // TODO: IsLoaded interface?
         }
         #endregion
 

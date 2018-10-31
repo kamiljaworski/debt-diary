@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace DebtDiary
 {
-    public class MyAccountSubpageViewModel : BaseViewModel
+    public class MyAccountSubpageViewModel : BaseViewModel, ILoadable
     {
         #region Private Fields
 
@@ -44,12 +44,15 @@ namespace DebtDiary
         public ICommand ChangePasswordCommand { get; set; }
         public ICommand PreviousColorCommand { get; set; }
         public ICommand NextColorCommand { get; set; }
+
+        public bool IsLoaded { get; private set; }
         #endregion
 
         #region Constructor
 
         public MyAccountSubpageViewModel()
         {
+            IsLoaded = false;
             _loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
             if (_loggedUser != null)
             {
@@ -65,6 +68,7 @@ namespace DebtDiary
             ChangePasswordCommand = new RelayParameterizedCommand(async (parameter) => await ChangePasswordAsync(parameter));
             PreviousColorCommand = new RelayCommand(() => AvatarColor = ColorSelector.Previous(AvatarColor));
             NextColorCommand = new RelayCommand(() => AvatarColor = ColorSelector.Next(AvatarColor));
+            IsLoaded = true;
         }
 
         #endregion
