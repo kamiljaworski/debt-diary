@@ -20,6 +20,7 @@ namespace DebtDiary
         public OperationsListViewModel OperationsList { get; private set; } = null;
         public Func<double, string> CurrencyFormatter { get; set; }
 
+        public bool IsLoaded { get; set; }
         #endregion
 
         #region Constructor
@@ -29,6 +30,7 @@ namespace DebtDiary
         /// </summary>
         public SummarySubpageViewModel()
         {
+            IsLoaded = false;
             CurrencyFormatter = value => Helpers.GetFormattedCurrency(value);
             _loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
 
@@ -46,6 +48,7 @@ namespace DebtDiary
 
             // 30 last operations ordered by AdditionDate
             OperationsList = new OperationsListViewModel(_loggedUser.Operations.OrderByDescending(x => x.AdditionDate).Take(30));
+            IsLoaded = true;
         }
         #endregion
 

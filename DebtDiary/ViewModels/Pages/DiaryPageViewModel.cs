@@ -39,13 +39,13 @@ namespace DebtDiary
 
             SummaryCommand = new RelayCommand(() =>
             {
-                ChangeSubpage(ApplicationSubpage.SummarySubpage);
+                ChangeSubpageAsync(ApplicationSubpage.SummarySubpage);
                 IsSummarySelected = true;
             });
 
             MyAccountCommand = new RelayCommand(() =>
             {
-                ChangeSubpage(ApplicationSubpage.MyAccountSubpage);
+                ChangeSubpageAsync(ApplicationSubpage.MyAccountSubpage);
                 IsMyAccountSelected = true;
             });
 
@@ -58,7 +58,7 @@ namespace DebtDiary
                 IocContainer.Get<IApplicationViewModel>().ChangeCurrentPage(ApplicationPage.LoginPage);
             });
 
-            AddDebtorCommand = new RelayCommand(() => ChangeSubpage(ApplicationSubpage.AddDebtorSubpage));
+            AddDebtorCommand = new RelayCommand(() => ChangeSubpageAsync(ApplicationSubpage.AddDebtorSubpage));
 
             SortCommand = new RelayCommand(() =>
             {
@@ -108,11 +108,11 @@ namespace DebtDiary
         /// <summary>
         /// Change subpage
         /// </summary>
-        private void ChangeSubpage(ApplicationSubpage subpage)
+        private async void ChangeSubpageAsync(ApplicationSubpage subpage)
         {
             ResetSelectedDebtor();
             ResetSelectedButtons();
-            IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(subpage);
+            await IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpageAsync(subpage);
         }
         #endregion
     }
