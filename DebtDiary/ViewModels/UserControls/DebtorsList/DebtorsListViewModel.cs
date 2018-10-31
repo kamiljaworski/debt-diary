@@ -42,14 +42,9 @@ namespace DebtDiary
             // Get actual list of debtors and sort them
             IEnumerable<DebtorsListItemViewModel> debtorsList = loggedUser.Debtors.Select(x => new DebtorsListItemViewModel(x, IocContainer.Get<IApplicationViewModel>(), IocContainer.Get<IDebtorInfoSubpageViewModel>(), IocContainer.Get<IDiaryPageViewModel>()));
 
-            // Sort this list according to the sort type
-            if (_sortType == SortType.Descending)
-                debtorsList = debtorsList.OrderByDescending(x => x.Debt);
-            else
-                debtorsList = debtorsList.OrderBy(x => x.Debt);
 
             // Make ObservableCollection from this list
-            Debtors = new ObservableCollection<DebtorsListItemViewModel>(debtorsList);
+            Debtors = Sort(debtorsList, _sortType);
 
             // Get selected debtor information
             Debtor selectedDebtor = IocContainer.Get<IApplicationViewModel>().SelectedDebtor;
@@ -71,22 +66,25 @@ namespace DebtDiary
         /// <summary>
         /// Sort Debtors collection order by SortType
         /// </summary>
-        public void Sort(SortType sortType)
+        private ObservableCollection<DebtorsListItemViewModel> Sort(IEnumerable<DebtorsListItemViewModel> debtorsLists, SortType sortType)
         {
             _sortType = sortType;
 
             // Sort Debtors list with appropriate order
-            IOrderedEnumerable<DebtorsListItemViewModel> list = _sortType == SortType.Ascending ? Debtors.OrderBy(x => x.Debt) : Debtors.OrderByDescending(x => x.Debt);
+            IOrderedEnumerable<DebtorsListItemViewModel> list = _sortType == SortType.Ascending ? DebtorsSortedAscending(debtorsLists) : DebtorsSortedDescending(debtorsLists);
 
             // Make ObservableCollection from this list
-            Debtors = new ObservableCollection<DebtorsListItemViewModel>(list);
+            return new ObservableCollection<DebtorsListItemViewModel>(list);
         }
+
+        public void Sort(SortType sortType) => Debtors = Sort(Debtors, sortType);
 
         #endregion
 
         // TODO: Rename  this method? and add documentation 
         private void SelectDebtor(int id) => Debtors.ForEach(x => x.IsSelected = x.Id == id ? true : false);
 
-
+        private IOrderedEnumerable<DebtorsListItemViewModel> DebtorsSortedAscending(IEnumerable<DebtorsListItemViewModel> debtorsLists) => debtorsLists.OrderBy(x => x.Debt).ThenBy(x => x.FullName);
+        private IOrderedEnumerable<DebtorsListItemViewModel> DebtorsSortedDescending(IEnumerable<DebtorsListItemViewModel> debtorsLists) => debtorsLists.OrderByDescending(x => x.Debt).ThenBy(x => x.FullName);
     }
 }
