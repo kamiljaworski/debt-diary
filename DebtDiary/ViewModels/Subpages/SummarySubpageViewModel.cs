@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace DebtDiary
 {
-    public class SummarySubpageViewModel : BaseViewModel
+    public class SummarySubpageViewModel : BaseViewModel, ILoadable
     {
         private User _loggedUser = null;
         #region Public properties
@@ -20,7 +20,7 @@ namespace DebtDiary
         public OperationsListViewModel OperationsList { get; private set; } = null;
         public Func<double, string> CurrencyFormatter { get; set; }
 
-        public bool IsLoaded { get; set; }
+        public bool IsLoaded { get; private set; }
         #endregion
 
         #region Constructor
@@ -49,6 +49,7 @@ namespace DebtDiary
             // 30 last operations ordered by AdditionDate
             OperationsList = new OperationsListViewModel(_loggedUser.Operations.OrderByDescending(x => x.AdditionDate).Take(30));
             IsLoaded = true;
+            // TODO: IsLoaded interface?
         }
         #endregion
 

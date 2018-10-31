@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace DebtDiary
 {
-    public class DebtorInfoSubpageViewModel : BaseViewModel, IDebtorInfoSubpageViewModel
+    public class DebtorInfoSubpageViewModel : BaseViewModel, IDebtorInfoSubpageViewModel, ILoadable
     {
         #region Private members
         private Debtor _selectedDebtor = null;
