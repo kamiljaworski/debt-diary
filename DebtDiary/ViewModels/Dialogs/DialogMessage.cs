@@ -11,6 +11,7 @@
         ProfileUpdated,
         PasswordChanged,
         DebtorEdited,
-        DebtorDeleted
+        DebtorDeleted,
+        NoInternetConnection
     }
 }
