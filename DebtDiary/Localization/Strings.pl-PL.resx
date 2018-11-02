@@ -426,6 +426,9 @@
   <data name="YourPassword" xml:space="preserve">
     <value>Twoje hasło</value>
   </data>
+  <data name="AddADebtor" xml:space="preserve">
+    <value>Dodaj dłużnika</value>
+  </data>
   <data name="NoInternetConnectionSubtitle" xml:space="preserve">
     <value>Sprawdź swoje połączenie z internetem</value>
   </data>

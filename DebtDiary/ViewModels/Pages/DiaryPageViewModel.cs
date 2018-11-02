@@ -21,6 +21,7 @@ namespace DebtDiary
         public bool IsSummarySelected { get; set; }
         public bool IsMyAccountSelected { get; set; }
         public bool IsLogoutSelected { get; set; }
+        public bool IsAddDebtorSelected { get; set; }
         public SortType SortType { get; set; } = SortType.Descending;
 
         public IDebtorsListViewModel DebtorsList => IocContainer.Get<IDebtorsListViewModel>();
@@ -62,7 +63,11 @@ namespace DebtDiary
                 await IocContainer.Get<IApplicationViewModel>().ChangeCurrentPageAsync(ApplicationPage.LoginPage);
             });
 
-            AddDebtorCommand = new RelayCommand(() => ChangeSubpageAsync(ApplicationSubpage.AddDebtorSubpage));
+            AddDebtorCommand = new RelayCommand(() =>
+            {
+                ChangeSubpageAsync(ApplicationSubpage.AddDebtorSubpage);
+                IsAddDebtorSelected = true;
+            });
 
             SortCommand = new RelayCommand(() =>
             {
@@ -84,6 +89,7 @@ namespace DebtDiary
             IsSummarySelected = false;
             IsMyAccountSelected = false;
             IsLogoutSelected = false;
+            IsAddDebtorSelected = false;
         }
 
         /// <summary>

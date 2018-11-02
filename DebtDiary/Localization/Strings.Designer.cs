@@ -88,6 +88,15 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add a debtor.
+        /// </summary>
+        public static string AddADebtor {
+            get {
+                return ResourceManager.GetString("AddADebtor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Addition date.
         /// </summary>
         public static string AdditionDate {
@@ -120,6 +129,15 @@ namespace DebtDiary.Localization {
         public static string ApplicationName {
             get {
                 return ResourceManager.GetString("ApplicationName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jaworski.
+        /// </summary>
+        public static string AuthorString {
+            get {
+                return ResourceManager.GetString("AuthorString", resourceCulture);
             }
         }
         

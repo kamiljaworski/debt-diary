@@ -19,6 +19,7 @@ namespace DebtDiary
         bool IsSummarySelected { get; set; }
         bool IsMyAccountSelected { get; set; }
         bool IsLogoutSelected { get; set; }
+        bool IsAddDebtorSelected { get; set; }
         SortType SortType { get; set; }
 
         IDebtorsListViewModel DebtorsList { get; }

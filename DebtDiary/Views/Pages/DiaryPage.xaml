@@ -62,7 +62,8 @@
                     <!-- Account info -->
                     <StackPanel Grid.Row="0">
                         <!-- Avatar -->
-                        <Label Width="130" Style="{StaticResource AvatarLabel}" Content="{Binding Initials}" Background="{Binding AvatarColor, Converter={local:ColorToBrushConverter}, FallbackValue=Green}"/>
+                        <Label Width="130" Style="{StaticResource AvatarLabel}" Content="{Binding Initials}" 
+                               Background="{Binding AvatarColor, Converter={local:ColorToBrushConverter}, FallbackValue=Green}"/>
 
                         <!-- Full name -->
                         <Viewbox HorizontalAlignment="Center" Margin="10 10 10 0" StretchDirection="DownOnly">
@@ -95,7 +96,12 @@
 
                             <!-- My Account button -->
                             <Button Style="{StaticResource SideMenuButton}" Content="{x:Static localization:Strings.MyAccount}" 
-                                    local:IconProperty.Value="{StaticResource ContactIcon}" local:IsSelectedProperty.Value="{Binding IsMyAccountSelected}" Command="{Binding MyAccountCommand}"/>
+                                    local:IconProperty.Value="{StaticResource ContactIcon}" local:IsSelectedProperty.Value="{Binding IsMyAccountSelected}" 
+                                    Command="{Binding MyAccountCommand}"/>
+                            
+                            <!-- Add new debtor button -->
+                            <Button Style="{StaticResource SideMenuButton}" Content="{x:Static localization:Strings.AddADebtor}" 
+                                    local:IconProperty.Value="{StaticResource AddIcon}" local:IsSelectedProperty.Value="{Binding IsAddDebtorSelected}" Command="{Binding AddDebtorCommand}"/>
 
                             <!-- Logout button -->
                             <Button Style="{StaticResource SideMenuButton}" Content="{x:Static localization:Strings.Logout}"
@@ -110,12 +116,12 @@
                                 </Grid.ColumnDefinitions>
 
                                 <!-- Debtors headline -->
-                                <TextBlock Grid.Column="0" Text="{x:Static localization:Strings.Debtors}" Foreground="Gray" FontFamily="{StaticResource LatoSemiBold}" FontSize="16" Margin="10 0 0 5"/>
-
-                                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 20 0">
-                                    <Button Style="{StaticResource DarkIconButton}" Content="{Binding SortType, Converter={local:SortTypeToIconConverter}}" Margin="0 0 15 0" Command="{Binding SortCommand}" FontSize="18"/>
-                                    <Button Style="{StaticResource DarkIconButton}" Content="{StaticResource AddIcon}" Command="{Binding AddDebtorCommand}" FontSize="14"/>
-                                </StackPanel>
+                                <TextBlock Grid.Column="0" Text="{x:Static localization:Strings.Debtors}" Foreground="Gray" FontFamily="{StaticResource LatoSemiBold}" 
+                                           FontSize="16" Margin="10 0 0 5"/>
+                                
+                                <!-- Sort debtors button -->
+                                <Button Grid.Column="1" Style="{StaticResource DarkIconButton}" Content="{Binding SortType, Converter={local:SortTypeToIconConverter}}" Margin="3 2 15 0"
+                                        Command="{Binding SortCommand}" FontSize="17" VerticalAlignment="Top" HorizontalAlignment="Left"/>
                             </Grid>
                         </StackPanel>
 
@@ -124,20 +130,10 @@
 
                         <!-- Footer -->
                         <StackPanel Grid.Row="2">
-                            <Border BorderBrush="{StaticResource VeryDarkGreyBrush}" BorderThickness="0 0 0 2" Margin="0 0 0 2"/>
+                            <Border BorderBrush="{StaticResource VeryDarkGreyBrush}" BorderThickness="0 0 0 2" Margin="0 0 0 0"/>
+                            <TextBlock  Grid.Column="1" Text="{x:Static localization:Strings.AuthorString}" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18"
+                                            Foreground="White" FontFamily="{StaticResource GeosansLight}" Margin="0 0 5 0"/>
 
-                            <Grid Margin="5 0 5 0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-
-                                <TextBlock Grid.Column="0" Text="v0.5.0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" 
-                                           FontFamily="{StaticResource LatoLight}"/>
-                                <TextBlock  Grid.Column="1" Text="Jaworski" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18" 
-                                            Foreground="White" FontFamily="{StaticResource GeosansLight}"/>
-
-                            </Grid>
                         </StackPanel>
                     </Grid>
                 </Grid>
