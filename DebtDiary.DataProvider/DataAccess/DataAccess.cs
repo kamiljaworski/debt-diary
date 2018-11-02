@@ -1,5 +1,6 @@
 ﻿using DebtDiary.Core;
 using System;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -53,7 +54,17 @@ namespace DebtDiary.DataProvider
         /// <summary>
         /// Get the user from database
         /// </summary>
-        public User GetUser(string username, string hashedPassword) => dbContext.Users.FirstOrDefault(u => u.Username == username && u.Password == hashedPassword);
+        public User GetUser(string username, string hashedPassword)
+        {
+            try
+            {
+                return dbContext.Users.FirstOrDefault(u => u.Username == username && u.Password == hashedPassword);
+            }
+            catch (SqlException exception)
+            {
+                throw new NoInternetConnectionException("There was a problem with database connection", exception);
+            }
+        }
 
         /// <summary>
         /// Save database changes done in the application runtime

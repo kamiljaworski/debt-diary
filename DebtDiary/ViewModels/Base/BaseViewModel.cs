@@ -1,7 +1,6 @@
 ﻿using DebtDiary.Core;
 using System;
 using System.ComponentModel;
-using System.Data.SqlClient;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
@@ -45,11 +44,6 @@ namespace DebtDiary
             {
                 // Run the passed in action
                 await action();
-            }
-            catch (SqlException)
-            {
-                // TODO: remove IoC
-                IocContainer.Get<IDialogFacade>().OpenDialog(DialogMessage.NoInternetConnection);
             }
             finally
             {

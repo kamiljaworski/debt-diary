@@ -50,6 +50,7 @@
     <Compile Include="DataAccess\DataAccess.cs" />
     <Compile Include="DataAccess\DebtDiaryDbContext.cs" />
     <Compile Include="DataAccess\IDataAccess.cs" />
+    <Compile Include="DataAccess\NoInternetConnectionException.cs" />
     <Compile Include="Migrations\201808011842562_FirstMigration.cs" />
     <Compile Include="Migrations\201808011842562_FirstMigration.Designer.cs">
       <DependentUpon>201808011842562_FirstMigration.cs</DependentUpon>
