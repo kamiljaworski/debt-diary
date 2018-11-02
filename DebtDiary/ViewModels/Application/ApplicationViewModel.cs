@@ -42,6 +42,8 @@ namespace DebtDiary
         /// </summary>
         public void ChangeCurrentPage(ApplicationPage page) => ChangeCurrentPageAsync(page);
 
+
+
         /// <summary>
         /// Change current subpage in the application
         /// </summary>
@@ -60,6 +62,17 @@ namespace DebtDiary
             CurrentSubpage = subpage;
             return true;
         }
+
+        public async Task<bool> ChangeCurrentPageAsync(ApplicationSubpage subpage)
+        {
+            IsPageChanging = true;
+            await Task.Delay(FadeInDuration);
+            IsPageChanging = false;
+
+            CurrentSubpage = subpage;
+            return true;
+        }
+
         #endregion
 
         #region Private Methods
