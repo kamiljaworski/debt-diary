@@ -114,7 +114,8 @@ namespace DebtDiary
 
             OperationsList = new ShortOperationsListViewModel(_selectedDebtor.Operations);
 
-            IocContainer.Get<IDebtorsListViewModel>().Update();
+            if(_blockAnimation == true)
+                IocContainer.Get<IDebtorsListViewModel>().Update();
 
             if (_blockAnimation == false)
                 IsLoaded = true;
