@@ -426,4 +426,10 @@
   <data name="YourPassword" xml:space="preserve">
     <value>Your password</value>
   </data>
+  <data name="NoInternetConnectionSubtitle" xml:space="preserve">
+    <value>Check your internet connection</value>
+  </data>
+  <data name="NoInternetConnectionTitle" xml:space="preserve">
+    <value>There is a problem with the database</value>
+  </data>
 </root>

@@ -22,6 +22,7 @@ namespace DebtDiary
                     switch ((DialogMessage)value)
                     {
                         case DialogMessage.None:
+                        case DialogMessage.NoInternetConnection:
                             return failureIcon;
 
                         default:

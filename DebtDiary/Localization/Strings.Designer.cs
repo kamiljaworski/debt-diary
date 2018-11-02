@@ -682,6 +682,24 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Check your internet connection.
+        /// </summary>
+        public static string NoInternetConnectionSubtitle {
+            get {
+                return ResourceManager.GetString("NoInternetConnectionSubtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is a problem with the database.
+        /// </summary>
+        public static string NoInternetConnectionTitle {
+            get {
+                return ResourceManager.GetString("NoInternetConnectionTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to none.
         /// </summary>
         public static string None {
