@@ -94,46 +94,40 @@ namespace DebtDiary
         {
             await RunCommandAsync(() => IsLoginRunning, async () =>
             {
-                try
-                {
-                    // Get password from the view
-                    _password = (parameter as IHavePassword)?.Password;
 
-                    // Validate data
-                    if (await ValidateDataAsync() == false)
-                        return;
+                // Get password from the view
+                _password = (parameter as IHavePassword)?.Password;
 
-                    // Save user in the application data
-                    IocContainer.Get<IClientDataStore>().LoginUser(_loggedUser);
+                // Validate data
+                if (await ValidateDataAsync() == false)
+                    return;
 
-                    // Update debtors list
-                    await Task.Run(() => IocContainer.Get<IDebtorsListViewModel>().Update());
+                // Save user in the application data
+                IocContainer.Get<IClientDataStore>().LoginUser(_loggedUser);
 
-                    // Get diary page reference from the IoC
-                    IDiaryPageViewModel diaryPage = IocContainer.Get<IDiaryPageViewModel>();
+                // Update debtors list
+                await Task.Run(() => IocContainer.Get<IDebtorsListViewModel>().Update());
 
-                    // Reset users fullname, username and initials
-                    diaryPage.UpdateUsersData();
+                // Get diary page reference from the IoC
+                IDiaryPageViewModel diaryPage = IocContainer.Get<IDiaryPageViewModel>();
 
-                    // Reset selected buttons in the diary page side menu
-                    diaryPage.ResetSelectedButtons();
+                // Reset users fullname, username and initials
+                diaryPage.UpdateUsersData();
 
-                    // Set summary page selected button
-                    diaryPage.IsSummarySelected = true;
+                // Reset selected buttons in the diary page side menu
+                diaryPage.ResetSelectedButtons();
 
-                    // Reset application subpage to SummarySubpage
-                    IocContainer.Get<IApplicationViewModel>().ResetCurrentSubpage();
+                // Set summary page selected button
+                diaryPage.IsSummarySelected = true;
 
-                    // TODO: await for summary page data
+                // Reset application subpage to SummarySubpage
+                IocContainer.Get<IApplicationViewModel>().ResetCurrentSubpage();
 
-                    // And go to diary page
-                    await IocContainer.Get<IApplicationViewModel>().ChangeCurrentPageAsync(ApplicationPage.DiaryPage);
-                }
-                catch (NoInternetConnectionException)
-                {
-                    // TODO: remove IoC
-                    IocContainer.Get<IDialogFacade>().OpenDialog(DialogMessage.NoInternetConnection);
-                }
+                // TODO: await for summary page data
+
+                // And go to diary page
+                await IocContainer.Get<IApplicationViewModel>().ChangeCurrentPageAsync(ApplicationPage.DiaryPage);
+
             });
         }
         #endregion

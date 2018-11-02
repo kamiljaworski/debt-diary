@@ -1,4 +1,5 @@
 ﻿using DebtDiary.Core;
+using DebtDiary.DataProvider;
 using System;
 using System.ComponentModel;
 using System.Linq.Expressions;
@@ -44,6 +45,11 @@ namespace DebtDiary
             {
                 // Run the passed in action
                 await action();
+            }
+            catch (NoInternetConnectionException)
+            {
+                // TODO: remove IoC
+                IocContainer.Get<IDialogFacade>().OpenDialog(DialogMessage.NoInternetConnection);
             }
             finally
             {

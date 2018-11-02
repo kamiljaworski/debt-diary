@@ -8,6 +8,7 @@ namespace DebtDiary.DataProvider
 {
     public class DataAccess : IDataAccess, IDisposable
     {
+        // TODO: passing dbContext as constructor parameter
         private DebtDiaryDbContext dbContext = new DebtDiaryDbContext();
 
         /// <summary>
@@ -15,8 +16,15 @@ namespace DebtDiary.DataProvider
         /// </summary>
         public void CreateAccount(User user)
         {
-            dbContext.Users.Add(user);
-            SaveChanges();
+            try
+            {
+                dbContext.Users.Add(user);
+                SaveChanges();
+            }
+            catch (SqlException exception)
+            {
+                throw new NoInternetConnectionException("There was a problem with database connection", exception);
+            }
         }
 
         /// <summary>
@@ -24,15 +32,23 @@ namespace DebtDiary.DataProvider
         /// </summary>
         public bool IsUsernameTaken(string username)
         {
-            // Look for user with this username
-            User user = dbContext.Users.FirstOrDefault(x => x.Username == username);
+            try
+            {
+                // Look for user with this username
+                User user = dbContext.Users.FirstOrDefault(x => x.Username == username);
 
-            // If there is no user like that return true
-            if (user == null)
-                return true;
+                // If there is no user like that return true
+                if (user == null)
+                    return true;
 
-            // If there is one return false
-            return false;
+                // If there is one return false
+                return false;
+
+            }
+            catch (SqlException exception)
+            {
+                throw new NoInternetConnectionException("There was a problem with database connection", exception);
+            }
         }
 
         /// <summary>
@@ -40,15 +56,22 @@ namespace DebtDiary.DataProvider
         /// </summary>
         public bool IsEmailTaken(string email)
         {
-            // Look for user with this email
-            User user = dbContext.Users.FirstOrDefault(x => x.Email == email);
+            try
+            {
+                // Look for user with this email
+                User user = dbContext.Users.FirstOrDefault(x => x.Email == email);
 
-            // If there is no user like that return true
-            if (user == null)
-                return true;
+                // If there is no user like that return true
+                if (user == null)
+                    return true;
 
-            // If there is one return false
-            return false;
+                // If there is one return false
+                return false;
+            }
+            catch (SqlException exception)
+            {
+                throw new NoInternetConnectionException("There was a problem with database connection", exception);
+            }
         }
 
         /// <summary>
@@ -69,7 +92,17 @@ namespace DebtDiary.DataProvider
         /// <summary>
         /// Save database changes done in the application runtime
         /// </summary>
-        public void SaveChanges() => dbContext.SaveChanges();
+        public void SaveChanges()
+        {
+            try
+            {
+                dbContext.SaveChanges();
+            }
+            catch (SqlException exception)
+            {
+                throw new NoInternetConnectionException("There was a problem with database connection", exception);
+            }
+        }
 
         /// <summary>
         /// Dispose DataAccess object
