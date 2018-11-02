@@ -17,6 +17,8 @@ namespace DebtDiary
 
         private decimal _loanValue;
         private decimal _repaymentValue;
+
+        private bool _blockAnimation = false;
         #endregion
 
         #region Public properties
@@ -84,7 +86,9 @@ namespace DebtDiary
         /// </summary>
         public void UpdateChanges()
         {
-            IsLoaded = false;
+            if(_blockAnimation == false)
+                IsLoaded = false;
+
             // TODO: Update in another threat
             _selectedDebtor = IocContainer.Get<IApplicationViewModel>().SelectedDebtor;
             if (_selectedDebtor == null)
@@ -111,7 +115,9 @@ namespace DebtDiary
             OperationsList = new ShortOperationsListViewModel(_selectedDebtor.Operations);
 
             IocContainer.Get<IDebtorsListViewModel>().Update();
-            IsLoaded = true;
+
+            if (_blockAnimation == false)
+                IsLoaded = true;
         }
         #endregion
 
@@ -138,7 +144,9 @@ namespace DebtDiary
 
                 // Clear fields and update changes
                 ClearAddLoanFields();
+                _blockAnimation = true;
                 UpdateChanges();
+                _blockAnimation = false;
             });
 
         }
@@ -164,7 +172,9 @@ namespace DebtDiary
 
                 // Clear fields and update changes
                 ClearAddRepaymentFields();
+                _blockAnimation = true;
                 UpdateChanges();
+                _blockAnimation = false;
             });
 
         }
