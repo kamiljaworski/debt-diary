@@ -18,16 +18,10 @@ namespace DebtDiary
 
         Debtor SelectedDebtor { get; set; }
 
-
         /// <summary>
-        /// Change current page in the application
+        /// Reset current subpage to <see cref="ApplicationSubpage.SummarySubpage"/>
         /// </summary>
-        void ChangeCurrentPage(ApplicationPage page);
-
-        /// <summary>
-        /// Change current subpage in the application
-        /// </summary>
-        void ChangeCurrentSubpage(ApplicationSubpage subpage);
+        void ResetCurrentSubpage();
 
         /// <summary>
         /// Change asynchronously current subpage in the application

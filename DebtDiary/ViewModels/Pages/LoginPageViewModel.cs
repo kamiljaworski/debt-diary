@@ -118,8 +118,8 @@ namespace DebtDiary
                 // Set summary page selected button
                 diaryPage.IsSummarySelected = true;
 
-                // Change application subpage to SummarySubpage
-                IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.SummarySubpage);
+                // Reset application subpage to SummarySubpage
+                IocContainer.Get<IApplicationViewModel>().ResetCurrentSubpage();
 
                 // TODO: await for summary page data
 

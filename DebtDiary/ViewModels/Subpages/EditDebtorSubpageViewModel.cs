@@ -104,7 +104,7 @@ namespace DebtDiary
                 IocContainer.Get<IDebtorInfoSubpageViewModel>().UpdateChanges();
 
                 // Go back to debtor info subpage
-                IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpage(ApplicationSubpage.DebtorInfoSubpage);
+                await IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpageAsync(ApplicationSubpage.DebtorInfoSubpage);
 
                 // Clear fields in the view
                 ClearAllFields();

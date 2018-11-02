@@ -36,19 +36,6 @@ namespace DebtDiary
         #endregion
 
         #region Public Methods
-
-        /// <summary>
-        /// Change current page in the application
-        /// </summary>
-        public void ChangeCurrentPage(ApplicationPage page) => ChangeCurrentPageAsync(page);
-
-
-
-        /// <summary>
-        /// Change current subpage in the application
-        /// </summary>
-        public void ChangeCurrentSubpage(ApplicationSubpage subpage) => CurrentSubpage = subpage;
-
         /// <summary>
         /// Change asynchronously current subpage in the application
         /// </summary>
@@ -88,6 +75,8 @@ namespace DebtDiary
             // Change the page
             CurrentPage = page;
         }
+
+        public void ResetCurrentSubpage() => CurrentSubpage = ApplicationSubpage.SummarySubpage;
 
 
 
