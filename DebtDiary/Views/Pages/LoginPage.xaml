@@ -9,32 +9,38 @@
       d:DesignHeight="720" d:DesignWidth="1280"
       Title="LoginPage">
 
-    <Grid x:Name="MainGrid">
-        
-        <!--#region Animations-->
-        <Grid.Triggers>
-            <!-- Fade in animation -->
-            <EventTrigger RoutedEvent="Loaded">
-                <BeginStoryboard>
-                    <Storyboard >
-                        <DoubleAnimation  Storyboard.TargetName="MainGrid" Storyboard.TargetProperty="Opacity" 
-                                          Duration="{Binding ApplicationViewModel.FadeInDuration, Source={StaticResource ViewModelLocator}, 
-                                                    Converter={local:TimeSpanToDurationConverter}}" From="0" To="1" />
-                    </Storyboard>
-                </BeginStoryboard>
-            </EventTrigger>
+    <Grid>
+        <!--#region Fade in & Fade out animations-->
+        <Grid.Style>
+            <Style>
+                <Style.Triggers>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding ApplicationViewModel.IsPageChanging, Source={StaticResource ViewModelLocator}}" Value="False"/>
+                            <Condition Binding="{Binding IsLoaded}" Value="True"/>
+                        </MultiDataTrigger.Conditions>
 
-            <!-- Fade out animation -->
-            <EventTrigger RoutedEvent="Button.Click" SourceName="CreateAccountButton">
-                <BeginStoryboard>
-                    <Storyboard>
-                        <DoubleAnimation  Storyboard.TargetName="MainGrid" Storyboard.TargetProperty="Opacity" 
-                                          Duration="{Binding ApplicationViewModel.FadeOutDuration, Source={StaticResource ViewModelLocator}, 
-                                                    Converter={local:TimeSpanToDurationConverter}}" From="1" To="0" />
-                    </Storyboard>
-                </BeginStoryboard>
-            </EventTrigger>
-        </Grid.Triggers>
+                        <!-- Fade in animation -->
+                        <MultiDataTrigger.EnterActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation  Storyboard.TargetProperty="Opacity"  Duration="0:0:0.8" From="0" To="1" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </MultiDataTrigger.EnterActions>
+
+                        <!-- Fade out animation -->
+                        <MultiDataTrigger.ExitActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation  Storyboard.TargetProperty="Opacity"  Duration="0:0:0.6" To="0" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </MultiDataTrigger.ExitActions>
+                    </MultiDataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Style>
         <!--#endregion-->
 
         <!--#region Column Definitions-->

@@ -63,13 +63,13 @@ namespace DebtDiary
             return true;
         }
 
-        public async Task<bool> ChangeCurrentPageAsync(ApplicationSubpage subpage)
+        public async Task<bool> ChangeCurrentPageAsync(ApplicationPage page)
         {
             IsPageChanging = true;
             await Task.Delay(FadeInDuration);
             IsPageChanging = false;
 
-            CurrentSubpage = subpage;
+            CurrentPage = page;
             return true;
         }
 
@@ -80,7 +80,7 @@ namespace DebtDiary
         /// <summary>
         /// Async version of ChangeCurrentPage interface method
         /// </summary>
-        private async void ChangeCurrentPageAsync(ApplicationPage page)
+        private async void aChangeCurrentPageAsync(ApplicationPage page)
         {
             // Await for page fade out animation
             await Task.Delay(FadeOutDuration);

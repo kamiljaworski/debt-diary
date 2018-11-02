@@ -3,7 +3,7 @@ using System.Windows.Input;
 
 namespace DebtDiary
 {
-    public class DiaryPageViewModel : BaseViewModel, IDiaryPageViewModel
+    public class DiaryPageViewModel : BaseViewModel, IDiaryPageViewModel, ILoadable
     {
         #region Public properties
 
@@ -25,6 +25,8 @@ namespace DebtDiary
 
         public IDebtorsListViewModel DebtorsList => IocContainer.Get<IDebtorsListViewModel>();
 
+        public bool IsLoaded { get; private set; }
+
         #endregion
 
         #region Constructor
@@ -34,6 +36,8 @@ namespace DebtDiary
         /// </summary>
         public DiaryPageViewModel(bool designTime = false)
         {
+            IsLoaded = false;
+
             if (designTime == false)
                 UpdateUsersData();
 
@@ -49,13 +53,13 @@ namespace DebtDiary
                 IsMyAccountSelected = true;
             });
 
-            LogoutCommand = new RelayCommand(() =>
+            LogoutCommand = new RelayCommand(async () =>
             {
                 ResetSelectedDebtor();
                 ResetSelectedButtons();
                 IsLogoutSelected = true;
                 IocContainer.Get<IClientDataStore>().LogoutUser();
-                IocContainer.Get<IApplicationViewModel>().ChangeCurrentPage(ApplicationPage.LoginPage);
+                await IocContainer.Get<IApplicationViewModel>().ChangeCurrentPageAsync(ApplicationPage.LoginPage);
             });
 
             AddDebtorCommand = new RelayCommand(() => ChangeSubpageAsync(ApplicationSubpage.AddDebtorSubpage));
@@ -65,6 +69,8 @@ namespace DebtDiary
                 SortType = SortType == SortType.Ascending ? SortType.Descending : SortType.Ascending;
                 IocContainer.Get<IDebtorsListViewModel>().Sort(SortType);
             });
+
+            IsLoaded = true;
         }
         #endregion
 

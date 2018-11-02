@@ -10,7 +10,7 @@ namespace DebtDiary
     /// <summary>
     /// Register Page View Model
     /// </summary>
-    class RegisterPageViewModel : BaseViewModel
+    class RegisterPageViewModel : BaseViewModel, ILoadable
     {
         #region Private members
 
@@ -28,6 +28,8 @@ namespace DebtDiary
         public string Email { get; set; }
         public Gender Gender { get; set; } = Gender.None;
         public bool IsRegisterRunning { get; set; }
+
+        public bool IsLoaded { get; private set; }
         #endregion
 
         #region Form Messages
@@ -51,9 +53,11 @@ namespace DebtDiary
 
         public RegisterPageViewModel()
         {
+            IsLoaded = false;
             // Create commands
-            LoginCommand = new RelayCommand(() => ChangeApplicationPage(ApplicationPage.LoginPage));
+            LoginCommand = new RelayCommand(async () => await IocContainer.Get<IApplicationViewModel>().ChangeCurrentPageAsync(ApplicationPage.LoginPage));
             SignUpCommand = new RelayParameterizedCommand(async (parameter) => await SignUpAsync(parameter));
+            IsLoaded = true;
         }
         #endregion
 
@@ -103,7 +107,7 @@ namespace DebtDiary
                 ClearAllFields(parameter as IHaveTwoPasswords);
 
                 // And go to login page
-                ChangeApplicationPage(ApplicationPage.LoginPage);
+                await IocContainer.Get<IApplicationViewModel>().ChangeCurrentPageAsync(ApplicationPage.LoginPage);
             });
         }
 

@@ -9,8 +9,40 @@
       d:DesignHeight="720" d:DesignWidth="1280"
       Title="DiaryPage" d:DataContext="{x:Static local:DiaryPageDesignModel.Instance}">
 
-    <Grid x:Name="MainGrid">
+    <Grid>
+        <!--#region Fade in & Fade out animations-->
+        <Grid.Style>
+            <Style>
+                <Style.Triggers>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding ApplicationViewModel.IsPageChanging, Source={StaticResource ViewModelLocator}}" Value="False"/>
+                            <Condition Binding="{Binding IsLoaded}" Value="True"/>
+                        </MultiDataTrigger.Conditions>
 
+                        <!-- Fade in animation -->
+                        <MultiDataTrigger.EnterActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation  Storyboard.TargetProperty="Opacity"  Duration="0:0:0.4" From="0" To="1" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </MultiDataTrigger.EnterActions>
+
+                        <!-- Fade out animation -->
+                        <MultiDataTrigger.ExitActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation  Storyboard.TargetProperty="Opacity"  Duration="0:0:0.3" To="0" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </MultiDataTrigger.ExitActions>
+                    </MultiDataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Style>
+
+        <!--#endregion-->
         <!--#region Page column definitions-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250"/>

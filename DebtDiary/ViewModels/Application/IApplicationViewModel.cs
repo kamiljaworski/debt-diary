@@ -39,6 +39,6 @@ namespace DebtDiary
         /// Change asynchronously current page in the application
         /// </summary>
         /// <returns><see cref="true"/> when the task is done</returns>
-        Task<bool> ChangeCurrentPageAsync(ApplicationSubpage subpage);
+        Task<bool> ChangeCurrentPageAsync(ApplicationPage page);
     }
 }

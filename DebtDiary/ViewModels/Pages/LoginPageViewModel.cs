@@ -9,7 +9,7 @@ namespace DebtDiary
     /// <summary>
     /// Login Page View Model
     /// </summary>
-    class LoginPageViewModel : BaseViewModel
+    class LoginPageViewModel : BaseViewModel, ILoadable
     {
         #region Private members
 
@@ -41,6 +41,7 @@ namespace DebtDiary
         /// </summary>
         public bool IsLoginRunning { get; set; }
 
+        public bool IsLoaded { get; private set; }
         #endregion
 
         #region Public Commands
@@ -74,9 +75,11 @@ namespace DebtDiary
 
         public LoginPageViewModel()
         {
+            IsLoaded = false;
             // Create commands
-            CreateAccountCommand = new RelayCommand(() => ChangeApplicationPage(ApplicationPage.RegisterPage));
+            CreateAccountCommand = new RelayCommand(async () => await IocContainer.Get<IApplicationViewModel>().ChangeCurrentPageAsync(ApplicationPage.RegisterPage));
             LoginCommand = new RelayParameterizedCommand(async (parameter) => await LoginAsync(parameter));
+            IsLoaded = true;
         }
         #endregion
 
@@ -121,7 +124,7 @@ namespace DebtDiary
                 // TODO: await for summary page data
 
                 // And go to diary page
-                ChangeApplicationPage(ApplicationPage.DiaryPage);
+                await IocContainer.Get<IApplicationViewModel>().ChangeCurrentPageAsync(ApplicationPage.DiaryPage);
             });
         }
         #endregion
@@ -148,7 +151,7 @@ namespace DebtDiary
 
                 // If fields arent empty check if user exist
                 if (IsEnteredDataCorrect())
-                {                
+                {
                     // Try to get user from db
                     _loggedUser = _dataAccess.GetUser(Username, _password.GetEncryptedPassword());
 
