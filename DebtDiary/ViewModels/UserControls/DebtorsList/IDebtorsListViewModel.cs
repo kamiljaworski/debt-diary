@@ -14,11 +14,6 @@ namespace DebtDiary
         void Update();
 
         /// <summary>
-        /// Reset all the debtors IsSelected properties to false
-        /// </summary>
-        void ResetSelectedDebtor();
-
-        /// <summary>
         /// Sort Debtors collection order by SortType
         /// </summary>
         void Sort(SortType sortType);

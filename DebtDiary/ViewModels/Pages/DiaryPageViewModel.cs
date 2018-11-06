@@ -86,7 +86,6 @@ namespace DebtDiary
         private void ResetSelectedDebtor()
         {
             IocContainer.Get<IApplicationViewModel>().SelectedDebtor = null;
-            IocContainer.Get<IDebtorsListViewModel>().ResetSelectedDebtor();
         }
 
         /// <summary>

@@ -38,30 +38,15 @@ namespace DebtDiary
         {
             User loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
 
-
             // Get actual list of debtors and sort them
             IEnumerable<DebtorsListItemViewModel> debtorsList = loggedUser.Debtors.Select(x => new DebtorsListItemViewModel(x, IocContainer.Get<IApplicationViewModel>(), IocContainer.Get<IDebtorInfoSubpageViewModel>(), IocContainer.Get<IDiaryPageViewModel>()));
-
 
             // Make ObservableCollection from this list
             Debtors = Sort(debtorsList, _sortType);
 
             // Get selected debtor information
             Debtor selectedDebtor = IocContainer.Get<IApplicationViewModel>().SelectedDebtor;
-
-            // TODO: Add NullObject design pattern for all object 
-            // and remove unnecessary null comparisions
-            if (selectedDebtor != null)
-                SelectDebtor(selectedDebtor.Id);
-            else
-                SelectDebtor(-1);
-
         }
-
-        /// <summary>
-        /// Reset all the debtors IsSelected properties to false
-        /// </summary>
-        public void ResetSelectedDebtor() => Debtors.ToList()?.ForEach(x => x.IsSelected = false);
 
         /// <summary>
         /// Sort Debtors collection order by SortType
@@ -80,9 +65,6 @@ namespace DebtDiary
         public void Sort(SortType sortType) => Debtors = Sort(Debtors, sortType);
 
         #endregion
-
-        // TODO: Rename  this method? and add documentation 
-        private void SelectDebtor(int id) => Debtors.ForEach(x => x.IsSelected = x.Id == id ? true : false);
 
         private IOrderedEnumerable<DebtorsListItemViewModel> DebtorsSortedAscending(IEnumerable<DebtorsListItemViewModel> debtorsLists) => debtorsLists.OrderBy(x => x.Debt).ThenBy(x => x.FullName);
         private IOrderedEnumerable<DebtorsListItemViewModel> DebtorsSortedDescending(IEnumerable<DebtorsListItemViewModel> debtorsLists) => debtorsLists.OrderByDescending(x => x.Debt).ThenBy(x => x.FullName);
