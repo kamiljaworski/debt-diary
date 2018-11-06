@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using DebtDiary.Core;
+using PropertyChanged;
 
 namespace DebtDiary
 {
@@ -13,8 +14,9 @@ namespace DebtDiary
         #endregion
 
         #region Public Properties
-
+        
         public ApplicationPage CurrentPage { get; private set; } = ApplicationPage.LoginPage;
+        [DoNotCheckEqualityAttribute]
         public ApplicationSubpage CurrentSubpage { get; private set; } = ApplicationSubpage.SummarySubpage;
         public ApplicationSubpage NextSubpage { get; private set; } = ApplicationSubpage.SummarySubpage;
         public TimeSpan FadeInDuration { get; } = TimeSpan.FromSeconds(0.8);
