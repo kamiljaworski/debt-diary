@@ -114,12 +114,6 @@ namespace DebtDiary
                 // Reset users fullname, username and initials
                 diaryPage.UpdateUsersData();
 
-                // Reset selected buttons in the diary page side menu
-                diaryPage.ResetSelectedButtons();
-
-                // Set summary page selected button
-                diaryPage.IsSummarySelected = true;
-
                 // Reset application subpage to SummarySubpage
                 IocContainer.Get<IApplicationViewModel>().ResetCurrentSubpage();
 

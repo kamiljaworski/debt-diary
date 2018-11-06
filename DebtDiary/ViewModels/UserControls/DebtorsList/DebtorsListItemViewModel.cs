@@ -32,8 +32,6 @@ namespace DebtDiary
 
         private async void OpenDebtorSubpageAsync()
         {
-            // Reset selected buttons in the diary page side menu
-            _diaryPageViewModel.ResetSelectedButtons();
             _applicationViewModel.SelectedDebtor = _debtor;
             // TODO: remove IoC
             IocContainer.Get<IDebtorsListViewModel>().Update();

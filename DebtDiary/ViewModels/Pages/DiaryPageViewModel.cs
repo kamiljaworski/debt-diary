@@ -18,10 +18,6 @@ namespace DebtDiary
         public ICommand AddDebtorCommand { get; set; }
         public ICommand SortCommand { get; set; }
 
-        public bool IsSummarySelected { get; set; }
-        public bool IsMyAccountSelected { get; set; }
-        public bool IsLogoutSelected { get; set; }
-        public bool IsAddDebtorSelected { get; set; }
         public SortType SortType { get; set; } = SortType.Descending;
 
         public IDebtorsListViewModel DebtorsList => IocContainer.Get<IDebtorsListViewModel>();
@@ -42,32 +38,18 @@ namespace DebtDiary
             if (designTime == false)
                 UpdateUsersData();
 
-            SummaryCommand = new RelayCommand(() =>
-            {
-                ChangeSubpageAsync(ApplicationSubpage.SummarySubpage);
-                IsSummarySelected = true;
-            });
+            SummaryCommand = new RelayCommand(() => ChangeSubpageAsync(ApplicationSubpage.SummarySubpage));
 
-            MyAccountCommand = new RelayCommand(() =>
-            {
-                ChangeSubpageAsync(ApplicationSubpage.MyAccountSubpage);
-                IsMyAccountSelected = true;
-            });
+            MyAccountCommand = new RelayCommand(() => ChangeSubpageAsync(ApplicationSubpage.MyAccountSubpage));
 
             LogoutCommand = new RelayCommand(async () =>
             {
                 ResetSelectedDebtor();
-                ResetSelectedButtons();
-                IsLogoutSelected = true;
                 IocContainer.Get<IClientDataStore>().LogoutUser();
                 await IocContainer.Get<IApplicationViewModel>().ChangeCurrentPageAsync(ApplicationPage.LoginPage);
             });
 
-            AddDebtorCommand = new RelayCommand(() =>
-            {
-                ChangeSubpageAsync(ApplicationSubpage.AddDebtorSubpage);
-                IsAddDebtorSelected = true;
-            });
+            AddDebtorCommand = new RelayCommand(() => ChangeSubpageAsync(ApplicationSubpage.AddDebtorSubpage));
 
             SortCommand = new RelayCommand(() =>
             {
@@ -81,16 +63,6 @@ namespace DebtDiary
 
         #region Public methods
 
-        /// <summary>
-        /// Reset all the selected buttons properties to false
-        /// </summary>
-        public void ResetSelectedButtons()
-        {
-            IsSummarySelected = false;
-            IsMyAccountSelected = false;
-            IsLogoutSelected = false;
-            IsAddDebtorSelected = false;
-        }
 
         /// <summary>
         /// Reset users fullname, username and initials
@@ -123,7 +95,6 @@ namespace DebtDiary
         private async void ChangeSubpageAsync(ApplicationSubpage subpage)
         {
             ResetSelectedDebtor();
-            ResetSelectedButtons();
             await IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpageAsync(subpage);
         }
         #endregion

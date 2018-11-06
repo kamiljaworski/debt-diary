@@ -90,9 +90,6 @@ namespace DebtDiary
                 // Show successful dialog window 
                 IocContainer.Get<IDialogFacade>().OpenDialog(DialogMessage.DebtorDeleted);
 
-                // Set summary page as selected
-                IocContainer.Get<IDiaryPageViewModel>().IsSummarySelected = true;
-
                 // Go to summary subpage
                 await IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpageAsync(ApplicationSubpage.SummarySubpage);
             });
