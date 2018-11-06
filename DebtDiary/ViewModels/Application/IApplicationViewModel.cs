@@ -8,6 +8,8 @@ namespace DebtDiary
     {
         ApplicationPage CurrentPage { get; }
         ApplicationSubpage CurrentSubpage { get; }
+        ApplicationSubpage NextSubpage { get; }
+
         TimeSpan FadeInDuration { get; }
         TimeSpan FadeOutDuration { get; }
         TimeSpan SubpageFadeInDuration { get; }

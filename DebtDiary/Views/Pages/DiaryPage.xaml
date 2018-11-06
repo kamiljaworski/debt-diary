@@ -93,19 +93,19 @@
                             <!-- Summary button -->
                             <Button Style="{StaticResource SideMenuButton}" Content="{x:Static localization:Strings.Summary}" 
                                     local:IconProperty.Value="{StaticResource HomeIcon}" Command="{Binding SummaryCommand}"
-                                    local:IsSelectedProperty.Value="{Binding ApplicationViewModel.CurrentSubpage, Source={StaticResource ViewModelLocator}, 
+                                    local:IsSelectedProperty.Value="{Binding ApplicationViewModel.NextSubpage, Source={StaticResource ViewModelLocator}, 
                                     Converter={local:ApplicationSubpageToBooleanConverter}, ConverterParameter='SummarySubpage'}"/>
 
                             <!-- My Account button -->
                             <Button Style="{StaticResource SideMenuButton}" Content="{x:Static localization:Strings.MyAccount}" 
                                     local:IconProperty.Value="{StaticResource ContactIcon}" Command="{Binding MyAccountCommand}"
-                                    local:IsSelectedProperty.Value="{Binding ApplicationViewModel.CurrentSubpage, Source={StaticResource ViewModelLocator}, 
+                                    local:IsSelectedProperty.Value="{Binding ApplicationViewModel.NextSubpage, Source={StaticResource ViewModelLocator}, 
                                     Converter={local:ApplicationSubpageToBooleanConverter}, ConverterParameter='MyAccountSubpage'}"/>
                             
                             <!-- Add new debtor button -->
                             <Button Style="{StaticResource SideMenuButton}" Content="{x:Static localization:Strings.AddADebtor}" 
                                     local:IconProperty.Value="{StaticResource AddIcon}" Command="{Binding AddDebtorCommand}"
-                                    local:IsSelectedProperty.Value="{Binding ApplicationViewModel.CurrentSubpage, Source={StaticResource ViewModelLocator}, 
+                                    local:IsSelectedProperty.Value="{Binding ApplicationViewModel.NextSubpage, Source={StaticResource ViewModelLocator}, 
                                     Converter={local:ApplicationSubpageToBooleanConverter}, ConverterParameter='AddDebtorSubpage'}"/>
 
                             <!-- Logout button -->
