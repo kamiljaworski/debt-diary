@@ -147,6 +147,7 @@
     </Compile>
     <Compile Include="ValueConverters\ApplicationPageConverter.cs" />
     <Compile Include="ValueConverters\ApplicationSubpageConverter.cs" />
+    <Compile Include="ValueConverters\ApplicationSubpageToBooleanConverter.cs" />
     <Compile Include="ValueConverters\BaseMultiValueConverter.cs" />
     <Compile Include="ValueConverters\BooleanToDoubleConverter.cs" />
     <Compile Include="ValueConverters\BooleanToVisibilityConverter.cs" />
