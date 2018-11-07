@@ -14,8 +14,7 @@ namespace DebtDiary
     {
         #region Private members
         private IApplicationViewModel _applicationViewModel;
-        private IDebtorInfoSubpageViewModel _debtorInfoSubpageViewModel;
-        private IDiaryPageViewModel _diaryPageViewModel;
+        private IDebtorsListViewModel _debtorsListViewModel;
         private Debtor _debtor;
         #endregion
 
@@ -33,26 +32,16 @@ namespace DebtDiary
         private async void OpenDebtorSubpageAsync()
         {
             _applicationViewModel.SelectedDebtor = _debtor;
-            // TODO: remove IoC
-            IocContainer.Get<IDebtorsListViewModel>().Update();
+            _debtorsListViewModel.Update();
 
-            bool isSubpageChanged = await _applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.DebtorInfoSubpage);
-            
-            // Change subpage
-            if (isSubpageChanged)
-                _debtorInfoSubpageViewModel.UpdateChanges();
+            await _applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.DebtorInfoSubpage);
         }
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="debtor"><see cref="Debtor"/> you want to make <see cref="DebtorsListItemViewModel"/> from</param>
-        public DebtorsListItemViewModel(Debtor debtor, IApplicationViewModel applicationViewModel, IDebtorInfoSubpageViewModel debtorInfoSubpageViewModel, IDiaryPageViewModel diaryPageViewModel)
+        public DebtorsListItemViewModel(Debtor debtor, IApplicationViewModel applicationViewModel, IDebtorsListViewModel debtorsListViewModel)
         {
             _debtor = debtor;
             _applicationViewModel = applicationViewModel;
-            _debtorInfoSubpageViewModel = debtorInfoSubpageViewModel;
-            _diaryPageViewModel = diaryPageViewModel;
+            _debtorsListViewModel = debtorsListViewModel;
 
             Id = _debtor.Id;
             FullName = _debtor.FullName;
@@ -60,7 +49,6 @@ namespace DebtDiary
             Debt = _debtor.Debt;
             AvatarColor = _debtor.AvatarColor;
 
-            // TODO: optimize arguments number
             OpenDebtorSubpage = new RelayCommand(() => OpenDebtorSubpageAsync());
         }
 
