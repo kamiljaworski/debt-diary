@@ -7,8 +7,8 @@ namespace DebtDiary
 {
     public class DebtorsListViewModel : BaseViewModel, IDebtorsListViewModel
     {
-        private IClientDataStore _clientDataStore;
         private IApplicationViewModel _applicationViewModel;
+        private IClientDataStore _clientDataStore;
         private SortType _sortType = SortType.Descending;
 
         public IList<DebtorsListItemViewModel> Debtors { get; set; } = new ObservableCollection<DebtorsListItemViewModel>();
@@ -29,7 +29,7 @@ namespace DebtDiary
             }
         }
 
-        public DebtorsListViewModel(IClientDataStore clientDataStore, IApplicationViewModel applicationViewModel)
+        public DebtorsListViewModel(IApplicationViewModel applicationViewModel, IClientDataStore clientDataStore)
         {
             _clientDataStore = clientDataStore;
             _applicationViewModel = applicationViewModel;

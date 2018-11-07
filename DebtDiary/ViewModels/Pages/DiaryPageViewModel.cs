@@ -34,13 +34,13 @@ namespace DebtDiary
         // TODO: Do sth with this ctor
         public DiaryPageViewModel() { }
 
-        public DiaryPageViewModel(IApplicationViewModel applicationViewModel, IClientDataStore clientDataStore, IDebtorsListViewModel debtorsListViewModel)
+        public DiaryPageViewModel(IApplicationViewModel applicationViewModel, IClientDataStore clientDataStore)
         {
             IsLoaded = false;
 
             _applicationViewModel = applicationViewModel;
             _clientDataStore = clientDataStore;
-            DebtorsList = debtorsListViewModel;
+            DebtorsList = new DebtorsListViewModel(_applicationViewModel, _clientDataStore);
 
             UpdateUsersData();
 

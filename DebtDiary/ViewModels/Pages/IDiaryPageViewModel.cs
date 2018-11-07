@@ -21,8 +21,13 @@ namespace DebtDiary
         IDebtorsListViewModel DebtorsList { get; }
 
         /// <summary>
-        /// Reset users fullname, username and initials
+        /// Update user's fullname, username and initials
         /// </summary>
         void UpdateUsersData();
+
+        /// <summary>
+        /// Update debtors list 
+        /// </summary>
+        void UpdateDebtorsList();
     }
 }

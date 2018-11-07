@@ -5,7 +5,7 @@
         public static DiaryPageDesignModel Instance = new DiaryPageDesignModel();
 
 
-        public DiaryPageDesignModel() : base(true)
+        public DiaryPageDesignModel() : base()
         {
             FullName = "Kamil Jaworski";
             Username = "kamilj610";
