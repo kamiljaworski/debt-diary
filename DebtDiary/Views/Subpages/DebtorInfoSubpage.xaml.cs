@@ -1,4 +1,6 @@
-﻿using LiveCharts;
+﻿using DebtDiary.Core;
+using DebtDiary.DataProvider;
+using LiveCharts;
 using LiveCharts.Wpf;
 using System;
 using System.Windows.Controls;
@@ -12,7 +14,12 @@ namespace DebtDiary
     {
         public DebtorInfoSubpage()
         {
-            DataContext = IocContainer.Get<IDebtorInfoSubpageViewModel>();
+            IApplicationViewModel applicationViewModel = IocContainer.Get<IApplicationViewModel>();
+            IDiaryPageViewModel diaryPageViewModel = IocContainer.Get<IDiaryPageViewModel>();
+            IClientDataStore clientDataStore = IocContainer.Get<IClientDataStore>();
+            IDataAccess dataAccess = IocContainer.Get<IDataAccess>();
+            DataContext = new DebtorInfoSubpageViewModel(applicationViewModel, diaryPageViewModel, clientDataStore, dataAccess);
+
             InitializeComponent();
         }
     }

@@ -13,12 +13,15 @@ namespace DebtDiary
     public class DebtorInfoSubpageViewModel : BaseViewModel, IDebtorInfoSubpageViewModel, ILoadable
     {
         #region Private members
+        private IApplicationViewModel _applicationViewModel;
+        private IDiaryPageViewModel _diaryPageViewModel;
+        private IClientDataStore _clientDataStore;
+        private IDataAccess _dataAccess;
+
         private Debtor _selectedDebtor = null;
 
         private decimal _loanValue;
         private decimal _repaymentValue;
-
-        private bool _blockAnimation = false;
         #endregion
 
         #region Public properties
@@ -59,48 +62,49 @@ namespace DebtDiary
         public bool IsAddRepaymentFormRunning { get; set; } = false;
         #endregion
 
-        // Edit and Delete debtor commands
         public ICommand EditDebtorCommand { get; set; }
         public ICommand DeleteDebtorCommand { get; set; }
 
         public bool IsLoaded { get; private set; }
-
         #endregion
 
         #region Constructor
 
-        public DebtorInfoSubpageViewModel()
+        public DebtorInfoSubpageViewModel(IApplicationViewModel applicationViewModel, IDiaryPageViewModel diaryPageViewModel, IClientDataStore clientDataStore, IDataAccess dataAccess)
         {
+            IsLoaded = false;
+
+            _applicationViewModel = applicationViewModel;
+            _diaryPageViewModel = diaryPageViewModel;
+            _clientDataStore = clientDataStore;
+            _dataAccess = dataAccess;
+
             CurrencyFormatter = value => Helpers.GetFormattedCurrency(value);
             AddLoanCommand = new RelayCommand(async () => await AddLoanAsync());
             AddRepaymentCommand = new RelayCommand(async () => await AddRepaymentAsync());
-            EditDebtorCommand = new RelayCommand(async () => await IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpageAsync(ApplicationSubpage.EditDebtorSubpage));
-            DeleteDebtorCommand = new RelayCommand(async () => await IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpageAsync(ApplicationSubpage.DeleteDebtorSubpage));
+            EditDebtorCommand = new RelayCommand(async () => await _applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.EditDebtorSubpage));
+            DeleteDebtorCommand = new RelayCommand(async () => await _applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.DeleteDebtorSubpage));
+
+            UpdateChanges();
+            IsLoaded = true;
         }
         #endregion
 
         #region Public Methods
 
-        /// <summary>
-        /// Update displayed data in the view
-        /// </summary>
         public void UpdateChanges()
         {
-            if(_blockAnimation == false)
-                IsLoaded = false;
+            _selectedDebtor = _applicationViewModel.SelectedDebtor;
 
-            // TODO: Update in another threat
-            _selectedDebtor = IocContainer.Get<IApplicationViewModel>().SelectedDebtor;
+            // TODO: Add NullDebtor class and remove this if statement
             if (_selectedDebtor == null)
                 return;
 
             FullName = _selectedDebtor.FullName;
             DebtorsGender = (Gender)_selectedDebtor.Gender;
-            UsersGender = (Gender)IocContainer.Get<IClientDataStore>().LoggedUser.Gender;
+            UsersGender = (Gender)_clientDataStore.LoggedUser.Gender;
 
             UpdateStatisticPanels();
-
-
 
             SeriesCollection = new SeriesCollection
                 {
@@ -114,11 +118,8 @@ namespace DebtDiary
 
             OperationsList = new ShortOperationsListViewModel(_selectedDebtor.Operations);
 
-            if(_blockAnimation == true)
-                IocContainer.Get<IDebtorsListViewModel>().Update();
-
-            if (_blockAnimation == false)
-                IsLoaded = true;
+            if (IsLoaded == true)
+                _diaryPageViewModel.UpdateDebtorsList();
         }
         #endregion
 
@@ -141,13 +142,11 @@ namespace DebtDiary
                 _selectedDebtor.Operations.Add(new Operation { Value = value, Description = LoanDescription, AdditionDate = DateTime.Now, OperationType = LoanOperationType });
 
                 // Save changes in the database
-                await Task.Run(() => IocContainer.Get<IDataAccess>().SaveChanges());
+                await Task.Run(() => _dataAccess.SaveChanges());
 
                 // Clear fields and update changes
                 ClearAddLoanFields();
-                _blockAnimation = true;
                 UpdateChanges();
-                _blockAnimation = false;
             });
 
         }
@@ -169,13 +168,11 @@ namespace DebtDiary
                 _selectedDebtor.Operations.Add(new Operation { Value = value, Description = RepaymentDescription, AdditionDate = DateTime.Now, OperationType = RepaymentOperationType });
 
                 // Save changes in the database
-                await Task.Run(() => IocContainer.Get<IDataAccess>().SaveChanges());
+                await Task.Run(() => _dataAccess.SaveChanges());
 
                 // Clear fields and update changes
                 ClearAddRepaymentFields();
-                _blockAnimation = true;
                 UpdateChanges();
-                _blockAnimation = false;
             });
 
         }

@@ -25,10 +25,6 @@ namespace DebtDiary
             Kernel.Bind<IDataAccess>().To<DataAccess>().InSingletonScope();
             Kernel.Bind<IDialogFacade>().To<DialogFacade>().InSingletonScope();
             Kernel.Bind<IClientDataStore>().To<ClientDataStore>().InSingletonScope();
-
-
-            Kernel.Bind<IDebtorInfoSubpageViewModel>().To<DebtorInfoSubpageViewModel>().InSingletonScope();
-
             Kernel.Bind<IDiaryPageViewModel>().To<DiaryPageViewModel>().InSingletonScope()
                 .WithConstructorArgument("applicationViewModel", Get<IApplicationViewModel>())
                 .WithConstructorArgument("clientDataStore", Get<IClientDataStore>());
