@@ -5,6 +5,9 @@ namespace DebtDiary
 {
     public class DiaryPageViewModel : BaseViewModel, IDiaryPageViewModel, ILoadable
     {
+        private IApplicationViewModel _applicationViewModel;
+        private IClientDataStore _clientDataStore;
+
         #region Public properties
 
         public string FullName { get; set; }
@@ -20,7 +23,7 @@ namespace DebtDiary
 
         public SortType SortType { get; set; } = SortType.Descending;
 
-        public IDebtorsListViewModel DebtorsList => IocContainer.Get<IDebtorsListViewModel>();
+        public IDebtorsListViewModel DebtorsList { get; private set; }
 
         public bool IsLoaded { get; private set; }
 
@@ -28,34 +31,37 @@ namespace DebtDiary
 
         #region Constructor
 
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        public DiaryPageViewModel(bool designTime = false)
+        // TODO: Do sth with this ctor
+        public DiaryPageViewModel() { }
+
+        public DiaryPageViewModel(IApplicationViewModel applicationViewModel, IClientDataStore clientDataStore, IDebtorsListViewModel debtorsListViewModel)
         {
             IsLoaded = false;
 
-            if (designTime == false)
-                UpdateUsersData();
+            _applicationViewModel = applicationViewModel;
+            _clientDataStore = clientDataStore;
+            DebtorsList = debtorsListViewModel;
+
+            UpdateUsersData();
 
             SummaryCommand = new RelayCommand(() => ChangeSubpageAsync(ApplicationSubpage.SummarySubpage));
 
             MyAccountCommand = new RelayCommand(() => ChangeSubpageAsync(ApplicationSubpage.MyAccountSubpage));
 
             LogoutCommand = new RelayCommand(async () =>
-            {
-                ResetSelectedDebtor();
-                IocContainer.Get<IClientDataStore>().LogoutUser();
-                await IocContainer.Get<IApplicationViewModel>().ChangeCurrentPageAsync(ApplicationPage.LoginPage);
-            });
+                {
+                    ResetSelectedDebtor();
+                    _clientDataStore.LogoutUser();
+                    await _applicationViewModel.ChangeCurrentPageAsync(ApplicationPage.LoginPage);
+                });
 
             AddDebtorCommand = new RelayCommand(() => ChangeSubpageAsync(ApplicationSubpage.AddDebtorSubpage));
 
             SortCommand = new RelayCommand(() =>
-            {
-                SortType = SortType == SortType.Ascending ? SortType.Descending : SortType.Ascending;
-                IocContainer.Get<IDebtorsListViewModel>().Sort(SortType);
-            });
+                {
+                    SortType = SortType == SortType.Ascending ? SortType.Descending : SortType.Ascending;
+                    DebtorsList.Sort(SortType);
+                });
 
             IsLoaded = true;
         }
@@ -64,37 +70,29 @@ namespace DebtDiary
         #region Public methods
 
 
-        /// <summary>
-        /// Reset users fullname, username and initials
-        /// </summary>
         public void UpdateUsersData()
         {
-            User loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
+            User loggedUser = _clientDataStore.LoggedUser;
 
             FullName = loggedUser.FullName;
             Username = loggedUser.Username;
             Initials = loggedUser.Initials;
             AvatarColor = loggedUser.AvatarColor;
         }
+
+        public void UpdateDebtorsList() => DebtorsList.Update();
         #endregion
 
         #region Private methods
 
-        /// <summary>
-        /// Reset selected debtor in the application and in side menu view
-        /// </summary>
-        private void ResetSelectedDebtor()
-        {
-            IocContainer.Get<IApplicationViewModel>().SelectedDebtor = null;
-        }
+        // TODO: Assign a NullDebtor instead of null
+        private void ResetSelectedDebtor() => _applicationViewModel.SelectedDebtor = null;
 
-        /// <summary>
-        /// Change subpage
-        /// </summary>
         private async void ChangeSubpageAsync(ApplicationSubpage subpage)
         {
+            // TODO: reset selected debtor in ApplicationViewModel
             ResetSelectedDebtor();
-            await IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpageAsync(subpage);
+            await _applicationViewModel.ChangeCurrentSubpageAsync(subpage);
         }
         #endregion
     }
