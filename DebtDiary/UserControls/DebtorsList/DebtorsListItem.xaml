@@ -55,17 +55,17 @@
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
-                            
+
                             <DataTrigger>
                                 <DataTrigger.Binding>
                                     <MultiBinding Converter="{local:DebtorsIdToBooleanConverter}">
-                                        <Binding Path="ApplicationViewModel.SelectedDebtor.Id" Source="{StaticResource ViewModelLocator}"/> 
+                                        <Binding Path="ApplicationViewModel.SelectedDebtor.Id" Source="{StaticResource ViewModelLocator}"/>
                                         <Binding Path="Id"/>
                                     </MultiBinding>
                                 </DataTrigger.Binding>
 
                                 <DataTrigger.Value>True</DataTrigger.Value>
-                                
+
                                 <DataTrigger.EnterActions>
                                     <BeginStoryboard>
                                         <Storyboard>
@@ -81,10 +81,6 @@
                                     </BeginStoryboard>
                                 </DataTrigger.ExitActions>
                             </DataTrigger>
-
-                            <MultiDataTrigger>
-                                
-                            </MultiDataTrigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
