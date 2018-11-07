@@ -10,6 +10,11 @@ namespace DebtDiary
     public class EditDebtorSubpageViewModel : BaseViewModel, ILoadable
     {
         #region Private Fields
+        private IApplicationViewModel _applicationViewModel;
+        private IDiaryPageViewModel _diaryPageViewModel;
+        private IDialogFacade _dialogFacade;
+        private IClientDataStore _clientDataStore;
+        private IDataAccess _dataAccess;
 
         private Debtor _selectedDebtor = null;
         private User _loggedUser = null;
@@ -44,11 +49,18 @@ namespace DebtDiary
 
         #region Constructor
 
-        public EditDebtorSubpageViewModel()
+        public EditDebtorSubpageViewModel(IApplicationViewModel applicationViewModel, IDiaryPageViewModel diaryPageViewModel, IDialogFacade dialogFacade, IClientDataStore clientDataStore, IDataAccess dataAccess)
         {
             IsLoaded = false;
-            _selectedDebtor = IocContainer.Get<IApplicationViewModel>().SelectedDebtor;
-            _loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
+
+            _applicationViewModel = applicationViewModel;
+            _diaryPageViewModel = diaryPageViewModel;
+            _dialogFacade = dialogFacade;
+            _clientDataStore = clientDataStore;
+            _dataAccess = dataAccess;
+
+            _selectedDebtor = _applicationViewModel.SelectedDebtor;
+            _loggedUser = _clientDataStore.LoggedUser;
 
             AvatarColor = _selectedDebtor.AvatarColor;
             FirstName = _selectedDebtor.FirstName;
@@ -58,12 +70,7 @@ namespace DebtDiary
             EditDebtorCommand = new RelayCommand(async () => await EditDebtorAsync());
             PreviousColorCommand = new RelayCommand(() => AvatarColor = ColorSelector.Previous(AvatarColor));
             NextColorCommand = new RelayCommand(() => AvatarColor = ColorSelector.Next(AvatarColor));
-            GoBackCommand = new RelayCommand(async () =>
-            {
-                IocContainer.Get<IDebtorInfoSubpageViewModel>().UpdateChanges();
-                IApplicationViewModel applicationViewModel = IocContainer.Get<IApplicationViewModel>();
-                await applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.DebtorInfoSubpage);
-            });
+            GoBackCommand = new RelayCommand(async () => await _applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.DebtorInfoSubpage));
             IsLoaded = true;
         }
         #endregion
@@ -88,23 +95,19 @@ namespace DebtDiary
                 _selectedDebtor.Gender = Gender;
 
                 // Save changes in the database
-                await Task.Run(() => IocContainer.Get<IDataAccess>().SaveChanges());
+                await Task.Run(() => _dataAccess.SaveChanges());
 
-                // Update list in the ViewModel
-                IDebtorsListViewModel debtorsList = IocContainer.Get<IDebtorsListViewModel>();
-                debtorsList.Update();
+                // Update debtors list
+                _diaryPageViewModel.UpdateDebtorsList();
 
                 // Turn off spinning text
                 IsEditDebtorRunning = false;
 
                 // Show successful dialog window 
-                IocContainer.Get<IDialogFacade>().OpenDialog(DialogMessage.DebtorEdited);
-
-                // Update changes in the DebtorInfoSubpage
-                IocContainer.Get<IDebtorInfoSubpageViewModel>().UpdateChanges();
+                _dialogFacade.OpenDialog(DialogMessage.DebtorEdited);
 
                 // Go back to debtor info subpage
-                await IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpageAsync(ApplicationSubpage.DebtorInfoSubpage);
+                await _applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.DebtorInfoSubpage);
 
                 // Clear fields in the view
                 ClearAllFields();
