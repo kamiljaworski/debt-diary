@@ -8,6 +8,10 @@ namespace DebtDiary
     public class MyAccountSubpageViewModel : BaseViewModel, ILoadable
     {
         #region Private Fields
+        private IDiaryPageViewModel _diaryPageViewModel;
+        private IDialogFacade _dialogFacade;
+        private IClientDataStore _clientDataStore;
+        private IDataAccess _dataAccess;
 
         private User _loggedUser = null;
         private IHaveThreePasswords _passwords = null;
@@ -50,10 +54,18 @@ namespace DebtDiary
 
         #region Constructor
 
-        public MyAccountSubpageViewModel()
+        public MyAccountSubpageViewModel(IDiaryPageViewModel diaryPageViewModel, IDialogFacade dialogFacade, IClientDataStore clientDataStore, IDataAccess dataAccess)
         {
             IsLoaded = false;
-            _loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
+
+            _diaryPageViewModel = diaryPageViewModel;
+            _dialogFacade = dialogFacade;
+            _clientDataStore = clientDataStore;
+            _dataAccess = dataAccess;
+
+            _loggedUser = _clientDataStore.LoggedUser;
+
+            // TODO: NullUser ...
             if (_loggedUser != null)
             {
                 AvatarColor = _loggedUser.AvatarColor;
@@ -90,16 +102,16 @@ namespace DebtDiary
                 UpdateLoggedUser();
 
                 // Save changes in the database
-                await Task.Run(() => IocContainer.Get<IDataAccess>().SaveChanges());
+                await Task.Run(() =>_dataAccess.SaveChanges());
 
                 // Update users data in the side menu
-                IocContainer.Get<IDiaryPageViewModel>().UpdateUsersData(); ;
+                _diaryPageViewModel.UpdateUsersData();
 
                 // Turn off spinning text
                 IsEditProfileRunning = false;
 
                 // Show successful dialog window 
-                IocContainer.Get<IDialogFacade>().OpenDialog(DialogMessage.ProfileUpdated);
+                _dialogFacade.OpenDialog(DialogMessage.ProfileUpdated);
             });
         }
 
