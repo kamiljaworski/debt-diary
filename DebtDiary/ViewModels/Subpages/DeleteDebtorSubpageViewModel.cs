@@ -8,6 +8,11 @@ namespace DebtDiary
     public class DeleteDebtorSubpageViewModel : BaseViewModel, ILoadable
     {
         #region Private Fields
+        private IApplicationViewModel _applicationViewModel;
+        private IDiaryPageViewModel _diaryPageViewModel;
+        private IDialogFacade _dialogFacade;
+        private IClientDataStore _clientDataStore;
+        private IDataAccess _dataAccess;
 
         private User _loggedUser = null;
         private Debtor _selectedDebtor = null;
@@ -33,11 +38,18 @@ namespace DebtDiary
 
         #region Constructor
 
-        public DeleteDebtorSubpageViewModel()
+        public DeleteDebtorSubpageViewModel(IApplicationViewModel applicationViewModel, IDiaryPageViewModel diaryPageViewModel, IDialogFacade dialogFacade, IClientDataStore clientDataStore, IDataAccess dataAccess)
         {
             IsLoaded = false;
-            _loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
-            _selectedDebtor = IocContainer.Get<IApplicationViewModel>().SelectedDebtor;
+
+            _applicationViewModel = applicationViewModel;
+            _diaryPageViewModel = diaryPageViewModel;
+            _dialogFacade = dialogFacade;
+            _clientDataStore = clientDataStore;
+            _dataAccess = dataAccess;
+
+            _loggedUser = _clientDataStore.LoggedUser;
+            _selectedDebtor = _applicationViewModel.SelectedDebtor;
 
             FirstName = _selectedDebtor.FirstName;
             LastName = _selectedDebtor.LastName;
@@ -45,12 +57,7 @@ namespace DebtDiary
 
             DeleteDebtorCommand = new RelayParameterizedCommand(async (parameter) => await DeleteDebtorAsync(parameter));
 
-            GoBackCommand = new RelayCommand(async () =>
-            {
-                IocContainer.Get<IDebtorInfoSubpageViewModel>().UpdateChanges();
-                IApplicationViewModel applicationViewModel = IocContainer.Get<IApplicationViewModel>();
-                await applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.DebtorInfoSubpage);
-            });
+            GoBackCommand = new RelayCommand(async () => await _applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.DebtorInfoSubpage));
             IsLoaded = true;
         }
         #endregion
@@ -78,20 +85,19 @@ namespace DebtDiary
                 _loggedUser.Debtors.Remove(_selectedDebtor);
 
                 // Save changes in the database
-                await Task.Run(() => IocContainer.Get<IDataAccess>().SaveChanges());
+                await Task.Run(() => _dataAccess.SaveChanges());
 
-                // Update list in the ViewModel
-                IDebtorsListViewModel debtorsList = IocContainer.Get<IDebtorsListViewModel>();
-                debtorsList.Update();
+                // Update debtos list
+                _diaryPageViewModel.UpdateDebtorsList();
 
                 // Turn off spinning text
                 IsDeleteDebtorRunning = false;
 
                 // Show successful dialog window 
-                IocContainer.Get<IDialogFacade>().OpenDialog(DialogMessage.DebtorDeleted);
+               _dialogFacade.OpenDialog(DialogMessage.DebtorDeleted);
 
                 // Go to summary subpage
-                await IocContainer.Get<IApplicationViewModel>().ChangeCurrentSubpageAsync(ApplicationSubpage.SummarySubpage);
+                await _applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.SummarySubpage);
             });
         }
 
