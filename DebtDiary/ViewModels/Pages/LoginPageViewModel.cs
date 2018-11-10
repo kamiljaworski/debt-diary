@@ -54,7 +54,7 @@ namespace DebtDiary
             _clientDataStore = clientDataStore;
             _dataAccess = dataAccess;
 
-            CreateAccountCommand = new RelayCommand(async () => await IocContainer.Get<IApplicationViewModel>().ChangeCurrentPageAsync(ApplicationPage.RegisterPage));
+            CreateAccountCommand = new RelayCommand(async () => await _applicationViewModel.ChangeCurrentPageAsync(ApplicationPage.RegisterPage));
             LoginCommand = new RelayParameterizedCommand(async (parameter) => await LoginAsync(parameter));
             IsLoaded = true;
         }
@@ -74,24 +74,21 @@ namespace DebtDiary
                     return;
 
                 // Save user in the application data
-                IocContainer.Get<IClientDataStore>().LoginUser(_loggedUser);
+                _clientDataStore.LoginUser(_loggedUser);
 
                 // Update debtors list
-                await Task.Run(() => IocContainer.Get<IDiaryPageViewModel>().UpdateDebtorsList());
-
-                // Get diary page reference from the IoC
-                IDiaryPageViewModel diaryPage = IocContainer.Get<IDiaryPageViewModel>();
+                await Task.Run(() => _diaryPageViewModel.UpdateDebtorsList());
 
                 // Reset users fullname, username and initials
-                diaryPage.UpdateUsersData();
+                _diaryPageViewModel.UpdateUsersData();
 
                 // Reset application subpage to SummarySubpage
-                IocContainer.Get<IApplicationViewModel>().ResetCurrentSubpage();
+                _applicationViewModel.ResetCurrentSubpage();
 
                 // TODO: await for summary page data
 
                 // And go to diary page
-                await IocContainer.Get<IApplicationViewModel>().ChangeCurrentPageAsync(ApplicationPage.DiaryPage);
+                await _applicationViewModel.ChangeCurrentPageAsync(ApplicationPage.DiaryPage);
 
             });
         }

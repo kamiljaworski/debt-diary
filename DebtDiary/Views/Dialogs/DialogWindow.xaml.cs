@@ -9,7 +9,8 @@ namespace DebtDiary
     {
         public DialogWindow()
         {
-            DataContext = new DialogWindowViewModel(this);
+            IDialogFacade dialogFacade = IocContainer.Get<IDialogFacade>();
+            DataContext = new DialogWindowViewModel(this, dialogFacade);
             InitializeComponent();
         }
     }

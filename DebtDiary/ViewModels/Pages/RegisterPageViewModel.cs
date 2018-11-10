@@ -61,7 +61,7 @@ namespace DebtDiary
             _dialogFacade = dialogFacade;
             _dataAccess = dataAccess;
 
-            LoginCommand = new RelayCommand(async () => await IocContainer.Get<IApplicationViewModel>().ChangeCurrentPageAsync(ApplicationPage.LoginPage));
+            LoginCommand = new RelayCommand(async () => await _applicationViewModel.ChangeCurrentPageAsync(ApplicationPage.LoginPage));
             SignUpCommand = new RelayParameterizedCommand(async (parameter) => await SignUpAsync(parameter));
             IsLoaded = true;
         }

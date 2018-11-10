@@ -133,7 +133,7 @@ namespace DebtDiary
                 UpdateUsersPassword();
 
                 // Save changes in the database
-                await Task.Run(() => IocContainer.Get<IDataAccess>().SaveChanges());
+                await Task.Run(() => _dataAccess.SaveChanges());
 
                 // Clear password fields in the view
                 _passwords.ClearPassword();
@@ -142,7 +142,7 @@ namespace DebtDiary
                 IsEditProfileRunning = false;
 
                 // Show successful dialog window 
-                IocContainer.Get<IDialogFacade>().OpenDialog(DialogMessage.PasswordChanged);
+                _dialogFacade.OpenDialog(DialogMessage.PasswordChanged);
             });
         }
 
