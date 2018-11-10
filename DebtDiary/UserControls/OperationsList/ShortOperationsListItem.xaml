@@ -14,7 +14,7 @@
                         <Border Grid.Row="0" BorderBrush="LightGray" Background="White" BorderThickness="0 0 0 1">
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="105"/>
+                                    <ColumnDefinition Width="110"/>
                                     <ColumnDefinition Width="2*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
