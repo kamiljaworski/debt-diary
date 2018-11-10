@@ -80,14 +80,13 @@
                 <!-- Add new debtor button -->
                 <Button Content="{x:Static localization:Strings.Delete}" Margin="0 20 0 40" HorizontalAlignment="Center" Command="{Binding DeleteDebtorCommand}" 
                         CommandParameter="{Binding ElementName=Subpage}" local:IsBusyProperty.Value="{Binding IsDeleteDebtorRunning}"/>
-
+               
+                <!-- Enter key binding -->
+                <StackPanel.InputBindings>
+                    <KeyBinding Key="Enter" Command="{Binding DeleteDebtorCommand}"  CommandParameter="{Binding ElementName=Subpage}"/>
+                </StackPanel.InputBindings>
             </StackPanel>
             <!--#endregion-->
-
-            <!-- Enter key binding -->
-            <Grid.InputBindings>
-                <KeyBinding Key="Enter" Command="{Binding IsDeleteDebtorRunning}"/>
-            </Grid.InputBindings>
         </Grid>
     </Grid>
 
