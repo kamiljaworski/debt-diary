@@ -1,4 +1,5 @@
-﻿using System.Security;
+﻿using DebtDiary.DataProvider;
+using System.Security;
 using System.Windows.Controls;
 
 namespace DebtDiary
@@ -8,28 +9,19 @@ namespace DebtDiary
     /// </summary>
     public partial class RegisterPage : Page, IHaveTwoPasswords
     {
-        /// <summary>
-        /// First Password of IHaveTwoPasswords interface implementation
-        /// </summary>
         public SecureString Password => UserPassword.SecurePassword;
-
-        /// <summary>
-        /// Second Password of IHaveTwoPasswords interface implementation
-        /// </summary>
         public SecureString SecondPassword => RepeatUserPassword.SecurePassword;
 
-        /// <summary>
-        /// Default constructor
-        /// </summary>
         public RegisterPage()
         {
-            DataContext = new RegisterPageViewModel();
+            IApplicationViewModel applicationViewModel = IocContainer.Get<IApplicationViewModel>();
+            IDialogFacade dialogFacade = IocContainer.Get<IDialogFacade>();
+            IDataAccess dataAccess = IocContainer.Get<IDataAccess>();
+
+            DataContext = new RegisterPageViewModel(applicationViewModel, dialogFacade, dataAccess);
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Clears both PasswordBoxes in the view
-        /// </summary>
         public void ClearPassword()
         {
             UserPassword.Clear();

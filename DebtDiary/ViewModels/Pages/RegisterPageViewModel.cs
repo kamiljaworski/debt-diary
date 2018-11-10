@@ -13,10 +13,12 @@ namespace DebtDiary
     class RegisterPageViewModel : BaseViewModel, ILoadable
     {
         #region Private members
+        private IApplicationViewModel _applicationViewModel;
+        private IDialogFacade _dialogFacade;
+        private IDataAccess _dataAccess;
 
-        private SecureString _password = null;
-        private SecureString _repeatedPassword = null;
-        private IDataAccess _dataAccess = null;
+        private SecureString _password;
+        private SecureString _repeatedPassword;
         #endregion
 
         #region Public Properties
@@ -51,10 +53,14 @@ namespace DebtDiary
 
         #region Constructor
 
-        public RegisterPageViewModel()
+        public RegisterPageViewModel(IApplicationViewModel applicationViewModel, IDialogFacade dialogFacade, IDataAccess dataAccess)
         {
             IsLoaded = false;
-            // Create commands
+
+            _applicationViewModel = applicationViewModel;
+            _dialogFacade = dialogFacade;
+            _dataAccess = dataAccess;
+
             LoginCommand = new RelayCommand(async () => await IocContainer.Get<IApplicationViewModel>().ChangeCurrentPageAsync(ApplicationPage.LoginPage));
             SignUpCommand = new RelayParameterizedCommand(async (parameter) => await SignUpAsync(parameter));
             IsLoaded = true;
@@ -73,9 +79,6 @@ namespace DebtDiary
                 // Get passwords references from the view
                 _password = (parameter as IHaveTwoPasswords)?.Password;
                 _repeatedPassword = (parameter as IHaveTwoPasswords)?.SecondPassword;
-
-                // Get the DataAccess reference
-                _dataAccess = IocContainer.Get<IDataAccess>();
 
                 // Validate data and if there is any problem return from method
                 if (await ValidateDataAsync() == false)
@@ -101,13 +104,13 @@ namespace DebtDiary
                 IsRegisterRunning = false;
 
                 // Show successful dialog window 
-                IocContainer.Get<IDialogFacade>().OpenDialog(DialogMessage.AccountCreated);
+                _dialogFacade.OpenDialog(DialogMessage.AccountCreated);
 
                 // Clear all the fields in the view
                 ClearAllFields(parameter as IHaveTwoPasswords);
 
                 // And go to login page
-                await IocContainer.Get<IApplicationViewModel>().ChangeCurrentPageAsync(ApplicationPage.LoginPage);
+                await _applicationViewModel.ChangeCurrentPageAsync(ApplicationPage.LoginPage);
             });
         }
 
