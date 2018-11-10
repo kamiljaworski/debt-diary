@@ -72,7 +72,11 @@ namespace DebtDiary
 
         public void UpdateUsersData()
         {
+            // TODO: NullUser
             User loggedUser = _clientDataStore.LoggedUser;
+
+            if (loggedUser == null)
+                return;
 
             FullName = loggedUser.FullName;
             Username = loggedUser.Username;

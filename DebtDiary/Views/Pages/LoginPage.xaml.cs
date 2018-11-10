@@ -1,4 +1,6 @@
-﻿using System.Security;
+﻿using DebtDiary.Core;
+using DebtDiary.DataProvider;
+using System.Security;
 using System.Windows.Controls;
 
 namespace DebtDiary
@@ -18,7 +20,12 @@ namespace DebtDiary
         /// </summary>
         public LoginPage()
         {
-            DataContext = new LoginPageViewModel();
+            IApplicationViewModel applicationViewModel = IocContainer.Get<IApplicationViewModel>();
+            IDiaryPageViewModel diaryPageViewModel = IocContainer.Get<IDiaryPageViewModel>();
+            IClientDataStore clientDataStore = IocContainer.Get<IClientDataStore>();
+            IDataAccess dataAccess = IocContainer.Get<IDataAccess>();
+            DataContext = new LoginPageViewModel(applicationViewModel, diaryPageViewModel, clientDataStore, dataAccess);
+
             InitializeComponent();
         }
 

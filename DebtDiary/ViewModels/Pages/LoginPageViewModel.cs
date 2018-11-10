@@ -13,71 +13,47 @@ namespace DebtDiary
     class LoginPageViewModel : BaseViewModel, ILoadable
     {
         #region Private members
+        private IApplicationViewModel _applicationViewModel;
+        private IDiaryPageViewModel _diaryPageViewModel;
+        private IClientDataStore _clientDataStore;
+        private IDataAccess _dataAccess;
 
-        /// <summary>
-        /// Reference to password from the view 
-        /// </summary>
-        private SecureString _password = null;
-
-        /// <summary>
-        /// Reference to application data access class
-        /// </summary>
-        private IDataAccess _dataAccess = IocContainer.Get<IDataAccess>();
-
-        /// <summary>
-        /// Logged user from login method
-        /// </summary>
         private User _loggedUser = null;
+
+        private SecureString _password = null;
         #endregion
 
         #region Public Properties
 
-        /// <summary>
-        /// Username to log in
-        /// </summary>
         public string Username { get; set; }
-
-        /// <summary>
-        /// Property used for turning on spinning text in button
-        /// </summary>
         public bool IsLoginRunning { get; set; }
-
         public bool IsLoaded { get; private set; }
         #endregion
 
         #region Public Commands
 
-        /// <summary>
-        /// Command that change current page to RegisterPage
-        /// </summary>
         public ICommand CreateAccountCommand { get; set; }
-
-        /// <summary>
-        /// Command that log the user in
-        /// </summary>
         public ICommand LoginCommand { get; set; }
         #endregion
 
         #region Form Messages
 
-        /// <summary>
-        /// FormMessage of a Username field in the view
-        /// </summary>
         public FormMessage UsernameMessage { get; set; } = FormMessage.None;
-
-        /// <summary>
-        /// FormMessage of a Password field in the view
-        /// </summary>
         public FormMessage PasswordMessage { get; set; } = FormMessage.None;
 
         #endregion
 
         #region Default Constructor
 
-        public LoginPageViewModel()
+        public LoginPageViewModel(IApplicationViewModel applicationViewModel, IDiaryPageViewModel diaryPageViewModel, IClientDataStore clientDataStore, IDataAccess dataAccess)
         {
             IsLoaded = false;
-            // Create commands
+
+            _applicationViewModel = applicationViewModel;
+            _diaryPageViewModel = diaryPageViewModel;
+            _clientDataStore = clientDataStore;
+            _dataAccess = dataAccess;
+
             CreateAccountCommand = new RelayCommand(async () => await IocContainer.Get<IApplicationViewModel>().ChangeCurrentPageAsync(ApplicationPage.RegisterPage));
             LoginCommand = new RelayParameterizedCommand(async (parameter) => await LoginAsync(parameter));
             IsLoaded = true;
@@ -86,15 +62,10 @@ namespace DebtDiary
 
         #region Private Methods
 
-        /// <summary>
-        /// Log the user in
-        /// </summary>
-        /// <param name="parameter">View as <see cref="IHavePassword"/></param>
         private async Task LoginAsync(object parameter)
         {
             await RunCommandAsync(() => IsLoginRunning, async () =>
             {
-
                 // Get password from the view
                 _password = (parameter as IHavePassword)?.Password;
 
