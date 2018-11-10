@@ -8,7 +8,7 @@ namespace DebtDiary
 {
     public class SummarySubpageViewModel : BaseViewModel, ILoadable
     {
-        private User _loggedUser = null;
+        private User _loggedUser;
         #region Public properties
 
         public IStatisticsPanel SumOfDebts { get; private set; }
@@ -25,14 +25,12 @@ namespace DebtDiary
 
         #region Constructor
 
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        public SummarySubpageViewModel()
+        public SummarySubpageViewModel(IClientDataStore clientDataStore)
         {
             IsLoaded = false;
+
             CurrencyFormatter = value => Helpers.GetFormattedCurrency(value);
-            _loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
+            _loggedUser = clientDataStore.LoggedUser;
 
             UpdateStatisticPanels();
 
