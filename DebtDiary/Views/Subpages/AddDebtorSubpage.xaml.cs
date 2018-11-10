@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using DebtDiary.Core;
+using DebtDiary.DataProvider;
+using System.Windows.Controls;
 
 namespace DebtDiary
 {
@@ -9,7 +11,13 @@ namespace DebtDiary
     {
         public AddDebtorSubpage()
         {
-            DataContext = new AddDebtorSubpageViewModel();
+            IApplicationViewModel applicationViewModel = IocContainer.Get<IApplicationViewModel>();
+            IDiaryPageViewModel diaryPageViewModel = IocContainer.Get<IDiaryPageViewModel>();
+            IDialogFacade dialogFacade = IocContainer.Get<IDialogFacade>();
+            IClientDataStore clientDataStore = IocContainer.Get<IClientDataStore>();
+            IDataAccess dataAccess = IocContainer.Get<IDataAccess>();
+            DataContext = new AddDebtorSubpageViewModel(applicationViewModel, diaryPageViewModel, dialogFacade, clientDataStore, dataAccess);
+
             InitializeComponent();
         }
     }

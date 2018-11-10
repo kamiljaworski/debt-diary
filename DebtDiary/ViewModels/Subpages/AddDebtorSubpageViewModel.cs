@@ -10,8 +10,13 @@ namespace DebtDiary
     public class AddDebtorSubpageViewModel : BaseViewModel, ILoadable
     {
         #region Private Fields
+        private IApplicationViewModel _applicationViewModel;
+        private IDiaryPageViewModel _diaryPageViewModel;
+        private IDialogFacade _dialogFacade;
+        private IClientDataStore _clientDataStore;
+        private IDataAccess _dataAccess;
 
-        private User _loggedUser = IocContainer.Get<IClientDataStore>().LoggedUser;
+        private User _loggedUser;
         #endregion
 
         #region Public Properties
@@ -42,9 +47,18 @@ namespace DebtDiary
 
         #region Constructor
 
-        public AddDebtorSubpageViewModel()
+        public AddDebtorSubpageViewModel(IApplicationViewModel applicationViewModel, IDiaryPageViewModel diaryPageViewModel, IDialogFacade dialogFacade, IClientDataStore clientDataStore, IDataAccess dataAccess)
         {
             IsLoaded = false;
+
+            _applicationViewModel = applicationViewModel;
+            _diaryPageViewModel = diaryPageViewModel;
+            _dialogFacade = dialogFacade;
+            _clientDataStore = clientDataStore;
+            _dataAccess = dataAccess;
+
+            _loggedUser = _clientDataStore.LoggedUser;
+
             AddDebtorCommand = new RelayCommand(async () => await AddDebtorAsync());
             PreviousColorCommand = new RelayCommand(() => AvatarColor = ColorSelector.Previous(AvatarColor));
             NextColorCommand = new RelayCommand(() => AvatarColor = ColorSelector.Next(AvatarColor));
@@ -79,20 +93,23 @@ namespace DebtDiary
                 _loggedUser.Debtors.Add(debtor);
 
                 // Save changes in the database
-                await Task.Run(() => IocContainer.Get<IDataAccess>().SaveChanges());
+                await Task.Run(() => _dataAccess.SaveChanges());
 
-                // Update list in the ViewModel
-                IDebtorsListViewModel debtorsList = IocContainer.Get<IDebtorsListViewModel>();
-                debtorsList.Update();
+                // Update debtors list
+                _diaryPageViewModel.UpdateDebtorsList();
 
                 // Turn off spinning text
                 IsAddDebtorRunning = false;
 
                 // Show successful dialog window 
-                IocContainer.Get<IDialogFacade>().OpenDialog(DialogMessage.NewDebtorAdded);
+                _dialogFacade.OpenDialog(DialogMessage.NewDebtorAdded);
 
                 // Clear fields in the view
                 ClearAllFields();
+
+                // Change current subpage to new debtor info subpage
+                _applicationViewModel.SelectedDebtor = debtor;
+                await _applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.DebtorInfoSubpage);
             });
         }
 
