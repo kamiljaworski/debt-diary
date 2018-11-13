@@ -84,33 +84,40 @@ namespace DebtDiary
         {
             await RunCommandAsync(() => IsEditDebtorRunning, async () =>
             {
-                // Validate entered data
-                if (await ValidateDataAsync() == false)
-                    return;
+                try
+                {
+                    // Validate entered data
+                    if (await ValidateDataAsync() == false)
+                        return;
 
-                // Edit debtors properties
-                _selectedDebtor.FirstName = FirstName;
-                _selectedDebtor.LastName = LastName;
-                _selectedDebtor.AvatarColor = AvatarColor;
-                _selectedDebtor.Gender = Gender;
+                    // Edit debtors properties
+                    _selectedDebtor.FirstName = FirstName;
+                    _selectedDebtor.LastName = LastName;
+                    _selectedDebtor.AvatarColor = AvatarColor;
+                    _selectedDebtor.Gender = Gender;
 
-                // Save changes in the database
-                await Task.Run(() => _dataAccess.SaveChanges());
+                    // Save changes in the database
+                    await Task.Run(() => _dataAccess.SaveChanges());
 
-                // Update debtors list
-                _diaryPageViewModel.UpdateDebtorsList();
+                    // Update debtors list
+                    _diaryPageViewModel.UpdateDebtorsList();
 
-                // Turn off spinning text
-                IsEditDebtorRunning = false;
+                    // Turn off spinning text
+                    IsEditDebtorRunning = false;
 
-                // Show successful dialog window 
-                _dialogFacade.OpenDialog(DialogMessage.DebtorEdited);
+                    // Show successful dialog window 
+                    _dialogFacade.OpenDialog(DialogMessage.DebtorEdited);
 
-                // Go back to debtor info subpage
-                await _applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.DebtorInfoSubpage);
+                    // Go back to debtor info subpage
+                    await _applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.DebtorInfoSubpage);
 
-                // Clear fields in the view
-                ClearAllFields();
+                    // Clear fields in the view
+                    ClearAllFields();
+                }
+                catch (NoInternetConnectionException)
+                {
+                    _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
+                }
             });
         }
 
