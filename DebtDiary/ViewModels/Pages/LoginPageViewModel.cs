@@ -17,6 +17,7 @@ namespace DebtDiary
         private IDiaryPageViewModel _diaryPageViewModel;
         private IClientDataStore _clientDataStore;
         private IDataAccess _dataAccess;
+        private IDialogFacade _dialogFacade;
 
         private User _loggedUser = null;
 
@@ -45,7 +46,7 @@ namespace DebtDiary
 
         #region Default Constructor
 
-        public LoginPageViewModel(IApplicationViewModel applicationViewModel, IDiaryPageViewModel diaryPageViewModel, IClientDataStore clientDataStore, IDataAccess dataAccess)
+        public LoginPageViewModel(IApplicationViewModel applicationViewModel, IDiaryPageViewModel diaryPageViewModel, IDialogFacade dialogFacade, IClientDataStore clientDataStore, IDataAccess dataAccess)
         {
             IsLoaded = false;
 
@@ -53,6 +54,7 @@ namespace DebtDiary
             _diaryPageViewModel = diaryPageViewModel;
             _clientDataStore = clientDataStore;
             _dataAccess = dataAccess;
+            _dialogFacade = dialogFacade;
 
             CreateAccountCommand = new RelayCommand(async () => await _applicationViewModel.ChangeCurrentPageAsync(ApplicationPage.RegisterPage));
             LoginCommand = new RelayParameterizedCommand(async (parameter) => await LoginAsync(parameter));
@@ -66,30 +68,37 @@ namespace DebtDiary
         {
             await RunCommandAsync(() => IsLoginRunning, async () =>
             {
-                // Get password from the view
-                _password = (parameter as IHavePassword)?.Password;
+                try
+                {
+                    // Get password from the view
+                    _password = (parameter as IHavePassword)?.Password;
 
-                // Validate data
-                if (await ValidateDataAsync() == false)
-                    return;
+                    // Validate data
+                    if (await ValidateDataAsync() == false)
+                        return;
 
-                // Save user in the application data
-                _clientDataStore.LoginUser(_loggedUser);
+                    // Save user in the application data
+                    _clientDataStore.LoginUser(_loggedUser);
 
-                // Update debtors list
-                await Task.Run(() => _diaryPageViewModel.UpdateDebtorsList());
+                    // Update debtors list
+                    await Task.Run(() => _diaryPageViewModel.UpdateDebtorsList());
 
-                // Reset users fullname, username and initials
-                _diaryPageViewModel.UpdateUsersData();
+                    // Reset users fullname, username and initials
+                    _diaryPageViewModel.UpdateUsersData();
 
-                // Reset application subpage to SummarySubpage
-                _applicationViewModel.ResetCurrentSubpage();
+                    // Reset application subpage to SummarySubpage
+                    _applicationViewModel.ResetCurrentSubpage();
 
-                // TODO: await for summary page data
+                    // TODO: await for summary page data
 
-                // And go to diary page
-                await _applicationViewModel.ChangeCurrentPageAsync(ApplicationPage.DiaryPage);
+                    // And go to diary page
+                    await _applicationViewModel.ChangeCurrentPageAsync(ApplicationPage.DiaryPage);
 
+                }
+                catch (NoInternetConnectionException)
+                {
+                    _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
+                }
             });
         }
         #endregion

@@ -22,9 +22,10 @@ namespace DebtDiary
         {
             IApplicationViewModel applicationViewModel = IocContainer.Get<IApplicationViewModel>();
             IDiaryPageViewModel diaryPageViewModel = IocContainer.Get<IDiaryPageViewModel>();
+            IDialogFacade dialogFacade = IocContainer.Get<IDialogFacade>();
             IClientDataStore clientDataStore = IocContainer.Get<IClientDataStore>();
             IDataAccess dataAccess = IocContainer.Get<IDataAccess>();
-            DataContext = new LoginPageViewModel(applicationViewModel, diaryPageViewModel, clientDataStore, dataAccess);
+            DataContext = new LoginPageViewModel(applicationViewModel, diaryPageViewModel, dialogFacade, clientDataStore, dataAccess);
 
             InitializeComponent();
         }
