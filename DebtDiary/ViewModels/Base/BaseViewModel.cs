@@ -46,11 +46,6 @@ namespace DebtDiary
                 // Run the passed in action
                 await action();
             }
-            catch (NoInternetConnectionException)
-            {
-                // TODO: remove IoC
-                IocContainer.Get<IDialogFacade>().OpenDialog(DialogMessage.NoInternetConnection);
-            }
             finally
             {
                 // Set the property flag back to false now it's finished
