@@ -17,6 +17,7 @@ namespace DebtDiary
         private IDiaryPageViewModel _diaryPageViewModel;
         private IClientDataStore _clientDataStore;
         private IDataAccess _dataAccess;
+        private IDialogFacade _dialogFacade;
 
         private Debtor _selectedDebtor = null;
 
@@ -70,7 +71,7 @@ namespace DebtDiary
 
         #region Constructor
 
-        public DebtorInfoSubpageViewModel(IApplicationViewModel applicationViewModel, IDiaryPageViewModel diaryPageViewModel, IClientDataStore clientDataStore, IDataAccess dataAccess)
+        public DebtorInfoSubpageViewModel(IApplicationViewModel applicationViewModel, IDiaryPageViewModel diaryPageViewModel, IDialogFacade dialogFacade, IClientDataStore clientDataStore, IDataAccess dataAccess)
         {
             IsLoaded = false;
 
@@ -78,6 +79,7 @@ namespace DebtDiary
             _diaryPageViewModel = diaryPageViewModel;
             _clientDataStore = clientDataStore;
             _dataAccess = dataAccess;
+            _dialogFacade = dialogFacade;
 
             CurrencyFormatter = value => Helpers.GetFormattedCurrency(value);
             AddLoanCommand = new RelayCommand(async () => await AddLoanAsync());
@@ -133,20 +135,28 @@ namespace DebtDiary
         {
             await RunCommandAsync(() => IsAddLoanFormRunning, async () =>
             {
-                // Validate entered data
-                if (await ValidateAddLoanDataAsync() == false)
-                    return;
+                try
+                {
+                    // Validate entered data
+                    if (await ValidateAddLoanDataAsync() == false)
+                        return;
 
-                // Check if there is sign change needed
-                decimal value = LoanOperationType == OperationType.DebtorsLoan ? _loanValue : -_loanValue;
-                _selectedDebtor.Operations.Add(new Operation { Value = value, Description = LoanDescription, AdditionDate = DateTime.Now, OperationType = LoanOperationType });
+                    // Check if there is sign change needed
+                    decimal value = LoanOperationType == OperationType.DebtorsLoan ? _loanValue : -_loanValue;
+                    _selectedDebtor.Operations.Add(new Operation { Value = value, Description = LoanDescription, AdditionDate = DateTime.Now, OperationType = LoanOperationType });
 
-                // Save changes in the database
-                await Task.Run(() => _dataAccess.SaveChanges());
+                    // Save changes in the database
+                    await Task.Run(() => _dataAccess.SaveChanges());
 
-                // Clear fields and update changes
-                ClearAddLoanFields();
-                UpdateChanges();
+                    // Clear fields and update changes
+                    ClearAddLoanFields();
+                    UpdateChanges();
+                }
+                catch (NoInternetConnectionException)
+                {
+                    _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
+                }
+
             });
 
         }
@@ -159,20 +169,27 @@ namespace DebtDiary
         {
             await RunCommandAsync(() => IsAddRepaymentFormRunning, async () =>
             {
-                // Validate entered data
-                if (await ValidateAddRepaymentDataAsync() == false)
-                    return;
+                try
+                {
+                    // Validate entered data
+                    if (await ValidateAddRepaymentDataAsync() == false)
+                        return;
 
-                // Check if there is sign change needed
-                decimal value = RepaymentOperationType == OperationType.UsersRepayment ? _repaymentValue : -_repaymentValue;
-                _selectedDebtor.Operations.Add(new Operation { Value = value, Description = RepaymentDescription, AdditionDate = DateTime.Now, OperationType = RepaymentOperationType });
+                    // Check if there is sign change needed
+                    decimal value = RepaymentOperationType == OperationType.UsersRepayment ? _repaymentValue : -_repaymentValue;
+                    _selectedDebtor.Operations.Add(new Operation { Value = value, Description = RepaymentDescription, AdditionDate = DateTime.Now, OperationType = RepaymentOperationType });
 
-                // Save changes in the database
-                await Task.Run(() => _dataAccess.SaveChanges());
+                    // Save changes in the database
+                    await Task.Run(() => _dataAccess.SaveChanges());
 
-                // Clear fields and update changes
-                ClearAddRepaymentFields();
-                UpdateChanges();
+                    // Clear fields and update changes
+                    ClearAddRepaymentFields();
+                    UpdateChanges();
+                }
+                catch (NoInternetConnectionException)
+                {
+                    _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
+                }
             });
 
         }
