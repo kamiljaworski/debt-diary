@@ -76,41 +76,48 @@ namespace DebtDiary
         {
             await RunCommandAsync(() => IsRegisterRunning, async () =>
             {
-                // Get passwords references from the view
-                _password = (parameter as IHaveTwoPasswords)?.Password;
-                _repeatedPassword = (parameter as IHaveTwoPasswords)?.SecondPassword;
-
-                // Validate data and if there is any problem return from method
-                if (await ValidateDataAsync() == false)
-                    return;
-
-                // Make new user object
-                User user = new User
+                try
                 {
-                    Username = Username,
-                    FirstName = FirstName,
-                    LastName = LastName,
-                    Email = Email,
-                    Password = _password.GetEncryptedPassword(),
-                    Gender = Gender,
-                    RegisterDate = DateTime.Now,
-                    AvatarColor = RandomColorGenerator.GetRandomColor()
-                };
+                    // Get passwords references from the view
+                    _password = (parameter as IHaveTwoPasswords)?.Password;
+                    _repeatedPassword = (parameter as IHaveTwoPasswords)?.SecondPassword;
 
-                // Sign up a new user
-                await Task.Run(() => _dataAccess.CreateAccount(user));
+                    // Validate data and if there is any problem return from method
+                    if (await ValidateDataAsync() == false)
+                        return;
 
-                // Turn off spinning text in the view
-                IsRegisterRunning = false;
+                    // Make new user object
+                    User user = new User
+                    {
+                        Username = Username,
+                        FirstName = FirstName,
+                        LastName = LastName,
+                        Email = Email,
+                        Password = _password.GetEncryptedPassword(),
+                        Gender = Gender,
+                        RegisterDate = DateTime.Now,
+                        AvatarColor = RandomColorGenerator.GetRandomColor()
+                    };
 
-                // Show successful dialog window 
-                _dialogFacade.OpenDialog(DialogMessage.AccountCreated);
+                    // Sign up a new user
+                    await Task.Run(() => _dataAccess.CreateAccount(user));
 
-                // Clear all the fields in the view
-                ClearAllFields(parameter as IHaveTwoPasswords);
+                    // Turn off spinning text in the view
+                    IsRegisterRunning = false;
 
-                // And go to login page
-                await _applicationViewModel.ChangeCurrentPageAsync(ApplicationPage.LoginPage);
+                    // Show successful dialog window 
+                    _dialogFacade.OpenDialog(DialogMessage.AccountCreated);
+
+                    // Clear all the fields in the view
+                    ClearAllFields(parameter as IHaveTwoPasswords);
+
+                    // And go to login page
+                    await _applicationViewModel.ChangeCurrentPageAsync(ApplicationPage.LoginPage);
+                }
+                catch (NoInternetConnectionException)
+                {
+                    _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
+                }
             });
         }
 
