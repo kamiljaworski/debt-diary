@@ -22,9 +22,7 @@ namespace DebtDiary
         public ICommand SortCommand { get; set; }
 
         public SortType SortType { get; set; } = SortType.Descending;
-
         public IDebtorsListViewModel DebtorsList { get; private set; }
-
         public bool IsLoaded { get; private set; }
 
         #endregion
@@ -45,23 +43,19 @@ namespace DebtDiary
             UpdateUsersData();
 
             SummaryCommand = new RelayCommand(() => ChangeSubpageAsync(ApplicationSubpage.SummarySubpage));
-
             MyAccountCommand = new RelayCommand(() => ChangeSubpageAsync(ApplicationSubpage.MyAccountSubpage));
-
             LogoutCommand = new RelayCommand(async () =>
-                {
-                    ResetSelectedDebtor();
-                    _clientDataStore.LogoutUser();
-                    await _applicationViewModel.ChangeCurrentPageAsync(ApplicationPage.LoginPage);
-                });
-
+            {
+                ResetSelectedDebtor();
+                _clientDataStore.LogoutUser();
+                await _applicationViewModel.ChangeCurrentPageAsync(ApplicationPage.LoginPage);
+            });
             AddDebtorCommand = new RelayCommand(() => ChangeSubpageAsync(ApplicationSubpage.AddDebtorSubpage));
-
             SortCommand = new RelayCommand(() =>
-                {
-                    SortType = SortType == SortType.Ascending ? SortType.Descending : SortType.Ascending;
-                    DebtorsList.Sort(SortType);
-                });
+            {
+                SortType = SortType == SortType.Ascending ? SortType.Descending : SortType.Ascending;
+                DebtorsList.Sort(SortType);
+            });
 
             IsLoaded = true;
         }

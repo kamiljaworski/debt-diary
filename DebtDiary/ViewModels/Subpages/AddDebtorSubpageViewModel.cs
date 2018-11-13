@@ -75,41 +75,48 @@ namespace DebtDiary
         {
             await RunCommandAsync(() => IsAddDebtorRunning, async () =>
             {
-                // Validate entered data
-                if (await ValidateDataAsync() == false)
-                    return;
-
-                // Make new debtor object
-                Debtor debtor = new Debtor
+                try
                 {
-                    FirstName = FirstName,
-                    LastName = LastName,
-                    Gender = Gender,
-                    AvatarColor = AvatarColor,
-                    AdditionDate = DateTime.Now
-                };
+                    // Validate entered data
+                    if (await ValidateDataAsync() == false)
+                        return;
 
-                // Add new debtor to ClientDataStore
-                _loggedUser.Debtors.Add(debtor);
+                    // Make new debtor object
+                    Debtor debtor = new Debtor
+                    {
+                        FirstName = FirstName,
+                        LastName = LastName,
+                        Gender = Gender,
+                        AvatarColor = AvatarColor,
+                        AdditionDate = DateTime.Now
+                    };
 
-                // Save changes in the database
-                await Task.Run(() => _dataAccess.SaveChanges());
+                    // Add new debtor to ClientDataStore
+                    _loggedUser.Debtors.Add(debtor);
 
-                // Update debtors list
-                _diaryPageViewModel.UpdateDebtorsList();
+                    // Save changes in the database
+                    await Task.Run(() => _dataAccess.SaveChanges());
 
-                // Turn off spinning text
-                IsAddDebtorRunning = false;
+                    // Update debtors list
+                    _diaryPageViewModel.UpdateDebtorsList();
 
-                // Show successful dialog window 
-                _dialogFacade.OpenDialog(DialogMessage.NewDebtorAdded);
+                    // Turn off spinning text
+                    IsAddDebtorRunning = false;
 
-                // Clear fields in the view
-                ClearAllFields();
+                    // Show successful dialog window 
+                    _dialogFacade.OpenDialog(DialogMessage.NewDebtorAdded);
 
-                // Change current subpage to new debtor info subpage
-                _applicationViewModel.SelectedDebtor = debtor;
-                await _applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.DebtorInfoSubpage);
+                    // Clear fields in the view
+                    ClearAllFields();
+
+                    // Change current subpage to new debtor info subpage
+                    _applicationViewModel.SelectedDebtor = debtor;
+                    await _applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.DebtorInfoSubpage);
+                }
+                catch (NoInternetConnectionException)
+                {
+                    _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
+                }
             });
         }
 
