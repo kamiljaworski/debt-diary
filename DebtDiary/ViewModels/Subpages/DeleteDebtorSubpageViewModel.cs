@@ -56,7 +56,6 @@ namespace DebtDiary
             AvatarColor = _selectedDebtor.AvatarColor;
 
             DeleteDebtorCommand = new RelayParameterizedCommand(async (parameter) => await DeleteDebtorAsync(parameter));
-
             GoBackCommand = new RelayCommand(async () => await _applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.DebtorInfoSubpage));
             IsLoaded = true;
         }
@@ -71,33 +70,40 @@ namespace DebtDiary
         {
             await RunCommandAsync(() => IsDeleteDebtorRunning, async () =>
             {
-                if (!(parameter is IHavePassword))
-                    return;
+                try
+                {
+                    if (!(parameter is IHavePassword))
+                        return;
 
-                // Get reference to the password
-                _password = (IHavePassword)parameter;
+                    // Get reference to the password
+                    _password = (IHavePassword)parameter;
 
-                // Validate entered data
-                if (await ValidateDataAsync() == false)
-                    return;
+                    // Validate entered data
+                    if (await ValidateDataAsync() == false)
+                        return;
 
-                // Add new debtor to ClientDataStore
-                _loggedUser.Debtors.Remove(_selectedDebtor);
+                    // Add new debtor to ClientDataStore
+                    _loggedUser.Debtors.Remove(_selectedDebtor);
 
-                // Save changes in the database
-                await Task.Run(() => _dataAccess.SaveChanges());
+                    // Save changes in the database
+                    await Task.Run(() => _dataAccess.SaveChanges());
 
-                // Update debtos list
-                _diaryPageViewModel.UpdateDebtorsList();
+                    // Update debtos list
+                    _diaryPageViewModel.UpdateDebtorsList();
 
-                // Turn off spinning text
-                IsDeleteDebtorRunning = false;
+                    // Turn off spinning text
+                    IsDeleteDebtorRunning = false;
 
-                // Show successful dialog window 
-               _dialogFacade.OpenDialog(DialogMessage.DebtorDeleted);
+                    // Show successful dialog window 
+                    _dialogFacade.OpenDialog(DialogMessage.DebtorDeleted);
 
-                // Go to summary subpage
-                await _applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.SummarySubpage);
+                    // Go to summary subpage
+                    await _applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.SummarySubpage);
+                }
+                catch (NoInternetConnectionException)
+                {
+                    _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
+                }
             });
         }
 

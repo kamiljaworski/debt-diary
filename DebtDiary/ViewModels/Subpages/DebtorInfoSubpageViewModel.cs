@@ -156,7 +156,6 @@ namespace DebtDiary
                 {
                     _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
                 }
-
             });
 
         }
