@@ -94,24 +94,31 @@ namespace DebtDiary
         {
             await RunCommandAsync(() => IsEditProfileRunning, async () =>
             {
-                // Validate entered data
-                if (await ValidateEditProfileDataAsync() == false)
-                    return;
+                try
+                {
+                    // Validate entered data
+                    if (await ValidateEditProfileDataAsync() == false)
+                        return;
 
-                // Update user with new data
-                UpdateLoggedUser();
+                    // Update user with new data
+                    UpdateLoggedUser();
 
-                // Save changes in the database
-                await Task.Run(() =>_dataAccess.SaveChanges());
+                    // Save changes in the database
+                    await Task.Run(() => _dataAccess.SaveChanges());
 
-                // Update users data in the side menu
-                _diaryPageViewModel.UpdateUsersData();
+                    // Update users data in the side menu
+                    _diaryPageViewModel.UpdateUsersData();
 
-                // Turn off spinning text
-                IsEditProfileRunning = false;
+                    // Turn off spinning text
+                    IsEditProfileRunning = false;
 
-                // Show successful dialog window 
-                _dialogFacade.OpenDialog(DialogMessage.ProfileUpdated);
+                    // Show successful dialog window 
+                    _dialogFacade.OpenDialog(DialogMessage.ProfileUpdated);
+                }
+                catch (NoInternetConnectionException)
+                {
+                    _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
+                }
             });
         }
 
@@ -122,27 +129,34 @@ namespace DebtDiary
         {
             await RunCommandAsync(() => IsEditProfileRunning, async () =>
             {
-                // Get password from the view
-                if (parameter is IHaveThreePasswords)
-                    _passwords = (IHaveThreePasswords)parameter;
+                try
+                {
+                    // Get password from the view
+                    if (parameter is IHaveThreePasswords)
+                        _passwords = (IHaveThreePasswords)parameter;
 
-                // Validate entered data
-                if (await ValidateChangePasswordDataAsync() == false)
-                    return;
+                    // Validate entered data
+                    if (await ValidateChangePasswordDataAsync() == false)
+                        return;
 
-                UpdateUsersPassword();
+                    UpdateUsersPassword();
 
-                // Save changes in the database
-                await Task.Run(() => _dataAccess.SaveChanges());
+                    // Save changes in the database
+                    await Task.Run(() => _dataAccess.SaveChanges());
 
-                // Clear password fields in the view
-                _passwords.ClearPassword();
+                    // Clear password fields in the view
+                    _passwords.ClearPassword();
 
-                // Turn off spinning text
-                IsEditProfileRunning = false;
+                    // Turn off spinning text
+                    IsEditProfileRunning = false;
 
-                // Show successful dialog window 
-                _dialogFacade.OpenDialog(DialogMessage.PasswordChanged);
+                    // Show successful dialog window 
+                    _dialogFacade.OpenDialog(DialogMessage.PasswordChanged);
+                }
+                catch (NoInternetConnectionException)
+                {
+                    _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
+                }
             });
         }
 
