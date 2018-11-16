@@ -77,53 +77,42 @@ namespace DebtDiary
 
         #region Private Methods
 
-        /// <summary>
-        /// Edit debtor
-        /// </summary>
         private async Task EditDebtorAsync()
         {
             await RunCommandAsync(() => IsEditDebtorRunning, async () =>
             {
-                try
-                {
-                    // Validate entered data
-                    if (await ValidateDataAsync() == false)
-                        return;
+                // Validate entered data
+                if (await ValidateDataAsync() == false)
+                    return;
 
-                    // Edit debtors properties
-                    _selectedDebtor.FirstName = FirstName;
-                    _selectedDebtor.LastName = LastName;
-                    _selectedDebtor.AvatarColor = AvatarColor;
-                    _selectedDebtor.Gender = Gender;
+                // Edit debtors properties
+                _selectedDebtor.EditPerson(FirstName, LastName, Gender, AvatarColor);
 
-                    // Save changes in the database
-                    await Task.Run(() => _dataAccess.TrySaveChanges());
-
-                    // Update debtors list
-                    _diaryPageViewModel.UpdateDebtorsList();
-
-                    // Turn off spinning text
-                    IsEditDebtorRunning = false;
-
-                    // Show successful dialog window 
-                    _dialogFacade.OpenDialog(DialogMessage.DebtorEdited);
-
-                    // Go back to debtor info subpage
-                    await _applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.DebtorInfoSubpage);
-
-                    // Clear fields in the view
-                    ClearAllFields();
-                }
-                catch (NoInternetConnectionException)
+                // Save changes in the database
+                bool isDataSaved = false;
+                await Task.Run(() => isDataSaved = _dataAccess.TrySaveChanges());
+                if (isDataSaved == false)
                 {
                     _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
+                    return;
                 }
+
+                // Update debtors list
+                _diaryPageViewModel.UpdateDebtorsList();
+
+                // Turn off spinning text
+                IsEditDebtorRunning = false;
+
+                // Show successful dialog window 
+                _dialogFacade.OpenDialog(DialogMessage.DebtorEdited);
+
+                // Go back to debtor info subpage
+                await _applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.DebtorInfoSubpage);
+
+                ResetEnteredData();
             });
         }
 
-        /// <summary>
-        /// Validate debtors data
-        /// </summary>
         private async Task<bool> ValidateDataAsync()
         {
             await Task.Run(() =>
@@ -165,9 +154,6 @@ namespace DebtDiary
             return IsEnteredDataCorrect();
         }
 
-        /// <summary>
-        /// Reset all the <see cref="FormMessage"/> properties to <see cref="FormMessage.None"/>
-        /// </summary>
         private void ResetFormMessages()
         {
             FirstNameMessage = FormMessage.None;
@@ -175,9 +161,6 @@ namespace DebtDiary
             GenderMessage = FormMessage.None;
         }
 
-        /// <summary>
-        /// Check if all the <see cref="FormMessage"/> properties are set to <see cref="FormMessage.None"/>
-        /// </summary>
         private bool IsEnteredDataCorrect()
         {
             // If any of the messages changed it's value return false
@@ -189,10 +172,7 @@ namespace DebtDiary
             return true;
         }
 
-        /// <summary>
-        /// Clear fields in the view
-        /// </summary>
-        private void ClearAllFields()
+        private void ResetEnteredData()
         {
             AvatarColor = Color.Green;
             FirstName = string.Empty;
