@@ -50,10 +50,6 @@ namespace DebtDiary
         }
         #endregion
 
-
-        /// <summary>
-        /// Update all the statistic panels
-        /// </summary>
         private void UpdateStatisticPanels()
         {
             // Sum of debts

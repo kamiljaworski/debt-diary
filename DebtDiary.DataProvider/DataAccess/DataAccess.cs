@@ -17,7 +17,7 @@ namespace DebtDiary.DataProvider
                 TrySaveChanges();
                 return true;
             }
-            catch (SqlException)
+            catch (Exception)
             {
                 return false;
             }
@@ -33,7 +33,7 @@ namespace DebtDiary.DataProvider
 
                 return false;
             }
-            catch (SqlException)
+            catch (Exception)
             {
                 return false;
             }
@@ -49,7 +49,7 @@ namespace DebtDiary.DataProvider
 
                 return false;
             }
-            catch (SqlException)
+            catch (Exception)
             {
                 return false;
             }
@@ -65,7 +65,27 @@ namespace DebtDiary.DataProvider
 
                 return true;
             }
-            catch (SqlException)
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool UserAddedThisDebtor(int usersId, string debtorsFirstName, string debtorsLastName)
+        {
+            try
+            {
+                User user = dbContext.Users.FirstOrDefault(u => u.Id == usersId);
+                if (user == null)
+                    return false;
+
+                Debtor debtor = user.Debtors.FirstOrDefault(d => d.FirstName == debtorsFirstName && d.LastName == debtorsLastName);
+                if (debtor == null)
+                    return false;
+
+                return true;
+            }
+            catch (Exception)
             {
                 return false;
             }
@@ -81,7 +101,7 @@ namespace DebtDiary.DataProvider
 
                 return true;
             }
-            catch (SqlException)
+            catch (Exception)
             {
                 user = null;
                 return false;
@@ -95,7 +115,7 @@ namespace DebtDiary.DataProvider
                 dbContext.SaveChanges();
                 return true;
             }
-            catch (SqlException)
+            catch (Exception)
             {
                 return false;
             }
