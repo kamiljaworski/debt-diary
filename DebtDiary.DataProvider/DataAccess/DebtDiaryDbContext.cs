@@ -3,30 +3,14 @@ using System.Data.Entity;
 
 namespace DebtDiary.DataProvider
 {
-    /// <summary>
-    /// Application database context
-    /// </summary>
     public class DebtDiaryDbContext : DbContext
     {
-        /// <summary>
-        /// Default constructor
-        /// </summary>
+
+        public DbSet<User> Users { get; set; }
+        public DbSet<Debtor> Debtors { get; set; }
+        public DbSet<Operation> Operations { get; set; }
+
         public DebtDiaryDbContext() : base("DebtDiaryConnectionString")
         { }
-
-        /// <summary>
-        /// Users table
-        /// </summary>
-        public DbSet<User> Users { get; set; }
-
-        /// <summary>
-        /// Debtors
-        /// </summary>
-        public DbSet<Debtor> Debtors { get; set; }
-
-        /// <summary>
-        /// Transactions
-        /// </summary>
-        public DbSet<Operation> Operations { get; set; }
-}
+    }
 }

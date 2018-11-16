@@ -7,9 +7,6 @@ using System.Windows.Input;
 
 namespace DebtDiary
 {
-    /// <summary>
-    /// Register Page View Model
-    /// </summary>
     class RegisterPageViewModel : BaseViewModel, ILoadable
     {
         #region Private members
@@ -22,7 +19,6 @@ namespace DebtDiary
         #endregion
 
         #region Public Properties
-
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -69,24 +65,19 @@ namespace DebtDiary
 
         #region Private Methods
 
-        /// <summary>
-        /// Sign the user in
-        /// </summary>
         private async Task SignUpAsync(object parameter)
         {
             await RunCommandAsync(() => IsRegisterRunning, async () =>
             {
-                try
-                {
-                    // Get passwords references from the view
+                    // Get passwords from the view
                     _password = (parameter as IHaveTwoPasswords)?.Password;
                     _repeatedPassword = (parameter as IHaveTwoPasswords)?.SecondPassword;
 
-                    // Validate data and if there is any problem return from method
+                    // Validate entered data
                     if (await ValidateDataAsync() == false)
                         return;
 
-                    // Make new user object
+                    // Create new user
                     User user = new User
                     {
                         Username = Username,
@@ -99,8 +90,14 @@ namespace DebtDiary
                         AvatarColor = RandomColorGenerator.GetRandomColor()
                     };
 
-                    // Sign up a new user
-                    await Task.Run(() => _dataAccess.CreateAccount(user));
+                    // Try to save this user in the database
+                    bool isUserSuccesfullyCreated = false;
+                    await Task.Run(() => isUserSuccesfullyCreated = _dataAccess.TryCreateUser(user));
+                    if(isUserSuccesfullyCreated == false)
+                    {
+                        _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
+                        return;
+                    }
 
                     // Turn off spinning text in the view
                     IsRegisterRunning = false;
@@ -108,16 +105,11 @@ namespace DebtDiary
                     // Show successful dialog window 
                     _dialogFacade.OpenDialog(DialogMessage.AccountCreated);
 
-                    // Clear all the fields in the view
-                    ClearAllFields(parameter as IHaveTwoPasswords);
+                    // Reset data in the view model
+                    ResetData(parameter as IHaveTwoPasswords);
 
-                    // And go to login page
+                    // Go to LoginPage
                     await _applicationViewModel.ChangeCurrentPageAsync(ApplicationPage.LoginPage);
-                }
-                catch (NoInternetConnectionException)
-                {
-                    _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
-                }
             });
         }
 
@@ -125,9 +117,6 @@ namespace DebtDiary
 
         #region Helpers private methods
 
-        /// <summary>
-        /// Validate new user's data
-        /// </summary>
         private async Task<bool> ValidateDataAsync()
         {
             await Task.Run(() =>
@@ -209,11 +198,9 @@ namespace DebtDiary
             return IsEnteredDataCorrect();
         }
 
-        /// <summary>
-        /// Reset all the <see cref="FormMessage"/> properties to <see cref="FormMessage.None"/>
-        /// </summary>
         private void ResetFormMessages()
         {
+            // Reset all the form messages to None
             FirstNameMessage = FormMessage.None;
             LastNameMessage = FormMessage.None;
             UsernameMessage = FormMessage.None;
@@ -223,26 +210,19 @@ namespace DebtDiary
             GenderMessage = FormMessage.None;
         }
 
-        /// <summary>
-        /// Check if all the <see cref="FormMessage"/> properties are set to <see cref="FormMessage.None"/>
-        /// </summary>
         private bool IsEnteredDataCorrect()
         {
-            // If any of the messages changed it's value return false
+            // Check if all the form messages are equal to None
             if (FirstNameMessage != FormMessage.None || LastNameMessage != FormMessage.None ||
                 UsernameMessage != FormMessage.None || EmailMessage != FormMessage.None ||
                 PasswordMessage != FormMessage.None || RepeatedPasswordMessage != FormMessage.None ||
                 GenderMessage != FormMessage.None)
                 return false;
 
-            // If not return true
             return true;
         }
 
-        /// <summary>
-        /// Clear all fields in the view
-        /// </summary>
-        private void ClearAllFields(IHaveTwoPasswords twoPasswords)
+        private void ResetData(IHaveTwoPasswords twoPasswords)
         {
             Username = string.Empty;
             FirstName = string.Empty;

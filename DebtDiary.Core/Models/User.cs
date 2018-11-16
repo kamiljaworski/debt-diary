@@ -37,9 +37,6 @@ namespace DebtDiary.Core
             }
         }
 
-        /// <summary>
-        /// Get chart points of aggregated operations grouped by every day started with users register date
-        /// </summary>
         public IEnumerable<decimal> GetChartPoints => Operations.GetChartPoints(RegisterDate.Value);
     }
 }

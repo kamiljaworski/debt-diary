@@ -2,9 +2,6 @@
 
 namespace DebtDiary.Core
 {
-    /// <summary>
-    /// Abstract Person class
-    /// </summary>
     public abstract class Person
     {
         [StringLength(80)]
