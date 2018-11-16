@@ -64,8 +64,6 @@ namespace DebtDiary
             _dataAccess = dataAccess;
 
             _loggedUser = _clientDataStore.LoggedUser;
-
-            // TODO: NullUser ...
             if (_loggedUser != null)
             {
                 AvatarColor = _loggedUser.AvatarColor;
@@ -87,82 +85,72 @@ namespace DebtDiary
 
         #region Private Methods
 
-        /// <summary>
-        /// Edit profile and update it in the UI
-        /// </summary>
         private async Task EditProfileAsync()
         {
             await RunCommandAsync(() => IsEditProfileRunning, async () =>
             {
-                try
-                {
-                    // Validate entered data
-                    if (await ValidateEditProfileDataAsync() == false)
-                        return;
+                // Validate entered data
+                if (await ValidateEditProfileDataAsync() == false)
+                    return;
 
-                    // Update user with new data
-                    UpdateLoggedUser();
+                // Edit user
+                _loggedUser.EditPerson(FirstName, LastName, Gender, AvatarColor);
 
-                    // Save changes in the database
-                    await Task.Run(() => _dataAccess.TrySaveChanges());
-
-                    // Update users data in the side menu
-                    _diaryPageViewModel.UpdateUsersData();
-
-                    // Turn off spinning text
-                    IsEditProfileRunning = false;
-
-                    // Show successful dialog window 
-                    _dialogFacade.OpenDialog(DialogMessage.ProfileUpdated);
-                }
-                catch (NoInternetConnectionException)
+                // Save changes in the database
+                bool isDataSaved = false;
+                await Task.Run(() => isDataSaved = _dataAccess.TrySaveChanges());
+                if (isDataSaved == false)
                 {
                     _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
+                    return;
                 }
+
+                // Update users data in the side menu
+                _diaryPageViewModel.UpdateUsersData();
+
+                // Turn off spinning text
+                IsEditProfileRunning = false;
+
+                // Show successful dialog window 
+                _dialogFacade.OpenDialog(DialogMessage.ProfileUpdated);
             });
         }
 
-        /// <summary>
-        /// Change logged users password
-        /// </summary>
         private async Task ChangePasswordAsync(object parameter)
         {
-            await RunCommandAsync(() => IsEditProfileRunning, async () =>
+            await RunCommandAsync(() => IsChangePasswordRunning, async () =>
             {
-                try
-                {
-                    // Get password from the view
-                    if (parameter is IHaveThreePasswords)
-                        _passwords = (IHaveThreePasswords)parameter;
+                // Get password from the view
+                if (parameter is IHaveThreePasswords)
+                    _passwords = (IHaveThreePasswords)parameter;
 
-                    // Validate entered data
-                    if (await ValidateChangePasswordDataAsync() == false)
-                        return;
+                // Validate entered data
+                if (await ValidateChangePasswordDataAsync() == false)
+                    return;
 
-                    UpdateUsersPassword();
+                // Change users password
+                _loggedUser.ChangePassword(_passwords.Password.GetEncryptedPassword());
 
-                    // Save changes in the database
-                    await Task.Run(() => _dataAccess.TrySaveChanges());
-
-                    // Clear password fields in the view
-                    _passwords.ClearPassword();
-
-                    // Turn off spinning text
-                    IsEditProfileRunning = false;
-
-                    // Show successful dialog window 
-                    _dialogFacade.OpenDialog(DialogMessage.PasswordChanged);
-                }
-                catch (NoInternetConnectionException)
+                // Save changes in the database
+                bool isDataSaved = false;
+                await Task.Run(() => isDataSaved = _dataAccess.TrySaveChanges());
+                if (isDataSaved == false)
                 {
                     _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
+                    return;
                 }
+
+                // Clear password fields in the view
+                _passwords.ClearPassword();
+
+                // Turn off spinning text
+                IsChangePasswordRunning = false;
+
+                // Show successful dialog window 
+                _dialogFacade.OpenDialog(DialogMessage.PasswordChanged);
             });
         }
 
-        /// <summary>
-        /// Validate users data in the EditProfile form
-        /// </summary>
         private async Task<bool> ValidateEditProfileDataAsync()
         {
             await Task.Run(() =>
@@ -194,10 +182,6 @@ namespace DebtDiary
             // Check if any problem was found and return right value
             return IsEditProfileEnteredDataCorrect();
         }
-
-        /// <summary>
-        /// Validate users data in the ChangePassword form
-        /// </summary>
         private async Task<bool> ValidateChangePasswordDataAsync()
         {
             await Task.Run(() =>
@@ -241,9 +225,6 @@ namespace DebtDiary
             return IsChangePasswordEnteredDataCorrect();
         }
 
-        /// <summary>
-        /// Reset all the <see cref="FormMessage"/> properties to <see cref="FormMessage.None"/>
-        /// </summary>
         private void ResetFormMessages()
         {
             FirstNameMessage = FormMessage.None;
@@ -254,9 +235,6 @@ namespace DebtDiary
             RepeatNewPasswordMessage = FormMessage.None;
         }
 
-        /// <summary>
-        /// Check if all the <see cref="FormMessage"/> properties are set to <see cref="FormMessage.None"/>
-        /// </summary>
         private bool IsEditProfileEnteredDataCorrect()
         {
             // If any of the messages changed it's value return false
@@ -267,9 +245,6 @@ namespace DebtDiary
             return true;
         }
 
-        /// <summary>
-        /// Check if all the <see cref="FormMessage"/> properties are set to <see cref="FormMessage.None"/>
-        /// </summary>
         private bool IsChangePasswordEnteredDataCorrect()
         {
             // If any of the messages changed it's value return false
@@ -279,24 +254,6 @@ namespace DebtDiary
             // If not return true
             return true;
         }
-
-        /// <summary>
-        /// Update logged users data
-        /// </summary>
-        private void UpdateLoggedUser()
-        {
-            _loggedUser.AvatarColor = AvatarColor;
-            _loggedUser.FirstName = FirstName;
-            _loggedUser.LastName = LastName;
-            _loggedUser.Gender = Gender;
-        }
-
-        /// <summary>
-        /// Update logged users password
-        /// </summary>
-        private void UpdateUsersPassword() => _loggedUser.Password = _passwords.SecondPassword.GetEncryptedPassword();
-
-
         #endregion
     }
 }
