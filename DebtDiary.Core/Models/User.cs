@@ -7,15 +7,12 @@ using System.Text;
 
 namespace DebtDiary.Core
 {
-    public class User
+    /// <summary>
+    /// User
+    /// </summary>
+    public class User : Person
     {
         public int Id { get; set; }
-
-        [StringLength(80)]
-        public string FirstName { get; set; }
-
-        [StringLength(80)]
-        public string LastName { get; set; }
 
         [StringLength(80)]
         [Index(IsUnique = true)]
@@ -28,10 +25,6 @@ namespace DebtDiary.Core
         [StringLength(256)]
         public string Password { get; set; }
 
-        public Gender? Gender { get; set; }
-        public Color AvatarColor { get; set; } = Color.Green;
-        public string Initials => Helpers.GetInitials(FirstName, LastName);
-        public string FullName => $"{FirstName} {LastName}";
         public DateTime? RegisterDate { get; set; }
         public virtual List<Debtor> Debtors { get; set; } = new List<Debtor>();
         public List<Operation> Operations
@@ -44,6 +37,9 @@ namespace DebtDiary.Core
             }
         }
 
+        /// <summary>
+        /// Get chart points of aggregated operations grouped by every day started with users register date
+        /// </summary>
         public IEnumerable<decimal> GetChartPoints => Operations.GetChartPoints(RegisterDate.Value);
     }
 }
