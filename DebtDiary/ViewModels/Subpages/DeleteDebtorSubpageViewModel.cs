@@ -63,53 +63,46 @@ namespace DebtDiary
 
         #region Private Methods
 
-        /// <summary>
-        /// Add new debtor to the database and UI
-        /// </summary>
         private async Task DeleteDebtorAsync(object parameter)
         {
             await RunCommandAsync(() => IsDeleteDebtorRunning, async () =>
             {
-                try
-                {
-                    if (!(parameter is IHavePassword))
-                        return;
+                if (!(parameter is IHavePassword))
+                    return;
 
-                    // Get reference to the password
-                    _password = (IHavePassword)parameter;
+                // Get reference to the password
+                _password = (IHavePassword)parameter;
 
-                    // Validate entered data
-                    if (await ValidateDataAsync() == false)
-                        return;
+                // Validate entered data
+                if (await ValidateDataAsync() == false)
+                    return;
 
-                    // Add new debtor to ClientDataStore
-                    _loggedUser.Debtors.Remove(_selectedDebtor);
+                // Add new debtor to ClientDataStore
+                _loggedUser.Debtors.Remove(_selectedDebtor);
 
-                    // Save changes in the database
-                    await Task.Run(() => _dataAccess.TrySaveChanges());
-
-                    // Update debtos list
-                    _diaryPageViewModel.UpdateDebtorsList();
-
-                    // Turn off spinning text
-                    IsDeleteDebtorRunning = false;
-
-                    // Show successful dialog window 
-                    _dialogFacade.OpenDialog(DialogMessage.DebtorDeleted);
-
-                    // Go to summary subpage
-                    await _applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.SummarySubpage);
-                }
-                catch (NoInternetConnectionException)
+                // Save changes in the database
+                bool isDataSaved = false;
+                await Task.Run(() => isDataSaved = _dataAccess.TrySaveChanges());
+                if (isDataSaved == false)
                 {
                     _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
+                    return;
                 }
+
+                // Update debtos list
+                _diaryPageViewModel.UpdateDebtorsList();
+
+                // Turn off spinning text
+                IsDeleteDebtorRunning = false;
+
+                // Show successful dialog window 
+                _dialogFacade.OpenDialog(DialogMessage.DebtorDeleted);
+
+                // Go to summary subpage
+                await _applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.SummarySubpage);
             });
         }
 
-        /// <summary>
-        /// Validate new debtors data
-        /// </summary>
         private async Task<bool> ValidateDataAsync()
         {
             await Task.Run(() =>
@@ -129,17 +122,11 @@ namespace DebtDiary
             return IsEnteredDataCorrect();
         }
 
-        /// <summary>
-        /// Reset all the <see cref="FormMessage"/> properties to <see cref="FormMessage.None"/>
-        /// </summary>
         private void ResetFormMessages()
         {
             PasswordMessage = FormMessage.None;
         }
 
-        /// <summary>
-        /// Check if all the <see cref="FormMessage"/> properties are set to <see cref="FormMessage.None"/>
-        /// </summary>
         private bool IsEnteredDataCorrect()
         {
             // If any of the messages changed it's value return false
