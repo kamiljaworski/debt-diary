@@ -8,6 +8,7 @@ namespace DebtDiary
         private IApplicationViewModel _applicationViewModel;
         private IClientDataStore _clientDataStore;
 
+        private bool _isInDesignTime;
         #region Public properties
 
         public string FullName { get; set; }
@@ -29,13 +30,16 @@ namespace DebtDiary
 
         #region Constructor
 
-        // TODO: Do sth with this ctor
-        public DiaryPageViewModel() { }
+        public DiaryPageViewModel()
+        {
+            _isInDesignTime = true;
+        }
 
         public DiaryPageViewModel(IApplicationViewModel applicationViewModel, IClientDataStore clientDataStore)
         {
-            IsLoaded = false;
+            _isInDesignTime = false;
 
+            IsLoaded = false;
             _applicationViewModel = applicationViewModel;
             _clientDataStore = clientDataStore;
             DebtorsList = new DebtorsListViewModel(_applicationViewModel, _clientDataStore);
@@ -66,9 +70,10 @@ namespace DebtDiary
 
         public void UpdateUsersData()
         {
-            // TODO: NullUser
-            User loggedUser = _clientDataStore.LoggedUser;
+            if (_isInDesignTime == true)
+                return;
 
+            User loggedUser = _clientDataStore.LoggedUser;
             if (loggedUser == null)
                 return;
 
@@ -83,12 +88,10 @@ namespace DebtDiary
 
         #region Private methods
 
-        // TODO: Assign a NullDebtor instead of null
         private void ResetSelectedDebtor() => _applicationViewModel.SelectedDebtor = null;
 
         private async void ChangeSubpageAsync(ApplicationSubpage subpage)
         {
-            // TODO: reset selected debtor in ApplicationViewModel
             ResetSelectedDebtor();
             await _applicationViewModel.ChangeCurrentSubpageAsync(subpage);
         }
