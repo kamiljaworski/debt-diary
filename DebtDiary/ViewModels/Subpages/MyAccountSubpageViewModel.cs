@@ -104,7 +104,7 @@ namespace DebtDiary
                     UpdateLoggedUser();
 
                     // Save changes in the database
-                    await Task.Run(() => _dataAccess.SaveChanges());
+                    await Task.Run(() => _dataAccess.TrySaveChanges());
 
                     // Update users data in the side menu
                     _diaryPageViewModel.UpdateUsersData();
@@ -142,7 +142,7 @@ namespace DebtDiary
                     UpdateUsersPassword();
 
                     // Save changes in the database
-                    await Task.Run(() => _dataAccess.SaveChanges());
+                    await Task.Run(() => _dataAccess.TrySaveChanges());
 
                     // Clear password fields in the view
                     _passwords.ClearPassword();

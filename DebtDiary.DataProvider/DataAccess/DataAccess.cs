@@ -14,7 +14,7 @@ namespace DebtDiary.DataProvider
             try
             {
                 dbContext.Users.Add(user);
-                SaveChanges();
+                TrySaveChanges();
                 return true;
             }
             catch (SqlException)
@@ -28,12 +28,10 @@ namespace DebtDiary.DataProvider
             try
             {
                 User user = dbContext.Users.FirstOrDefault(x => x.Username == username);
-
                 if (user == null)
                     return true;
 
                 return false;
-
             }
             catch (SqlException)
             {
@@ -46,7 +44,6 @@ namespace DebtDiary.DataProvider
             try
             {
                 User user = dbContext.Users.FirstOrDefault(x => x.Email == email);
-
                 if (user == null)
                     return true;
 
@@ -58,27 +55,49 @@ namespace DebtDiary.DataProvider
             }
         }
 
-        public User GetUser(string username, string hashedPassword)
+        public bool UserExist(string username, string hashedPassword)
         {
             try
             {
-                return dbContext.Users.FirstOrDefault(u => u.Username == username && u.Password == hashedPassword);
+                User user = dbContext.Users.FirstOrDefault(u => u.Username == username && u.Password == hashedPassword);
+                if (user == null)
+                    return false;
+
+                return true;
             }
-            catch (SqlException exception)
+            catch (SqlException)
             {
-                throw new NoInternetConnectionException("There was a problem with database connection", exception);
+                return false;
             }
         }
 
-        public void SaveChanges()
+        public bool TryGetUser(string username, string hashedPassword, out User user)
+        {
+            try
+            {
+                user = dbContext.Users.FirstOrDefault(u => u.Username == username && u.Password == hashedPassword);
+                if(user == null)
+                    return false;
+
+                return true;
+            }
+            catch (SqlException)
+            {
+                user = null;
+                return false;
+            }
+        }
+
+        public bool TrySaveChanges()
         {
             try
             {
                 dbContext.SaveChanges();
+                return true;
             }
-            catch (SqlException exception)
+            catch (SqlException)
             {
-                throw new NoInternetConnectionException("There was a problem with database connection", exception);
+                return false;
             }
         }
 

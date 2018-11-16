@@ -146,7 +146,7 @@ namespace DebtDiary
                     _selectedDebtor.Operations.Add(new Operation { Value = value, Description = LoanDescription, AdditionDate = DateTime.Now, OperationType = LoanOperationType });
 
                     // Save changes in the database
-                    await Task.Run(() => _dataAccess.SaveChanges());
+                    await Task.Run(() => _dataAccess.TrySaveChanges());
 
                     // Clear fields and update changes
                     ClearAddLoanFields();
@@ -179,7 +179,7 @@ namespace DebtDiary
                     _selectedDebtor.Operations.Add(new Operation { Value = value, Description = RepaymentDescription, AdditionDate = DateTime.Now, OperationType = RepaymentOperationType });
 
                     // Save changes in the database
-                    await Task.Run(() => _dataAccess.SaveChanges());
+                    await Task.Run(() => _dataAccess.TrySaveChanges());
 
                     // Clear fields and update changes
                     ClearAddRepaymentFields();

@@ -97,7 +97,7 @@ namespace DebtDiary
                     _selectedDebtor.Gender = Gender;
 
                     // Save changes in the database
-                    await Task.Run(() => _dataAccess.SaveChanges());
+                    await Task.Run(() => _dataAccess.TrySaveChanges());
 
                     // Update debtors list
                     _diaryPageViewModel.UpdateDebtorsList();

@@ -7,7 +7,8 @@ namespace DebtDiary.DataProvider
         bool TryCreateUser(User user);
         bool IsUsernameTaken(string username);
         bool IsEmailTaken(string email);
-        User GetUser(string username, string hashedPassword);
-        void SaveChanges();
+        bool UserExist(string username, string hashedPassword);
+        bool TryGetUser(string username, string hashedPassword, out User user);
+        bool TrySaveChanges();
     }
 }

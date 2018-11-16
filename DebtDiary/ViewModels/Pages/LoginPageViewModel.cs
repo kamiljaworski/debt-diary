@@ -7,9 +7,6 @@ using System.Windows.Input;
 
 namespace DebtDiary
 {
-    /// <summary>
-    /// Login Page View Model
-    /// </summary>
     class LoginPageViewModel : BaseViewModel, ILoadable
     {
         #region Private members
@@ -18,8 +15,6 @@ namespace DebtDiary
         private IClientDataStore _clientDataStore;
         private IDataAccess _dataAccess;
         private IDialogFacade _dialogFacade;
-
-        private User _loggedUser = null;
 
         private SecureString _password = null;
         #endregion
@@ -68,47 +63,36 @@ namespace DebtDiary
         {
             await RunCommandAsync(() => IsLoginRunning, async () =>
             {
-                try
-                {
-                    // Get password from the view
-                    _password = (parameter as IHavePassword)?.Password;
+                // Get password from the view
+                _password = (parameter as IHavePassword)?.Password;
 
-                    // Validate data
-                    if (await ValidateDataAsync() == false)
-                        return;
+                // Validate entered data
+                if (await ValidateDataAsync() == false)
+                    return;
 
-                    // Save user in the application data
-                    _clientDataStore.LoginUser(_loggedUser);
+                // Get the user and add to the client data store
+                if (_dataAccess.TryGetUser(Username, _password.GetEncryptedPassword(), out User loggedUser) == false)
+                    return;
 
-                    // Update debtors list
-                    await Task.Run(() => _diaryPageViewModel.UpdateDebtorsList());
+                _clientDataStore.LoginUser(loggedUser);
 
-                    // Reset users fullname, username and initials
-                    _diaryPageViewModel.UpdateUsersData();
+                // Update debtors list in side menu
+                await Task.Run(() => _diaryPageViewModel.UpdateDebtorsList());
 
-                    // Reset application subpage to SummarySubpage
-                    _applicationViewModel.ResetCurrentSubpage();
+                // Reset entered data
+                _diaryPageViewModel.UpdateUsersData();
 
-                    // TODO: await for summary page data
+                // Reset application subpage to SummarySubpage
+                _applicationViewModel.ResetCurrentSubpage();
 
-                    // And go to diary page
-                    await _applicationViewModel.ChangeCurrentPageAsync(ApplicationPage.DiaryPage);
-
-                }
-                catch (NoInternetConnectionException)
-                {
-                    _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
-                }
+                // Go to DiaryPage
+                await _applicationViewModel.ChangeCurrentPageAsync(ApplicationPage.DiaryPage);
             });
         }
         #endregion
 
         #region Helpers private methods
 
-        /// <summary>
-        /// Validate if entered data is correct
-        /// </summary>
-        /// <returns>True if user can be loged in or false if not</returns>
         private async Task<bool> ValidateDataAsync()
         {
             await Task.Run(() =>
@@ -123,44 +107,29 @@ namespace DebtDiary
                 if (_password.IsNullOrEmpty())
                     PasswordMessage = FormMessage.EmptyPassword;
 
-                // If fields arent empty check if user exist
-                if (IsEnteredDataCorrect())
+                // If data is correct
+                if (IsEnteredDataCorrect() && !_dataAccess.UserExist(Username, _password.GetEncryptedPassword()))
                 {
-                    // Try to get user from db
-                    _loggedUser = _dataAccess.GetUser(Username, _password.GetEncryptedPassword());
-
-                    // Check if user was succesfully logged in
-                    if (_loggedUser == null)
-                    {
-                        UsernameMessage = FormMessage.IncorrectUsername;
-                        PasswordMessage = FormMessage.IncorrectPassword;
-                    }
+                    UsernameMessage = FormMessage.IncorrectUsername;
+                    PasswordMessage = FormMessage.IncorrectPassword;
                 }
             });
 
             return IsEnteredDataCorrect();
         }
 
-        /// <summary>
-        /// Reset all the <see cref="FormMessage"/> to None
-        /// </summary>
         private void ResetFormMessages()
         {
             UsernameMessage = FormMessage.None;
             PasswordMessage = FormMessage.None;
         }
 
-        /// <summary>
-        /// Check if all the <see cref="FormMessage"/> properties are set to <see cref="FormMessage.None"/>
-        /// </summary>
-        /// <returns><see cref="bool"/> false if there are some errors and true if not</returns>
         private bool IsEnteredDataCorrect()
         {
-            // If any of the messages changed it's value return false
+            // Check if all form messages are equal to None
             if (UsernameMessage != FormMessage.None || PasswordMessage != FormMessage.None)
                 return false;
 
-            // If not return true
             return true;
         }
         #endregion

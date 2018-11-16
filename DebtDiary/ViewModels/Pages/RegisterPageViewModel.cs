@@ -69,47 +69,47 @@ namespace DebtDiary
         {
             await RunCommandAsync(() => IsRegisterRunning, async () =>
             {
-                    // Get passwords from the view
-                    _password = (parameter as IHaveTwoPasswords)?.Password;
-                    _repeatedPassword = (parameter as IHaveTwoPasswords)?.SecondPassword;
+                // Get passwords from the view
+                _password = (parameter as IHaveTwoPasswords)?.Password;
+                _repeatedPassword = (parameter as IHaveTwoPasswords)?.SecondPassword;
 
-                    // Validate entered data
-                    if (await ValidateDataAsync() == false)
-                        return;
+                // Validate entered data
+                if (await ValidateDataAsync() == false)
+                    return;
 
-                    // Create new user
-                    User user = new User
-                    {
-                        Username = Username,
-                        FirstName = FirstName,
-                        LastName = LastName,
-                        Email = Email,
-                        Password = _password.GetEncryptedPassword(),
-                        Gender = Gender,
-                        RegisterDate = DateTime.Now,
-                        AvatarColor = RandomColorGenerator.GetRandomColor()
-                    };
+                // Create new user
+                User user = new User
+                {
+                    Username = Username,
+                    FirstName = FirstName,
+                    LastName = LastName,
+                    Email = Email,
+                    Password = _password.GetEncryptedPassword(),
+                    Gender = Gender,
+                    RegisterDate = DateTime.Now,
+                    AvatarColor = RandomColorGenerator.GetRandomColor()
+                };
 
-                    // Try to save this user in the database
-                    bool isUserSuccesfullyCreated = false;
-                    await Task.Run(() => isUserSuccesfullyCreated = _dataAccess.TryCreateUser(user));
-                    if(isUserSuccesfullyCreated == false)
-                    {
-                        _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
-                        return;
-                    }
+                // Try to save this user in the database
+                bool isUserSuccesfullyCreated = false;
+                await Task.Run(() => isUserSuccesfullyCreated = _dataAccess.TryCreateUser(user));
+                if (isUserSuccesfullyCreated == false)
+                {
+                    _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
+                    return;
+                }
 
-                    // Turn off spinning text in the view
-                    IsRegisterRunning = false;
+                // Turn off spinning text in the view
+                IsRegisterRunning = false;
 
-                    // Show successful dialog window 
-                    _dialogFacade.OpenDialog(DialogMessage.AccountCreated);
+                // Show successful dialog window 
+                _dialogFacade.OpenDialog(DialogMessage.AccountCreated);
 
-                    // Reset data in the view model
-                    ResetData(parameter as IHaveTwoPasswords);
+                // Reset data in the view model
+                ResetData(parameter as IHaveTwoPasswords);
 
-                    // Go to LoginPage
-                    await _applicationViewModel.ChangeCurrentPageAsync(ApplicationPage.LoginPage);
+                // Go to LoginPage
+                await _applicationViewModel.ChangeCurrentPageAsync(ApplicationPage.LoginPage);
             });
         }
 

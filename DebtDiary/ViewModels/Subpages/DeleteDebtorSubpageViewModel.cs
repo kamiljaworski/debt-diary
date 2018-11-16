@@ -86,7 +86,7 @@ namespace DebtDiary
                     _loggedUser.Debtors.Remove(_selectedDebtor);
 
                     // Save changes in the database
-                    await Task.Run(() => _dataAccess.SaveChanges());
+                    await Task.Run(() => _dataAccess.TrySaveChanges());
 
                     // Update debtos list
                     _diaryPageViewModel.UpdateDebtorsList();
