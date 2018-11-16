@@ -5,7 +5,6 @@ using LiveCharts.Wpf;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
 
 namespace DebtDiary
@@ -97,8 +96,6 @@ namespace DebtDiary
         public void UpdateChanges()
         {
             _selectedDebtor = _applicationViewModel.SelectedDebtor;
-
-            // TODO: Add NullDebtor class and remove this if statement
             if (_selectedDebtor == null)
                 return;
 
@@ -127,68 +124,60 @@ namespace DebtDiary
 
         #region Private Methods
 
-        /// <summary>
-        /// Add new loan to the users operations list
-        /// </summary>
-        /// <returns></returns>
         private async Task AddLoanAsync()
         {
             await RunCommandAsync(() => IsAddLoanFormRunning, async () =>
             {
-                try
-                {
-                    // Validate entered data
-                    if (await ValidateAddLoanDataAsync() == false)
-                        return;
 
-                    // Check if there is sign change needed
-                    decimal value = LoanOperationType == OperationType.DebtorsLoan ? _loanValue : -_loanValue;
-                    _selectedDebtor.Operations.Add(new Operation { Value = value, Description = LoanDescription, AdditionDate = DateTime.Now, OperationType = LoanOperationType });
+                // Validate entered data
+                if (await ValidateAddLoanDataAsync() == false)
+                    return;
 
-                    // Save changes in the database
-                    await Task.Run(() => _dataAccess.TrySaveChanges());
+                // Check if there is sign change needed
+                decimal value = LoanOperationType == OperationType.DebtorsLoan ? _loanValue : -_loanValue;
+                _selectedDebtor.Operations.Add(new Operation { Value = value, Description = LoanDescription, AdditionDate = DateTime.Now, OperationType = LoanOperationType });
 
-                    // Clear fields and update changes
-                    ClearAddLoanFields();
-                    UpdateChanges();
-                }
-                catch (NoInternetConnectionException)
+                // Save changes in the database
+                bool isDataSaved = false;
+                await Task.Run(() => isDataSaved = _dataAccess.TrySaveChanges());
+                if (isDataSaved == false)
                 {
                     _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
+                    return;
                 }
+
+                // Clear fields and update changes
+                ClearAddLoanFields();
+                UpdateChanges();
             });
 
         }
 
-        /// <summary>
-        /// Add new repayment to the users operations list
-        /// </summary>
-        /// <returns></returns>
         private async Task AddRepaymentAsync()
         {
             await RunCommandAsync(() => IsAddRepaymentFormRunning, async () =>
             {
-                try
-                {
-                    // Validate entered data
-                    if (await ValidateAddRepaymentDataAsync() == false)
-                        return;
+                // Validate entered data
+                if (await ValidateAddRepaymentDataAsync() == false)
+                    return;
 
-                    // Check if there is sign change needed
-                    decimal value = RepaymentOperationType == OperationType.UsersRepayment ? _repaymentValue : -_repaymentValue;
-                    _selectedDebtor.Operations.Add(new Operation { Value = value, Description = RepaymentDescription, AdditionDate = DateTime.Now, OperationType = RepaymentOperationType });
+                // Check if there is sign change needed
+                decimal value = RepaymentOperationType == OperationType.UsersRepayment ? _repaymentValue : -_repaymentValue;
+                _selectedDebtor.Operations.Add(new Operation { Value = value, Description = RepaymentDescription, AdditionDate = DateTime.Now, OperationType = RepaymentOperationType });
 
-                    // Save changes in the database
-                    await Task.Run(() => _dataAccess.TrySaveChanges());
-
-                    // Clear fields and update changes
-                    ClearAddRepaymentFields();
-                    UpdateChanges();
-                }
-                catch (NoInternetConnectionException)
+                // Save changes in the database
+                bool isDataSaved = false;
+                await Task.Run(() => isDataSaved = _dataAccess.TrySaveChanges());
+                if (isDataSaved == false)
                 {
                     _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
+                    return;
                 }
+
+                // Clear fields and update changes
+                ClearAddRepaymentFields();
+                UpdateChanges();
+
             });
 
         }
@@ -196,9 +185,6 @@ namespace DebtDiary
 
         #region Private helper methods
 
-        /// <summary>
-        /// Update all the statistic panels
-        /// </summary>
         private void UpdateStatisticPanels()
         {
             // Debt Panel
@@ -217,9 +203,6 @@ namespace DebtDiary
             LastOperation = new StatisticPanelViewModel(StatisticPanelMessage.LastOperation, lastOperation);
         }
 
-        /// <summary>
-        /// Reset all the form messages
-        /// </summary>
         private void ResetFormMessages()
         {
             LoanDescriptionMessage = FormMessage.None;
@@ -231,9 +214,6 @@ namespace DebtDiary
 
         #region Add loan form helper methods
 
-        /// <summary>
-        /// Validate entered data
-        /// </summary>
         private async Task<bool> ValidateAddLoanDataAsync()
         {
             await Task.Run(() =>
@@ -264,9 +244,6 @@ namespace DebtDiary
             return IsAddLoanEnteredDataCorrect();
         }
 
-        /// <summary>
-        /// Check if add loan form entered data is correct
-        /// </summary>
         private bool IsAddLoanEnteredDataCorrect()
         {
             // If any of the messages changed its value return false
@@ -277,9 +254,6 @@ namespace DebtDiary
             return true;
         }
 
-        /// <summary>
-        /// Clear add loan form properties
-        /// </summary>
         private void ClearAddLoanFields()
         {
             LoanValue = string.Empty;
@@ -290,9 +264,6 @@ namespace DebtDiary
 
         #region Add repayment form helper methods
 
-        /// <summary>
-        /// Validate entered data
-        /// </summary>
         private async Task<bool> ValidateAddRepaymentDataAsync()
         {
             await Task.Run(() =>
@@ -323,9 +294,6 @@ namespace DebtDiary
             return IsAddRepaymentEnteredDataCorrect();
         }
 
-        /// <summary>
-        /// Check if add repayment form entered data is correct
-        /// </summary>
         private bool IsAddRepaymentEnteredDataCorrect()
         {
             // If any of the messages changed its value return false
@@ -336,9 +304,6 @@ namespace DebtDiary
             return true;
         }
 
-        /// <summary>
-        /// Clear add repayment form properties
-        /// </summary>
         private void ClearAddRepaymentFields()
         {
             RepaymentValue = string.Empty;
