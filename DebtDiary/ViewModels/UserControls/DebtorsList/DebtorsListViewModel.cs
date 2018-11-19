@@ -14,7 +14,6 @@ namespace DebtDiary
         public IList<DebtorsListItemViewModel> Debtors { get; set; } = new ObservableCollection<DebtorsListItemViewModel>();
         public bool IsAnyDebtorAdded => Debtors.Count > 0 ? true : false;
 
-        // TODO: Do sth with this ctor
         public DebtorsListViewModel(bool designTime = false)
         {
             if (designTime == false)
@@ -41,8 +40,6 @@ namespace DebtDiary
         public void Update()
         {
             User loggedUser = _clientDataStore.LoggedUser;
-
-            // TODO: add NullUser class and remove this if statement
             if (loggedUser == null)
                 return;
             

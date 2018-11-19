@@ -7,15 +7,14 @@ using System.Windows.Input;
 
 namespace DebtDiary
 {
-    /// <summary>
-    /// View model for each of debtors list item
-    /// </summary>
     public class DebtorsListItemViewModel : BaseViewModel
     {
         #region Private members
         private IApplicationViewModel _applicationViewModel;
         private IDebtorsListViewModel _debtorsListViewModel;
         private Debtor _debtor;
+
+        private bool isInDesignTime = false;
         #endregion
 
         public int Id { get; set; }
@@ -31,6 +30,9 @@ namespace DebtDiary
 
         private async void OpenDebtorSubpageAsync()
         {
+            if (isInDesignTime)
+                return;
+
             _applicationViewModel.SelectedDebtor = _debtor;
             _debtorsListViewModel.Update();
 
@@ -39,6 +41,7 @@ namespace DebtDiary
 
         public DebtorsListItemViewModel(Debtor debtor, IApplicationViewModel applicationViewModel, IDebtorsListViewModel debtorsListViewModel)
         {
+            isInDesignTime = false;
             _debtor = debtor;
             _applicationViewModel = applicationViewModel;
             _debtorsListViewModel = debtorsListViewModel;
@@ -52,10 +55,9 @@ namespace DebtDiary
             OpenDebtorSubpage = new RelayCommand(() => OpenDebtorSubpageAsync());
         }
 
-        // constructor for design time vm 
         public DebtorsListItemViewModel()
         {
-            // TODO: change this
+            isInDesignTime = true;
         }
     }
 }
