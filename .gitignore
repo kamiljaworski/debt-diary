@@ -289,3 +289,4 @@ __pycache__/
 
 # App.config file
 DebtDiary/App.config
+/.axoCover/runs

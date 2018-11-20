@@ -7,9 +7,6 @@ namespace DebtDiary.Core
 {
     public static class FormattingHelpers
     {
-        /// <summary>
-        /// Get initials from first and last name
-        /// </summary>
         public static string GetInitials(string firstName, string lastName)
         {
             // Initials variables
@@ -35,9 +32,6 @@ namespace DebtDiary.Core
             return stringBuilder.ToString().ToUpper();
         }
 
-        /// <summary>
-        /// Get formatted currency <see cref="string"/> from <see cref="decimal"/> number
-        /// </summary>
         public static string GetFormattedCurrency(decimal number)
         {
             var numberFormat = (NumberFormatInfo)CultureInfo.CurrentCulture.NumberFormat.Clone();
@@ -47,9 +41,6 @@ namespace DebtDiary.Core
             return number.ToString("C", numberFormat);
         }
 
-        /// <summary>
-        /// Get formatted currency <see cref="string"/> from <see cref="double"/> number
-        /// </summary>
         public static string GetFormattedCurrency(double number) => GetFormattedCurrency(Convert.ToDecimal(number));
     }
 }
