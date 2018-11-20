@@ -3,7 +3,7 @@
     public static class StringExtensions
     {
         /// <summary>
-        /// Changes first letter of a string to lower
+        /// Changes first letter of a string to lower case
         /// </summary>
         public static string ToLowerFirstLetter(this string s)
         {
@@ -18,7 +18,7 @@
         }
 
         /// <summary>
-        /// Changes first letter of a string to upper
+        /// Changes first letter of a string to upper case
         /// </summary>
         public static string ToUpperFirstLetter(this string s)
         {
