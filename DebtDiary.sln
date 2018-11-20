@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDiary.Core", "DebtDiary
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDiary.DataProvider", "DebtDiary.DataProvider\DebtDiary.DataProvider.csproj", "{5664F8B8-3866-4C42-8C21-B1A641028128}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDiary.Core.Test", "DebtDiary.Core.Test\DebtDiary.Core.Test.csproj", "{0A71A8D4-6E98-4DF6-B3C1-F46C6D76CB2B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDiary.Core.Test", "DebtDiary.Core.Test\DebtDiary.Core.Test.csproj", "{FB30ABBC-6ADE-4CE4-A152-4301704038CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{5664F8B8-3866-4C42-8C21-B1A641028128}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5664F8B8-3866-4C42-8C21-B1A641028128}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5664F8B8-3866-4C42-8C21-B1A641028128}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0A71A8D4-6E98-4DF6-B3C1-F46C6D76CB2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0A71A8D4-6E98-4DF6-B3C1-F46C6D76CB2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0A71A8D4-6E98-4DF6-B3C1-F46C6D76CB2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0A71A8D4-6E98-4DF6-B3C1-F46C6D76CB2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB30ABBC-6ADE-4CE4-A152-4301704038CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB30ABBC-6ADE-4CE4-A152-4301704038CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB30ABBC-6ADE-4CE4-A152-4301704038CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB30ABBC-6ADE-4CE4-A152-4301704038CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
