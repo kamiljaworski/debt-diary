@@ -4,11 +4,15 @@ namespace DebtDiary.Core
 {
     public static class DataConverter
     {
-        /// <summary>
-        /// Converts <see cref="string"/> to <see cref="decimal"/> with invariant culture
-        /// </summary>
         public static bool ToDecimal(string s, out decimal result)
         {
+            // Check if string is null
+            if(s == null)
+            {
+                result = 0.0m;
+                return false;
+            }
+
             // Replace commas with dots
             string number = s.Replace(',', '.');
 
