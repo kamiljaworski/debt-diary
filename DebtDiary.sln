@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDiary.Core", "DebtDiary
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDiary.DataProvider", "DebtDiary.DataProvider\DebtDiary.DataProvider.csproj", "{5664F8B8-3866-4C42-8C21-B1A641028128}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDiary.Core.Test", "DebtDiary.Core.Test\DebtDiary.Core.Test.csproj", "{FB30ABBC-6ADE-4CE4-A152-4301704038CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtDiary.Core.Tests", "DebtDiary.Core.Test\DebtDiary.Core.Tests.csproj", "{FB30ABBC-6ADE-4CE4-A152-4301704038CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

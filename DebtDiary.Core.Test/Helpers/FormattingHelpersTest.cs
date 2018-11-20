@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System.Globalization;
 
-namespace DebtDiary.Core.Test
+namespace DebtDiary.Core.Tests
 {
     [TestFixture]
     public class FormattingHelpersTest

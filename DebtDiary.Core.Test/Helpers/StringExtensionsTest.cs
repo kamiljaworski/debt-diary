@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace DebtDiary.Core.Test
+namespace DebtDiary.Core.Tests
 {
     [TestFixture]
     public class StringExtensionsTest
