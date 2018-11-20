@@ -29,7 +29,7 @@ namespace DebtDiary
         {
             IsLoaded = false;
 
-            CurrencyFormatter = value => Helpers.GetFormattedCurrency(value);
+            CurrencyFormatter = value => FormattingHelpers.GetFormattedCurrency(value);
             _loggedUser = clientDataStore.LoggedUser;
 
             UpdateStatisticPanels();
@@ -54,7 +54,7 @@ namespace DebtDiary
         {
             // Sum of debts
             decimal sum = _loggedUser.Debtors.Aggregate(0m, (x, y) => x + y.Debt);
-            SumOfDebts = new StatisticPanelViewModel(StatisticPanelMessage.SumOfDebts, Helpers.GetFormattedCurrency(sum));
+            SumOfDebts = new StatisticPanelViewModel(StatisticPanelMessage.SumOfDebts, FormattingHelpers.GetFormattedCurrency(sum));
 
             // Number of debtors
             NumberOfDebtors = new StatisticPanelViewModel(StatisticPanelMessage.NumberOfDebtors, _loggedUser.Debtors.Count.ToString());
@@ -64,7 +64,7 @@ namespace DebtDiary
             NumberOfOperations = new StatisticPanelViewModel(StatisticPanelMessage.NumberOfOperations, numberOfOperations.ToString());
 
             // Last Operation
-            string lastOperation = numberOfOperations == 0 ? null : Helpers.GetFormattedCurrency(_loggedUser.Operations.OrderByDescending(x => x.AdditionDate).First().Value);
+            string lastOperation = numberOfOperations == 0 ? null : FormattingHelpers.GetFormattedCurrency(_loggedUser.Operations.OrderByDescending(x => x.AdditionDate).First().Value);
             LastOperation = new StatisticPanelViewModel(StatisticPanelMessage.LastOperation, lastOperation);
         }
     }

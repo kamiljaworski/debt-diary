@@ -26,7 +26,7 @@ namespace DebtDiary
 
         public ICommand OpenDebtorSubpage { get; set; }
 
-        public string FormattedDebt => Helpers.GetFormattedCurrency(Debt);
+        public string FormattedDebt => FormattingHelpers.GetFormattedCurrency(Debt);
 
         private async void OpenDebtorSubpageAsync()
         {

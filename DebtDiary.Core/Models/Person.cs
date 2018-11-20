@@ -12,7 +12,7 @@ namespace DebtDiary.Core
 
         public Gender? Gender { get; set; }
         public Color AvatarColor { get; set; } = Color.Green;
-        public string Initials => Helpers.GetInitials(FirstName, LastName);
+        public string Initials => FormattingHelpers.GetInitials(FirstName, LastName);
         public string FullName => $"{FirstName} {LastName}";
 
         public void EditPerson(string firstName, string lastName, Gender gender, Color avatarColor)

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DebtDiary.Core
 {
-    public static class Helpers
+    public static class FormattingHelpers
     {
         /// <summary>
         /// Get initials from first and last name

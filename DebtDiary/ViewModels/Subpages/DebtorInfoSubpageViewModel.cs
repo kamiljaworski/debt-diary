@@ -80,7 +80,7 @@ namespace DebtDiary
             _dataAccess = dataAccess;
             _dialogFacade = dialogFacade;
 
-            CurrencyFormatter = value => Helpers.GetFormattedCurrency(value);
+            CurrencyFormatter = value => FormattingHelpers.GetFormattedCurrency(value);
             AddLoanCommand = new RelayCommand(async () => await AddLoanAsync());
             AddRepaymentCommand = new RelayCommand(async () => await AddRepaymentAsync());
             EditDebtorCommand = new RelayCommand(async () => await _applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.EditDebtorSubpage));
@@ -189,7 +189,7 @@ namespace DebtDiary
         {
             // Debt Panel
             StatisticPanelMessage debtMessage = DebtorsGender == Gender.Male ? StatisticPanelMessage.DebtMale : StatisticPanelMessage.DebtFemale;
-            Debt = new StatisticPanelViewModel(debtMessage, Helpers.GetFormattedCurrency(_selectedDebtor.Debt), UsersGender);
+            Debt = new StatisticPanelViewModel(debtMessage, FormattingHelpers.GetFormattedCurrency(_selectedDebtor.Debt), UsersGender);
 
             // Addition Date
             AdditionDate = new StatisticPanelViewModel(StatisticPanelMessage.AdditionDate, _selectedDebtor.AdditionDate.ToShortDateString());
@@ -199,7 +199,7 @@ namespace DebtDiary
             NumberOfOperations = new StatisticPanelViewModel(StatisticPanelMessage.NumberOfOperations, numberOfOperations.ToString());
 
             // Last Operation
-            string lastOperation = numberOfOperations == 0 ? null : Helpers.GetFormattedCurrency(_selectedDebtor.Operations.OrderByDescending(x => x.AdditionDate).First().Value);
+            string lastOperation = numberOfOperations == 0 ? null : FormattingHelpers.GetFormattedCurrency(_selectedDebtor.Operations.OrderByDescending(x => x.AdditionDate).First().Value);
             LastOperation = new StatisticPanelViewModel(StatisticPanelMessage.LastOperation, lastOperation);
         }
 

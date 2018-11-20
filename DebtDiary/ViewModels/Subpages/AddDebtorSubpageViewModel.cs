@@ -22,7 +22,7 @@ namespace DebtDiary
         #region Public Properties
 
         public Color AvatarColor { get; set; } = Color.Green;
-        public string Initials => Helpers.GetInitials(FirstName, LastName);
+        public string Initials => FormattingHelpers.GetInitials(FirstName, LastName);
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public Gender Gender { get; set; } = Gender.None;
