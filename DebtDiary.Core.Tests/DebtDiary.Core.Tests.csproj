@@ -8,8 +8,8 @@
     <ProjectGuid>{FB30ABBC-6ADE-4CE4-A152-4301704038CA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DebtDiary.Core.Test</RootNamespace>
-    <AssemblyName>DebtDiary.Core.Test</AssemblyName>
+    <RootNamespace>DebtDiary.Core.Tests</RootNamespace>
+    <AssemblyName>DebtDiary.Core.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>

@@ -51,6 +51,7 @@ namespace DebtDiary.Core.Tests
 
         [TestCase("10000", true)]
         [TestCase("10000.11", true)]
+        [TestCase("-999.99", true)]
         [TestCase("10000,11", false)]
         [TestCase("10 000,11", false)]
         [TestCase("10 000.11", false)]
