@@ -161,7 +161,7 @@ namespace DebtDiary
                     LastNameMessage = FormMessage.IncorrectLastName;
 
                 // Check if username is correct
-                if (UsernameMessage == FormMessage.None && DataValidator.IsUsernameNameCorrect(Username) == false)
+                if (UsernameMessage == FormMessage.None && DataValidator.IsUsernameCorrect(Username) == false)
                     UsernameMessage = FormMessage.IncorrectUsername;
 
                 // Check if e-mail is in correct format

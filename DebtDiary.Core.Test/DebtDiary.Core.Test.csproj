@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Helpers\ColorSelectorTest.cs" />
     <Compile Include="Helpers\DataConverterTest.cs" />
+    <Compile Include="Helpers\DataValidatorTest.cs" />
     <Compile Include="Helpers\FormattingHelpersTest.cs" />
     <Compile Include="Helpers\StringExtensionsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
