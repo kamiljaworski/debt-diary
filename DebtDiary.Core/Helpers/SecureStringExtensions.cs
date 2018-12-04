@@ -6,16 +6,8 @@ using System.Text;
 
 namespace DebtDiary.Core
 {
-    /// <summary>
-    /// Extension class for SecureString
-    /// </summary>
     public static class SecureStringExtensions
     {
-        /// <summary>
-        /// Returns a password from SecureString
-        /// </summary>
-        /// <param name="secureString">SecureString you want to get password from</param>
-        /// <returns>Password</returns>
         private static string GetPassword(this SecureString secureString)
         {
             IntPtr value = IntPtr.Zero;
@@ -30,19 +22,13 @@ namespace DebtDiary.Core
             }
         }
 
-        /// <summary>
-        /// Method that check if secure string has a value and is not null
-        /// </summary>
-        /// <param name="secureString">Secure string you want to check</param>
         public static bool IsNullOrEmpty(this SecureString secureString) => string.IsNullOrEmpty(secureString.GetPassword());
 
-        /// <summary>
-        /// Returns a password from SecureString encrypted with SHA265 algorithm
-        /// </summary>
-        /// <param name="secureString">SecureString you want to get password from</param>
-        /// <returns>Encrypted password</returns>
         public static string GetEncryptedPassword(this SecureString secureString)
         {
+            if (secureString.IsNullOrEmpty())
+                return string.Empty;
+
             SHA256 sha256 = SHA256Managed.Create();
             byte[] bytes = Encoding.UTF8.GetBytes(secureString.GetPassword());
             byte[] hash = sha256.ComputeHash(bytes);
