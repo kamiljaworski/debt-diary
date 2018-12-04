@@ -51,6 +51,7 @@
     <Compile Include="Helpers\DataValidatorTest.cs" />
     <Compile Include="Helpers\FormattingHelpersTest.cs" />
     <Compile Include="Helpers\IEnumerableExtensionsTest.cs" />
+    <Compile Include="Helpers\RandomColorGeneratorTest.cs" />
     <Compile Include="Helpers\SecureStringExtensionsTest.cs" />
     <Compile Include="Helpers\StringExtensionsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

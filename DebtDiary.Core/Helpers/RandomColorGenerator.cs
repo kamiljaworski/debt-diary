@@ -18,7 +18,5 @@ namespace DebtDiary.Core
 
             return color;
         }
-
-
     }
 }
