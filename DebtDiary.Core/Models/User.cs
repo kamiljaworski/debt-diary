@@ -3,13 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Text;
 
 namespace DebtDiary.Core
 {
-    /// <summary>
-    /// User
-    /// </summary>
     public class User : Person
     {
         public int Id { get; set; }
@@ -39,6 +35,12 @@ namespace DebtDiary.Core
 
         public IEnumerable<decimal> GetChartPoints() => Operations.GetChartPoints(RegisterDate.Value);
 
-        public void ChangePassword(string newEncrypedPassword) => Password = newEncrypedPassword;
+        public void ChangePassword(string newEncrypedPassword)
+        {
+            if (string.IsNullOrEmpty(newEncrypedPassword))
+                return;
+
+            Password = newEncrypedPassword;
+        }
     }
 }

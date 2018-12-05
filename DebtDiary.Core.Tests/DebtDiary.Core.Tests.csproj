@@ -58,6 +58,7 @@
     <Compile Include="Helpers\StringExtensionsTest.cs" />
     <Compile Include="Models\DebtorTest.cs" />
     <Compile Include="Models\PersonTest.cs" />
+    <Compile Include="Models\UserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
