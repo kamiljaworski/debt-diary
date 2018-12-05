@@ -35,7 +35,7 @@ namespace DebtDiary.Core.Tests
             debtor.User = user;
             IEnumerable<decimal> expectedEnumeration = new List<decimal> { 0.0m, 0.0m };
 
-            Assert.AreEqual(expectedEnumeration, debtor.GetChartPoints);
+            Assert.AreEqual(expectedEnumeration, debtor.GetChartPoints());
         }
     }
 }

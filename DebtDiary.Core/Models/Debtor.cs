@@ -12,6 +12,6 @@ namespace DebtDiary.Core
         public User User { get; set; }
         public virtual List<Operation> Operations { get; set; } = new List<Operation>();
 
-        public IEnumerable<decimal> GetChartPoints => Operations.GetChartPoints(User.RegisterDate.Value);
+        public IEnumerable<decimal> GetChartPoints() => Operations.GetChartPoints(User.RegisterDate.Value);
     }
 }
