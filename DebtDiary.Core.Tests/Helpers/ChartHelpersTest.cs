@@ -8,7 +8,7 @@ namespace DebtDiary.Core.Tests
     public class ChartHelpersTest
     {
         [Test]
-        public void GetChartPointsWithNoOperationsAndTodayDate()
+        public void TestGetChartPointsWithNoOperationsAndTodayDate()
         {
             IList<Operation> operations = new List<Operation>();
             DateTime today = DateTime.Today.Date;
@@ -20,7 +20,7 @@ namespace DebtDiary.Core.Tests
 
 
         [Test]
-        public void GetChartPointsWithSomeOperationsAndOperationOnLastDay()
+        public void TestGetChartPointsWithSomeOperationsAndOperationOnLastDay()
         {
             DateTime startDate = DateTime.Today - TimeSpan.FromDays(7);
             IList<Operation> operations = new List<Operation>
@@ -41,7 +41,7 @@ namespace DebtDiary.Core.Tests
         }
 
         [Test]
-        public void GetChartPointsWithSomeOperationsAndLastOperationAddedThreeDaysAgo()
+        public void TestGetChartPointsWithSomeOperationsAndLastOperationAddedThreeDaysAgo()
         {
             DateTime startDate = DateTime.Today - TimeSpan.FromDays(10);
             IList<Operation> operations = new List<Operation>
