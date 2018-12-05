@@ -38,7 +38,7 @@ namespace DebtDiary
             {
                     new LineSeries
                     {
-                        Values = new ChartValues<decimal>(_loggedUser.GetChartPoints),
+                        Values = new ChartValues<decimal>(_loggedUser.GetChartPoints()),
                         PointGeometry = DefaultGeometries.None,
                         ToolTip = null
                     }

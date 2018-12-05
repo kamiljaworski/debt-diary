@@ -37,7 +37,7 @@ namespace DebtDiary.Core
             }
         }
 
-        public IEnumerable<decimal> GetChartPoints => Operations.GetChartPoints(RegisterDate.Value);
+        public IEnumerable<decimal> GetChartPoints() => Operations.GetChartPoints(RegisterDate.Value);
 
         public void ChangePassword(string newEncrypedPassword) => Password = newEncrypedPassword;
     }
