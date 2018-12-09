@@ -54,6 +54,7 @@
     <Compile Include="ValueConverters\BooleanToVisibilityConverterTest.cs" />
     <Compile Include="ValueConverters\ColorToBrushConverterTest.cs" />
     <Compile Include="ValueConverters\ColorToStringConverterTest.cs" />
+    <Compile Include="ValueConverters\DebtorsIdToBooleanConverterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
