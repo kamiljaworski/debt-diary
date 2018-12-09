@@ -53,6 +53,7 @@
     <Compile Include="ValueConverters\BooleanToDoubleConverterTest.cs" />
     <Compile Include="ValueConverters\BooleanToVisibilityConverterTest.cs" />
     <Compile Include="ValueConverters\ColorToBrushConverterTest.cs" />
+    <Compile Include="ValueConverters\ColorToStringConverterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
