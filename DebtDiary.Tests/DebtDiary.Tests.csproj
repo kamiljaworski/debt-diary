@@ -52,11 +52,16 @@
     <Compile Include="ValueConverters\ApplicationSubpageToBooleanConverterTest.cs" />
     <Compile Include="ValueConverters\BooleanToDoubleConverterTest.cs" />
     <Compile Include="ValueConverters\BooleanToVisibilityConverterTest.cs" />
+    <Compile Include="ValueConverters\ColorToBrushConverterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DebtDiary.Core\DebtDiary.Core.csproj">
+      <Project>{40f992de-22da-4c15-ac76-8a4e2f435afc}</Project>
+      <Name>DebtDiary.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DebtDiary\DebtDiary.csproj">
       <Project>{db9326ff-d1d1-4fbe-8161-549d8f43b887}</Project>
       <Name>DebtDiary</Name>
