@@ -13,7 +13,7 @@ namespace DebtDiary
             if (!(value is ApplicationSubpage))
                 return false;
 
-            if (parameter == null && !(parameter is string))
+            if (parameter == null || !(parameter is string))
                 return false;
 
             ApplicationSubpage subpage = (ApplicationSubpage)value;

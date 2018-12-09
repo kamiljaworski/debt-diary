@@ -10,14 +10,8 @@ namespace DebtDiary
     /// </summary>
     public partial class LoginPage : Page, IHavePassword
     {
-        /// <summary>
-        /// Password of IHavePassword interface implementation
-        /// </summary>
         public SecureString Password => UserPassword.SecurePassword;
 
-        /// <summary>
-        /// Default constructor
-        /// </summary>
         public LoginPage()
         {
             IApplicationViewModel applicationViewModel = IocContainer.Get<IApplicationViewModel>();
@@ -30,9 +24,6 @@ namespace DebtDiary
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Clear the PasswordBox
-        /// </summary>
         public void ClearPassword() => UserPassword.Clear();
     }
 }
