@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueConverters\ApplicationSubpageToBooleanConverterTest.cs" />
+    <Compile Include="ValueConverters\BooleanToDoubleConverterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

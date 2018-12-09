@@ -14,14 +14,14 @@ namespace DebtDiary
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (!(value is Boolean))
-                return null;
+                return 0.0d;
 
             Boolean boolValue = (Boolean)value;
 
             if (boolValue == true)
-                return 5.0;
+                return 5.0d;
 
-            return 0.0;
+            return 0.0d;
         }
 
         public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => throw new NotImplementedException();
