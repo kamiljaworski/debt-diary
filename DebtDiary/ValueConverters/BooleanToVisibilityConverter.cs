@@ -11,14 +11,14 @@ namespace DebtDiary
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            // If value is not a Boolean return null
+            // If value is not a Boolean
             if (!(value is Boolean))
-                return null;
+                return Visibility.Hidden;
 
             Boolean boolValue = (Boolean)value;
 
             // If parameter is not null then probably it is bound to button
-            if (parameter != null)
+            if (parameter != null && parameter is String)
             {
                 String stringParameter = parameter as String;
                 if (stringParameter == "ButtonText" && boolValue == false)
