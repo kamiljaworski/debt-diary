@@ -11,22 +11,24 @@ namespace DebtDiary
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (!(value is decimal))
+            if (value == null || !(value is decimal))
                 return Brushes.LightGreen;
 
             decimal debt = (decimal)value;
-            string valueParameter = (string)parameter;
+            string parameterText = (string)parameter;
 
-            // If parameter is equal to "Operation" find appropriate darker color
-            if (valueParameter != null && valueParameter == "Operation")
+            // If this converter is used in OperationListItem return Green or Red
+            if (parameterText != null && parameterText == "Operation")
             {
                 if (debt > 0)
                     return Brushes.Green;
                 else if (debt < 0)
                     return Brushes.Red;
+                else
+                    return Brushes.Black;
             }
 
-            // Find appropriate color
+            // If this converter is used anywhere else return lighter colors
             if (debt > 0)
                 return Brushes.LightGreen;
             else if (debt < 0)

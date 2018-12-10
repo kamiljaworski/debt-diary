@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using System;
-using System.Globalization;
 
 namespace DebtDiary.Tests.ValueConverters
 {
