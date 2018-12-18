@@ -11,6 +11,10 @@ namespace DebtDiary
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            // Check if value is FormMessage enum
+            if (!(value is FormMessage))
+                return Visibility.Hidden;
+
             // If there is no form message hide element
             if ((FormMessage)value == FormMessage.None)
                 return Visibility.Hidden;
