@@ -62,6 +62,7 @@
     <Compile Include="ValueConverters\FormMessageToBooleanConverterTest.cs" />
     <Compile Include="ValueConverters\FormMessageToStringConverterTest.cs" />
     <Compile Include="ValueConverters\FormMessageToVisibilityConverterTest.cs" />
+    <Compile Include="ValueConverters\GenderStringsConverterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

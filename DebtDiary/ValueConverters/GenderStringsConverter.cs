@@ -16,7 +16,7 @@ namespace DebtDiary
             if (value == null || !(value is Gender))
                 return string.Empty;
 
-            if (parameter == null || !(parameter is string))
+            if (parameter == null || !(parameter is string) || string.IsNullOrEmpty(parameter as string))
                 return string.Empty;
 
             // Gender dependent string have to be named: "xxxFemale" and "xxxMale"
@@ -27,9 +27,9 @@ namespace DebtDiary
                 ResourceManager strings = new ResourceManager("DebtDiary.Localization.Strings", Assembly.GetExecutingAssembly());
 
                 if (gender == Gender.Female)
-                    return strings.GetString(stringName.ToString() + "Female");
+                    return strings.GetString(stringName.ToString() + "Female") ?? string.Empty;
                 else
-                    return strings.GetString(stringName.ToString() + "Male");
+                    return strings.GetString(stringName.ToString() + "Male") ?? string.Empty;
             }
             catch (Exception)
             {
