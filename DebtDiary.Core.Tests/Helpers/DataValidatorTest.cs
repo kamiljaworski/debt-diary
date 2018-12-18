@@ -73,6 +73,7 @@ namespace DebtDiary.Core.Tests
         [TestCase("lend 10", true)]
         [TestCase("lend 10,50 $", true)]
         [TestCase("lend 10.50 $", true)]
+        [TestCase("10$ loan - for sth", true)]
         [TestCase("asdasd", true)]
         [TestCase("%#@#%", false)]
         [TestCase(null, false)]

@@ -12,7 +12,7 @@ namespace DebtDiary.Core
         public static bool IsNameCorrect(string name) => IsMatch(name, @"^[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ ]{2,}$");
         public static bool IsUsernameCorrect(string username) => IsMatch(username, @"^[A-Za-z0-9_-]{2,}$");
         public static bool IsDecimalNumberCorrect(string number) => IsMatch(number, @"^[+-]?\d{1,18}(\.\d{1,2})?$");
-        public static bool IsOperationDescriptionCorrect(string description) => IsMatch(description, @"^[0-9A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ,.%$ ]{2,}$");
+        public static bool IsOperationDescriptionCorrect(string description) => IsMatch(description, @"^[0-9A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ,.%$ -]{2,}$");
 
         private static bool IsMatch(string input, string pattern)
         {
