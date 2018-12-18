@@ -58,6 +58,7 @@
     <Compile Include="ValueConverters\DebtorsIdToBooleanConverterTest.cs" />
     <Compile Include="ValueConverters\DecimalToBrushConverterTest.cs" />
     <Compile Include="ValueConverters\DialogMessageToBrushConverterTest.cs" />
+    <Compile Include="ValueConverters\DialogMessageToStringConverterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
