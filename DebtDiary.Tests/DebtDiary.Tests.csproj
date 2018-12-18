@@ -60,6 +60,7 @@
     <Compile Include="ValueConverters\DialogMessageToBrushConverterTest.cs" />
     <Compile Include="ValueConverters\DialogMessageToStringConverterTest.cs" />
     <Compile Include="ValueConverters\FormMessageToBooleanConverterTest.cs" />
+    <Compile Include="ValueConverters\FormMessageToStringConverterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
