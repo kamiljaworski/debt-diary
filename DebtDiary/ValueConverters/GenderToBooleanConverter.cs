@@ -8,7 +8,7 @@ namespace DebtDiary
     /// Converts <see cref="Gender"/> to <see cref="Boolean"/> and <see cref="Boolean"/> to <see cref="Gender"/> back
     /// using ConverterParameter for xaml two-way RadioButton binding
     /// </summary>
-    public class GenderToBolleanConverter : BaseValueConverter<GenderToBolleanConverter>
+    public class GenderToBooleanConverter : BaseValueConverter<GenderToBooleanConverter>
     {
         /// <summary>
         /// Converts <see cref="Gender"/> to <see cref="Boolean"/>

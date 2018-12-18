@@ -112,10 +112,10 @@
                     <StackPanel Grid.Column="1">
                         <StackPanel Orientation="Horizontal" Margin="25 20 0 0">
                             <RadioButton Content="{x:Static localization:Strings.Male}" 
-                             IsChecked="{Binding Gender, Converter={local:GenderToBolleanConverter}, ConverterParameter='Male'}"
+                             IsChecked="{Binding Gender, Converter={local:GenderToBooleanConverter}, ConverterParameter='Male'}"
                              local:FormMessageProperty.Value="{Binding GenderMessage}"/>
                             <RadioButton Content="{x:Static localization:Strings.Female}" Margin="10 0 0 0"
-                             IsChecked="{Binding Gender, Converter={local:GenderToBolleanConverter}, ConverterParameter='Female'}"
+                             IsChecked="{Binding Gender, Converter={local:GenderToBooleanConverter}, ConverterParameter='Female'}"
                              local:FormMessageProperty.Value="{Binding GenderMessage}"/>
                         </StackPanel>
 
