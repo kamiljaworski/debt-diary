@@ -59,6 +59,7 @@
     <Compile Include="ValueConverters\DecimalToBrushConverterTest.cs" />
     <Compile Include="ValueConverters\DialogMessageToBrushConverterTest.cs" />
     <Compile Include="ValueConverters\DialogMessageToStringConverterTest.cs" />
+    <Compile Include="ValueConverters\FormMessageToBooleanConverterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

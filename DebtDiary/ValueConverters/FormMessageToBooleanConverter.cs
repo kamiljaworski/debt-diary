@@ -10,6 +10,10 @@ namespace DebtDiary
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            // Check if value is a FormMessage enum
+            if (!(value is FormMessage))
+                return false;
+
             // If there is no form message return false
             if ((FormMessage)value == FormMessage.None)
                 return false;
