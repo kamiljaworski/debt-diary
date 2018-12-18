@@ -16,6 +16,10 @@ namespace DebtDiary
         /// <returns><see cref="Boolean"/></returns>
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            // Check if value is a Gender enum
+            if (value == null || !(value is Gender))
+                return false;
+
             // Check if ConverterParameter is set
             if (!(parameter is string))
                 return false;
@@ -25,9 +29,7 @@ namespace DebtDiary
             Gender gender = (Gender)value;
 
             // Check if converter parameter is the same as value
-            if (converterParameter == "Male" && gender == Gender.Male)
-                return true;
-            else if (converterParameter == "Female" && gender == Gender.Female)
+            if (gender != Gender.None && gender.ToString() == converterParameter)
                 return true;
 
             // If not return false
@@ -40,22 +42,26 @@ namespace DebtDiary
         /// <returns><see cref="Gender"/></returns>
         public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            // Check if value is a Boolean
+            if (value == null || !(value is bool))
+                return Gender.None;
+
             // Check if ConverterParameter is set
             if (!(parameter is string))
-                return false;
+                return Gender.None;
 
             // Set local variables
             string converterParameter = parameter as string;
-            bool isSet = (bool)value;
+            bool isSelected = (bool)value;
 
             // Check if converter parameter is correct and if this gender is set
-            if (converterParameter == "Male" && isSet)
+            if (converterParameter == "Male" && isSelected)
                 return Gender.Male;
-            else if (converterParameter == "Female" && isSet)
+            else if (converterParameter == "Female" && isSelected)
                 return Gender.Female;
 
             // If not return null
-            return null;
+            return Gender.None;
         }
     }
 }
