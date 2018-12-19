@@ -5,7 +5,7 @@ using System.Windows;
 namespace DebtDiary.Tests.ValueConverters
 {
     [TestFixture]
-    public class OpacityToBolleanConverterTest
+    public class OpacityToBooleanConverterTest
     {
         [TestCase(1.0, true)]
         [TestCase(0.900001, true)]
@@ -15,7 +15,7 @@ namespace DebtDiary.Tests.ValueConverters
         [TestCase(null, false)]
         public void TestConvert(object value, bool expectedResult)
         {
-            OpacityToBolleanConverter converter = new OpacityToBolleanConverter();
+            OpacityToBooleanConverter converter = new OpacityToBooleanConverter();
             bool result = (bool)converter.Convert(value, null, null, null);
 
             Assert.AreEqual(expectedResult, result);
@@ -24,7 +24,7 @@ namespace DebtDiary.Tests.ValueConverters
         [Test]
         public void TestConvertBack()
         {
-            OpacityToBolleanConverter converter = new OpacityToBolleanConverter();
+            OpacityToBooleanConverter converter = new OpacityToBooleanConverter();
 
             Assert.Throws<NotImplementedException>(() => converter.ConvertBack(null, null, null, null));
         }

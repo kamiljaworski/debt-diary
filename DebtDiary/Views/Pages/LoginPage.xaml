@@ -59,7 +59,7 @@
                 <TextBlock Text="{x:Static localization:Strings.LoginPageSubtitle}" Style="{StaticResource PageSubtitle}"/>
                 <!-- Create Account Button -->
                 <Button x:Name="CreateAccountButton" Content="{x:Static localization:Strings.CreateAccount}" 
-                        IsEnabled="{Binding Opacity, ElementName=MainGrid, Converter={local:OpacityToBolleanConverter}}" 
+                        IsEnabled="{Binding Opacity, ElementName=MainGrid, Converter={local:OpacityToBooleanConverter}}" 
                         Command="{Binding CreateAccountCommand}" Margin="0 10" HorizontalAlignment="Center" />
             </StackPanel>
         </Grid>
