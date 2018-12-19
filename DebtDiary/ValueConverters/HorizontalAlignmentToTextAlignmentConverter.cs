@@ -11,6 +11,10 @@ namespace DebtDiary
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            // Check if value is a HorizontalAlignment enum
+            if(!(value is HorizontalAlignment))
+                return TextAlignment.Center;
+
             // Return equivalent of HorizontalAlignment in TextAlignment
             switch ((HorizontalAlignment)value)
             {
@@ -27,7 +31,7 @@ namespace DebtDiary
                     return TextAlignment.Justify;
 
                 default:
-                    return null;
+                    return TextAlignment.Center;
             }
         }
 
