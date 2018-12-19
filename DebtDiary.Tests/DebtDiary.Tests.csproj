@@ -68,6 +68,7 @@
     <Compile Include="ValueConverters\HorizontalAlignmentToTextAlignmentConverterTest.cs" />
     <Compile Include="ValueConverters\OpacityToBooleanConverterTest.cs" />
     <Compile Include="ValueConverters\OperationTypeToBooleanConverterTest.cs" />
+    <Compile Include="ValueConverters\StatisticPanelMessageToBrushConverterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

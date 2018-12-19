@@ -14,10 +14,10 @@ namespace DebtDiary
         {
             // Check if values are correct
             if (values == null || values.Count() < 2)
-                return Brushes.Green;
+                return Color.FromRgb(0, 128, 0);
 
             if (!(values[0] is StatisticPanelMessage))
-                return Brushes.Green;
+                return Color.FromRgb(0, 128, 0);
 
             StatisticPanelMessage message = (StatisticPanelMessage)values[0];
             string panelValue = values[1] is string ? (string)values[1] : null;
@@ -44,8 +44,7 @@ namespace DebtDiary
                     return Color.FromRgb(255, 152, 0);
             }
 
-            // If there wasn't returned any color return green one
-            return Brushes.Green;
+            return Color.FromRgb(0, 128, 0);
         }
 
         public override object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture) => throw new NotImplementedException();
