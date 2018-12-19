@@ -66,6 +66,7 @@
     <Compile Include="ValueConverters\GenderStringsConverterTest.cs" />
     <Compile Include="ValueConverters\GenderToBooleanConverterTest.cs" />
     <Compile Include="ValueConverters\HorizontalAlignmentToTextAlignmentConverterTest.cs" />
+    <Compile Include="ValueConverters\OpacityToBolleanConverterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
