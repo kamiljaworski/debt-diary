@@ -12,22 +12,19 @@ namespace DebtDiary
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            // Check if ConverterParameter is set
+            // Check if value is a OperationType enum
+            if (!(value is OperationType))
+                return false;
+
+            // Check if paramater is a string
             if (!(parameter is string))
                 return false;
 
-            // Set local variables
-            string converterParameter = parameter as string;
+            string param = parameter as string;
             OperationType operationType = (OperationType)value;
 
-            // Check if converter parameter is the same as value
-            if (converterParameter == "DebtorsLoan" && operationType == OperationType.DebtorsLoan)
-                return true;
-            else if (converterParameter == "UsersLoan" && operationType == OperationType.UsersLoan)
-                return true;
-            else if (converterParameter == "DebtorsRepayment" && operationType == OperationType.DebtorsRepayment)
-                return true;
-            else if (converterParameter == "UsersRepayment" && operationType == OperationType.UsersRepayment)
+            // Return true is operation type is the same as parameter
+            if (operationType.ToString() == param)
                 return true;
 
             // If not return false
@@ -36,23 +33,36 @@ namespace DebtDiary
 
         public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            // Check if ConverterParameter is set
+            // Check if value is a boolean
+            if (!(value is bool))
+                return null;
+
+            // Check if paramater is a string
             if (!(parameter is string))
-                return false;
+                return null;
 
             // Set local variables
             string converterParameter = parameter as string;
             bool isSet = (bool)value;
-
+            
             // Check if converter parameter is correct and if this gender is set
-            if (converterParameter == "DebtorsLoan" && isSet)
-                return OperationType.DebtorsLoan;
-            else if (converterParameter == "UsersLoan" && isSet)
-                return OperationType.UsersLoan;
-            else if (converterParameter == "DebtorsRepayment" && isSet)
-                return OperationType.DebtorsRepayment;
-            else if (converterParameter == "UsersRepayment" && isSet)
-                return OperationType.UsersRepayment;
+            if(isSet)
+            {
+                switch (converterParameter)
+                {
+                    case "DebtorsLoan":
+                        return OperationType.DebtorsLoan;
+                    case "UsersLoan":
+                        return OperationType.UsersLoan;
+                    case "DebtorsRepayment":
+                        return OperationType.DebtorsRepayment;
+                    case "UsersRepayment":
+                        return OperationType.UsersRepayment;
+                    default:
+                        return null;
+
+                }
+            }
 
             // If not return null
             return null;
