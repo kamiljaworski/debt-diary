@@ -29,31 +29,27 @@ namespace DebtDiary.Tests.ValueConverters
         [TestCase(StatisticPanelMessage.DebtMale, "100", "", "Jest ci winny")]
         [TestCase(StatisticPanelMessage.DebtMale, "100", null, "Jest ci winny")]
         [TestCase(null, null, null, "")]
-        public void TestConvertWithPolishLanguageAndArrayOfThreeObjects(object value1, object value2, object value3, string hexColor)
+        public void TestConvertWithPolishLanguageAndArrayOfThreeObjects(object value1, object value2, object value3, string expectedResult)
         {
             CultureInfo.CurrentCulture = new CultureInfo("pl-PL", false);
             CultureInfo.CurrentUICulture = new CultureInfo("pl-PL", false);
             StatisticPanelMessageToStringConverter converter = new StatisticPanelMessageToStringConverter();
             var result = (string)converter.Convert(new object[] { value1, value2, value3 }, null, null, null);
 
-            Assert.AreEqual(hexColor, result.ToString());
+            Assert.AreEqual(expectedResult, result.ToString());
         }
 
-        [TestCase(StatisticPanelMessage.DebtFemale, "")]
-        [TestCase("DebtFemale", "")]
-        [TestCase("asd", "")]
-        [TestCase("", "")]
         [TestCase(null, "")]
         [TestCase(new object[] { StatisticPanelMessage.DebtFemale, "-100" }, "")]
         [TestCase(new object[] { StatisticPanelMessage.DebtFemale }, "")]
-        public void TestConvertWithPolishLanguageAndOnlyOneObject(object[] value, string hexColor)
+        public void TestConvertWithPolishLanguageAndInvalidArray(object[] value, string expectedResult)
         {
             CultureInfo.CurrentCulture = new CultureInfo("pl-PL", false);
             CultureInfo.CurrentUICulture = new CultureInfo("pl-PL", false);
             StatisticPanelMessageToStringConverter converter = new StatisticPanelMessageToStringConverter();
             var result = (string)converter.Convert(value, null, null, null);
 
-            Assert.AreEqual(hexColor, result.ToString());
+            Assert.AreEqual(expectedResult, result.ToString());
         }
 
         [Test]
