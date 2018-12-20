@@ -74,6 +74,7 @@
     <Compile Include="ValueConverters\TextToBooleanConverterTest.cs" />
     <Compile Include="ValueConverters\TextToVisibilityConverterTest.cs" />
     <Compile Include="ValueConverters\TimeSpanToDurationConverterTest.cs" />
+    <Compile Include="ValueConverters\VisibilityToBooleanConverterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
