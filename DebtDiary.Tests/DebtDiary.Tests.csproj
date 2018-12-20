@@ -72,6 +72,7 @@
     <Compile Include="ValueConverters\StatisticPanelMessageToStringConverterTest.cs" />
     <Compile Include="ValueConverters\StatisticPanelMessageValueConverterTest.cs" />
     <Compile Include="ValueConverters\TextToBooleanConverterTest.cs" />
+    <Compile Include="ValueConverters\TextToVisibilityConverterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
