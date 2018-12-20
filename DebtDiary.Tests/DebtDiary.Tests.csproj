@@ -73,6 +73,7 @@
     <Compile Include="ValueConverters\StatisticPanelMessageValueConverterTest.cs" />
     <Compile Include="ValueConverters\TextToBooleanConverterTest.cs" />
     <Compile Include="ValueConverters\TextToVisibilityConverterTest.cs" />
+    <Compile Include="ValueConverters\TimeSpanToDurationConverterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -16,7 +16,7 @@ namespace DebtDiary
                 return new Duration((TimeSpan)value);
 
             // If it is not a TimeSpan return null
-            return null;
+            return new Duration(TimeSpan.Zero);
         }
 
         public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => throw new NotImplementedException();
