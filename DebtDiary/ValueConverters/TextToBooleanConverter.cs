@@ -4,14 +4,14 @@ using System.Globalization;
 namespace DebtDiary
 {
     /// <summary>
-    /// Converts <see cref="String"/> from a TextBox to <see cref="Boolean"/>
+    /// Converts <see cref="string"/> from a TextBox to <see cref="bool"/>
     /// </summary>
     public class TextToBooleanConverter : BaseValueConverter<TextToBooleanConverter>
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             // If string is null or empty return false
-            if (value is String && String.IsNullOrEmpty((value as String)))
+            if (string.IsNullOrEmpty(value as string))
                 return false;
 
             // If not return true
