@@ -69,6 +69,7 @@
     <Compile Include="ValueConverters\OpacityToBooleanConverterTest.cs" />
     <Compile Include="ValueConverters\OperationTypeToBooleanConverterTest.cs" />
     <Compile Include="ValueConverters\StatisticPanelMessageToBrushConverterTest.cs" />
+    <Compile Include="ValueConverters\StatisticPanelMessageToStringConverterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
