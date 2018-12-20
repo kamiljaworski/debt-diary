@@ -1,9 +1,6 @@
-﻿using DebtDiary.Core;
-using System;
+﻿using System;
 using System.Globalization;
 using System.Linq;
-using System.Reflection;
-using System.Resources;
 
 namespace DebtDiary
 {
@@ -19,6 +16,9 @@ namespace DebtDiary
                 return string.Empty;
 
             if (!(values[0] is StatisticPanelMessage))
+                return string.Empty;
+
+            if (values[1] == null)
                 return string.Empty;
 
             // Get values
