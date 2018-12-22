@@ -51,30 +51,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValueConverters\ApplicationSubpageToBooleanConverterTest.cs" />
-    <Compile Include="ValueConverters\BooleanToDoubleConverterTest.cs" />
-    <Compile Include="ValueConverters\BooleanToVisibilityConverterTest.cs" />
-    <Compile Include="ValueConverters\ColorToBrushConverterTest.cs" />
-    <Compile Include="ValueConverters\ColorToStringConverterTest.cs" />
-    <Compile Include="ValueConverters\DebtorsIdToBooleanConverterTest.cs" />
-    <Compile Include="ValueConverters\DecimalToBrushConverterTest.cs" />
-    <Compile Include="ValueConverters\DialogMessageToBrushConverterTest.cs" />
-    <Compile Include="ValueConverters\DialogMessageToStringConverterTest.cs" />
-    <Compile Include="ValueConverters\FormMessageToBooleanConverterTest.cs" />
-    <Compile Include="ValueConverters\FormMessageToStringConverterTest.cs" />
-    <Compile Include="ValueConverters\FormMessageToVisibilityConverterTest.cs" />
-    <Compile Include="ValueConverters\GenderStringsConverterTest.cs" />
-    <Compile Include="ValueConverters\GenderToBooleanConverterTest.cs" />
-    <Compile Include="ValueConverters\HorizontalAlignmentToTextAlignmentConverterTest.cs" />
-    <Compile Include="ValueConverters\OpacityToBooleanConverterTest.cs" />
-    <Compile Include="ValueConverters\OperationTypeToBooleanConverterTest.cs" />
-    <Compile Include="ValueConverters\StatisticPanelMessageToBrushConverterTest.cs" />
-    <Compile Include="ValueConverters\StatisticPanelMessageToStringConverterTest.cs" />
-    <Compile Include="ValueConverters\StatisticPanelMessageValueConverterTest.cs" />
-    <Compile Include="ValueConverters\TextToBooleanConverterTest.cs" />
-    <Compile Include="ValueConverters\TextToVisibilityConverterTest.cs" />
-    <Compile Include="ValueConverters\TimeSpanToDurationConverterTest.cs" />
-    <Compile Include="ValueConverters\VisibilityToBooleanConverterTest.cs" />
+    <Compile Include="ValueConverters\ApplicationSubpageToBooleanConverterTests.cs" />
+    <Compile Include="ValueConverters\BooleanToDoubleConverterTests.cs" />
+    <Compile Include="ValueConverters\BooleanToVisibilityConverterTests.cs" />
+    <Compile Include="ValueConverters\ColorToBrushConverterTests.cs" />
+    <Compile Include="ValueConverters\ColorToStringConverterTests.cs" />
+    <Compile Include="ValueConverters\DebtorsIdToBooleanConverterTests.cs" />
+    <Compile Include="ValueConverters\DecimalToBrushConverterTests.cs" />
+    <Compile Include="ValueConverters\DialogMessageToBrushConverterTests.cs" />
+    <Compile Include="ValueConverters\DialogMessageToStringConverterTests.cs" />
+    <Compile Include="ValueConverters\FormMessageToBooleanConverterTests.cs" />
+    <Compile Include="ValueConverters\FormMessageToStringConverterTests.cs" />
+    <Compile Include="ValueConverters\FormMessageToVisibilityConverterTests.cs" />
+    <Compile Include="ValueConverters\GenderStringsConverterTests.cs" />
+    <Compile Include="ValueConverters\GenderToBooleanConverterTests.cs" />
+    <Compile Include="ValueConverters\HorizontalAlignmentToTextAlignmentConverterTests.cs" />
+    <Compile Include="ValueConverters\OpacityToBooleanConverterTests.cs" />
+    <Compile Include="ValueConverters\OperationTypeToBooleanConverterTests.cs" />
+    <Compile Include="ValueConverters\StatisticPanelMessageToBrushConverterTests.cs" />
+    <Compile Include="ValueConverters\StatisticPanelMessageToStringConverterTests.cs" />
+    <Compile Include="ValueConverters\StatisticPanelMessageValueConverterTests.cs" />
+    <Compile Include="ValueConverters\TextToBooleanConverterTests.cs" />
+    <Compile Include="ValueConverters\TextToVisibilityConverterTests.cs" />
+    <Compile Include="ValueConverters\TimeSpanToDurationConverterTests.cs" />
+    <Compile Include="ValueConverters\VisibilityToBooleanConverterTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
