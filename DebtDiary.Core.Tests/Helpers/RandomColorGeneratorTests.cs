@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DebtDiary.Core.Tests
 {
@@ -9,10 +10,12 @@ namespace DebtDiary.Core.Tests
         [Test]
         public void TestGetRandomColor()
         {
-            Color firstColor = RandomColorGenerator.GetRandomColor();
-            Color secondColor = RandomColorGenerator.GetRandomColor();
+            IList<Color> randomColors = new List<Color>();
 
-            Assert.AreNotEqual(firstColor, secondColor);
+            for (int i = 0; i < 1000; ++i)
+                randomColors.Add(RandomColorGenerator.GetRandomColor());
+
+            Assert.That(randomColors.Select(x => x != randomColors[0]).Count() > 0);
         }
 
         [Test]
