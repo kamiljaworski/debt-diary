@@ -2,13 +2,9 @@
 
 namespace DebtDiary
 {
-    /// <summary>
-    /// Dialog Window View Model
-    /// </summary>
     public class DialogWindowViewModel : MainWindowViewModel
     {
-
-        public DialogMessage DialogMessage { get; private set; }
+        public DialogMessage DialogMessage { get; private set; } = DialogMessage.None;
 
         public DialogWindowViewModel(Window window, IDialogFacade dialogFacade) : base(window)
         {

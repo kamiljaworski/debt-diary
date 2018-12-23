@@ -90,6 +90,7 @@
     <Compile Include="ValueConverters\TimeSpanToDurationConverterTests.cs" />
     <Compile Include="ValueConverters\VisibilityToBooleanConverterTests.cs" />
     <Compile Include="ViewModels\ApplicationViewModelTests.cs" />
+    <Compile Include="ViewModels\RelayCommandTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -22,7 +22,13 @@ namespace DebtDiary.Core
         /// Default Constructor
         /// </summary>
         /// <param name="action">Action to run</param>
-        public RelayCommand(Action action) => _action = action;
+        public RelayCommand(Action action)
+        {
+            if (action == null)
+                throw new ArgumentNullException();
+
+            _action = action;
+        }
         #endregion
 
         #region ICommand Public EventHandler
