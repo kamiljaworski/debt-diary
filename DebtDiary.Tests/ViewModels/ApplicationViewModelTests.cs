@@ -6,7 +6,10 @@ namespace DebtDiary.Tests.ViewModels
     [TestFixture]
     public class ApplicationViewModelTests
     {
-        private ApplicationViewModel _applicationViewModel = new ApplicationViewModel();
+        private ApplicationViewModel _applicationViewModel = null;
+
+        [SetUp]
+        public void Setup() => _applicationViewModel = new ApplicationViewModel();
 
         [Test]
         public async Task TestChangeCurrentPageAsync()
