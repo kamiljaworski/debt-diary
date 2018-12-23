@@ -3,9 +3,6 @@ using System.Windows.Input;
 
 namespace DebtDiary.Core
 {
-    /// <summary>
-    /// Basic command that runs an action
-    /// </summary>
     public class RelayCommand : ICommand
     {
         #region Private Members

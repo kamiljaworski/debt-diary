@@ -3,9 +3,6 @@ using System.Windows.Input;
 
 namespace DebtDiary.Core
 {
-    /// <summary>
-    /// Basic command that runs an action
-    /// </summary>
     public class RelayParameterizedCommand : ICommand
     {
         #region Private Members
@@ -22,7 +19,13 @@ namespace DebtDiary.Core
         /// Default Constructor
         /// </summary>
         /// <param name="action">Action to run</param>
-        public RelayParameterizedCommand(Action<object> action) => _action = action;
+        public RelayParameterizedCommand(Action<object> action)
+        {
+            if (action == null)
+                throw new ArgumentNullException();
+
+            _action = action;
+        }
         #endregion
 
         #region ICommand Public EventHandler
