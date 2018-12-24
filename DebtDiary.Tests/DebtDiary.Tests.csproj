@@ -95,6 +95,7 @@
     <Compile Include="ViewModels\RelayCommandTests.cs" />
     <Compile Include="ViewModels\RelayParameterizedCommandTests.cs" />
     <Compile Include="ViewModels\ShortOperationsListViewModelTests.cs" />
+    <Compile Include="ViewModels\StatisticPanelViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

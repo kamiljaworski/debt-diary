@@ -1,4 +1,5 @@
 ﻿using DebtDiary.Core;
+using System;
 
 namespace DebtDiary
 {
@@ -10,6 +11,9 @@ namespace DebtDiary
 
         public StatisticPanelViewModel(StatisticPanelMessage message, string value, Gender usersGender = Gender.None)
         {
+            if (value == null)
+                throw new ArgumentNullException();
+
             Message = message;
             Value = value;
             UsersGender = usersGender;
