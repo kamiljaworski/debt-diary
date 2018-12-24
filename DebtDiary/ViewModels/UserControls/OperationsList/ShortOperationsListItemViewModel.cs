@@ -5,16 +5,13 @@ namespace DebtDiary
 {
     public class ShortOperationsListItemViewModel : BaseViewModel
     {
-        public decimal Value { get; set; }
+        public decimal Value { get; set; } = 0.0m;
         public string FormattedValue => FormattingHelpers.GetFormattedCurrency(Value);
-        public string Description { get; set; }
-        public DateTime OperationDate { get; set; }
+        public string Description { get; set; } = string.Empty;
+        public DateTime OperationDate { get; set; } = DateTime.Now.Date;
         public string FormattedOperationDate => OperationDate.ToShortDateString();
 
-
-        public ShortOperationsListItemViewModel()
-        {
-        }
+        public ShortOperationsListItemViewModel() { }
 
         public ShortOperationsListItemViewModel(Operation operation)
         {
