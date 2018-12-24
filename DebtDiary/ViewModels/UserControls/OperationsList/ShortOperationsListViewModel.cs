@@ -10,17 +10,13 @@ namespace DebtDiary
         public ObservableCollection<ShortOperationsListItemViewModel> Operations { get; set; } = new ObservableCollection<ShortOperationsListItemViewModel>();
         public bool IsAnyOperationAdded => Operations.Count > 0 ? true : false;
 
-        public ShortOperationsListViewModel()
-        {
-        }
+        public ShortOperationsListViewModel() { }
 
-        public ShortOperationsListViewModel(IList<Operation> operations)
+        public ShortOperationsListViewModel(IEnumerable<Operation> operations)
         {
-            foreach (Operation operation in operations)
-                Operations.Add(new ShortOperationsListItemViewModel(operation));
+            operations.ForEach(o => Operations.Add(new ShortOperationsListItemViewModel(o)));
 
             Operations = new ObservableCollection<ShortOperationsListItemViewModel>(Operations.OrderByDescending(x => x.OperationDate));
         }
-
     }
 }
