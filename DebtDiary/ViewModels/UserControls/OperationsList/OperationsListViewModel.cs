@@ -10,9 +10,7 @@ namespace DebtDiary
         public ObservableCollection<OperationsListItemViewModel> Operations { get; set; } = new ObservableCollection<OperationsListItemViewModel>();
         public bool IsAnyOperationAdded => Operations.Count > 0 ? true : false;
 
-        public OperationsListViewModel()
-        {
-        }
+        public OperationsListViewModel() { }
 
         public OperationsListViewModel(IEnumerable<Operation> operations)
         {
