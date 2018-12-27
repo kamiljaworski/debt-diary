@@ -7,7 +7,7 @@ namespace DebtDiary
     {
         public static DebtorsListDesignModel Instance => new DebtorsListDesignModel();
 
-        public DebtorsListDesignModel() : base(true)
+        public DebtorsListDesignModel() : base()
         {
             Debtors = new ObservableCollection<DebtorsListItemViewModel>
             {

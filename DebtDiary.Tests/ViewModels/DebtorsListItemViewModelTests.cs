@@ -7,15 +7,15 @@ namespace DebtDiary.Tests.ViewModels
     [TestFixture]
     public class DebtorsListItemViewModelTests
     {
-        Debtor debtor = null;
+        private Debtor debtor = null;
 
         // Mocks
-        Mock<IApplicationViewModel> _mockApplicationVM = null;
-        Mock<IDebtorsListViewModel> _mockDebtorsListVM = null;
+        private Mock<IApplicationViewModel> _mockApplicationVM = null;
+        private Mock<IDebtorsListViewModel> _mockDebtorsListVM = null;
 
         // Stubs
-        Mock<IApplicationViewModel> _stubApplicationVM = null;
-        Mock<IDebtorsListViewModel> _stubDebtorsListVM = null;
+        private Mock<IApplicationViewModel> _stubApplicationVM = null;
+        private Mock<IDebtorsListViewModel> _stubDebtorsListVM = null;
 
         [SetUp]
         public void Setup()
