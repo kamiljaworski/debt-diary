@@ -7,8 +7,8 @@ namespace DebtDiary
 {
     public class DebtorsListViewModel : BaseViewModel, IDebtorsListViewModel
     {
-        private IApplicationViewModel _applicationViewModel;
-        private IClientDataStore _clientDataStore;
+        private readonly IApplicationViewModel _applicationViewModel;
+        private readonly IClientDataStore _clientDataStore;
         private SortType _sortType = SortType.Descending;
 
         public IList<DebtorsListItemViewModel> Debtors { get; set; } = new ObservableCollection<DebtorsListItemViewModel>();

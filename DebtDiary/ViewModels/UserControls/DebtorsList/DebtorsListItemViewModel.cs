@@ -6,8 +6,8 @@ namespace DebtDiary
     public class DebtorsListItemViewModel : BaseViewModel
     {
         #region Private members
-        private IApplicationViewModel _applicationViewModel;
-        private IDebtorsListViewModel _debtorsListViewModel;
+        private readonly IApplicationViewModel _applicationViewModel;
+        private readonly IDebtorsListViewModel _debtorsListViewModel;
         private Debtor _debtor;
         #endregion
 

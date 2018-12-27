@@ -13,13 +13,13 @@ namespace DebtDiary
         {
             // Check if values are correct
             if (values == null || values.Count() < 2)
-                return string.Empty;
+                return null;
 
             if (!(values[0] is StatisticPanelMessage))
-                return string.Empty;
+                return null;
 
             if (values[1] == null)
-                return string.Empty;
+                return null;
 
             // Get values
             StatisticPanelMessage message = (StatisticPanelMessage)values[0];
