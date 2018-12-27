@@ -1,8 +1,4 @@
 ﻿using DebtDiary.Core;
-using System;
-using System.Globalization;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace DebtDiary
@@ -14,13 +10,13 @@ namespace DebtDiary
         private IDebtorsListViewModel _debtorsListViewModel;
         private Debtor _debtor;
 
-        private bool isInDesignTime = false;
+        private bool isInDesignMode = false;
         #endregion
 
         public int Id { get; set; }
         public string FullName { get; set; }
         public string Initials { get; set; }
-        public decimal Debt { get; set; }
+        public decimal Debt { get; set; } = 0.0m;
         public Color AvatarColor { get; set; }
         public bool IsSelected { get; set; }
 
@@ -30,9 +26,6 @@ namespace DebtDiary
 
         private async void OpenDebtorSubpageAsync()
         {
-            if (isInDesignTime)
-                return;
-
             _applicationViewModel.SelectedDebtor = _debtor;
             _debtorsListViewModel.Update();
 
@@ -41,7 +34,7 @@ namespace DebtDiary
 
         public DebtorsListItemViewModel(Debtor debtor, IApplicationViewModel applicationViewModel, IDebtorsListViewModel debtorsListViewModel)
         {
-            isInDesignTime = false;
+            isInDesignMode = false;
             _debtor = debtor;
             _applicationViewModel = applicationViewModel;
             _debtorsListViewModel = debtorsListViewModel;
@@ -57,7 +50,9 @@ namespace DebtDiary
 
         public DebtorsListItemViewModel()
         {
-            isInDesignTime = true;
+            isInDesignMode = true;
+
+            OpenDebtorSubpage = new RelayCommand(() => { });
         }
     }
 }
