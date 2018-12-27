@@ -9,8 +9,6 @@ namespace DebtDiary
         private IApplicationViewModel _applicationViewModel;
         private IDebtorsListViewModel _debtorsListViewModel;
         private Debtor _debtor;
-
-        private bool isInDesignMode = false;
         #endregion
 
         public int Id { get; set; }
@@ -34,7 +32,6 @@ namespace DebtDiary
 
         public DebtorsListItemViewModel(Debtor debtor, IApplicationViewModel applicationViewModel, IDebtorsListViewModel debtorsListViewModel)
         {
-            isInDesignMode = false;
             _debtor = debtor;
             _applicationViewModel = applicationViewModel;
             _debtorsListViewModel = debtorsListViewModel;
@@ -50,8 +47,6 @@ namespace DebtDiary
 
         public DebtorsListItemViewModel()
         {
-            isInDesignMode = true;
-
             OpenDebtorSubpage = new RelayCommand(() => { });
         }
     }
