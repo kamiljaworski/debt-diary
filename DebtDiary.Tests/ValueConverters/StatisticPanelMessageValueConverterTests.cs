@@ -10,29 +10,29 @@ namespace DebtDiary.Tests.ValueConverters
         [TestCase(StatisticPanelMessage.DebtFemale, "-999.00", "999.00")]
         [TestCase(StatisticPanelMessage.DebtMale, "-99999999999.00", "99999999999.00")]
         [TestCase(StatisticPanelMessage.DebtMale, "99999999999.00", "99999999999.00")]
-        [TestCase(StatisticPanelMessage.DebtMale, "", "")]
-        [TestCase(StatisticPanelMessage.DebtMale, null, "")]
-        [TestCase("DebtMale", "", "")]
-        [TestCase("cz", "", "")]
-        [TestCase("", "", "")]
-        [TestCase(null, "", "")]
-        [TestCase(null, null, "")]
+        [TestCase(StatisticPanelMessage.DebtMale, "", null)]
+        [TestCase(StatisticPanelMessage.DebtMale, null, null)]
+        [TestCase("DebtMale", "", null)]
+        [TestCase("cz", "", null)]
+        [TestCase("", "", null)]
+        [TestCase(null, "", null)]
+        [TestCase(null, null, null)]
         public void TestConvertWithArrayOfTwoObjects(object value1, object value2, string expectedResult)
         {
             StatisticPanelMessageValueConverter converter = new StatisticPanelMessageValueConverter();
             var result = (string)converter.Convert(new object[] { value1, value2 }, null, null, null);
 
-            Assert.AreEqual(expectedResult, result.ToString());
+            Assert.AreEqual(expectedResult, result);
         }
 
-        [TestCase(null, "")]
-        [TestCase(new object[] { StatisticPanelMessage.DebtMale }, "")]
+        [TestCase(null, null)]
+        [TestCase(new object[] { StatisticPanelMessage.DebtMale }, null)]
         public void TestConvertWithInvalidArray(object[] values, string expectedResult)
         {
             StatisticPanelMessageValueConverter converter = new StatisticPanelMessageValueConverter();
             var result = (string)converter.Convert(values, null, null, null);
 
-            Assert.AreEqual(expectedResult, result.ToString());
+            Assert.AreEqual(expectedResult, result);
         }
 
 

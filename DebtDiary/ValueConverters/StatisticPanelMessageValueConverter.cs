@@ -29,7 +29,7 @@ namespace DebtDiary
                 if (panelValue != null && panelValue.Length > 0 && panelValue[0] == '-')
                     return panelValue.Remove(0, 1);
 
-            return panelValue;
+            return panelValue == string.Empty ? null : panelValue;
         }
 
 

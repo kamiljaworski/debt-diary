@@ -18,12 +18,5 @@ namespace DebtDiary.Tests.ViewModels
 
             Assert.True(statisticPanel.Message == message && statisticPanel.Value == value && statisticPanel.UsersGender == gender);
         }
-
-        [Test]
-        public void TestPassingNullThroughConstructorThrowsExcepton()
-        {
-            Assert.Throws<ArgumentNullException>(() => new StatisticPanelViewModel(StatisticPanelMessage.DebtMale, null, Gender.Female));
-        }
-
     }
 }
