@@ -46,15 +46,15 @@ namespace DebtDiary
 
             UpdateUsersData();
 
-            SummaryCommand = new RelayCommand(() => ChangeSubpageAsync(ApplicationSubpage.SummarySubpage));
-            MyAccountCommand = new RelayCommand(() => ChangeSubpageAsync(ApplicationSubpage.MyAccountSubpage));
+            SummaryCommand = new RelayCommand(() => ResetSelectedDebtorAndChangeSubpageAsync(ApplicationSubpage.SummarySubpage));
+            MyAccountCommand = new RelayCommand(() => ResetSelectedDebtorAndChangeSubpageAsync(ApplicationSubpage.MyAccountSubpage));
             LogoutCommand = new RelayCommand(async () =>
             {
                 ResetSelectedDebtor();
                 _clientDataStore.LogoutUser();
                 await _applicationViewModel.ChangeCurrentPageAsync(ApplicationPage.LoginPage);
             });
-            AddDebtorCommand = new RelayCommand(() => ChangeSubpageAsync(ApplicationSubpage.AddDebtorSubpage));
+            AddDebtorCommand = new RelayCommand(() => ResetSelectedDebtorAndChangeSubpageAsync(ApplicationSubpage.AddDebtorSubpage));
             SortCommand = new RelayCommand(() =>
             {
                 SortType = SortType == SortType.Ascending ? SortType.Descending : SortType.Ascending;
@@ -90,7 +90,7 @@ namespace DebtDiary
 
         private void ResetSelectedDebtor() => _applicationViewModel.SelectedDebtor = null;
 
-        private async void ChangeSubpageAsync(ApplicationSubpage subpage)
+        private async void ResetSelectedDebtorAndChangeSubpageAsync(ApplicationSubpage subpage)
         {
             ResetSelectedDebtor();
             await _applicationViewModel.ChangeCurrentSubpageAsync(subpage);
