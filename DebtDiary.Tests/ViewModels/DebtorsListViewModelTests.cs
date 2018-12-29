@@ -9,17 +9,17 @@ namespace DebtDiary.Tests.ViewModels
     [TestFixture]
     public class DebtorsListViewModelTests
     {
-        // Stubs
-        private Mock<IClientDataStore> _stubClientDataStore = null;
-        private Mock<IApplicationViewModel> _stubApplicationViewModel = null;
-
         // Fake user
         private User _user = null;
 
         [Test]
-        public void TestConstructorCreatesListAllUsersDebtors()
+        public void TestConstructorCreatesListOfAllUsersDebtors()
         {
-            DebtorsListViewModel debtorsList = new DebtorsListViewModel(_stubApplicationViewModel.Object, _stubClientDataStore.Object);
+            Mock<IApplicationViewModel> stubApplicationViewModel = new Mock<IApplicationViewModel>();
+            Mock<IClientDataStore> stubClientDataStore = new Mock<IClientDataStore>();
+            stubClientDataStore.Setup(x => x.LoggedUser).Returns(_user);
+
+            DebtorsListViewModel debtorsList = new DebtorsListViewModel(stubApplicationViewModel.Object, stubClientDataStore.Object);
 
             Assert.True(debtorsList.IsAnyDebtorAdded == true && debtorsList.Debtors.Count == _user.Debtors.Count);
         }
@@ -27,7 +27,11 @@ namespace DebtDiary.Tests.ViewModels
         [Test]
         public void TestSortWithAscendingSortType()
         {
-            DebtorsListViewModel debtorsList = new DebtorsListViewModel(_stubApplicationViewModel.Object, _stubClientDataStore.Object);
+            Mock<IApplicationViewModel> stubApplicationViewModel = new Mock<IApplicationViewModel>();
+            Mock<IClientDataStore> stubClientDataStore = new Mock<IClientDataStore>();
+            stubClientDataStore.Setup(x => x.LoggedUser).Returns(_user);
+
+            DebtorsListViewModel debtorsList = new DebtorsListViewModel(stubApplicationViewModel.Object, stubClientDataStore.Object);
 
             debtorsList.Sort(SortType.Ascending);
 
@@ -37,7 +41,11 @@ namespace DebtDiary.Tests.ViewModels
         [Test]
         public void TestSortWithDescendingSortType()
         {
-            DebtorsListViewModel debtorsList = new DebtorsListViewModel(_stubApplicationViewModel.Object, _stubClientDataStore.Object);
+            Mock<IApplicationViewModel> stubApplicationViewModel = new Mock<IApplicationViewModel>();
+            Mock<IClientDataStore> stubClientDataStore = new Mock<IClientDataStore>();
+            stubClientDataStore.Setup(x => x.LoggedUser).Returns(_user);
+
+            DebtorsListViewModel debtorsList = new DebtorsListViewModel(stubApplicationViewModel.Object, stubClientDataStore.Object);
 
             debtorsList.Sort(SortType.Descending);
 
@@ -101,11 +109,6 @@ namespace DebtDiary.Tests.ViewModels
                     },
                 }
             };
-
-            _stubClientDataStore = new Mock<IClientDataStore>();
-            _stubApplicationViewModel = new Mock<IApplicationViewModel>();
-
-            _stubClientDataStore.Setup(x => x.LoggedUser).Returns(_user);
         }
     }
 }
