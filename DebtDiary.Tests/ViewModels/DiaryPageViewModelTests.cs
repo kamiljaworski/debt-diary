@@ -13,11 +13,10 @@ namespace DebtDiary.Tests.ViewModels
         private User _user = null;
 
         [Test]
-        public void TestLogoutResetSelectedDebtor()
+        public void TestLogoutCommandResetsSelectedDebtor()
         {
             Mock<IApplicationViewModel> mockClientDataStore = new Mock<IApplicationViewModel>();
             Mock<IClientDataStore> stubClientDataStore = new Mock<IClientDataStore>();
-
             DiaryPageViewModel diaryPageViewModel = new DiaryPageViewModel(mockClientDataStore.Object, stubClientDataStore.Object);
             mockClientDataStore.SetupProperty(x => x.SelectedDebtor);
             mockClientDataStore.Object.SelectedDebtor = _user.Debtors.First();
@@ -28,7 +27,7 @@ namespace DebtDiary.Tests.ViewModels
         }
 
         [Test]
-        public void TestLogoutLogTheUserOutInClientDataStore()
+        public void TestLogoutCommandLogsTheUserOutInClientDataStore()
         {
             Mock<IApplicationViewModel> stubApplicationViewModel = new Mock<IApplicationViewModel>();
             Mock<IClientDataStore> mockClientDataStore = new Mock<IClientDataStore>();
@@ -40,7 +39,7 @@ namespace DebtDiary.Tests.ViewModels
         }
 
         [Test]
-        public void TestLogoutChangeCurrentPageToLoginPageInApplicationViewModel()
+        public void TestLogoutCommandChangesCurrentPageToLoginPageInApplicationViewModel()
         {
             Mock<IApplicationViewModel> stubApplicationViewModel = new Mock<IApplicationViewModel>();
             Mock<IClientDataStore> stubClientDataStore = new Mock<IClientDataStore>();
@@ -53,11 +52,142 @@ namespace DebtDiary.Tests.ViewModels
             Assert.AreEqual(ApplicationPage.LoginPage, currentPage);
         }
 
-        // TODO: Add other tests to cover whole class
+        [Test]
+        public void TestSortCommandWithCurrentDescendingSortTypeSortsDebtorsListInAscendingSortType()
+        {
+            Mock<IApplicationViewModel> stubApplicationViewModel = new Mock<IApplicationViewModel>();
+            Mock<IClientDataStore> stubClientDataStore = new Mock<IClientDataStore>();
+            stubClientDataStore.Setup(x => x.LoggedUser).Returns(_user);
+            DiaryPageViewModel diaryPageViewModel = new DiaryPageViewModel(stubApplicationViewModel.Object, stubClientDataStore.Object);
+            diaryPageViewModel.SortType = SortType.Descending;
 
-        // Prepare fake user
+            diaryPageViewModel.SortCommand.Execute(null);
+
+            bool result = diaryPageViewModel.DebtorsList.Debtors.First().Debt <= diaryPageViewModel.DebtorsList.Debtors.Last().Debt;
+            Assert.True(result);
+        }
+
+        [Test]
+        public void TestSortCommandWithCurrentAscendingSortTypeSortsDebtorsListInDescendingSortType()
+        {
+            Mock<IApplicationViewModel> stubApplicationViewModel = new Mock<IApplicationViewModel>();
+            Mock<IClientDataStore> stubClientDataStore = new Mock<IClientDataStore>();
+            stubClientDataStore.Setup(x => x.LoggedUser).Returns(_user);
+            DiaryPageViewModel diaryPageViewModel = new DiaryPageViewModel(stubApplicationViewModel.Object, stubClientDataStore.Object);
+            diaryPageViewModel.SortType = SortType.Ascending;
+
+            diaryPageViewModel.SortCommand.Execute(null);
+
+            bool result = diaryPageViewModel.DebtorsList.Debtors.First().Debt >= diaryPageViewModel.DebtorsList.Debtors.Last().Debt;
+            Assert.True(result);
+        }
+
+        [Test]
+        public void TestSummaryCommandResetsSelectedDebtor()
+        {
+            Mock<IApplicationViewModel> mockApplicationViewModel = new Mock<IApplicationViewModel>();
+            Mock<IClientDataStore> stubClientDataStore = new Mock<IClientDataStore>();
+            mockApplicationViewModel.SetupProperty(x => x.SelectedDebtor);
+            mockApplicationViewModel.Object.SelectedDebtor = _user.Debtors.First();
+            DiaryPageViewModel diaryPageViewModel = new DiaryPageViewModel(mockApplicationViewModel.Object, stubClientDataStore.Object);
+
+            diaryPageViewModel.SummaryCommand.Execute(null);
+
+            bool result = mockApplicationViewModel.Object.SelectedDebtor == null;
+            Assert.True(result);
+        }
+
+        [Test]
+        public void TestSummaryCommandChangesCurrentApplicationSubpageToSummarySubpage()
+        {
+            Mock<IApplicationViewModel> mockApplicationViewModel = new Mock<IApplicationViewModel>();
+            Mock<IClientDataStore> stubClientDataStore = new Mock<IClientDataStore>();
+            DiaryPageViewModel diaryPageViewModel = new DiaryPageViewModel(mockApplicationViewModel.Object, stubClientDataStore.Object);
+
+            diaryPageViewModel.SummaryCommand.Execute(null);
+
+            mockApplicationViewModel.Verify(x => x.ChangeCurrentSubpageAsync(ApplicationSubpage.SummarySubpage), Times.Once());
+        }
+
+        [Test]
+        public void TestMyAccountCommandResetsSelectedDebtor()
+        {
+            Mock<IApplicationViewModel> mockApplicationViewModel = new Mock<IApplicationViewModel>();
+            Mock<IClientDataStore> stubClientDataStore = new Mock<IClientDataStore>();
+            mockApplicationViewModel.SetupProperty(x => x.SelectedDebtor);
+            mockApplicationViewModel.Object.SelectedDebtor = _user.Debtors.First();
+            DiaryPageViewModel diaryPageViewModel = new DiaryPageViewModel(mockApplicationViewModel.Object, stubClientDataStore.Object);
+
+            diaryPageViewModel.MyAccountCommand.Execute(null);
+
+            bool result = mockApplicationViewModel.Object.SelectedDebtor == null;
+            Assert.True(result);
+        }
+
+        [Test]
+        public void TestMyAccountCommandChangesCurrentApplicationSubpageToSummarySubpage()
+        {
+            Mock<IApplicationViewModel> mockApplicationViewModel = new Mock<IApplicationViewModel>();
+            Mock<IClientDataStore> stubClientDataStore = new Mock<IClientDataStore>();
+            DiaryPageViewModel diaryPageViewModel = new DiaryPageViewModel(mockApplicationViewModel.Object, stubClientDataStore.Object);
+
+            diaryPageViewModel.MyAccountCommand.Execute(null);
+
+            mockApplicationViewModel.Verify(x => x.ChangeCurrentSubpageAsync(ApplicationSubpage.MyAccountSubpage), Times.Once());
+        }
+
+        [Test]
+        public void TestAddDebtorCommandResetsSelectedDebtor()
+        {
+            Mock<IApplicationViewModel> mockApplicationViewModel = new Mock<IApplicationViewModel>();
+            Mock<IClientDataStore> stubClientDataStore = new Mock<IClientDataStore>();
+            mockApplicationViewModel.SetupProperty(x => x.SelectedDebtor);
+            mockApplicationViewModel.Object.SelectedDebtor = _user.Debtors.First();
+            DiaryPageViewModel diaryPageViewModel = new DiaryPageViewModel(mockApplicationViewModel.Object, stubClientDataStore.Object);
+
+            diaryPageViewModel.AddDebtorCommand.Execute(null);
+
+            bool result = mockApplicationViewModel.Object.SelectedDebtor == null;
+            Assert.True(result);
+        }
+
+        [Test]
+        public void TestAddDebtorCommandChangesCurrentApplicationSubpageToSummarySubpage()
+        {
+            Mock<IApplicationViewModel> mockApplicationViewModel = new Mock<IApplicationViewModel>();
+            Mock<IClientDataStore> stubClientDataStore = new Mock<IClientDataStore>();
+            DiaryPageViewModel diaryPageViewModel = new DiaryPageViewModel(mockApplicationViewModel.Object, stubClientDataStore.Object);
+
+            diaryPageViewModel.AddDebtorCommand.Execute(null);
+
+            mockApplicationViewModel.Verify(x => x.ChangeCurrentSubpageAsync(ApplicationSubpage.AddDebtorSubpage), Times.Once());
+        }
+
+        [Test]
+        public void TestUpdateDebtorsListCallsUpdateMethodInDebtorsListViewModel()
+        {
+            Mock<IApplicationViewModel> stubApplicationViewModel = new Mock<IApplicationViewModel>();
+            Mock<IClientDataStore> stubClientDataStore = new Mock<IClientDataStore>();
+            DiaryPageViewModel diaryPageViewModel = new DiaryPageViewModel(stubApplicationViewModel.Object, stubClientDataStore.Object);
+
+            stubClientDataStore.Setup(x => x.LoggedUser).Returns(_user);
+            diaryPageViewModel.UpdateDebtorsList();
+
+            bool result = diaryPageViewModel.DebtorsList.Debtors.Count == _user.Debtors.Count;
+            Assert.True(result);
+        }
+
+        [Test]
+        public void TestUpdateUsersDataDoesNotThrowExceptionMadeByParameterlessConstructor()
+        {
+            DiaryPageViewModel diaryPageViewModel = new DiaryPageViewModel();
+
+            Assert.DoesNotThrow(() => diaryPageViewModel.UpdateUsersData());
+        }
+
         public DiaryPageViewModelTests()
         {
+            // Prepare fake user
             _user = new User
             {
                 FirstName = "John",
