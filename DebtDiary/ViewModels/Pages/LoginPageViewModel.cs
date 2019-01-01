@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace DebtDiary
 {
-    class LoginPageViewModel : BaseViewModel, ILoadable
+    public class LoginPageViewModel : BaseViewModel, ILoadable
     {
         #region Private members
         private IApplicationViewModel _applicationViewModel;

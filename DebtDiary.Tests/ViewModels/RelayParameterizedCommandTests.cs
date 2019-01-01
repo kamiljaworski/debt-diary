@@ -15,9 +15,10 @@ namespace DebtDiary.Tests.ViewModels
         [TestCase("asdsad")]
         public void TestCanExecuteReturnsTrue(object parameter)
         {
-            var command = new RelayParameterizedCommand(x => { });
+            //var command = new RelayParameterizedCommand(x => { });
 
-            Assert.True(command.CanExecute(parameter));
+            // Assert.True(command.CanExecute(parameter));
+            Assert.True(false);
         }
 
         [Test]
@@ -25,9 +26,9 @@ namespace DebtDiary.Tests.ViewModels
         {
             int number = 10;
             int result = 0;
-            var command = new RelayParameterizedCommand(x => result = (int)x * (int)x);
+            //var command = new RelayParameterizedCommand(x => result = (int)x * (int)x);
 
-            command.Execute(number);
+            //command.Execute(number);
 
             Assert.True(result == 100);
         }

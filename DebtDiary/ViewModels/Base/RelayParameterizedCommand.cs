@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace DebtDiary.Core
@@ -10,7 +11,7 @@ namespace DebtDiary.Core
         /// <summary>
         /// Action that RelayParameterizedCommand have to run
         /// </summary>
-        private Action<object> _action = null;
+        private Func<object, Task> _action = null;
         #endregion
 
         #region Default Constructor
@@ -19,7 +20,7 @@ namespace DebtDiary.Core
         /// Default Constructor
         /// </summary>
         /// <param name="action">Action to run</param>
-        public RelayParameterizedCommand(Action<object> action)
+        public RelayParameterizedCommand(Func<object, Task> action)
         {
             if (action == null)
                 throw new ArgumentNullException();
@@ -41,15 +42,17 @@ namespace DebtDiary.Core
         /// <summary>
         /// RelayCommand can always be Executed
         /// </summary>
-        /// <param name="parameter"></param>
-        /// <returns></returns>
         public bool CanExecute(object parameter) => true;
 
         /// <summary>
         /// Executes a commands Action
         /// </summary>
-        /// <param name="parameter"></param>
         public void Execute(object parameter) => _action(parameter);
         #endregion
+
+        /// <summary>
+        /// Executes a command and await for the result
+        /// </summary>
+        public void ExecuteAndAwait(object parameter) => _action(parameter).GetAwaiter().GetResult();
     }
 }

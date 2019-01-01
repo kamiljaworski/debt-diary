@@ -93,6 +93,7 @@
     <Compile Include="ViewModels\DebtorsListItemViewModelTests.cs" />
     <Compile Include="ViewModels\DebtorsListViewModelTests.cs" />
     <Compile Include="ViewModels\DiaryPageViewModelTests.cs" />
+    <Compile Include="ViewModels\LoginPageViewModelTests.cs" />
     <Compile Include="ViewModels\OperationsListItemViewModelTests.cs" />
     <Compile Include="ViewModels\OperationsListViewModelTests.cs" />
     <Compile Include="ViewModels\RelayCommandTests.cs" />
@@ -107,6 +108,10 @@
     <ProjectReference Include="..\DebtDiary.Core\DebtDiary.Core.csproj">
       <Project>{40f992de-22da-4c15-ac76-8a4e2f435afc}</Project>
       <Name>DebtDiary.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DebtDiary.DataProvider\DebtDiary.DataProvider.csproj">
+      <Project>{5664F8B8-3866-4C42-8C21-B1A641028128}</Project>
+      <Name>DebtDiary.DataProvider</Name>
     </ProjectReference>
     <ProjectReference Include="..\DebtDiary\DebtDiary.csproj">
       <Project>{db9326ff-d1d1-4fbe-8161-549d8f43b887}</Project>
