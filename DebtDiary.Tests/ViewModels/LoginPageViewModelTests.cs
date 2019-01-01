@@ -190,16 +190,16 @@ namespace DebtDiary.Tests.ViewModels
         [Test]
         public void TestCreateAccountCommandChangesCurrentPageToRegisterPage()
         {
-            Mock<IApplicationViewModel> stubApplicationVM = new Mock<IApplicationViewModel>();
+            Mock<IApplicationViewModel> mockApplicationVM = new Mock<IApplicationViewModel>();
             Mock<IDiaryPageViewModel> stubDiaryPageVM = new Mock<IDiaryPageViewModel>();
             Mock<IDialogFacade> stubDialogFacadeVM = new Mock<IDialogFacade>();
             Mock<IClientDataStore> stubClientDataStore = new Mock<IClientDataStore>();
             Mock<IDataAccess> stubDataAccess = new Mock<IDataAccess>();
-            var loginPageVM = new LoginPageViewModel(stubApplicationVM.Object, stubDiaryPageVM.Object, stubDialogFacadeVM.Object, stubClientDataStore.Object, stubDataAccess.Object);
+            var loginPageVM = new LoginPageViewModel(mockApplicationVM.Object, stubDiaryPageVM.Object, stubDialogFacadeVM.Object, stubClientDataStore.Object, stubDataAccess.Object);
 
             loginPageVM.CreateAccountCommand.Execute(null);
 
-            stubApplicationVM.Verify(x => x.ChangeCurrentPageAsync(ApplicationPage.RegisterPage), Times.Once());
+            mockApplicationVM.Verify(x => x.ChangeCurrentPageAsync(ApplicationPage.RegisterPage), Times.Once());
         }
     }
 }
