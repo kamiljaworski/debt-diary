@@ -39,7 +39,7 @@ namespace DebtDiary
 
         #endregion
 
-        #region Default Constructor
+        #region Constructor
 
         public LoginPageViewModel(IApplicationViewModel applicationViewModel, IDiaryPageViewModel diaryPageViewModel, IDialogFacade dialogFacade, IClientDataStore clientDataStore, IDataAccess dataAccess)
         {
