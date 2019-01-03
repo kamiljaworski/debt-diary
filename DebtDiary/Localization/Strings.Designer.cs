@@ -484,6 +484,15 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Incorrect date.
+        /// </summary>
+        public static string IncorrectDate {
+            get {
+                return ResourceManager.GetString("IncorrectDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Incorrect description.
         /// </summary>
         public static string IncorrectDescription {
