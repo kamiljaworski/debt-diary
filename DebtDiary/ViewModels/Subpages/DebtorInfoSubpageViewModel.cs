@@ -289,7 +289,7 @@ namespace DebtDiary
                     RepaymentDescriptionMessage = FormMessage.EmptyDescription;
 
                 // Check if date is correct
-                if (RepaymentDate.Date > DateTime.Now.Date && RepaymentDate.Date < (DateTime.Now - TimeSpan.FromDays(365)).Date)
+                if (RepaymentDate.Date > DateTime.Now.Date || RepaymentDate.Date < (DateTime.Now - TimeSpan.FromDays(365)).Date)
                     RepaymentDateMessage = FormMessage.IncorrectDate;
 
                 // Check if repayment value is correct and try to convert it to decimal
