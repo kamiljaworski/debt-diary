@@ -9,8 +9,18 @@ namespace DebtDiary.Core
         /// <summary>
         /// Get chart points of aggregated operations grouped by every day started startDate
         /// </summary>
-        public static IEnumerable<decimal> GetChartPoints(this IList<Operation> operations, DateTime startDate)
+        public static IEnumerable<decimal> GetChartPoints(this IList<Operation> operations, DateTime startingDate)
         {
+            DateTime startDate = startingDate;
+
+            // Check if operations list have date earlier then starting date
+            if(operations != null && operations.Count > 0)
+            {
+                DateTime firstOperationDate = operations.OrderBy(x => x.AdditionDate).FirstOrDefault().AdditionDate;
+                if (firstOperationDate != null && firstOperationDate < startDate)
+                    startDate = firstOperationDate;
+            }
+
             // Make a list of all the points
             IList<KeyValuePair<DateTime, decimal>> points = new List<KeyValuePair<DateTime, decimal>>();
 

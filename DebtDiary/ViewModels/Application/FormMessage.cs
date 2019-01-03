@@ -33,6 +33,7 @@
         EmptyCurrentPassword,
         EmptyNewPassword,
         EmptyRepeatedNewPassword,
-        IncorrectCurrentPassword
+        IncorrectCurrentPassword,
+        IncorrectDate
     }
 }

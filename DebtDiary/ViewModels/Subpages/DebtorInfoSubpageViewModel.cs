@@ -45,20 +45,24 @@ namespace DebtDiary
         #region Add loan form
         public string LoanValue { get; set; }
         public string LoanDescription { get; set; }
+        public DateTime LoanDate { get; set; } = DateTime.Now;
         public OperationType LoanOperationType { get; set; } = OperationType.DebtorsLoan;
         public ICommand AddLoanCommand { get; set; }
         public FormMessage LoanValueMessage { get; set; } = FormMessage.None;
         public FormMessage LoanDescriptionMessage { get; set; } = FormMessage.None;
+        public FormMessage LoanDateMessage { get; set; } = FormMessage.None;
         public bool IsAddLoanFormRunning { get; set; } = false;
         #endregion
 
         #region Add repayment form
         public string RepaymentValue { get; set; }
         public string RepaymentDescription { get; set; }
+        public DateTime RepaymentDate { get; set; } = DateTime.Now;
         public OperationType RepaymentOperationType { get; set; } = OperationType.DebtorsRepayment;
         public ICommand AddRepaymentCommand { get; set; }
         public FormMessage RepaymentValueMessage { get; set; } = FormMessage.None;
         public FormMessage RepaymentDescriptionMessage { get; set; } = FormMessage.None;
+        public FormMessage RepaymentDateMessage { get; set; } = FormMessage.None;
         public bool IsAddRepaymentFormRunning { get; set; } = false;
         #endregion
 
@@ -135,7 +139,7 @@ namespace DebtDiary
 
                 // Check if there is sign change needed
                 decimal value = LoanOperationType == OperationType.DebtorsLoan ? _loanValue : -_loanValue;
-                _selectedDebtor.Operations.Add(new Operation { Value = value, Description = LoanDescription, AdditionDate = DateTime.Now, OperationType = LoanOperationType });
+                _selectedDebtor.Operations.Add(new Operation { Value = value, Description = LoanDescription, AdditionDate = LoanDate.Date, OperationType = LoanOperationType });
 
                 // Save changes in the database
                 bool isDataSaved = false;
@@ -163,7 +167,7 @@ namespace DebtDiary
 
                 // Check if there is sign change needed
                 decimal value = RepaymentOperationType == OperationType.UsersRepayment ? _repaymentValue : -_repaymentValue;
-                _selectedDebtor.Operations.Add(new Operation { Value = value, Description = RepaymentDescription, AdditionDate = DateTime.Now, OperationType = RepaymentOperationType });
+                _selectedDebtor.Operations.Add(new Operation { Value = value, Description = RepaymentDescription, AdditionDate = RepaymentDate.Date, OperationType = RepaymentOperationType });
 
                 // Save changes in the database
                 bool isDataSaved = false;
@@ -207,8 +211,10 @@ namespace DebtDiary
         {
             LoanDescriptionMessage = FormMessage.None;
             LoanValueMessage = FormMessage.None;
+            LoanDateMessage = FormMessage.None;
             RepaymentDescriptionMessage = FormMessage.None;
             RepaymentValueMessage = FormMessage.None;
+            RepaymentDateMessage = FormMessage.None;
         }
         #endregion
 
@@ -227,6 +233,10 @@ namespace DebtDiary
                 // Check if loan description is empty
                 if (string.IsNullOrEmpty(LoanDescription))
                     LoanDescriptionMessage = FormMessage.EmptyDescription;
+
+                // Check if date is correct
+                if (LoanDate.Date > DateTime.Now.Date || LoanDate.Date < (DateTime.Now - TimeSpan.FromDays(365)).Date)
+                    LoanDateMessage = FormMessage.IncorrectDate;
 
                 // Check if loan value is correct and try to convert it to decimal
                 if (LoanValueMessage == FormMessage.None && DataConverter.ToDecimal(LoanValue, out _loanValue) == false)
@@ -247,7 +257,7 @@ namespace DebtDiary
         private bool IsAddLoanEnteredDataCorrect()
         {
             // If any of the messages changed its value return false
-            if (LoanDescriptionMessage != FormMessage.None || LoanValueMessage != FormMessage.None)
+            if (LoanDescriptionMessage != FormMessage.None || LoanValueMessage != FormMessage.None || LoanDateMessage != FormMessage.None)
                 return false;
 
             // If not return true
@@ -278,6 +288,10 @@ namespace DebtDiary
                 if (string.IsNullOrEmpty(RepaymentDescription))
                     RepaymentDescriptionMessage = FormMessage.EmptyDescription;
 
+                // Check if date is correct
+                if (RepaymentDate.Date > DateTime.Now.Date && RepaymentDate.Date < (DateTime.Now - TimeSpan.FromDays(365)).Date)
+                    RepaymentDateMessage = FormMessage.IncorrectDate;
+
                 // Check if repayment value is correct and try to convert it to decimal
                 if (RepaymentValueMessage == FormMessage.None && DataConverter.ToDecimal(RepaymentValue, out _repaymentValue) == false)
                     RepaymentValueMessage = FormMessage.IncorrectValue;
@@ -297,7 +311,7 @@ namespace DebtDiary
         private bool IsAddRepaymentEnteredDataCorrect()
         {
             // If any of the messages changed its value return false
-            if (RepaymentDescriptionMessage != FormMessage.None || RepaymentValueMessage != FormMessage.None)
+            if (RepaymentDescriptionMessage != FormMessage.None || RepaymentValueMessage != FormMessage.None || RepaymentDateMessage != FormMessage.None)
                 return false;
 
             // If not return true
