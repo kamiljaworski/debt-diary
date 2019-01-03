@@ -435,4 +435,7 @@
   <data name="NoInternetConnectionTitle" xml:space="preserve">
     <value>Wystąpił problem z bazą danych</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>Data</value>
+  </data>
 </root>

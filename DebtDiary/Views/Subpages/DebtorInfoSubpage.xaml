@@ -131,9 +131,20 @@
 
                 <StackPanel Grid.Column="1">
 
-                    <!-- Last Name-->
-                    <TextBox Text="{Binding LoanValue}" Tag="{x:Static localization:Strings.Amount}"
-                         local:FormMessageProperty.Value="{Binding LoanValueMessage}"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <!-- Last Name -->
+                        <TextBox Grid.Column="0" Text="{Binding LoanValue}" Tag="{x:Static localization:Strings.Amount}"
+                         local:FormMessageProperty.Value="{Binding LoanValueMessage}" Margin="0 0 5 0"/>
+
+                        <!-- Date -->
+                        <DatePicker Grid.Column="1" Style="{StaticResource DatePickerStyle}" local:FormMessageProperty.Value="{Binding LoanValueMessage}"
+                                    Tag="{x:Static localization:Strings.Date}" Margin="5 0 0 0"/>
+                    </Grid>
 
                     <TextBox Text="{Binding LoanDescription}" Tag="{x:Static localization:Strings.Description}"
                          local:FormMessageProperty.Value="{Binding LoanDescriptionMessage}"/>
@@ -151,9 +162,9 @@
                         <StackPanel Grid.Column="1" VerticalAlignment="Center">
                             <StackPanel Orientation="Horizontal">
                                 <RadioButton Content="{Binding DebtorsGender, Converter={local:GenderStringsConverter}, ConverterParameter='Person', FallbackValue='He'}" 
-                             IsChecked="{Binding LoanOperationType, Converter={local:OperationTypeToBooleanConverter}, ConverterParameter='DebtorsLoan'}"/>
+                                             IsChecked="{Binding LoanOperationType, Converter={local:OperationTypeToBooleanConverter}, ConverterParameter='DebtorsLoan'}"/>
                                 <RadioButton Content="{x:Static localization:Strings.You}" Margin="10 0 0 0"
-                             IsChecked="{Binding LoanOperationType, Converter={local:OperationTypeToBooleanConverter}, ConverterParameter='UsersLoan'}"/>
+                                             IsChecked="{Binding LoanOperationType, Converter={local:OperationTypeToBooleanConverter}, ConverterParameter='UsersLoan'}"/>
                             </StackPanel>
                         </StackPanel>
                     </Grid>
