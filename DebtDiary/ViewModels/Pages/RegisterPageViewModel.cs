@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace DebtDiary
 {
-    class RegisterPageViewModel : BaseViewModel, ILoadable
+    public class RegisterPageViewModel : BaseViewModel, ILoadable
     {
         #region Private members
         private IApplicationViewModel _applicationViewModel;
@@ -185,11 +185,11 @@ namespace DebtDiary
                 }
 
                 // Check if username is avaliable in db
-                if (UsernameMessage == FormMessage.None && _dataAccess.IsUsernameTaken(Username) == false)
+                if (UsernameMessage == FormMessage.None && _dataAccess.IsUsernameTaken(Username) == true)
                     UsernameMessage = FormMessage.TakenUsername;
 
                 // Check if e-mail is avaliable in db
-                if (EmailMessage == FormMessage.None && _dataAccess.IsEmailTaken(Email) == false)
+                if (EmailMessage == FormMessage.None && _dataAccess.IsEmailTaken(Email) == true)
                     EmailMessage = FormMessage.TakenEmail;
 
             });

@@ -29,13 +29,13 @@ namespace DebtDiary.DataProvider
             {
                 User user = dbContext.Users.FirstOrDefault(x => x.Username == username);
                 if (user == null)
-                    return true;
+                    return false;
 
-                return false;
+                return true;
             }
             catch (Exception)
             {
-                return false;
+                return true;
             }
         }
 
@@ -45,13 +45,13 @@ namespace DebtDiary.DataProvider
             {
                 User user = dbContext.Users.FirstOrDefault(x => x.Email == email);
                 if (user == null)
-                    return true;
+                    return false;
 
-                return false;
+                return true;
             }
             catch (Exception)
             {
-                return false;
+                return true;
             }
         }
 

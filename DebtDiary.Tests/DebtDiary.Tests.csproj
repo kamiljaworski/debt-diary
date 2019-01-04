@@ -96,6 +96,7 @@
     <Compile Include="ViewModels\LoginPageViewModelTests.cs" />
     <Compile Include="ViewModels\OperationsListItemViewModelTests.cs" />
     <Compile Include="ViewModels\OperationsListViewModelTests.cs" />
+    <Compile Include="ViewModels\RegisterPageViewModelTests.cs" />
     <Compile Include="ViewModels\RelayCommandTests.cs" />
     <Compile Include="ViewModels\RelayParameterizedCommandTests.cs" />
     <Compile Include="ViewModels\ShortOperationsListViewModelTests.cs" />
