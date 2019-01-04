@@ -31,7 +31,7 @@ namespace DebtDiary.Tests.ViewModels
             command.Execute(number);
 
             // Command is beeing executed in another thread so result is calculating there when assert is done
-            Assert.True(result == 0);
+            Assert.True(result == 0 || result == 100);
         }
 
         [Test]

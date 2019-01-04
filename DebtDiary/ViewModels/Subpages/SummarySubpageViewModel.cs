@@ -9,6 +9,7 @@ namespace DebtDiary
     public class SummarySubpageViewModel : BaseViewModel, ILoadable
     {
         private User _loggedUser;
+
         #region Public properties
 
         public IStatisticsPanel SumOfDebts { get; private set; }
