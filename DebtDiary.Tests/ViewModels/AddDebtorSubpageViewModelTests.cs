@@ -326,12 +326,11 @@ namespace DebtDiary.Tests.ViewModels
             Mock<IClientDataStore> stubClientDataStore = new Mock<IClientDataStore>();
             Mock<IDataAccess> stubDataAccess = new Mock<IDataAccess>();
             var addDebtorSubpageVM = new AddDebtorSubpageViewModel(stubApplicationVM.Object, stubDiaryPageVM.Object, stubDialogFacade.Object, stubClientDataStore.Object, stubDataAccess.Object);
-            addDebtorSubpageVM.FirstName = "Test";
-            addDebtorSubpageVM.LastName = "Testowy";
+            addDebtorSubpageVM.AvatarColor = Color.Magenta;
 
-            string initials = addDebtorSubpageVM.Initials;
+            addDebtorSubpageVM.NextColorCommand.Execute(null);
 
-            Assert.AreEqual("TT", initials);
+            Assert.AreEqual(Color.PaleVioletRed, addDebtorSubpageVM.AvatarColor);
         }
 
         [Test]
@@ -343,11 +342,14 @@ namespace DebtDiary.Tests.ViewModels
             Mock<IClientDataStore> stubClientDataStore = new Mock<IClientDataStore>();
             Mock<IDataAccess> stubDataAccess = new Mock<IDataAccess>();
             var addDebtorSubpageVM = new AddDebtorSubpageViewModel(stubApplicationVM.Object, stubDiaryPageVM.Object, stubDialogFacade.Object, stubClientDataStore.Object, stubDataAccess.Object);
-            addDebtorSubpageVM.AvatarColor = Color.Magenta;
+            addDebtorSubpageVM.FirstName = "Test";
+            addDebtorSubpageVM.LastName = "Testowy";
 
-            addDebtorSubpageVM.NextColorCommand.Execute(null);
+            string initials = addDebtorSubpageVM.Initials;
 
-            Assert.AreEqual(Color.PaleVioletRed, addDebtorSubpageVM.AvatarColor);
+            Assert.AreEqual("TT", initials);
         }
+
+
     }
 }

@@ -96,6 +96,7 @@
     <Compile Include="ViewModels\DebtorsListViewModelTests.cs" />
     <Compile Include="ViewModels\DeleteDebtorSubpageViewModelTests.cs" />
     <Compile Include="ViewModels\DiaryPageViewModelTests.cs" />
+    <Compile Include="ViewModels\EditDebtorSubpageViewModelTests.cs" />
     <Compile Include="ViewModels\LoginPageViewModelTests.cs" />
     <Compile Include="ViewModels\OperationsListItemViewModelTests.cs" />
     <Compile Include="ViewModels\OperationsListViewModelTests.cs" />

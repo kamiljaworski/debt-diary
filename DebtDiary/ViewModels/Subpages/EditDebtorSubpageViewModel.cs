@@ -10,14 +10,19 @@ namespace DebtDiary
     public class EditDebtorSubpageViewModel : BaseViewModel, ILoadable
     {
         #region Private Fields
-        private IApplicationViewModel _applicationViewModel;
-        private IDiaryPageViewModel _diaryPageViewModel;
-        private IDialogFacade _dialogFacade;
-        private IClientDataStore _clientDataStore;
-        private IDataAccess _dataAccess;
+        private readonly IApplicationViewModel _applicationViewModel;
+        private readonly IDiaryPageViewModel _diaryPageViewModel;
+        private readonly IDialogFacade _dialogFacade;
+        private readonly IClientDataStore _clientDataStore;
+        private readonly IDataAccess _dataAccess;
 
-        private Debtor _selectedDebtor = null;
-        private User _loggedUser = null;
+        private readonly Debtor _selectedDebtor;
+        private readonly User _loggedUser;
+
+        private readonly string _oldFirstName;
+        private readonly string _oldLastName;
+        private readonly Gender _oldGender;
+        private readonly Color _oldAvatarColor;
         #endregion
 
         #region Public Properties
@@ -67,7 +72,12 @@ namespace DebtDiary
             LastName = _selectedDebtor.LastName;
             Gender = (Gender)_selectedDebtor.Gender;
 
-            EditDebtorCommand = new RelayCommand(async () => await EditDebtorAsync());
+            _oldFirstName = FirstName;
+            _oldLastName = LastName;
+            _oldGender = Gender;
+            _oldAvatarColor = AvatarColor;
+
+            EditDebtorCommand = new RelayParameterizedCommand(async x => await EditDebtorAsync());
             PreviousColorCommand = new RelayCommand(() => AvatarColor = ColorSelector.Previous(AvatarColor));
             NextColorCommand = new RelayCommand(() => AvatarColor = ColorSelector.Next(AvatarColor));
             GoBackCommand = new RelayCommand(async () => await _applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.DebtorInfoSubpage));
@@ -93,6 +103,7 @@ namespace DebtDiary
                 await Task.Run(() => isDataSaved = _dataAccess.TrySaveChanges());
                 if (isDataSaved == false)
                 {
+                    _selectedDebtor.EditPerson(_oldFirstName, _oldLastName, _oldGender, _oldAvatarColor);
                     _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
                     return;
                 }
