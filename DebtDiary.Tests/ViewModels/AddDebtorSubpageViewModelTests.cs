@@ -34,6 +34,29 @@ namespace DebtDiary.Tests.ViewModels
         }
 
         [Test]
+        public void TestAddDebtorCommandDoesNotAddNewDebtorToUsersDebtorsListWhenThereIsNoInternetConnection()
+        {
+            Mock<IApplicationViewModel> stubApplicationVM = new Mock<IApplicationViewModel>();
+            Mock<IDiaryPageViewModel> stubDiaryPageVM = new Mock<IDiaryPageViewModel>();
+            Mock<IDialogFacade> stubDialogFacade = new Mock<IDialogFacade>();
+            Mock<IClientDataStore> stubClientDataStore = new Mock<IClientDataStore>();
+            Mock<IDataAccess> stubDataAccess = new Mock<IDataAccess>();
+            User user = new User { Debtors = new List<Debtor>() };
+            stubClientDataStore.Setup(x => x.LoggedUser).Returns(user);
+            var addDebtorSubpageVM = new AddDebtorSubpageViewModel(stubApplicationVM.Object, stubDiaryPageVM.Object, stubDialogFacade.Object, stubClientDataStore.Object, stubDataAccess.Object);
+            addDebtorSubpageVM.FirstName = "Test";
+            addDebtorSubpageVM.LastName = "Testowy";
+            addDebtorSubpageVM.Gender = Gender.Male;
+            stubDataAccess.Setup(x => x.UserAddedThisDebtor(It.IsAny<int>(), It.IsAny<string>(), It.IsAny<string>())).Returns(false);
+            stubDataAccess.Setup(x => x.TrySaveChanges()).Returns(false);
+
+            ((RelayParameterizedCommand)addDebtorSubpageVM.AddDebtorCommand).ExecuteAndAwait(null);
+
+            bool result = user.Debtors.FirstOrDefault(x => x.FirstName == "Test" && x.LastName == "Testowy" && x.Gender == Gender.Male) == null;
+            Assert.True(result);
+        }
+
+        [Test]
         public void TestAddDebtorCommandUpdatesDebtorsListInDiaryPageViewModelWhenDataIsValid()
         {
             Mock<IApplicationViewModel> stubApplicationVM = new Mock<IApplicationViewModel>();

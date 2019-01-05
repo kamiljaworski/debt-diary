@@ -85,6 +85,7 @@ namespace DebtDiary
                 await Task.Run(() => isDataSaved = _dataAccess.TrySaveChanges());
                 if (isDataSaved == false)
                 {
+                    _loggedUser.Debtors.Add(_selectedDebtor);
                     _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
                     return;
                 }
@@ -115,7 +116,7 @@ namespace DebtDiary
                     PasswordMessage = FormMessage.EmptyPassword;
 
                 if (PasswordMessage == FormMessage.None && _password.Password.GetEncryptedPassword() != _loggedUser.Password)
-                    PasswordMessage = FormMessage.IncorrectUsername;
+                    PasswordMessage = FormMessage.IncorrectPassword;
             });
 
             // Check if any problem was found and return right value

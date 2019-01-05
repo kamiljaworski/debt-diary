@@ -93,6 +93,7 @@ namespace DebtDiary
                 await Task.Run(() => isDataSaved = _dataAccess.TrySaveChanges());
                 if (isDataSaved == false)
                 {
+                    _loggedUser.Debtors.Remove(debtor);
                     _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
                     return;
                 }
