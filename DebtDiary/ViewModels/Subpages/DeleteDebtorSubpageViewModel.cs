@@ -8,14 +8,14 @@ namespace DebtDiary
     public class DeleteDebtorSubpageViewModel : BaseViewModel, ILoadable
     {
         #region Private Fields
-        private IApplicationViewModel _applicationViewModel;
-        private IDiaryPageViewModel _diaryPageViewModel;
-        private IDialogFacade _dialogFacade;
-        private IClientDataStore _clientDataStore;
-        private IDataAccess _dataAccess;
+        private readonly IApplicationViewModel _applicationViewModel;
+        private readonly IDiaryPageViewModel _diaryPageViewModel;
+        private readonly IDialogFacade _dialogFacade;
+        private readonly IClientDataStore _clientDataStore;
+        private readonly IDataAccess _dataAccess;
 
-        private User _loggedUser = null;
-        private Debtor _selectedDebtor = null;
+        private readonly User _loggedUser = null;
+        private readonly Debtor _selectedDebtor = null;
         private IHavePassword _password = null;
         #endregion
 

@@ -8,12 +8,12 @@ namespace DebtDiary
     public class MyAccountSubpageViewModel : BaseViewModel, ILoadable
     {
         #region Private Fields
-        private IDiaryPageViewModel _diaryPageViewModel;
-        private IDialogFacade _dialogFacade;
-        private IClientDataStore _clientDataStore;
-        private IDataAccess _dataAccess;
+        private readonly IDiaryPageViewModel _diaryPageViewModel;
+        private readonly IDialogFacade _dialogFacade;
+        private readonly IClientDataStore _clientDataStore;
+        private readonly IDataAccess _dataAccess;
 
-        private User _loggedUser = null;
+        private readonly User _loggedUser;
         private IHaveThreePasswords _passwords = null;
         #endregion
 

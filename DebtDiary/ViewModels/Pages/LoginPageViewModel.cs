@@ -1,6 +1,5 @@
 ﻿using DebtDiary.Core;
 using DebtDiary.DataProvider;
-using System.Data.SqlClient;
 using System.Security;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -10,11 +9,11 @@ namespace DebtDiary
     public class LoginPageViewModel : BaseViewModel, ILoadable
     {
         #region Private members
-        private IApplicationViewModel _applicationViewModel;
-        private IDiaryPageViewModel _diaryPageViewModel;
-        private IClientDataStore _clientDataStore;
-        private IDataAccess _dataAccess;
-        private IDialogFacade _dialogFacade;
+        private readonly IApplicationViewModel _applicationViewModel;
+        private readonly IDiaryPageViewModel _diaryPageViewModel;
+        private readonly IClientDataStore _clientDataStore;
+        private readonly IDataAccess _dataAccess;
+        private readonly IDialogFacade _dialogFacade;
 
         private SecureString _password = null;
         #endregion

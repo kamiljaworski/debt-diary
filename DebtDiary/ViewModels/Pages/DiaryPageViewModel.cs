@@ -5,8 +5,8 @@ namespace DebtDiary
 {
     public class DiaryPageViewModel : BaseViewModel, IDiaryPageViewModel, ILoadable
     {
-        private IApplicationViewModel _applicationViewModel;
-        private IClientDataStore _clientDataStore;
+        private readonly IApplicationViewModel _applicationViewModel;
+        private readonly IClientDataStore _clientDataStore;
 
         private bool _isInDesignTime;
         #region Public properties

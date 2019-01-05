@@ -10,9 +10,9 @@ namespace DebtDiary
     public class RegisterPageViewModel : BaseViewModel, ILoadable
     {
         #region Private members
-        private IApplicationViewModel _applicationViewModel;
-        private IDialogFacade _dialogFacade;
-        private IDataAccess _dataAccess;
+        private readonly IApplicationViewModel _applicationViewModel;
+        private readonly IDialogFacade _dialogFacade;
+        private readonly IDataAccess _dataAccess;
 
         private SecureString _password;
         private SecureString _repeatedPassword;

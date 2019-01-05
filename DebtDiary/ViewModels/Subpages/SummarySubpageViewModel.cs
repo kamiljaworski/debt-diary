@@ -8,7 +8,7 @@ namespace DebtDiary
 {
     public class SummarySubpageViewModel : BaseViewModel, ILoadable
     {
-        private User _loggedUser;
+        private readonly User _loggedUser;
 
         #region Public properties
 

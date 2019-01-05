@@ -12,13 +12,13 @@ namespace DebtDiary
     public class DebtorInfoSubpageViewModel : BaseViewModel, IDebtorInfoSubpageViewModel, ILoadable
     {
         #region Private members
-        private IApplicationViewModel _applicationViewModel;
-        private IDiaryPageViewModel _diaryPageViewModel;
-        private IClientDataStore _clientDataStore;
-        private IDataAccess _dataAccess;
-        private IDialogFacade _dialogFacade;
+        private readonly IApplicationViewModel _applicationViewModel;
+        private readonly IDiaryPageViewModel _diaryPageViewModel;
+        private readonly IClientDataStore _clientDataStore;
+        private readonly IDataAccess _dataAccess;
+        private readonly IDialogFacade _dialogFacade;
 
-        private Debtor _selectedDebtor = null;
+        private Debtor _selectedDebtor;
 
         private decimal _loanValue;
         private decimal _repaymentValue;
