@@ -1,7 +1,6 @@
 ﻿using DebtDiary.Core;
 using DebtDiary.DataProvider;
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -59,7 +58,7 @@ namespace DebtDiary
 
             _loggedUser = _clientDataStore.LoggedUser;
 
-            AddDebtorCommand = new RelayCommand(async () => await AddDebtorAsync());
+            AddDebtorCommand = new RelayParameterizedCommand(async x => await AddDebtorAsync());
             PreviousColorCommand = new RelayCommand(() => AvatarColor = ColorSelector.Previous(AvatarColor));
             NextColorCommand = new RelayCommand(() => AvatarColor = ColorSelector.Next(AvatarColor));
             IsLoaded = true;
