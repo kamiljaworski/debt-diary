@@ -15,6 +15,11 @@ namespace DebtDiary
 
         private readonly User _loggedUser;
         private IHaveThreePasswords _passwords = null;
+
+        private readonly string _oldFirstName;
+        private readonly string _oldLastName;
+        private readonly Gender _oldGender;
+        private readonly Color _oldAvatarColor;
         #endregion
 
         #region Public Properties
@@ -64,6 +69,7 @@ namespace DebtDiary
             _dataAccess = dataAccess;
 
             _loggedUser = _clientDataStore.LoggedUser;
+
             if (_loggedUser != null)
             {
                 AvatarColor = _loggedUser.AvatarColor;
@@ -72,9 +78,14 @@ namespace DebtDiary
                 Username = _loggedUser.Username;
                 Email = _loggedUser.Email;
                 Gender = (Gender)_loggedUser.Gender;
+
+                _oldFirstName = FirstName;
+                _oldLastName = LastName;
+                _oldGender = Gender;
+                _oldAvatarColor = AvatarColor;
             }
 
-            EditProfileCommand = new RelayCommand(async () => await EditProfileAsync());
+            EditProfileCommand = new RelayParameterizedCommand(async x => await EditProfileAsync());
             ChangePasswordCommand = new RelayParameterizedCommand(async (parameter) => await ChangePasswordAsync(parameter));
             PreviousColorCommand = new RelayCommand(() => AvatarColor = ColorSelector.Previous(AvatarColor));
             NextColorCommand = new RelayCommand(() => AvatarColor = ColorSelector.Next(AvatarColor));
@@ -101,6 +112,7 @@ namespace DebtDiary
                 await Task.Run(() => isDataSaved = _dataAccess.TrySaveChanges());
                 if (isDataSaved == false)
                 {
+                    _loggedUser.EditPerson(_oldFirstName, _oldLastName, _oldGender, _oldAvatarColor);
                     _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
                     return;
                 }
@@ -129,13 +141,14 @@ namespace DebtDiary
                     return;
 
                 // Change users password
-                _loggedUser.ChangePassword(_passwords.Password.GetEncryptedPassword());
+                _loggedUser.ChangePassword(_passwords.SecondPassword.GetEncryptedPassword());
 
                 // Save changes in the database
                 bool isDataSaved = false;
                 await Task.Run(() => isDataSaved = _dataAccess.TrySaveChanges());
                 if (isDataSaved == false)
                 {
+                    _loggedUser.ChangePassword(_passwords.Password.GetEncryptedPassword());
                     _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
                     return;
                 }
