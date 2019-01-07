@@ -128,7 +128,11 @@
                 <Button Content="{x:Static localization:Strings.Add}" Margin="0 20 0 40" HorizontalAlignment="Center" Command="{Binding AddDebtorCommand}"
                         local:IsBusyProperty.Value="{Binding IsAddDebtorRunning}"/>
                 <!--#endregion-->
-                
+
+                <!-- Enter key binding -->
+                <StackPanel.InputBindings>
+                    <KeyBinding Key="Enter" Command="{Binding IsAddDebtorRunning}"/>
+                </StackPanel.InputBindings>
             </StackPanel>
             <!--#endregion-->
 
