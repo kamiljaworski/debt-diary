@@ -172,8 +172,12 @@
                 <!-- Add new debtor button -->
                 <Button Content="{x:Static localization:Strings.SaveChanges}" Margin="0 20 0 0" HorizontalAlignment="Center" Command="{Binding EditProfileCommand}"
                         local:IsBusyProperty.Value="{Binding IsEditProfileRunning}"/>
-                <!--#endregion-->
 
+                <!-- Enter key binding -->
+                <StackPanel.InputBindings>
+                    <KeyBinding Key="Enter" Command="{Binding EditProfileCommand}"/>
+                </StackPanel.InputBindings>
+                <!--#endregion-->
             </StackPanel>
             <!--#endregion-->
         </Grid>
@@ -204,6 +208,11 @@
 
                 <Button Content="{x:Static localization:Strings.Save}" Margin="0 20 0 0" HorizontalAlignment="Center" 
                         Command="{Binding ChangePasswordCommand}" CommandParameter="{Binding ElementName=Subpage}" local:IsBusyProperty.Value="{Binding IsChangePasswordRunning}"/>
+
+                <!-- Enter key binding -->
+                <StackPanel.InputBindings>
+                    <KeyBinding Key="Enter" Command="{Binding ChangePasswordCommand}" CommandParameter="{Binding ElementName=Subpage}"/>
+                </StackPanel.InputBindings>
             </StackPanel>
         </Grid>
         <!--#endregion-->
