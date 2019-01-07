@@ -133,14 +133,13 @@
                 <Button Content="{x:Static localization:Strings.SaveChanges}" Margin="0 20 0 40" HorizontalAlignment="Center" Command="{Binding EditDebtorCommand}"
                         local:IsBusyProperty.Value="{Binding IsEditDebtorRunning}"/>
                 <!--#endregion-->
-                
+
+                <!-- Enter key binding -->
+                <StackPanel.InputBindings>
+                    <KeyBinding Key="Enter" Command="{Binding EditDebtorCommand}"/>
+                </StackPanel.InputBindings>
             </StackPanel>
             <!--#endregion-->
-
-            <!-- Enter key binding -->
-            <Grid.InputBindings>
-                <KeyBinding Key="Enter" Command="{Binding AddDebtorCommand}"/>
-            </Grid.InputBindings>
         </Grid>
     </Grid>
 
