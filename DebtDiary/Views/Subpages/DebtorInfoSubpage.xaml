@@ -170,7 +170,12 @@
                     </Grid>
 
                     <Button Content="{x:Static localization:Strings.Add}" HorizontalAlignment="Center" Margin="0 10 0 0"
-                            Command="{Binding AddLoanCommand}"/>
+                            Command="{Binding AddLoanCommand}" local:IsBusyProperty.Value="{Binding IsAddLoanFormRunning}"/>
+
+                    <!-- Enter key binding -->
+                    <StackPanel.InputBindings>
+                        <KeyBinding Key="Enter" Command="{Binding AddLoanCommand}"/>
+                    </StackPanel.InputBindings>
                 </StackPanel>
             </Grid>
         </StackPanel>
@@ -226,7 +231,12 @@
                     </Grid>
 
                     <Button Content="{x:Static localization:Strings.Add}" HorizontalAlignment="Center" Margin="0 10 0 0"
-                            Command="{Binding AddRepaymentCommand}"/>
+                            Command="{Binding AddRepaymentCommand}" local:IsBusyProperty.Value="{Binding IsAddRepaymentFormRunning}"/>
+
+                    <!-- Enter key binding -->
+                    <StackPanel.InputBindings>
+                        <KeyBinding Key="Enter" Command="{Binding AddRepaymentCommand}"/>
+                    </StackPanel.InputBindings>
                 </StackPanel>
             </Grid>
         </StackPanel>
