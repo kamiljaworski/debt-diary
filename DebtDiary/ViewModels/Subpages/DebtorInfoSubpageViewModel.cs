@@ -85,8 +85,8 @@ namespace DebtDiary
             _dialogFacade = dialogFacade;
 
             CurrencyFormatter = value => FormattingHelpers.GetFormattedCurrency(value);
-            AddLoanCommand = new RelayCommand(async () => await AddLoanAsync());
-            AddRepaymentCommand = new RelayCommand(async () => await AddRepaymentAsync());
+            AddLoanCommand = new RelayParameterizedCommand(async x => await AddLoanAsync());
+            AddRepaymentCommand = new RelayParameterizedCommand(async x => await AddRepaymentAsync());
             EditDebtorCommand = new RelayCommand(async () => await _applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.EditDebtorSubpage));
             DeleteDebtorCommand = new RelayCommand(async () => await _applicationViewModel.ChangeCurrentSubpageAsync(ApplicationSubpage.DeleteDebtorSubpage));
 
@@ -109,7 +109,10 @@ namespace DebtDiary
 
             UpdateStatisticPanels();
 
-            SeriesCollection = new SeriesCollection
+            // To avoid STA exception in unit tests
+            try
+            {
+                SeriesCollection = new SeriesCollection
                 {
                     new LineSeries
                     {
@@ -118,6 +121,8 @@ namespace DebtDiary
                         ToolTip = null
                     }
                 };
+            }
+            catch (InvalidOperationException) { }
 
             OperationsList = new ShortOperationsListViewModel(_selectedDebtor.Operations);
 
@@ -132,26 +137,28 @@ namespace DebtDiary
         {
             await RunCommandAsync(() => IsAddLoanFormRunning, async () =>
             {
-
                 // Validate entered data
                 if (await ValidateAddLoanDataAsync() == false)
                     return;
 
                 // Check if there is sign change needed
                 decimal value = LoanOperationType == OperationType.DebtorsLoan ? _loanValue : -_loanValue;
-                _selectedDebtor.Operations.Add(new Operation { Value = value, Description = LoanDescription, AdditionDate = LoanDate.Date, OperationType = LoanOperationType });
+
+                Operation newOperation = new Operation { Value = value, Description = LoanDescription, AdditionDate = LoanDate, OperationType = LoanOperationType };
+                _selectedDebtor.Operations.Add(newOperation);
 
                 // Save changes in the database
                 bool isDataSaved = false;
                 await Task.Run(() => isDataSaved = _dataAccess.TrySaveChanges());
                 if (isDataSaved == false)
                 {
+                    _selectedDebtor.Operations.Remove(newOperation);
                     _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
                     return;
                 }
 
                 // Clear fields and update changes
-                ClearAddLoanFields();
+                ResetAddLoanData();
                 UpdateChanges();
             });
 
@@ -167,21 +174,22 @@ namespace DebtDiary
 
                 // Check if there is sign change needed
                 decimal value = RepaymentOperationType == OperationType.UsersRepayment ? _repaymentValue : -_repaymentValue;
-                _selectedDebtor.Operations.Add(new Operation { Value = value, Description = RepaymentDescription, AdditionDate = RepaymentDate.Date, OperationType = RepaymentOperationType });
+                Operation newOperation = new Operation { Value = value, Description = RepaymentDescription, AdditionDate = RepaymentDate, OperationType = RepaymentOperationType };
+                _selectedDebtor.Operations.Add(newOperation);
 
                 // Save changes in the database
                 bool isDataSaved = false;
                 await Task.Run(() => isDataSaved = _dataAccess.TrySaveChanges());
                 if (isDataSaved == false)
                 {
+                    _selectedDebtor.Operations.Remove(newOperation);
                     _dialogFacade.OpenDialog(DialogMessage.NoInternetConnection);
                     return;
                 }
 
                 // Clear fields and update changes
-                ClearAddRepaymentFields();
+                ResetAddRepaymentData();
                 UpdateChanges();
-
             });
 
         }
@@ -264,11 +272,12 @@ namespace DebtDiary
             return true;
         }
 
-        private void ClearAddLoanFields()
+        private void ResetAddLoanData()
         {
             LoanValue = string.Empty;
             LoanDescription = string.Empty;
             LoanOperationType = OperationType.DebtorsLoan;
+            LoanDate = DateTime.Now;
         }
         #endregion
 
@@ -318,11 +327,12 @@ namespace DebtDiary
             return true;
         }
 
-        private void ClearAddRepaymentFields()
+        private void ResetAddRepaymentData()
         {
             RepaymentValue = string.Empty;
             RepaymentDescription = string.Empty;
             RepaymentOperationType = OperationType.DebtorsRepayment;
+            RepaymentDate = DateTime.Now;
         }
         #endregion
     }
