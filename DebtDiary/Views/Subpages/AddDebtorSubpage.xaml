@@ -127,19 +127,14 @@
                 <!-- Add new debtor button -->
                 <Button Content="{x:Static localization:Strings.Add}" Margin="0 20 0 40" HorizontalAlignment="Center" Command="{Binding AddDebtorCommand}"
                         local:IsBusyProperty.Value="{Binding IsAddDebtorRunning}"/>
-                <!--#endregion-->
-
+               
                 <!-- Enter key binding -->
                 <StackPanel.InputBindings>
-                    <KeyBinding Key="Enter" Command="{Binding IsAddDebtorRunning}"/>
+                    <KeyBinding Key="Enter" Command="{Binding AddDebtorCommand}"/>
                 </StackPanel.InputBindings>
+                <!--#endregion-->
             </StackPanel>
             <!--#endregion-->
-
-            <!-- Enter key binding -->
-            <Grid.InputBindings>
-                <KeyBinding Key="Enter" Command="{Binding AddDebtorCommand}"/>
-            </Grid.InputBindings>
         </Grid>
     </Grid>
 

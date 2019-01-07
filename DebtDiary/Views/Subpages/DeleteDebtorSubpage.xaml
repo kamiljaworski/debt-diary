@@ -83,7 +83,7 @@
                
                 <!-- Enter key binding -->
                 <StackPanel.InputBindings>
-                    <KeyBinding Key="Enter" Command="{Binding DeleteDebtorCommand}"  CommandParameter="{Binding ElementName=Subpage}"/>
+                    <KeyBinding Key="Enter" Command="{Binding DeleteDebtorCommand}" CommandParameter="{Binding ElementName=Subpage}"/>
                 </StackPanel.InputBindings>
             </StackPanel>
             <!--#endregion-->
