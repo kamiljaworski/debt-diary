@@ -118,282 +118,282 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Black" xml:space="preserve">
-    <value>Black</value>
+    <value>black</value>
   </data>
   <data name="Blue" xml:space="preserve">
-    <value>Blue</value>
+    <value>blue</value>
   </data>
   <data name="BlueViolet" xml:space="preserve">
-    <value>Blue violet</value>
+    <value>blue violet</value>
   </data>
   <data name="Brown" xml:space="preserve">
-    <value>Brown</value>
+    <value>brown</value>
   </data>
   <data name="BurlyWood" xml:space="preserve">
-    <value>Burly wood</value>
+    <value>burly wood</value>
   </data>
   <data name="CadetBlue" xml:space="preserve">
-    <value>Cadet blue</value>
+    <value>cadet blue</value>
   </data>
   <data name="Chocolate" xml:space="preserve">
-    <value>Chocolate</value>
+    <value>chocolate</value>
   </data>
   <data name="Coral" xml:space="preserve">
-    <value>Coral</value>
+    <value>coral</value>
   </data>
   <data name="CornflowerBlue" xml:space="preserve">
-    <value>Cornflower blue</value>
+    <value>cornflower blue</value>
   </data>
   <data name="Crimson" xml:space="preserve">
-    <value>Crimson</value>
+    <value>crimson</value>
   </data>
   <data name="DarkBlue" xml:space="preserve">
-    <value>Dark blue</value>
+    <value>dark blue</value>
   </data>
   <data name="DarkCyan" xml:space="preserve">
-    <value>Dark cyan</value>
+    <value>dark cyan</value>
   </data>
   <data name="DarkGoldenrod" xml:space="preserve">
-    <value>Dark goldenrod</value>
+    <value>dark goldenrod</value>
   </data>
   <data name="DarkGray" xml:space="preserve">
-    <value>Dark gray</value>
+    <value>dark gray</value>
   </data>
   <data name="DarkGreen" xml:space="preserve">
-    <value>Dark green</value>
+    <value>dark green</value>
   </data>
   <data name="DarkKhaki" xml:space="preserve">
-    <value>Dark khaki</value>
+    <value>dark khaki</value>
   </data>
   <data name="DarkMagenta" xml:space="preserve">
-    <value>Dark magenta</value>
+    <value>dark magenta</value>
   </data>
   <data name="DarkOliveGreen" xml:space="preserve">
-    <value>Dark olive green</value>
+    <value>dark olive green</value>
   </data>
   <data name="DarkOrange" xml:space="preserve">
-    <value>Dark orange</value>
+    <value>dark orange</value>
   </data>
   <data name="DarkOrchid" xml:space="preserve">
-    <value>Dark orchid</value>
+    <value>dark orchid</value>
   </data>
   <data name="DarkRed" xml:space="preserve">
-    <value>Dark red</value>
+    <value>dark red</value>
   </data>
   <data name="DarkSalmon" xml:space="preserve">
-    <value>Dark salmon</value>
+    <value>dark salmon</value>
   </data>
   <data name="DarkSeaGreen" xml:space="preserve">
-    <value>Dark sea green</value>
+    <value>dark sea green</value>
   </data>
   <data name="DarkSlateBlue" xml:space="preserve">
-    <value>Dark slate blue</value>
+    <value>dark slate blue</value>
   </data>
   <data name="DarkSlateGray" xml:space="preserve">
-    <value>Dark slate gray</value>
+    <value>dark slate gray</value>
   </data>
   <data name="DarkTurquoise" xml:space="preserve">
-    <value>Dark turquoise</value>
+    <value>dark turquoise</value>
   </data>
   <data name="DarkViolet" xml:space="preserve">
-    <value>Dark violet</value>
+    <value>dark violet</value>
   </data>
   <data name="DeepPink" xml:space="preserve">
-    <value>Deep pink</value>
+    <value>deep pink</value>
   </data>
   <data name="DeepSkyBlue" xml:space="preserve">
-    <value>Deep sky blue</value>
+    <value>deep sky blue</value>
   </data>
   <data name="DimGray" xml:space="preserve">
-    <value>Dim gray</value>
+    <value>dim gray</value>
   </data>
   <data name="DodgerBlue" xml:space="preserve">
-    <value>Dodger blue</value>
+    <value>dodger blue</value>
   </data>
   <data name="Firebrick" xml:space="preserve">
-    <value>Firebrick</value>
+    <value>firebrick</value>
   </data>
   <data name="ForestGreen" xml:space="preserve">
-    <value>Forest green</value>
+    <value>forest green</value>
   </data>
   <data name="Fuchsia" xml:space="preserve">
-    <value>Fuchsia</value>
+    <value>fuchsia</value>
   </data>
   <data name="Gainsboro" xml:space="preserve">
-    <value>Gainsboro</value>
+    <value>gainsboro</value>
   </data>
   <data name="Gold" xml:space="preserve">
-    <value>Gold</value>
+    <value>gold</value>
   </data>
   <data name="Goldenrod" xml:space="preserve">
-    <value>Goldenrod</value>
+    <value>goldenrod</value>
   </data>
   <data name="Gray" xml:space="preserve">
-    <value>Gray</value>
+    <value>gray</value>
   </data>
   <data name="Green" xml:space="preserve">
-    <value>Green</value>
+    <value>green</value>
   </data>
   <data name="HotPink" xml:space="preserve">
-    <value>Hot pink</value>
+    <value>hot pink</value>
   </data>
   <data name="IndianRed" xml:space="preserve">
-    <value>Indian red</value>
+    <value>indian red</value>
   </data>
   <data name="Indigo" xml:space="preserve">
-    <value>Indigo</value>
+    <value>indigo</value>
   </data>
   <data name="LightCoral" xml:space="preserve">
-    <value>Light coral</value>
+    <value>light coral</value>
   </data>
   <data name="LightGray" xml:space="preserve">
-    <value>Light gray</value>
+    <value>light gray</value>
   </data>
   <data name="LightPink" xml:space="preserve">
-    <value>Light pink</value>
+    <value>light pink</value>
   </data>
   <data name="LightSalmon" xml:space="preserve">
-    <value>Light salmon</value>
+    <value>light salmon</value>
   </data>
   <data name="LightSeaGreen" xml:space="preserve">
-    <value>Light sea green</value>
+    <value>light sea green</value>
   </data>
   <data name="LightSkyBlue" xml:space="preserve">
-    <value>Light sky blue</value>
+    <value>light sky blue</value>
   </data>
   <data name="LightSlateGray" xml:space="preserve">
-    <value>Light slate gray</value>
+    <value>light slate gray</value>
   </data>
   <data name="LightSteelBlue" xml:space="preserve">
-    <value>Light steel blue</value>
+    <value>light steel blue</value>
   </data>
   <data name="LimeGreen" xml:space="preserve">
-    <value>Lime green</value>
+    <value>lime green</value>
   </data>
   <data name="Magenta" xml:space="preserve">
-    <value>Magenta</value>
+    <value>magenta</value>
   </data>
   <data name="Maroon" xml:space="preserve">
-    <value>Maroon</value>
+    <value>maroon</value>
   </data>
   <data name="MediumAquamarine" xml:space="preserve">
-    <value>Medium aquamarine</value>
+    <value>medium aquamarine</value>
   </data>
   <data name="MediumBlue" xml:space="preserve">
-    <value>Medium blue</value>
+    <value>medium blue</value>
   </data>
   <data name="MediumOrchid" xml:space="preserve">
-    <value>Medium orchid</value>
+    <value>medium orchid</value>
   </data>
   <data name="MediumPurple" xml:space="preserve">
-    <value>Medium purple</value>
+    <value>medium purple</value>
   </data>
   <data name="MediumSeaGreen" xml:space="preserve">
-    <value>Medium sea green</value>
+    <value>medium sea green</value>
   </data>
   <data name="MediumSlateBlue" xml:space="preserve">
-    <value>Medium slate blue</value>
+    <value>medium slate blue</value>
   </data>
   <data name="MediumTurquoise" xml:space="preserve">
-    <value>Medium turquoise</value>
+    <value>medium turquoise</value>
   </data>
   <data name="MediumVioletRed" xml:space="preserve">
-    <value>Medium violet red</value>
+    <value>medium violet red</value>
   </data>
   <data name="MidnightBlue" xml:space="preserve">
-    <value>Midnight blue</value>
+    <value>midnight blue</value>
   </data>
   <data name="Navy" xml:space="preserve">
-    <value>Navy</value>
+    <value>navy</value>
   </data>
   <data name="Olive" xml:space="preserve">
-    <value>Olive</value>
+    <value>olive</value>
   </data>
   <data name="OliveDrab" xml:space="preserve">
-    <value>Olive drab</value>
+    <value>olive drab</value>
   </data>
   <data name="Orange" xml:space="preserve">
-    <value>Orange</value>
+    <value>orange</value>
   </data>
   <data name="OrangeRed" xml:space="preserve">
-    <value>Orange red</value>
+    <value>orange red</value>
   </data>
   <data name="Orchid" xml:space="preserve">
-    <value>Orchid</value>
+    <value>orchid</value>
   </data>
   <data name="PaleVioletRed" xml:space="preserve">
-    <value>Pale violet red</value>
+    <value>oale violet red</value>
   </data>
   <data name="Peru" xml:space="preserve">
-    <value>Peru</value>
+    <value>peru</value>
   </data>
   <data name="Pink" xml:space="preserve">
-    <value>Pink</value>
+    <value>pink</value>
   </data>
   <data name="Plum" xml:space="preserve">
-    <value>Plum</value>
+    <value>plum</value>
   </data>
   <data name="Purple" xml:space="preserve">
-    <value>Purple</value>
+    <value>purple</value>
   </data>
   <data name="Red" xml:space="preserve">
-    <value>Red</value>
+    <value>red</value>
   </data>
   <data name="RosyBrown" xml:space="preserve">
-    <value>Rosy brown</value>
+    <value>rosy brown</value>
   </data>
   <data name="RoyalBlue" xml:space="preserve">
-    <value>Royal blue</value>
+    <value>royal blue</value>
   </data>
   <data name="SaddleBrown" xml:space="preserve">
-    <value>Saddle brown</value>
+    <value>saddle brown</value>
   </data>
   <data name="Salmon" xml:space="preserve">
-    <value>Salmon</value>
+    <value>salmon</value>
   </data>
   <data name="SandyBrown" xml:space="preserve">
-    <value>Sandy brown</value>
+    <value>sandy brown</value>
   </data>
   <data name="SeaGreen" xml:space="preserve">
-    <value>Sea green</value>
+    <value>sea green</value>
   </data>
   <data name="Sienna" xml:space="preserve">
-    <value>Sienna</value>
+    <value>sienna</value>
   </data>
   <data name="Silver" xml:space="preserve">
-    <value>Silver</value>
+    <value>silver</value>
   </data>
   <data name="SkyBlue" xml:space="preserve">
-    <value>Sky blue</value>
+    <value>sky blue</value>
   </data>
   <data name="SlateBlue" xml:space="preserve">
-    <value>Slate blue</value>
+    <value>slate blue</value>
   </data>
   <data name="SlateGray" xml:space="preserve">
-    <value>Slate gray</value>
+    <value>slate gray</value>
   </data>
   <data name="SteelBlue" xml:space="preserve">
-    <value>Steel blue</value>
+    <value>steel blue</value>
   </data>
   <data name="Tan" xml:space="preserve">
-    <value>Tan</value>
+    <value>tan</value>
   </data>
   <data name="Teal" xml:space="preserve">
-    <value>Teal</value>
+    <value>teal</value>
   </data>
   <data name="Tomato" xml:space="preserve">
-    <value>Tomato</value>
+    <value>tomato</value>
   </data>
   <data name="Turquoise" xml:space="preserve">
-    <value>Turquoise</value>
+    <value>turquoise</value>
   </data>
   <data name="Violet" xml:space="preserve">
-    <value>Violet</value>
+    <value>violet</value>
   </data>
   <data name="Wheat" xml:space="preserve">
-    <value>Wheat</value>
+    <value>wheat</value>
   </data>
   <data name="YellowGreen" xml:space="preserve">
-    <value>Yellow green</value>
+    <value>yellow green</value>
   </data>
 </root>

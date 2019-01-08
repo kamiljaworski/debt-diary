@@ -61,7 +61,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Black.
+        ///   Looks up a localized string similar to black.
         /// </summary>
         public static string Black {
             get {
@@ -70,7 +70,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Blue.
+        ///   Looks up a localized string similar to blue.
         /// </summary>
         public static string Blue {
             get {
@@ -79,7 +79,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Blue violet.
+        ///   Looks up a localized string similar to blue violet.
         /// </summary>
         public static string BlueViolet {
             get {
@@ -88,7 +88,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Brown.
+        ///   Looks up a localized string similar to brown.
         /// </summary>
         public static string Brown {
             get {
@@ -97,7 +97,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Burly wood.
+        ///   Looks up a localized string similar to burly wood.
         /// </summary>
         public static string BurlyWood {
             get {
@@ -106,7 +106,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cadet blue.
+        ///   Looks up a localized string similar to cadet blue.
         /// </summary>
         public static string CadetBlue {
             get {
@@ -115,7 +115,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Chocolate.
+        ///   Looks up a localized string similar to chocolate.
         /// </summary>
         public static string Chocolate {
             get {
@@ -124,7 +124,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Coral.
+        ///   Looks up a localized string similar to coral.
         /// </summary>
         public static string Coral {
             get {
@@ -133,7 +133,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cornflower blue.
+        ///   Looks up a localized string similar to cornflower blue.
         /// </summary>
         public static string CornflowerBlue {
             get {
@@ -142,7 +142,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Crimson.
+        ///   Looks up a localized string similar to crimson.
         /// </summary>
         public static string Crimson {
             get {
@@ -151,7 +151,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dark blue.
+        ///   Looks up a localized string similar to dark blue.
         /// </summary>
         public static string DarkBlue {
             get {
@@ -160,7 +160,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dark cyan.
+        ///   Looks up a localized string similar to dark cyan.
         /// </summary>
         public static string DarkCyan {
             get {
@@ -169,7 +169,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dark goldenrod.
+        ///   Looks up a localized string similar to dark goldenrod.
         /// </summary>
         public static string DarkGoldenrod {
             get {
@@ -178,7 +178,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dark gray.
+        ///   Looks up a localized string similar to dark gray.
         /// </summary>
         public static string DarkGray {
             get {
@@ -187,7 +187,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dark green.
+        ///   Looks up a localized string similar to dark green.
         /// </summary>
         public static string DarkGreen {
             get {
@@ -196,7 +196,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dark khaki.
+        ///   Looks up a localized string similar to dark khaki.
         /// </summary>
         public static string DarkKhaki {
             get {
@@ -205,7 +205,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dark magenta.
+        ///   Looks up a localized string similar to dark magenta.
         /// </summary>
         public static string DarkMagenta {
             get {
@@ -214,7 +214,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dark olive green.
+        ///   Looks up a localized string similar to dark olive green.
         /// </summary>
         public static string DarkOliveGreen {
             get {
@@ -223,7 +223,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dark orange.
+        ///   Looks up a localized string similar to dark orange.
         /// </summary>
         public static string DarkOrange {
             get {
@@ -232,7 +232,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dark orchid.
+        ///   Looks up a localized string similar to dark orchid.
         /// </summary>
         public static string DarkOrchid {
             get {
@@ -241,7 +241,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dark red.
+        ///   Looks up a localized string similar to dark red.
         /// </summary>
         public static string DarkRed {
             get {
@@ -250,7 +250,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dark salmon.
+        ///   Looks up a localized string similar to dark salmon.
         /// </summary>
         public static string DarkSalmon {
             get {
@@ -259,7 +259,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dark sea green.
+        ///   Looks up a localized string similar to dark sea green.
         /// </summary>
         public static string DarkSeaGreen {
             get {
@@ -268,7 +268,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dark slate blue.
+        ///   Looks up a localized string similar to dark slate blue.
         /// </summary>
         public static string DarkSlateBlue {
             get {
@@ -277,7 +277,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dark slate gray.
+        ///   Looks up a localized string similar to dark slate gray.
         /// </summary>
         public static string DarkSlateGray {
             get {
@@ -286,7 +286,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dark turquoise.
+        ///   Looks up a localized string similar to dark turquoise.
         /// </summary>
         public static string DarkTurquoise {
             get {
@@ -295,7 +295,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dark violet.
+        ///   Looks up a localized string similar to dark violet.
         /// </summary>
         public static string DarkViolet {
             get {
@@ -304,7 +304,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Deep pink.
+        ///   Looks up a localized string similar to deep pink.
         /// </summary>
         public static string DeepPink {
             get {
@@ -313,7 +313,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Deep sky blue.
+        ///   Looks up a localized string similar to deep sky blue.
         /// </summary>
         public static string DeepSkyBlue {
             get {
@@ -322,7 +322,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dim gray.
+        ///   Looks up a localized string similar to dim gray.
         /// </summary>
         public static string DimGray {
             get {
@@ -331,7 +331,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dodger blue.
+        ///   Looks up a localized string similar to dodger blue.
         /// </summary>
         public static string DodgerBlue {
             get {
@@ -340,7 +340,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Firebrick.
+        ///   Looks up a localized string similar to firebrick.
         /// </summary>
         public static string Firebrick {
             get {
@@ -349,7 +349,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Forest green.
+        ///   Looks up a localized string similar to forest green.
         /// </summary>
         public static string ForestGreen {
             get {
@@ -358,7 +358,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fuchsia.
+        ///   Looks up a localized string similar to fuchsia.
         /// </summary>
         public static string Fuchsia {
             get {
@@ -367,7 +367,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Gainsboro.
+        ///   Looks up a localized string similar to gainsboro.
         /// </summary>
         public static string Gainsboro {
             get {
@@ -376,7 +376,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Gold.
+        ///   Looks up a localized string similar to gold.
         /// </summary>
         public static string Gold {
             get {
@@ -385,7 +385,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Goldenrod.
+        ///   Looks up a localized string similar to goldenrod.
         /// </summary>
         public static string Goldenrod {
             get {
@@ -394,7 +394,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Gray.
+        ///   Looks up a localized string similar to gray.
         /// </summary>
         public static string Gray {
             get {
@@ -403,7 +403,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Green.
+        ///   Looks up a localized string similar to green.
         /// </summary>
         public static string Green {
             get {
@@ -412,7 +412,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hot pink.
+        ///   Looks up a localized string similar to hot pink.
         /// </summary>
         public static string HotPink {
             get {
@@ -421,7 +421,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Indian red.
+        ///   Looks up a localized string similar to indian red.
         /// </summary>
         public static string IndianRed {
             get {
@@ -430,7 +430,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Indigo.
+        ///   Looks up a localized string similar to indigo.
         /// </summary>
         public static string Indigo {
             get {
@@ -439,7 +439,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Light coral.
+        ///   Looks up a localized string similar to light coral.
         /// </summary>
         public static string LightCoral {
             get {
@@ -448,7 +448,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Light gray.
+        ///   Looks up a localized string similar to light gray.
         /// </summary>
         public static string LightGray {
             get {
@@ -457,7 +457,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Light pink.
+        ///   Looks up a localized string similar to light pink.
         /// </summary>
         public static string LightPink {
             get {
@@ -466,7 +466,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Light salmon.
+        ///   Looks up a localized string similar to light salmon.
         /// </summary>
         public static string LightSalmon {
             get {
@@ -475,7 +475,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Light sea green.
+        ///   Looks up a localized string similar to light sea green.
         /// </summary>
         public static string LightSeaGreen {
             get {
@@ -484,7 +484,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Light sky blue.
+        ///   Looks up a localized string similar to light sky blue.
         /// </summary>
         public static string LightSkyBlue {
             get {
@@ -493,7 +493,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Light slate gray.
+        ///   Looks up a localized string similar to light slate gray.
         /// </summary>
         public static string LightSlateGray {
             get {
@@ -502,7 +502,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Light steel blue.
+        ///   Looks up a localized string similar to light steel blue.
         /// </summary>
         public static string LightSteelBlue {
             get {
@@ -511,7 +511,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lime green.
+        ///   Looks up a localized string similar to lime green.
         /// </summary>
         public static string LimeGreen {
             get {
@@ -520,7 +520,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Magenta.
+        ///   Looks up a localized string similar to magenta.
         /// </summary>
         public static string Magenta {
             get {
@@ -529,7 +529,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Maroon.
+        ///   Looks up a localized string similar to maroon.
         /// </summary>
         public static string Maroon {
             get {
@@ -538,7 +538,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Medium aquamarine.
+        ///   Looks up a localized string similar to medium aquamarine.
         /// </summary>
         public static string MediumAquamarine {
             get {
@@ -547,7 +547,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Medium blue.
+        ///   Looks up a localized string similar to medium blue.
         /// </summary>
         public static string MediumBlue {
             get {
@@ -556,7 +556,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Medium orchid.
+        ///   Looks up a localized string similar to medium orchid.
         /// </summary>
         public static string MediumOrchid {
             get {
@@ -565,7 +565,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Medium purple.
+        ///   Looks up a localized string similar to medium purple.
         /// </summary>
         public static string MediumPurple {
             get {
@@ -574,7 +574,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Medium sea green.
+        ///   Looks up a localized string similar to medium sea green.
         /// </summary>
         public static string MediumSeaGreen {
             get {
@@ -583,7 +583,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Medium slate blue.
+        ///   Looks up a localized string similar to medium slate blue.
         /// </summary>
         public static string MediumSlateBlue {
             get {
@@ -592,7 +592,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Medium turquoise.
+        ///   Looks up a localized string similar to medium turquoise.
         /// </summary>
         public static string MediumTurquoise {
             get {
@@ -601,7 +601,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Medium violet red.
+        ///   Looks up a localized string similar to medium violet red.
         /// </summary>
         public static string MediumVioletRed {
             get {
@@ -610,7 +610,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Midnight blue.
+        ///   Looks up a localized string similar to midnight blue.
         /// </summary>
         public static string MidnightBlue {
             get {
@@ -619,7 +619,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Navy.
+        ///   Looks up a localized string similar to navy.
         /// </summary>
         public static string Navy {
             get {
@@ -628,7 +628,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Olive.
+        ///   Looks up a localized string similar to olive.
         /// </summary>
         public static string Olive {
             get {
@@ -637,7 +637,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Olive drab.
+        ///   Looks up a localized string similar to olive drab.
         /// </summary>
         public static string OliveDrab {
             get {
@@ -646,7 +646,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Orange.
+        ///   Looks up a localized string similar to orange.
         /// </summary>
         public static string Orange {
             get {
@@ -655,7 +655,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Orange red.
+        ///   Looks up a localized string similar to orange red.
         /// </summary>
         public static string OrangeRed {
             get {
@@ -664,7 +664,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Orchid.
+        ///   Looks up a localized string similar to orchid.
         /// </summary>
         public static string Orchid {
             get {
@@ -673,7 +673,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pale violet red.
+        ///   Looks up a localized string similar to oale violet red.
         /// </summary>
         public static string PaleVioletRed {
             get {
@@ -682,7 +682,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Peru.
+        ///   Looks up a localized string similar to peru.
         /// </summary>
         public static string Peru {
             get {
@@ -691,7 +691,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pink.
+        ///   Looks up a localized string similar to pink.
         /// </summary>
         public static string Pink {
             get {
@@ -700,7 +700,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Plum.
+        ///   Looks up a localized string similar to plum.
         /// </summary>
         public static string Plum {
             get {
@@ -709,7 +709,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Purple.
+        ///   Looks up a localized string similar to purple.
         /// </summary>
         public static string Purple {
             get {
@@ -718,7 +718,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Red.
+        ///   Looks up a localized string similar to red.
         /// </summary>
         public static string Red {
             get {
@@ -727,7 +727,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Rosy brown.
+        ///   Looks up a localized string similar to rosy brown.
         /// </summary>
         public static string RosyBrown {
             get {
@@ -736,7 +736,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Royal blue.
+        ///   Looks up a localized string similar to royal blue.
         /// </summary>
         public static string RoyalBlue {
             get {
@@ -745,7 +745,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Saddle brown.
+        ///   Looks up a localized string similar to saddle brown.
         /// </summary>
         public static string SaddleBrown {
             get {
@@ -754,7 +754,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Salmon.
+        ///   Looks up a localized string similar to salmon.
         /// </summary>
         public static string Salmon {
             get {
@@ -763,7 +763,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sandy brown.
+        ///   Looks up a localized string similar to sandy brown.
         /// </summary>
         public static string SandyBrown {
             get {
@@ -772,7 +772,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sea green.
+        ///   Looks up a localized string similar to sea green.
         /// </summary>
         public static string SeaGreen {
             get {
@@ -781,7 +781,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sienna.
+        ///   Looks up a localized string similar to sienna.
         /// </summary>
         public static string Sienna {
             get {
@@ -790,7 +790,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Silver.
+        ///   Looks up a localized string similar to silver.
         /// </summary>
         public static string Silver {
             get {
@@ -799,7 +799,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sky blue.
+        ///   Looks up a localized string similar to sky blue.
         /// </summary>
         public static string SkyBlue {
             get {
@@ -808,7 +808,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Slate blue.
+        ///   Looks up a localized string similar to slate blue.
         /// </summary>
         public static string SlateBlue {
             get {
@@ -817,7 +817,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Slate gray.
+        ///   Looks up a localized string similar to slate gray.
         /// </summary>
         public static string SlateGray {
             get {
@@ -826,7 +826,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Steel blue.
+        ///   Looks up a localized string similar to steel blue.
         /// </summary>
         public static string SteelBlue {
             get {
@@ -835,7 +835,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tan.
+        ///   Looks up a localized string similar to tan.
         /// </summary>
         public static string Tan {
             get {
@@ -844,7 +844,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Teal.
+        ///   Looks up a localized string similar to teal.
         /// </summary>
         public static string Teal {
             get {
@@ -853,7 +853,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tomato.
+        ///   Looks up a localized string similar to tomato.
         /// </summary>
         public static string Tomato {
             get {
@@ -862,7 +862,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Turquoise.
+        ///   Looks up a localized string similar to turquoise.
         /// </summary>
         public static string Turquoise {
             get {
@@ -871,7 +871,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Violet.
+        ///   Looks up a localized string similar to violet.
         /// </summary>
         public static string Violet {
             get {
@@ -880,7 +880,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wheat.
+        ///   Looks up a localized string similar to wheat.
         /// </summary>
         public static string Wheat {
             get {
@@ -889,7 +889,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yellow green.
+        ///   Looks up a localized string similar to yellow green.
         /// </summary>
         public static string YellowGreen {
             get {
