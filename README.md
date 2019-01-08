@@ -1,10 +1,10 @@
 <img align="left" src="https://raw.githubusercontent.com/kamiljaworski/DebtDiary/master/images/Icon.png" alt=""/>
 
+<br />
 # Debt diary
 *Debt diary* is a simple desktop application to store your debts history.
 
-
-
+<br /><br />
 ## Goal
 This application was made to resolve a certain problem.
 There are many people that don't want to keep a notebook with
@@ -48,7 +48,7 @@ This code requires Visual Studio 2017 with .NET Framework 4.6.1.
 To build this application you need to add App.config file to DebtDiary project
 with Entity Framework configuration and connection string.
 
-## Libraries/Extensions
+## Frameworks/Extensions
 
 - Entity Framework 6
 - Fody
@@ -62,10 +62,10 @@ with Entity Framework configuration and connection string.
 
 ## Screenshots
 
-<img align="left" src="https://raw.githubusercontent.com/kamiljaworski/DebtDiary/master/images/LoginPage.png" alt=""/>
+![Debt diary login page sceenshot](https://raw.githubusercontent.com/kamiljaworski/DebtDiary/master/images/LoginPage.png)
 
-<img align="left" src="https://raw.githubusercontent.com/kamiljaworski/DebtDiary/master/images/SummarySubpage.png" alt=""/>
+![Debt diary summary subpage sceenshot](https://raw.githubusercontent.com/kamiljaworski/DebtDiary/master/images/SummarySubpage.png)
 
-<img align="left" src="https://raw.githubusercontent.com/kamiljaworski/DebtDiary/master/images/DebtorInfoSubpage.png" alt=""/>
+![Debt diary debtor subpage sceenshot](https://raw.githubusercontent.com/kamiljaworski/DebtDiary/master/images/DebtorInfoSubpage.png)
 
 
