@@ -673,7 +673,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to oale violet red.
+        ///   Looks up a localized string similar to pale violet red.
         /// </summary>
         public static string PaleVioletRed {
             get {

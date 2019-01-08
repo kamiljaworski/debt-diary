@@ -7,10 +7,10 @@ namespace DebtDiary.Tests.ValueConverters
     [TestFixture]
     public class ColorToStringConverterTests
     {
-        [TestCase(Core.Color.Black, "Black")]
-        [TestCase(Core.Color.MediumAquamarine, "Medium aquamarine")]
-        [TestCase(Core.Color.PaleVioletRed, "Pale violet red")]
-        [TestCase(Core.Color.Tomato, "Tomato")]
+        [TestCase(Core.Color.Black, "black")]
+        [TestCase(Core.Color.MediumAquamarine, "medium aquamarine")]
+        [TestCase(Core.Color.PaleVioletRed, "pale violet red")]
+        [TestCase(Core.Color.Tomato, "tomato")]
         [TestCase(null, "")]
         [TestCase("Black", "")]
         public void TestConvertWithEnglishLanguage(object color, string expectedColor)
@@ -23,10 +23,10 @@ namespace DebtDiary.Tests.ValueConverters
             Assert.AreEqual(expectedColor, result);
         }
 
-        [TestCase(Core.Color.Black, "Czarny")]
-        [TestCase(Core.Color.MediumAquamarine, "Średnia akwamaryna")]
-        [TestCase(Core.Color.PaleVioletRed, "Bladofioletowa czerwień")]
-        [TestCase(Core.Color.Tomato, "Pomidorowy")]
+        [TestCase(Core.Color.Black, "czarny")]
+        [TestCase(Core.Color.MediumAquamarine, "akwamaryna")]
+        [TestCase(Core.Color.PaleVioletRed, "wyblakły fioletowo-czerwony")]
+        [TestCase(Core.Color.Tomato, "pomidorowy")]
         [TestCase(null, "")]
         [TestCase("Black", "")]
         public void TestConvertWithPolishLanguage(object color, string expectedColor)
