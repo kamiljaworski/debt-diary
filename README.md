@@ -1,6 +1,5 @@
 <img align="left" src="https://raw.githubusercontent.com/kamiljaworski/DebtDiary/master/images/Icon.png" alt=""/>
 
-<br />
 # Debt diary
 *Debt diary* is a simple desktop application to store your debts history.
 
