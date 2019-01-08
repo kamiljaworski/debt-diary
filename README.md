@@ -3,6 +3,8 @@
 # Debt diary
 *Debt diary* is a simple desktop application to store your debts history.
 
+
+
 ## Goal
 This application was made to resolve a certain problem.
 There are many people that don't want to keep a notebook with
@@ -10,8 +12,6 @@ their debts or they don't want to use excel and they are looking
 for application like this. *Debt diary* is an application that
 does exactly that. You can add debtors and add for each of them
 some operations in easy way. And you have nice line charts.
-
-<img align="left" src="https://raw.githubusercontent.com/kamiljaworski/DebtDiary/master/images/LoginPage.png" alt=""/>
 
 ## Features
 
@@ -39,8 +39,6 @@ some operations in easy way. And you have nice line charts.
 - multi language support:
 	- english
 	- polish
-	
-<img align="left" src="https://raw.githubusercontent.com/kamiljaworski/DebtDiary/master/images/SummarySubpage.png" alt=""/>
 
 ## Technology
 
@@ -49,8 +47,6 @@ This code requires Visual Studio 2017 with .NET Framework 4.6.1.
 
 To build this application you need to add App.config file to DebtDiary project
 with Entity Framework configuration and connection string.
-
-<img align="left" src="https://raw.githubusercontent.com/kamiljaworski/DebtDiary/master/images/DebtorInfoSubpage.png" alt=""/>
 
 ## Libraries/Extensions
 
@@ -63,4 +59,13 @@ with Entity Framework configuration and connection string.
 - Ninject
 - NUnit
 - Moq
+
+## Screenshots
+
+<img align="left" src="https://raw.githubusercontent.com/kamiljaworski/DebtDiary/master/images/LoginPage.png" alt=""/>
+
+<img align="left" src="https://raw.githubusercontent.com/kamiljaworski/DebtDiary/master/images/SummarySubpage.png" alt=""/>
+
+<img align="left" src="https://raw.githubusercontent.com/kamiljaworski/DebtDiary/master/images/DebtorInfoSubpage.png" alt=""/>
+
 
