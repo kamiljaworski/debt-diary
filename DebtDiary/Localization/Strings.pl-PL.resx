@@ -238,7 +238,7 @@
     <value>Moje konto</value>
   </data>
   <data name="NewDebtorAddedSubtitle" xml:space="preserve">
-    <value>Możesz teraz dodać kolejnego</value>
+    <value>Zostaniesz teraz przeniesiony do jego podstrony</value>
   </data>
   <data name="NewDebtorAddedTitle" xml:space="preserve">
     <value>Nowy dłużnik został dodany</value>
@@ -415,7 +415,7 @@
     <value>Zostaniesz teraz przeniesiony do podsumowania</value>
   </data>
   <data name="DebtorDeletedTitle" xml:space="preserve">
-    <value>Ten dłużnik został usunięty</value>
+    <value>Dłużnik został usunięty</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Usuń</value>

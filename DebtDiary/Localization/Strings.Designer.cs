@@ -205,7 +205,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You will be moved to the summary subpage now.
+        ///   Looks up a localized string similar to You will be moved to the summary now.
         /// </summary>
         public static string DebtorDeletedSubtitle {
             get {
@@ -682,7 +682,7 @@ namespace DebtDiary.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You can now add another one.
+        ///   Looks up a localized string similar to You will be moved to their subpage now.
         /// </summary>
         public static string NewDebtorAddedSubtitle {
             get {

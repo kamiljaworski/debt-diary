@@ -238,7 +238,7 @@
     <value>My account</value>
   </data>
   <data name="NewDebtorAddedSubtitle" xml:space="preserve">
-    <value>You can now add another one</value>
+    <value>You will be moved to their subpage now</value>
   </data>
   <data name="NewDebtorAddedTitle" xml:space="preserve">
     <value>New debtor has been added</value>
@@ -412,7 +412,7 @@
     <value>Edit debtor</value>
   </data>
   <data name="DebtorDeletedSubtitle" xml:space="preserve">
-    <value>You will be moved to the summary subpage now</value>
+    <value>You will be moved to the summary now</value>
   </data>
   <data name="DebtorDeletedTitle" xml:space="preserve">
     <value>This debtor has been deleted</value>
