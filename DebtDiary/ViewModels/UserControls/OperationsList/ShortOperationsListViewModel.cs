@@ -16,7 +16,7 @@ namespace DebtDiary
         {
             operations.ForEach(o => Operations.Add(new ShortOperationsListItemViewModel(o)));
 
-            Operations = new ObservableCollection<ShortOperationsListItemViewModel>(Operations.OrderByDescending(x => x.OperationDate));
+            Operations = new ObservableCollection<ShortOperationsListItemViewModel>(Operations.OrderByDescending(x => x.OperationDate.Date).ThenByDescending(x => x.Id));
         }
     }
 }
