@@ -65,7 +65,8 @@ namespace DebtDiary
             NumberOfOperations = new StatisticPanelViewModel(StatisticPanelMessage.NumberOfOperations, numberOfOperations.ToString());
 
             // Last Operation
-            string lastOperation = numberOfOperations == 0 ? null : FormattingHelpers.GetFormattedCurrency(_loggedUser.Operations.OrderByDescending(x => x.AdditionDate).First().Value);
+            string lastOperation = numberOfOperations == 0 ? null : FormattingHelpers.GetFormattedCurrency(_loggedUser.Operations.OrderByDescending(x => x.AdditionDate.Date)
+                                                                                                           .ThenByDescending(x => x.Id).First().Value);
             LastOperation = new StatisticPanelViewModel(StatisticPanelMessage.LastOperation, lastOperation);
         }
     }
